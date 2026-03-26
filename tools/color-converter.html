@@ -3,85 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online color converter and picker. Convert between HEX, RGB, and HSL color formats. Generate color palettes and get CSS code.">
-    <meta name="keywords" content="color converter, hex to rgb, color picker, color palette, color codes">
+    <meta name="description" content="Free online color converter & picker. Convert between HEX, RGB, HSL color formats instantly. Generate CSS color codes and palettes. No signup required.">
+    <meta name="keywords" content="color converter, hex to rgb, rgb to hex, color picker online, hsl converter, css color codes, color palette generator, hex color code">
     <meta name="author" content="SnapToolbox">
-    <meta property="og:title" content="Color Converter - SnapToolbox">
-    <meta property="og:description" content="Convert between HEX, RGB, and HSL colors. Pick colors and generate color palettes instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snaptoolbox.app/tools/color-converter.html">
+    <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/color-converter.html">
+    <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/color-converter.html">
+    <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/color-converter.html">
+    <meta property="og:title" content="Color Converter & Picker - HEX RGB HSL Online">
+    <meta property="og:description" content="Convert HEX, RGB & HSL colors instantly. Free online color picker & palette generator.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app/tools/color-converter.html">
+    <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Color Converter - SnapToolbox">
-    <meta name="twitter:description" content="Free color converter tool with HEX, RGB, and HSL format support.">
+    <meta name="twitter:title" content="Color Converter & Picker - HEX RGB HSL Online">
+    <meta name="twitter:description" content="Convert HEX, RGB & HSL colors instantly. Free online color picker & palette generator.">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
 
-    <title>Color Converter - SnapToolbox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Color Converter Online - Free HEX to RGB, HSL Converter & Picker | SnapToolbox</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Color Converter & Picker",
+        "description": "Free online color converter. Convert between HEX, RGB, and HSL formats. Generate color palettes and CSS codes.",
+        "url": "https://snaptoolbox.app/tools/color-converter.html",
+        "applicationCategory": "DesignApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
-        .tool-container {
+        :root {
+            --st-primary: #5B7A4A;
+            --st-primary-dim: #4A6639;
+            --st-primary-container: #DCF0C8;
+            --st-surface: #FAFDF2;
+            --st-surface-low: #F5F8E8;
+            --st-card: #FFFFFF;
+            --st-text: #2D3318;
+            --st-text-secondary: #6B7052;
+            --st-outline-variant: #DDE1C6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--st-text);
+            background-color: var(--st-surface);
+            margin: 0;
+            padding: 0;
+        }
+
+        .st-tool-container {
             max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        .breadcrumb {
+        .st-breadcrumb {
             font-size: 14px;
-            color: #666;
+            color: var(--st-text-secondary);
             margin-bottom: 30px;
-            font-family: 'Inter', sans-serif;
         }
 
-        .breadcrumb a {
-            color: #0066cc;
+        .st-breadcrumb a {
+            color: var(--st-primary);
             text-decoration: none;
         }
 
-        .breadcrumb a:hover {
+        .st-breadcrumb a:hover {
             text-decoration: underline;
         }
 
-        .tool-header {
+        .st-hero {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .tool-header h1 {
+        .st-hero h1 {
             font-size: 32px;
             font-weight: 700;
             margin: 0 0 10px 0;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .tool-header p {
+        .st-subtitle {
             font-size: 16px;
-            color: #666;
+            color: var(--st-text-secondary);
             margin: 0;
-            font-family: 'Inter', sans-serif;
         }
 
-        .ad-slot {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
+        .st-ad {
+            background: var(--st-surface-low);
+            border: 1px solid var(--st-outline-variant);
             padding: 20px;
             margin: 30px 0;
             text-align: center;
-            color: #999;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text-secondary);
+            border-radius: var(--st-radius-md);
         }
 
-        .tool-content {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        .st-tool-content {
+            background: var(--st-card);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
             padding: 30px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .color-picker-section {
+        .st-color-picker-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
@@ -89,146 +132,143 @@
             align-items: start;
         }
 
-        .color-preview {
+        .st-color-preview {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 12px;
-            border: 2px solid #ddd;
+            border-radius: var(--st-radius-md);
+            border: 2px solid var(--st-outline-variant);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: transform 0.2s;
         }
 
-        .color-preview:hover {
+        .st-color-preview:hover {
             transform: scale(0.98);
         }
 
-        .picker-input {
+        .st-picker-input {
             width: 100%;
             height: 60px;
             border: none;
-            border-radius: 8px;
+            border-radius: var(--st-radius-md);
             cursor: pointer;
         }
 
-        .input-group {
+        .st-input-group {
             margin-bottom: 20px;
         }
 
-        .input-label {
+        .st-label {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
-            color: #333;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .input-row {
+        .st-input-row {
             display: flex;
             gap: 10px;
             align-items: center;
         }
 
-        input[type="text"],
-        input[type="number"] {
+        .st-input {
             flex: 1;
             padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', monospace;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            font-family: 'Plus Jakarta Sans', monospace;
             font-size: 14px;
-            box-sizing: border-box;
+            color: var(--st-text);
+            background: var(--st-card);
         }
 
-        input[type="text"]:focus,
-        input[type="number"]:focus {
+        .st-input:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+            border-color: var(--st-primary);
+            box-shadow: 0 0 0 2px var(--st-primary-container);
         }
 
-        .copy-btn {
+        .st-copy-btn {
             padding: 8px 12px;
-            background: #0066cc;
+            background: var(--st-primary);
             color: white;
             border: none;
-            border-radius: 6px;
+            border-radius: var(--st-radius-md);
             cursor: pointer;
             font-size: 12px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             transition: all 0.2s;
             white-space: nowrap;
         }
 
-        .copy-btn:hover {
-            background: #0052a3;
+        .st-copy-btn:hover {
+            background: var(--st-primary-dim);
         }
 
-        .format-section {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 8px;
+        .st-section-tint {
+            background: var(--st-surface-low);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
             padding: 20px;
             margin-bottom: 20px;
         }
 
-        .format-section h3 {
+        .st-section-tint h3 {
             margin: 0 0 15px 0;
             font-size: 16px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .palette-section {
+        .st-palette-section {
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--st-outline-variant);
         }
 
-        .palette-section h3 {
+        .st-palette-section h3 {
             font-size: 18px;
             font-weight: 600;
             margin: 0 0 20px 0;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .palette-type {
+        .st-palette-type {
             margin-bottom: 25px;
         }
 
-        .palette-type h4 {
+        .st-palette-type h4 {
             font-size: 14px;
             font-weight: 600;
-            color: #333;
+            color: var(--st-text);
             margin: 0 0 12px 0;
-            font-family: 'Inter', sans-serif;
         }
 
-        .color-palette {
+        .st-palette {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
 
-        .palette-color {
+        .st-palette-swatch {
             flex: 1;
             min-width: 80px;
             aspect-ratio: 1;
-            border-radius: 8px;
-            border: 2px solid #ddd;
+            border-radius: var(--st-radius-md);
+            border: 2px solid var(--st-outline-variant);
             cursor: pointer;
             transition: all 0.2s;
             position: relative;
         }
 
-        .palette-color:hover {
+        .st-palette-swatch:hover {
             transform: scale(0.95);
-            border-color: #999;
+            border-color: var(--st-text-secondary);
         }
 
-        .palette-color-code {
+        .st-palette-label {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -240,39 +280,40 @@
             text-align: center;
             border-radius: 0 0 6px 6px;
             opacity: 0;
-            font-family: 'Inter', monospace;
+            font-family: 'Plus Jakarta Sans', monospace;
             transition: opacity 0.2s;
             font-weight: 500;
         }
 
-        .palette-color:hover .palette-color-code {
+        .st-palette-swatch:hover .st-palette-label {
             opacity: 1;
         }
 
-        .css-output {
-            background: #f0f0f0;
-            border: 1px solid #ddd;
-            border-radius: 6px;
+        .st-code-block {
+            background: var(--st-surface-low);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
             padding: 15px;
             margin-top: 20px;
-            font-family: 'Inter', monospace;
+            font-family: 'Plus Jakarta Sans', monospace;
             font-size: 13px;
             overflow-x: auto;
+            color: var(--st-text);
         }
 
-        .css-output h4 {
+        .st-code-block h4 {
             margin: 0 0 10px 0;
             font-size: 14px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .cookie-banner {
+        .st-cookie {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
-            background: #333;
+            background: var(--st-text);
             color: white;
             padding: 15px 20px;
             font-size: 14px;
@@ -280,162 +321,179 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-family: 'Inter', sans-serif;
             gap: 15px;
         }
 
-        .cookie-banner.hidden {
+        .st-cookie.hidden {
             display: none;
         }
 
-        .cookie-banner button {
-            background: white;
-            color: #333;
+        .st-cookie button {
+            background: var(--st-card);
+            color: var(--st-text);
             border: none;
             padding: 8px 16px;
-            border-radius: 4px;
+            border-radius: var(--st-radius-md);
             cursor: pointer;
             font-weight: 500;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        footer {
+        .st-cookie button:hover {
+            background: var(--st-outline-variant);
+        }
+
+        .st-footer {
             text-align: center;
             padding: 30px 20px;
-            color: #666;
+            color: var(--st-text-secondary);
             font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--st-outline-variant);
             margin-top: 40px;
         }
 
-        footer a {
-            color: #0066cc;
+        .st-footer a {
+            color: var(--st-primary);
             text-decoration: none;
         }
 
-        footer a:hover {
+        .st-footer a:hover {
             text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            .tool-header h1 {
+            .st-hero h1 {
                 font-size: 24px;
             }
 
-            .color-picker-section {
+            .st-color-picker-section {
                 grid-template-columns: 1fr;
             }
 
-            .input-row {
+            .st-input-row {
                 flex-wrap: wrap;
             }
 
-            .copy-btn {
+            .st-copy-btn {
                 width: 100%;
             }
 
-            .palette-color {
+            .st-palette-swatch {
                 min-width: 60px;
             }
         }
     </style>
 </head>
 <body>
-    <header style="padding: 20px; border-bottom: 1px solid #eee; font-family: 'Inter', sans-serif; display: flex; justify-content: space-between; align-items: center;">
-        <div style="max-width: 1200px; margin: 0 auto; flex: 1;">
-            <a href="/" style="font-size: 24px; font-weight: 700; color: #333; text-decoration: none;">SnapToolbox</a>
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="/" class="st-logo">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="/" data-i18n="common.breadcrumb_home">Home</a>
+                <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
         </div>
-        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:#666;font-family:'Inter',sans-serif;" data-i18n="common.lang_toggle">日本語</button>
     </header>
 
-    <div class="tool-container">
-        <nav class="breadcrumb">
+    <div class="st-tool-container">
+        <nav class="st-breadcrumb">
             <a href="/" data-i18n="common.breadcrumb_home">Home</a> > <span data-i18n="color_converter.title">Color Converter</span>
         </nav>
 
-        <div class="tool-header">
-            <h1 data-i18n="color_converter.title">Color Converter & Picker</h1>
-            <p data-i18n="color_converter.subtitle">Convert between color formats and generate color palettes instantly.</p>
+        <div class="st-tool-mascot">
+            <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Tech sloth mascot" loading="lazy" width="80" height="80">
+            <div class="st-tool-mascot-bubble" data-i18n="color_converter.mascot_bubble">Pick any color — I'll convert it to every format you need!</div>
         </div>
 
-        <div class="ad-slot">
+        <div class="st-hero">
+            <h1 data-i18n="color_converter.title">Color Converter & Picker</h1>
+            <p class="st-subtitle" data-i18n="color_converter.subtitle">Convert between color formats and generate color palettes instantly.</p>
+        </div>
+
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
 
-        <div class="tool-content">
-            <div class="color-picker-section">
+        <div class="st-tool-content">
+            <div class="st-color-picker-section">
                 <div>
-                    <label class="input-label" style="margin-bottom: 12px;">Pick a Color:</label>
-                    <input type="color" id="colorPicker" class="picker-input" value="#0066cc">
+                    <label class="st-label" style="margin-bottom: 12px;">Pick a Color:</label>
+                    <input type="color" id="colorPicker" class="st-picker-input" value="#0066cc">
                 </div>
                 <div>
-                    <div class="color-preview" id="colorPreview" style="background-color: #0066cc;" onclick="document.getElementById('colorPicker').click();"></div>
+                    <div class="st-color-preview" id="colorPreview" style="background-color: #0066cc;" onclick="document.getElementById('colorPicker').click();"></div>
                 </div>
             </div>
 
             <!-- HEX FORMAT -->
-            <div class="format-section">
+            <div class="st-section-tint">
                 <h3 data-i18n="color_converter.hex_label">HEX Format</h3>
-                <div class="input-group">
-                    <label class="input-label" data-i18n="color_converter.hex_label">Hexadecimal:</label>
-                    <div class="input-row">
-                        <input type="text" id="hexInput" placeholder="#0066cc" value="#0066cc" oninput="updateFromHex()">
-                        <button class="copy-btn" onclick="copyToClipboard('hexInput')" data-i18n="color_converter.copy_btn">Copy</button>
+                <div class="st-input-group">
+                    <label class="st-label" data-i18n="color_converter.hex_label">Hexadecimal:</label>
+                    <div class="st-input-row">
+                        <input type="text" id="hexInput" class="st-input" placeholder="#0066cc" value="#0066cc" oninput="updateFromHex()">
+                        <button class="st-copy-btn" onclick="copyText('hexInput')" data-i18n="color_converter.copy_btn">Copy</button>
                     </div>
                 </div>
             </div>
 
             <!-- RGB FORMAT -->
-            <div class="format-section">
+            <div class="st-section-tint">
                 <h3 data-i18n="color_converter.rgb_label">RGB Format</h3>
-                <div class="input-group">
-                    <label class="input-label">Red (0-255):</label>
-                    <input type="number" id="rgbR" min="0" max="255" value="0" oninput="updateFromRGB()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Red (0-255):</label>
+                    <input type="number" id="rgbR" class="st-input" min="0" max="255" value="0" oninput="updateFromRGB()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">Green (0-255):</label>
-                    <input type="number" id="rgbG" min="0" max="255" value="102" oninput="updateFromRGB()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Green (0-255):</label>
+                    <input type="number" id="rgbG" class="st-input" min="0" max="255" value="102" oninput="updateFromRGB()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">Blue (0-255):</label>
-                    <input type="number" id="rgbB" min="0" max="255" value="204" oninput="updateFromRGB()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Blue (0-255):</label>
+                    <input type="number" id="rgbB" class="st-input" min="0" max="255" value="204" oninput="updateFromRGB()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">CSS RGB:</label>
-                    <div class="input-row">
-                        <input type="text" id="rgbOutput" placeholder="rgb(0, 102, 204)" readonly>
-                        <button class="copy-btn" onclick="copyToClipboard('rgbOutput')" data-i18n="color_converter.copy_btn">Copy</button>
+                <div class="st-input-group">
+                    <label class="st-label">CSS RGB:</label>
+                    <div class="st-input-row">
+                        <input type="text" id="rgbOutput" class="st-input" placeholder="rgb(0, 102, 204)" readonly>
+                        <button class="st-copy-btn" onclick="copyText('rgbOutput')" data-i18n="color_converter.copy_btn">Copy</button>
                     </div>
                 </div>
             </div>
 
             <!-- HSL FORMAT -->
-            <div class="format-section">
+            <div class="st-section-tint">
                 <h3 data-i18n="color_converter.hsl_label">HSL Format</h3>
-                <div class="input-group">
-                    <label class="input-label">Hue (0-360):</label>
-                    <input type="number" id="hslH" min="0" max="360" value="205" oninput="updateFromHSL()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Hue (0-360):</label>
+                    <input type="number" id="hslH" class="st-input" min="0" max="360" value="205" oninput="updateFromHSL()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">Saturation (0-100):</label>
-                    <input type="number" id="hslS" min="0" max="100" value="100" oninput="updateFromHSL()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Saturation (0-100):</label>
+                    <input type="number" id="hslS" class="st-input" min="0" max="100" value="100" oninput="updateFromHSL()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">Lightness (0-100):</label>
-                    <input type="number" id="hslL" min="0" max="100" value="40" oninput="updateFromHSL()" style="width: 100%;">
+                <div class="st-input-group">
+                    <label class="st-label">Lightness (0-100):</label>
+                    <input type="number" id="hslL" class="st-input" min="0" max="100" value="40" oninput="updateFromHSL()">
                 </div>
-                <div class="input-group">
-                    <label class="input-label">CSS HSL:</label>
-                    <div class="input-row">
-                        <input type="text" id="hslOutput" placeholder="hsl(205, 100%, 40%)" readonly>
-                        <button class="copy-btn" onclick="copyToClipboard('hslOutput')" data-i18n="color_converter.copy_btn">Copy</button>
+                <div class="st-input-group">
+                    <label class="st-label">CSS HSL:</label>
+                    <div class="st-input-row">
+                        <input type="text" id="hslOutput" class="st-input" placeholder="hsl(205, 100%, 40%)" readonly>
+                        <button class="st-copy-btn" onclick="copyText('hslOutput')" data-i18n="color_converter.copy_btn">Copy</button>
                     </div>
                 </div>
             </div>
 
             <!-- CSS CODE OUTPUT -->
-            <div class="css-output">
+            <div class="st-code-block">
                 <h4>CSS Background Color Code</h4>
                 <div id="cssCodeOutput">/* Copy any format below */
 background-color: #0066cc;
@@ -444,36 +502,36 @@ background-color: hsl(205, 100%, 40%);</div>
             </div>
 
             <!-- COLOR PALETTES -->
-            <div class="palette-section">
+            <div class="st-palette-section">
                 <h3 data-i18n="color_converter.preview_label">Color Palettes</h3>
 
-                <div class="palette-type">
+                <div class="st-palette-type">
                     <h4>Complementary Colors</h4>
-                    <div class="color-palette" id="complementaryPalette"></div>
+                    <div class="st-palette" id="complementaryPalette"></div>
                 </div>
 
-                <div class="palette-type">
+                <div class="st-palette-type">
                     <h4>Analogous Colors</h4>
-                    <div class="color-palette" id="analogousPalette"></div>
+                    <div class="st-palette" id="analogousPalette"></div>
                 </div>
 
-                <div class="palette-type">
+                <div class="st-palette-type">
                     <h4>Triadic Colors</h4>
-                    <div class="color-palette" id="triadicPalette"></div>
+                    <div class="st-palette" id="triadicPalette"></div>
                 </div>
             </div>
         </div>
 
-        <div class="ad-slot">
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="/legal/privacy">Privacy Policy</a> | <a href="/legal/terms">Terms of Service</a></p>
+    <footer class="st-footer">
+        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="../legal/privacy-policy.html" data-i18n="common.privacy_policy">Privacy Policy</a> | <a href="../legal/terms-of-service.html" data-i18n="common.terms_of_service">Terms of Service</a></p>
     </footer>
 
-    <div class="cookie-banner" id="cookieBanner">
+    <div class="st-cookie" id="cookieBanner">
         <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
         <button onclick="closeCookieBanner()">Accept</button>
     </div>
@@ -632,28 +690,24 @@ background-color: ${hsl};`;
                 const rgb = hslToRgb(hue, 100, 50);
                 const hex = rgbToHex(rgb.r, rgb.g, rgb.b);
                 const div = document.createElement('div');
-                div.className = 'palette-color';
+                div.className = 'st-palette-swatch';
                 div.style.backgroundColor = hex;
                 div.onclick = () => {
                     colorPicker.value = hex;
                     updateAllFormats(hex);
                 };
-                div.innerHTML = `<span class="palette-color-code">${hex}</span>`;
+                div.innerHTML = `<span class="st-palette-label">${hex}</span>`;
                 container.appendChild(div);
-            });
-        }
-
-        function copyToClipboard(elementId) {
-            const element = document.getElementById(elementId);
-            const text = element.value || element.textContent;
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Copied to clipboard!');
             });
         }
 
         function closeCookieBanner() {
             document.getElementById('cookieBanner').classList.add('hidden');
-            localStorage.setItem('cookieConsent', 'accepted');
+            if (typeof CookieConsent !== 'undefined') {
+                CookieConsent.accept();
+            } else {
+                localStorage.setItem('cookieConsent', 'accepted');
+            }
         }
 
         window.addEventListener('load', function() {

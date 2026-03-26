@@ -1,0 +1,36 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head (slightly tilted) -->
+  <g transform="rotate(5 50 52)">
+    <circle cx="50" cy="52" r="38" fill="#A07858"/>
+    <circle cx="50" cy="52" r="32" fill="#C4A882"/>
+
+    <!-- Forehead fur -->
+    <path d="M28 28 Q34 18 42 26" stroke="#8B6B4A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M40 24 Q48 14 54 23" stroke="#8B6B4A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M52 22 Q59 13 65 23" stroke="#8B6B4A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    <path d="M63 26 Q70 18 76 28" stroke="#8B6B4A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Eye masks -->
+    <ellipse cx="37" cy="48" rx="11" ry="10" fill="#6B5040" opacity="0.25"/>
+    <ellipse cx="63" cy="48" rx="11" ry="10" fill="#6B5040" opacity="0.25"/>
+
+    <!-- Eyes (big curious look) -->
+    <circle cx="37" cy="48" r="7" fill="#2D2010"/>
+    <circle cx="63" cy="48" r="7" fill="#2D2010"/>
+    <circle cx="40" cy="45" r="2.5" fill="white" opacity="0.85"/>
+    <circle cx="66" cy="45" r="2.5" fill="white" opacity="0.85"/>
+    <circle cx="35" cy="50" r="1" fill="white" opacity="0.5"/>
+    <circle cx="61" cy="50" r="1" fill="white" opacity="0.5"/>
+
+    <!-- Nose -->
+    <ellipse cx="50" cy="58" rx="4.5" ry="3" fill="#4A3628"/>
+
+    <!-- Small O mouth -->
+    <ellipse cx="50" cy="65" rx="4" ry="3.5" fill="#4A3628" opacity="0.7"/>
+    <ellipse cx="50" cy="64.5" rx="3" ry="2.5" fill="#6B5040"/>
+
+    <!-- Blush -->
+    <ellipse cx="27" cy="57" rx="5" ry="3" fill="#E8A090" opacity="0.35"/>
+    <ellipse cx="73" cy="57" rx="5" ry="3" fill="#E8A090" opacity="0.35"/>
+  </g>
+</svg>

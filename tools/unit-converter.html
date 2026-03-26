@@ -3,173 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online unit converter. Convert between length, weight, temperature, volume, area, speed, data storage, and time units instantly.">
-    <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, volume converter">
+    <meta name="description" content="Free online unit converter. Convert length, weight, temperature, volume, area, speed, data storage & time units instantly. No signup, works in browser.">
+    <meta name="keywords" content="unit converter, convert units online, length converter, weight converter, temperature converter, kg to lbs, cm to inches, celsius to fahrenheit, metric converter">
     <meta name="author" content="SnapToolbox">
-    <meta property="og:title" content="Unit Converter - SnapToolbox">
-    <meta property="og:description" content="Convert between all common units of measurement instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snaptoolbox.app/tools/unit-converter.html">
+    <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/unit-converter.html">
+    <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/unit-converter.html">
+    <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/unit-converter.html">
+    <meta property="og:title" content="Unit Converter - Free Online Measurement Converter">
+    <meta property="og:description" content="Convert length, weight, temperature & more units instantly. Free online tool, no signup required.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app/tools/unit-converter.html">
+    <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Unit Converter - SnapToolbox">
-    <meta name="twitter:description" content="Free unit converter for length, weight, temperature, volume, and more.">
+    <meta name="twitter:title" content="Unit Converter - Free Online Measurement Converter">
+    <meta name="twitter:description" content="Convert length, weight, temperature & more units instantly. Free, no signup.">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
 
-    <title>Unit Converter - SnapToolbox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Unit Converter Online - Free Length, Weight & Temperature Converter | SnapToolbox</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Unit Converter",
+        "description": "Free online unit converter for length, weight, temperature, volume, area, speed, data storage, and time.",
+        "url": "https://snaptoolbox.app/tools/unit-converter.html",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
-        .tool-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        :root {
+            --st-primary: #5B7A4A;
+            --st-primary-dim: #4A6639;
+            --st-primary-container: #DCF0C8;
+            --st-surface: #FAFDF2;
+            --st-surface-low: #F5F8E8;
+            --st-card: #FFFFFF;
+            --st-text: #2D3318;
+            --st-text-secondary: #6B7052;
+            --st-outline-variant: #DDE1C6;
         }
 
-        .breadcrumb {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-            font-family: 'Inter', sans-serif;
+        * {
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        .breadcrumb a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .tool-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .tool-header h1 {
-            font-size: 32px;
-            font-weight: 700;
-            margin: 0 0 10px 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .tool-header p {
-            font-size: 16px;
-            color: #666;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .ad-slot {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            color: #999;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .tool-content {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .tabs {
+        .st-pill-group {
             display: flex;
             gap: 10px;
-            border-bottom: 2px solid #eee;
             margin-bottom: 30px;
             overflow-x: auto;
+            padding-bottom: 10px;
         }
 
-        .tab {
+        .st-pill-btn {
             padding: 12px 20px;
             border: none;
-            background: none;
+            background: var(--st-card);
+            border: 1px solid var(--st-outline-variant);
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
-            color: #666;
-            font-family: 'Inter', sans-serif;
-            border-bottom: 2px solid transparent;
-            margin-bottom: -2px;
+            color: var(--st-text-secondary);
+            border-radius: 24px;
             white-space: nowrap;
             transition: all 0.2s;
         }
 
-        .tab:hover {
-            color: #0066cc;
+        .st-pill-btn:hover {
+            border-color: var(--st-primary);
+            color: var(--st-primary);
         }
 
-        .tab.active {
-            color: #0066cc;
-            border-bottom-color: #0066cc;
+        .st-pill-btn.active {
+            background: var(--st-primary-container);
+            color: var(--st-primary-dim);
+            border-color: var(--st-primary);
         }
 
-        .conversion-container {
+        .st-conversion-container {
             display: none;
         }
 
-        .conversion-container.active {
+        .st-conversion-container.active {
             display: block;
         }
 
-        .input-group {
+        .st-input-group {
             margin-bottom: 20px;
         }
 
-        .input-label {
+        .st-label {
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 8px;
             display: block;
-            color: #333;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .input-row {
+        .st-conversion-row {
             display: flex;
             gap: 15px;
             align-items: flex-end;
             flex-wrap: wrap;
         }
 
-        .input-field {
+        .st-input-field {
             flex: 1;
             min-width: 120px;
         }
 
-        input[type="number"],
-        select {
+        .st-input,
+        .st-select {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
             box-sizing: border-box;
+            background: var(--st-card);
+            color: var(--st-text);
         }
 
-        input[type="number"]:focus,
-        select:focus {
+        .st-input:focus,
+        .st-select:focus {
             outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+            border-color: var(--st-primary);
+            box-shadow: 0 0 0 2px rgba(91, 122, 74, 0.1);
         }
 
-        .swap-btn {
+        .st-swap-btn {
             padding: 10px 16px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: white;
-            color: #333;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            background: var(--st-card);
+            color: var(--st-text);
             font-size: 18px;
             cursor: pointer;
             transition: all 0.2s;
@@ -180,138 +161,85 @@
             justify-content: center;
         }
 
-        .swap-btn:hover {
-            background: #f5f5f5;
-            border-color: #999;
+        .st-swap-btn:hover {
+            background: var(--st-surface-low);
+            border-color: var(--st-primary);
         }
 
-        .result-box {
-            background: #f0f7ff;
-            border: 2px solid #0066cc;
-            border-radius: 6px;
+        .st-result-box {
+            background: var(--st-primary-container);
+            border: 2px solid var(--st-primary);
+            border-radius: var(--st-radius-md);
             padding: 20px;
             margin-top: 20px;
             text-align: center;
         }
 
-        .result-value {
+        .st-result-value {
             font-size: 32px;
             font-weight: 700;
-            color: #0066cc;
+            color: var(--st-primary-dim);
             margin-bottom: 5px;
-            font-family: 'Inter', monospace;
+            font-family: 'Plus Jakarta Sans', monospace;
         }
 
-        .result-label {
+        .st-result-label {
             font-size: 14px;
-            color: #666;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text-secondary);
         }
 
-        .quick-conversions {
+        .st-quick-conversions {
             margin-top: 30px;
             padding-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid var(--st-outline-variant);
         }
 
-        .quick-conversions h3 {
+        .st-quick-conversions h3 {
             font-size: 16px;
             font-weight: 600;
             margin: 0 0 15px 0;
-            font-family: 'Inter', sans-serif;
+            color: var(--st-text);
         }
 
-        .quick-conversion {
+        .st-quick-conversion {
             display: flex;
             justify-content: space-between;
             padding: 12px;
-            background: #f9f9f9;
-            border-radius: 6px;
+            background: var(--st-surface-low);
+            border-radius: var(--st-radius-md);
             margin-bottom: 10px;
-            font-family: 'Inter', sans-serif;
         }
 
-        .quick-conversion-label {
+        .st-quick-conversion-label {
             font-size: 14px;
             font-weight: 500;
-            color: #333;
+            color: var(--st-text);
         }
 
-        .quick-conversion-value {
+        .st-quick-conversion-value {
             font-size: 14px;
-            color: #0066cc;
+            color: var(--st-primary);
             font-weight: 600;
         }
 
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #333;
-            color: white;
-            padding: 15px 20px;
-            font-size: 14px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Inter', sans-serif;
-            gap: 15px;
-        }
-
-        .cookie-banner.hidden {
-            display: none;
-        }
-
-        .cookie-banner button {
-            background: white;
-            color: #333;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            border-top: 1px solid #eee;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
-            .tool-header h1 {
+            .st-hero h1 {
                 font-size: 24px;
             }
 
-            .input-row {
+            .st-conversion-row {
                 flex-direction: column;
             }
 
-            .swap-btn {
+            .st-swap-btn {
                 align-self: flex-start;
             }
 
-            .tabs {
-                gap: 0;
+            .st-pill-group {
+                gap: 8px;
             }
 
-            .tab {
+            .st-pill-btn {
                 padding: 12px 15px;
                 font-size: 12px;
             }
@@ -319,49 +247,69 @@
     </style>
 </head>
 <body>
-    <header style="padding: 20px; border-bottom: 1px solid #eee; font-family: 'Inter', sans-serif; display: flex; justify-content: space-between; align-items: center;">
-        <div style="max-width: 1200px; margin: 0 auto; flex: 1;">
-            <a href="/" style="font-size: 24px; font-weight: 700; color: #333; text-decoration: none;">SnapToolbox</a>
+    <!-- Header -->
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="/" class="st-logo">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="/" data-i18n="common.breadcrumb_home">Home</a>
+                <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
         </div>
-        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:#666;font-family:'Inter',sans-serif;" data-i18n="common.lang_toggle">日本語</button>
     </header>
 
-    <div class="tool-container">
-        <nav class="breadcrumb">
-            <a href="/">Home</a> > <span>Unit Converter</span>
-        </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="st-hero">
+            <div class="st-hero-inner">
+                <nav class="st-breadcrumb">
+                    <a href="/">Home</a> > <span>Unit Converter</span>
+                </nav>
+                <div class="st-tool-mascot">
+                    <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Happy sloth mascot" loading="lazy" width="80" height="80">
+                    <div class="st-tool-mascot-bubble" data-i18n="unit_converter.mascot_bubble">Converting units is easy — just relax and let me handle it!</div>
+                </div>
+                <h1 data-i18n="unit_converter.title">Unit Converter</h1>
+                <p class="st-subtitle">Convert between different units of measurement instantly.</p>
+            </div>
+        </section>
 
-        <div class="tool-header">
-            <h1 data-i18n="unit_converter.title">Unit Converter</h1>
-            <p>Convert between different units of measurement instantly.</p>
-        </div>
-
-        <div class="ad-slot">
+        <!-- Ad Slot -->
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
 
-        <div class="tool-content">
-            <div class="tabs">
-                <button class="tab active" onclick="switchTab('length')">Length</button>
-                <button class="tab" onclick="switchTab('weight')">Weight</button>
-                <button class="tab" onclick="switchTab('temperature')">Temperature</button>
-                <button class="tab" onclick="switchTab('volume')">Volume</button>
-                <button class="tab" onclick="switchTab('area')">Area</button>
-                <button class="tab" onclick="switchTab('speed')">Speed</button>
-                <button class="tab" onclick="switchTab('data')">Data Storage</button>
-                <button class="tab" onclick="switchTab('time')">Time</button>
+        <!-- Tool Content -->
+        <section class="st-tool-content">
+            <!-- Category Pills -->
+            <div class="st-pill-group">
+                <button class="st-pill-btn active" onclick="switchTab('length')">Length</button>
+                <button class="st-pill-btn" onclick="switchTab('weight')">Weight</button>
+                <button class="st-pill-btn" onclick="switchTab('temperature')">Temperature</button>
+                <button class="st-pill-btn" onclick="switchTab('volume')">Volume</button>
+                <button class="st-pill-btn" onclick="switchTab('area')">Area</button>
+                <button class="st-pill-btn" onclick="switchTab('speed')">Speed</button>
+                <button class="st-pill-btn" onclick="switchTab('data')">Data Storage</button>
+                <button class="st-pill-btn" onclick="switchTab('time')">Time</button>
             </div>
 
             <!-- LENGTH -->
-            <div id="length" class="conversion-container active">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="lengthInput" placeholder="Enter value" oninput="convertLength()">
+            <div id="length" class="st-conversion-container active">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="lengthInput" class="st-input" placeholder="Enter value" oninput="convertLength()">
                         </div>
-                        <div class="input-field">
-                            <select id="lengthFrom" onchange="convertLength()">
+                        <div class="st-input-field">
+                            <select id="lengthFrom" class="st-select" onchange="convertLength()">
                                 <option value="mm">Millimeter (mm)</option>
                                 <option value="cm">Centimeter (cm)</option>
                                 <option value="m">Meter (m)</option>
@@ -372,9 +320,9 @@
                                 <option value="mi">Mile (mi)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapLength()">⇄</button>
-                        <div class="input-field">
-                            <select id="lengthTo" onchange="convertLength()">
+                        <button class="st-swap-btn" onclick="swapLength()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="lengthTo" class="st-select" onchange="convertLength()">
                                 <option value="km">Kilometer (km)</option>
                                 <option value="m">Meter (m)</option>
                                 <option value="cm">Centimeter (cm)</option>
@@ -387,33 +335,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="lengthResult" style="display:none;">
-                    <div class="result-value" id="lengthOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="lengthResult" style="display:none;">
+                    <div class="st-result-value" id="lengthOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
-                <div class="quick-conversions">
+                <div class="st-quick-conversions">
                     <h3>Common Conversions</h3>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">1 km = ? mi</span>
-                        <span class="quick-conversion-value" id="kmToMi">0.62 mi</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">1 km = ? mi</span>
+                        <span class="st-quick-conversion-value" id="kmToMi">0.62 mi</span>
                     </div>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">1 mi = ? km</span>
-                        <span class="quick-conversion-value" id="miToKm">1.61 km</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">1 mi = ? km</span>
+                        <span class="st-quick-conversion-value" id="miToKm">1.61 km</span>
                     </div>
                 </div>
             </div>
 
             <!-- WEIGHT -->
-            <div id="weight" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="weightInput" placeholder="Enter value" oninput="convertWeight()">
+            <div id="weight" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="weightInput" class="st-input" placeholder="Enter value" oninput="convertWeight()">
                         </div>
-                        <div class="input-field">
-                            <select id="weightFrom" onchange="convertWeight()">
+                        <div class="st-input-field">
+                            <select id="weightFrom" class="st-select" onchange="convertWeight()">
                                 <option value="mg">Milligram (mg)</option>
                                 <option value="g">Gram (g)</option>
                                 <option value="kg">Kilogram (kg)</option>
@@ -422,9 +370,9 @@
                                 <option value="t">Metric Ton (t)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapWeight()">⇄</button>
-                        <div class="input-field">
-                            <select id="weightTo" onchange="convertWeight()">
+                        <button class="st-swap-btn" onclick="swapWeight()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="weightTo" class="st-select" onchange="convertWeight()">
                                 <option value="kg">Kilogram (kg)</option>
                                 <option value="g">Gram (g)</option>
                                 <option value="mg">Milligram (mg)</option>
@@ -435,41 +383,41 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="weightResult" style="display:none;">
-                    <div class="result-value" id="weightOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="weightResult" style="display:none;">
+                    <div class="st-result-value" id="weightOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
-                <div class="quick-conversions">
+                <div class="st-quick-conversions">
                     <h3>Common Conversions</h3>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">1 kg = ? lb</span>
-                        <span class="quick-conversion-value" id="kgToLb">2.20 lb</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">1 kg = ? lb</span>
+                        <span class="st-quick-conversion-value" id="kgToLb">2.20 lb</span>
                     </div>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">1 lb = ? kg</span>
-                        <span class="quick-conversion-value" id="lbToKg">0.45 kg</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">1 lb = ? kg</span>
+                        <span class="st-quick-conversion-value" id="lbToKg">0.45 kg</span>
                     </div>
                 </div>
             </div>
 
             <!-- TEMPERATURE -->
-            <div id="temperature" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="tempInput" placeholder="Enter value" oninput="convertTemperature()">
+            <div id="temperature" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="tempInput" class="st-input" placeholder="Enter value" oninput="convertTemperature()">
                         </div>
-                        <div class="input-field">
-                            <select id="tempFrom" onchange="convertTemperature()">
+                        <div class="st-input-field">
+                            <select id="tempFrom" class="st-select" onchange="convertTemperature()">
                                 <option value="c">Celsius (°C)</option>
                                 <option value="f">Fahrenheit (°F)</option>
                                 <option value="k">Kelvin (K)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapTemperature()">⇄</button>
-                        <div class="input-field">
-                            <select id="tempTo" onchange="convertTemperature()">
+                        <button class="st-swap-btn" onclick="swapTemperature()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="tempTo" class="st-select" onchange="convertTemperature()">
                                 <option value="f">Fahrenheit (°F)</option>
                                 <option value="c">Celsius (°C)</option>
                                 <option value="k">Kelvin (K)</option>
@@ -477,33 +425,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="tempResult" style="display:none;">
-                    <div class="result-value" id="tempOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="tempResult" style="display:none;">
+                    <div class="st-result-value" id="tempOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
-                <div class="quick-conversions">
+                <div class="st-quick-conversions">
                     <h3>Common Conversions</h3>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">0°C = ? °F</span>
-                        <span class="quick-conversion-value">32°F</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">0°C = ? °F</span>
+                        <span class="st-quick-conversion-value">32°F</span>
                     </div>
-                    <div class="quick-conversion">
-                        <span class="quick-conversion-label">100°C = ? °F</span>
-                        <span class="quick-conversion-value">212°F</span>
+                    <div class="st-quick-conversion">
+                        <span class="st-quick-conversion-label">100°C = ? °F</span>
+                        <span class="st-quick-conversion-value">212°F</span>
                     </div>
                 </div>
             </div>
 
             <!-- VOLUME -->
-            <div id="volume" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="volumeInput" placeholder="Enter value" oninput="convertVolume()">
+            <div id="volume" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="volumeInput" class="st-input" placeholder="Enter value" oninput="convertVolume()">
                         </div>
-                        <div class="input-field">
-                            <select id="volumeFrom" onchange="convertVolume()">
+                        <div class="st-input-field">
+                            <select id="volumeFrom" class="st-select" onchange="convertVolume()">
                                 <option value="ml">Milliliter (ml)</option>
                                 <option value="l">Liter (l)</option>
                                 <option value="fl_oz">Fluid Ounce (fl oz)</option>
@@ -514,9 +462,9 @@
                                 <option value="m3">Cubic Meter (m³)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapVolume()">⇄</button>
-                        <div class="input-field">
-                            <select id="volumeTo" onchange="convertVolume()">
+                        <button class="st-swap-btn" onclick="swapVolume()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="volumeTo" class="st-select" onchange="convertVolume()">
                                 <option value="l">Liter (l)</option>
                                 <option value="ml">Milliliter (ml)</option>
                                 <option value="gallon">Gallon (gal)</option>
@@ -529,22 +477,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="volumeResult" style="display:none;">
-                    <div class="result-value" id="volumeOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="volumeResult" style="display:none;">
+                    <div class="st-result-value" id="volumeOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
             </div>
 
             <!-- AREA -->
-            <div id="area" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="areaInput" placeholder="Enter value" oninput="convertArea()">
+            <div id="area" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="areaInput" class="st-input" placeholder="Enter value" oninput="convertArea()">
                         </div>
-                        <div class="input-field">
-                            <select id="areaFrom" onchange="convertArea()">
+                        <div class="st-input-field">
+                            <select id="areaFrom" class="st-select" onchange="convertArea()">
                                 <option value="mm2">Square Millimeter (mm²)</option>
                                 <option value="cm2">Square Centimeter (cm²)</option>
                                 <option value="m2">Square Meter (m²)</option>
@@ -557,9 +505,9 @@
                                 <option value="acre">Acre (ac)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapArea()">⇄</button>
-                        <div class="input-field">
-                            <select id="areaTo" onchange="convertArea()">
+                        <button class="st-swap-btn" onclick="swapArea()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="areaTo" class="st-select" onchange="convertArea()">
                                 <option value="m2">Square Meter (m²)</option>
                                 <option value="km2">Square Kilometer (km²)</option>
                                 <option value="cm2">Square Centimeter (cm²)</option>
@@ -574,22 +522,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="areaResult" style="display:none;">
-                    <div class="result-value" id="areaOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="areaResult" style="display:none;">
+                    <div class="st-result-value" id="areaOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
             </div>
 
             <!-- SPEED -->
-            <div id="speed" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="speedInput" placeholder="Enter value" oninput="convertSpeed()">
+            <div id="speed" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="speedInput" class="st-input" placeholder="Enter value" oninput="convertSpeed()">
                         </div>
-                        <div class="input-field">
-                            <select id="speedFrom" onchange="convertSpeed()">
+                        <div class="st-input-field">
+                            <select id="speedFrom" class="st-select" onchange="convertSpeed()">
                                 <option value="m_s">Meter/Second (m/s)</option>
                                 <option value="km_h">Kilometer/Hour (km/h)</option>
                                 <option value="mi_h">Mile/Hour (mi/h)</option>
@@ -597,9 +545,9 @@
                                 <option value="knot">Knot (knot)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapSpeed()">⇄</button>
-                        <div class="input-field">
-                            <select id="speedTo" onchange="convertSpeed()">
+                        <button class="st-swap-btn" onclick="swapSpeed()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="speedTo" class="st-select" onchange="convertSpeed()">
                                 <option value="km_h">Kilometer/Hour (km/h)</option>
                                 <option value="m_s">Meter/Second (m/s)</option>
                                 <option value="mi_h">Mile/Hour (mi/h)</option>
@@ -609,22 +557,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="speedResult" style="display:none;">
-                    <div class="result-value" id="speedOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="speedResult" style="display:none;">
+                    <div class="st-result-value" id="speedOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
             </div>
 
             <!-- DATA STORAGE -->
-            <div id="data" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="dataInput" placeholder="Enter value" oninput="convertData()">
+            <div id="data" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="dataInput" class="st-input" placeholder="Enter value" oninput="convertData()">
                         </div>
-                        <div class="input-field">
-                            <select id="dataFrom" onchange="convertData()">
+                        <div class="st-input-field">
+                            <select id="dataFrom" class="st-select" onchange="convertData()">
                                 <option value="b">Byte (B)</option>
                                 <option value="kb">Kilobyte (KB)</option>
                                 <option value="mb">Megabyte (MB)</option>
@@ -634,9 +582,9 @@
                                 <option value="bit">Bit</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapData()">⇄</button>
-                        <div class="input-field">
-                            <select id="dataTo" onchange="convertData()">
+                        <button class="st-swap-btn" onclick="swapData()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="dataTo" class="st-select" onchange="convertData()">
                                 <option value="gb">Gigabyte (GB)</option>
                                 <option value="mb">Megabyte (MB)</option>
                                 <option value="kb">Kilobyte (KB)</option>
@@ -648,22 +596,22 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="dataResult" style="display:none;">
-                    <div class="result-value" id="dataOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="dataResult" style="display:none;">
+                    <div class="st-result-value" id="dataOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
             </div>
 
             <!-- TIME -->
-            <div id="time" class="conversion-container">
-                <div class="input-group">
-                    <label class="input-label">Convert from:</label>
-                    <div class="input-row">
-                        <div class="input-field">
-                            <input type="number" id="timeInput" placeholder="Enter value" oninput="convertTime()">
+            <div id="time" class="st-conversion-container">
+                <div class="st-input-group">
+                    <label class="st-label">Convert from:</label>
+                    <div class="st-conversion-row">
+                        <div class="st-input-field">
+                            <input type="number" id="timeInput" class="st-input" placeholder="Enter value" oninput="convertTime()">
                         </div>
-                        <div class="input-field">
-                            <select id="timeFrom" onchange="convertTime()">
+                        <div class="st-input-field">
+                            <select id="timeFrom" class="st-select" onchange="convertTime()">
                                 <option value="ms">Millisecond (ms)</option>
                                 <option value="s">Second (s)</option>
                                 <option value="min">Minute (min)</option>
@@ -674,9 +622,9 @@
                                 <option value="year">Year (y)</option>
                             </select>
                         </div>
-                        <button class="swap-btn" onclick="swapTime()">⇄</button>
-                        <div class="input-field">
-                            <select id="timeTo" onchange="convertTime()">
+                        <button class="st-swap-btn" onclick="swapTime()">⇄</button>
+                        <div class="st-input-field">
+                            <select id="timeTo" class="st-select" onchange="convertTime()">
                                 <option value="s">Second (s)</option>
                                 <option value="min">Minute (min)</option>
                                 <option value="h">Hour (h)</option>
@@ -689,33 +637,60 @@
                         </div>
                     </div>
                 </div>
-                <div class="result-box" id="timeResult" style="display:none;">
-                    <div class="result-value" id="timeOutput">0</div>
-                    <div class="result-label">Result</div>
+                <div class="st-result-box" id="timeResult" style="display:none;">
+                    <div class="st-result-value" id="timeOutput">0</div>
+                    <div class="st-result-label">Result</div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="ad-slot">
+        <!-- Ad Slot -->
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
-    </div>
+    </main>
 
-    <footer>
-        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="/legal/privacy">Privacy Policy</a> | <a href="/legal/terms">Terms of Service</a></p>
+    <!-- Footer -->
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="image-compressor.html">Image Compressor</a></li>
+                        <li><a href="json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="character-counter.html">Character Counter</a></li>
+                        <li><a href="unit-converter.html">Unit Converter</a></li>
+                        <li><a href="color-converter.html">Color Converter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <p>&copy; 2026 SnapToolbox. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <div class="cookie-banner" id="cookieBanner">
+    <!-- Cookie Banner -->
+    <div class="st-cookie" id="cookieBanner">
         <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
-        <button onclick="closeCookieBanner()">Accept</button>
+        <button onclick="handleCookieAccept()">Accept</button>
     </div>
 
     <script src="../js/common.js"></script>
     <script src="../js/i18n.js"></script>
     <script>
         function switchTab(tab) {
-            document.querySelectorAll('.conversion-container').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.st-conversion-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.st-pill-btn').forEach(el => el.classList.remove('active'));
             document.getElementById(tab).classList.add('active');
             event.target.classList.add('active');
         }
@@ -921,21 +896,19 @@
             convertTime();
         }
 
-        function closeCookieBanner() {
-            document.getElementById('cookieBanner').classList.add('hidden');
-            localStorage.setItem('cookieConsent', 'accepted');
+        function handleCookieAccept() {
+            CookieConsent.accept();
+            document.getElementById('cookieBanner').style.display = 'none';
         }
 
         window.addEventListener('load', function() {
             if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookieBanner').classList.remove('hidden');
+                document.getElementById('cookieBanner').style.display = 'block';
             } else {
-                document.getElementById('cookieBanner').classList.add('hidden');
+                document.getElementById('cookieBanner').style.display = 'none';
             }
         });
     </script>
-    <script src="../js/common.js"></script>
-    <script src="../js/i18n.js"></script>
     <script>
     // Page-specific translations for unit converter tabs & labels
     I18N.onTranslate(function(lang) {
@@ -943,34 +916,32 @@
         en: ['Length','Weight','Temperature','Volume','Area','Speed','Data Storage','Time'],
         ja: ['長さ','重さ','温度','体積','面積','速度','データ','時間']
       };
-      const tabs = document.querySelectorAll('.tab');
+      const tabs = document.querySelectorAll('.st-pill-btn');
       const texts = tabTexts[lang] || tabTexts['en'];
       tabs.forEach((tab, i) => { if (texts[i]) tab.textContent = texts[i]; });
 
       // Subtitle
-      const subtitle = document.querySelector('.tool-header p');
+      const subtitle = document.querySelector('.st-subtitle');
       if (subtitle) subtitle.textContent = lang === 'ja'
         ? 'さまざまな単位を即座に変換。' : 'Convert between different units of measurement instantly.';
 
       // "Convert from:" labels
-      document.querySelectorAll('.input-label').forEach(el => {
+      document.querySelectorAll('.st-label').forEach(el => {
         el.textContent = lang === 'ja' ? '変換元:' : 'Convert from:';
       });
 
       // "Result" labels
-      document.querySelectorAll('.result-label').forEach(el => {
+      document.querySelectorAll('.st-result-label').forEach(el => {
         el.textContent = lang === 'ja' ? '変換結果' : 'Result';
       });
 
       // "Common Conversions"
-      document.querySelectorAll('.quick-conversions h3').forEach(el => {
+      document.querySelectorAll('.st-quick-conversions h3').forEach(el => {
         el.textContent = lang === 'ja' ? 'よく使う変換' : 'Common Conversions';
       });
 
-      // Privacy note
-      const privacy = document.querySelector('.privacy-note, footer p');
       // Breadcrumb
-      const breadcrumb = document.querySelector('.breadcrumb');
+      const breadcrumb = document.querySelector('.st-breadcrumb');
       if (breadcrumb) {
         const a = breadcrumb.querySelector('a');
         if (a) a.textContent = lang === 'ja' ? 'ホーム' : 'Home';

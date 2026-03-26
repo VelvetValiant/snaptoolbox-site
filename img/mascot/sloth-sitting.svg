@@ -1,0 +1,75 @@
+<svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shadow -->
+  <ellipse cx="100" cy="210" rx="55" ry="8" fill="#D5CFC0" opacity="0.4"/>
+
+  <!-- Body -->
+  <ellipse cx="100" cy="140" rx="52" ry="55" fill="#A07858"/>
+  <ellipse cx="100" cy="148" rx="38" ry="42" fill="#C4A882"/>
+
+  <!-- Belly patch -->
+  <ellipse cx="100" cy="155" rx="26" ry="28" fill="#DCC9A8"/>
+
+  <!-- Left arm resting on belly -->
+  <path d="M62 130 Q52 145 58 160 Q62 168 70 170" stroke="#A07858" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M62 130 Q52 145 58 160 Q62 168 70 170" stroke="#B89E78" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Left claws -->
+  <path d="M70 172 Q68 178 66 175" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M73 171 Q72 177 69 174" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M76 170 Q76 176 73 173" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Right arm resting on belly -->
+  <path d="M138 130 Q148 145 142 160 Q138 168 130 170" stroke="#A07858" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M138 130 Q148 145 142 160 Q138 168 130 170" stroke="#B89E78" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Right claws -->
+  <path d="M130 172 Q132 178 134 175" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M127 171 Q128 177 131 174" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M124 170 Q124 176 127 173" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Left foot -->
+  <path d="M75 188 Q68 195 72 202" stroke="#A07858" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M75 188 Q68 195 72 202" stroke="#B89E78" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M70 204 Q67 208 65 205" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M73 205 Q71 209 68 206" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Right foot -->
+  <path d="M125 188 Q132 195 128 202" stroke="#A07858" stroke-width="12" stroke-linecap="round" fill="none"/>
+  <path d="M125 188 Q132 195 128 202" stroke="#B89E78" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <path d="M130 204 Q133 208 135 205" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M127 205 Q129 209 132 206" stroke="#8B7355" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+  <!-- Head fur (fluffy top) -->
+  <ellipse cx="100" cy="68" rx="42" ry="8" fill="#8B6B4A" opacity="0.3" transform="rotate(-3 100 68)"/>
+
+  <!-- Head -->
+  <circle cx="100" cy="85" r="38" fill="#A07858"/>
+  <circle cx="100" cy="85" r="32" fill="#C4A882"/>
+
+  <!-- Forehead fur tufts -->
+  <path d="M75 58 Q80 48 88 55" stroke="#8B6B4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M88 54 Q95 42 102 52" stroke="#8B6B4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M100 50 Q108 40 114 52" stroke="#8B6B4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M112 55 Q118 48 125 58" stroke="#8B6B4A" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+  <!-- Eye mask area -->
+  <ellipse cx="85" cy="82" rx="13" ry="12" fill="#6B5040" opacity="0.25"/>
+  <ellipse cx="115" cy="82" rx="13" ry="12" fill="#6B5040" opacity="0.25"/>
+
+  <!-- Eyes -->
+  <circle cx="85" cy="82" r="7" fill="#2D2010"/>
+  <circle cx="115" cy="82" r="7" fill="#2D2010"/>
+  <!-- Eye shine -->
+  <circle cx="88" cy="79" r="2.5" fill="white" opacity="0.85"/>
+  <circle cx="118" cy="79" r="2.5" fill="white" opacity="0.85"/>
+  <circle cx="83" cy="84" r="1.2" fill="white" opacity="0.5"/>
+  <circle cx="113" cy="84" r="1.2" fill="white" opacity="0.5"/>
+
+  <!-- Nose -->
+  <ellipse cx="100" cy="92" rx="5" ry="3.5" fill="#4A3628"/>
+
+  <!-- Smile -->
+  <path d="M91 98 Q100 106 109 98" stroke="#4A3628" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+
+  <!-- Blush -->
+  <ellipse cx="74" cy="92" rx="6" ry="3.5" fill="#E8A090" opacity="0.35"/>
+  <ellipse cx="126" cy="92" rx="6" ry="3.5" fill="#E8A090" opacity="0.35"/>
+</svg>

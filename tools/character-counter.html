@@ -3,225 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online character and word counter. Count characters, words, sentences, paragraphs, and get reading time estimates instantly.">
-    <meta name="keywords" content="character counter, word counter, text counter, sentence counter, reading time">
+    <meta name="description" content="Free online character counter & word counter. Count characters, words, sentences, paragraphs with reading time estimates. Real-time, no signup needed.">
+    <meta name="keywords" content="character counter, word counter, letter counter, text counter, character count online, word count tool, sentence counter, reading time calculator">
     <meta name="author" content="SnapToolbox">
-    <meta property="og:title" content="Character and Word Counter - SnapToolbox">
-    <meta property="og:description" content="Instantly count characters, words, sentences, paragraphs, and estimate reading/speaking time.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://snaptoolbox.app/tools/character-counter.html">
+    <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/character-counter.html">
+    <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/character-counter.html">
+    <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/character-counter.html">
+    <meta property="og:title" content="Character & Word Counter - Free Online Text Counter">
+    <meta property="og:description" content="Count characters, words, sentences & paragraphs instantly. Free online tool, no signup required.">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app/tools/character-counter.html">
+    <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Character and Word Counter - SnapToolbox">
-    <meta name="twitter:description" content="Free text counter tool with real-time statistics and text manipulation features.">
+    <meta name="twitter:title" content="Character & Word Counter - Free Online Text Counter">
+    <meta name="twitter:description" content="Count characters, words, sentences & paragraphs instantly. Free online tool.">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
 
-    <title>Character & Word Counter - SnapToolbox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Character Counter & Word Counter Online - Free Text Counter | SnapToolbox</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Character & Word Counter",
+        "description": "Free online character and word counter with reading time estimates. Real-time text analysis.",
+        "url": "https://snaptoolbox.app/tools/character-counter.html",
+        "applicationCategory": "Utility",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
-        .tool-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
+        body {
+            --st-primary: #5B7A4A;
+            --st-primary-dim: #4A6639;
+            --st-primary-container: #DCF0C8;
+            --st-surface: #FAFDF2;
+            --st-surface-low: #F5F8E8;
+            --st-card: #FFFFFF;
+            --st-text: #2D3318;
+            --st-text-secondary: #6B7052;
+            --st-outline-variant: #DDE1C6;
         }
 
-        .breadcrumb {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 30px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .breadcrumb a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
-
-        .tool-header {
+        .st-hero {
             text-align: center;
             margin-bottom: 40px;
         }
 
-        .tool-header h1 {
-            font-size: 32px;
-            font-weight: 700;
+        .st-hero h1 {
             margin: 0 0 10px 0;
-            font-family: 'Inter', sans-serif;
         }
 
-        .tool-header p {
-            font-size: 16px;
-            color: #666;
-            margin: 0;
-            font-family: 'Inter', sans-serif;
+        .st-subtitle {
+            color: var(--st-text-secondary);
         }
 
-        .ad-slot {
-            background: #f5f5f5;
-            border: 1px solid #ddd;
+        .st-section-tint {
+            background: var(--st-surface-low);
+            border-radius: var(--st-radius-md);
             padding: 20px;
             margin: 30px 0;
-            text-align: center;
-            color: #999;
-            border-radius: 8px;
-            font-family: 'Inter', sans-serif;
         }
 
-        .tool-content {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .input-section {
-            margin-bottom: 30px;
-        }
-
-        .input-label {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: block;
-            color: #333;
-            font-family: 'Inter', sans-serif;
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 300px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', monospace;
-            font-size: 14px;
-            resize: vertical;
-            box-sizing: border-box;
-        }
-
-        textarea:focus {
-            outline: none;
-            border-color: #0066cc;
-            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .stat-box {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 6px;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 28px;
-            font-weight: 700;
-            color: #0066cc;
-            margin-bottom: 5px;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 12px;
-            color: #666;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-
-        .btn {
-            padding: 10px 16px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: white;
-            color: #333;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.2s;
-        }
-
-        .btn:hover {
-            background: #f5f5f5;
-            border-color: #999;
-        }
-
-        .btn-primary {
-            background: #0066cc;
-            color: white;
-            border-color: #0066cc;
-        }
-
-        .btn-primary:hover {
-            background: #0052a3;
-            border-color: #0052a3;
-        }
-
-        .btn-copy {
-            background: #28a745;
-            color: white;
-            border-color: #28a745;
-        }
-
-        .btn-copy:hover {
-            background: #218838;
-            border-color: #218838;
-        }
-
-        .btn-danger {
-            background: #dc3545;
-            color: white;
-            border-color: #dc3545;
-        }
-
-        .btn-danger:hover {
-            background: #c82333;
-            border-color: #c82333;
-        }
-
-        .case-converter {
+        .st-pill-group {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 10px;
             margin: 20px 0;
         }
 
-        .find-replace {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            border-radius: 6px;
+        .st-pill-btn {
+            padding: 10px 16px;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            background: var(--st-card);
+            color: var(--st-text);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .st-pill-btn:hover {
+            background: var(--st-surface-low);
+            border-color: var(--st-text-secondary);
+        }
+
+        .st-find-replace {
+            background: var(--st-surface-low);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
             padding: 20px;
             margin: 20px 0;
         }
 
-        .find-replace h3 {
+        .st-find-replace h3 {
             margin: 0 0 15px 0;
             font-size: 16px;
             font-weight: 600;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--st-text);
         }
 
-        .find-replace-row {
+        .st-find-replace-row {
             display: flex;
             gap: 10px;
             margin-bottom: 10px;
@@ -229,215 +125,211 @@
             flex-wrap: wrap;
         }
 
-        .find-replace-input {
+        .st-find-replace-input {
             flex: 1;
             min-width: 150px;
         }
 
-        .find-replace-input input {
+        .st-find-replace-input input {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-family: 'Inter', sans-serif;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 14px;
             box-sizing: border-box;
+            background: var(--st-card);
+            color: var(--st-text);
         }
 
-        .find-replace-input input:focus {
+        .st-find-replace-input input:focus {
             outline: none;
-            border-color: #0066cc;
+            border-color: var(--st-primary);
+            box-shadow: 0 0 0 2px rgba(91, 122, 74, 0.1);
         }
 
-        .find-replace-input label {
+        .st-find-replace-input label {
             display: block;
             font-size: 12px;
             font-weight: 500;
             margin-bottom: 5px;
-            color: #666;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: #333;
-            color: white;
-            padding: 15px 20px;
-            font-size: 14px;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Inter', sans-serif;
-            gap: 15px;
-        }
-
-        .cookie-banner.hidden {
-            display: none;
-        }
-
-        .cookie-banner button {
-            background: white;
-            color: #333;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            font-family: 'Inter', sans-serif;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: #666;
-            font-size: 14px;
-            font-family: 'Inter', sans-serif;
-            border-top: 1px solid #eee;
-            margin-top: 40px;
-        }
-
-        footer a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
+            color: var(--st-text-secondary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
         @media (max-width: 768px) {
-            .tool-header h1 {
+            .st-hero h1 {
                 font-size: 24px;
             }
 
-            .stats-grid {
+            .st-stats-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .case-converter {
+            .st-pill-group {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .find-replace-row {
+            .st-find-replace-row {
                 flex-direction: column;
             }
 
-            .find-replace-input {
+            .st-find-replace-input {
                 width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header style="padding: 20px; border-bottom: 1px solid #eee; font-family: 'Inter', sans-serif; display: flex; justify-content: space-between; align-items: center;">
-        <div style="max-width: 1200px; margin: 0 auto; flex: 1;">
-            <a href="/" style="font-size: 24px; font-weight: 700; color: #333; text-decoration: none;">SnapToolbox</a>
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a class="st-logo" href="/">
+                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="/" data-i18n="common.breadcrumb_home">Home</a>
+                <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
         </div>
-        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:#666;font-family:'Inter',sans-serif;" data-i18n="common.lang_toggle">日本語</button>
     </header>
 
-    <div class="tool-container">
-        <nav class="breadcrumb">
-            <a href="/" data-i18n="common.breadcrumb_home">Home</a> > <span data-i18n="character_counter.title">Character Counter</span>
+    <div class="st-tool-content">
+        <nav class="st-breadcrumb">
+            <a href="/" data-i18n="common.breadcrumb_home">Home</a> / <span data-i18n="character_counter.title">Character Counter</span>
         </nav>
 
-        <div class="tool-header">
+            <div class="st-tool-mascot">
+                <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Curious sloth mascot" loading="lazy" width="80" height="80">
+                <div class="st-tool-mascot-bubble" data-i18n="character_counter.mascot_bubble">Let me count every character for you. Take your time typing!</div>
+            </div>
+
+        <div class="st-hero">
             <h1 data-i18n="character_counter.title">Character & Word Counter</h1>
-            <p data-i18n="character_counter.subtitle">Analyze your text in real-time. Count characters, words, sentences, and more.</p>
+            <p class="st-subtitle" data-i18n="character_counter.subtitle">Analyze your text in real-time. Count characters, words, sentences, and more.</p>
         </div>
 
-        <div class="ad-slot">
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
 
-        <div class="tool-content">
-            <div class="input-section">
-                <label class="input-label" data-i18n="character_counter.input_placeholder">Paste or type your text below:</label>
-                <textarea id="textInput" placeholder="Enter your text here..." data-i18n-placeholder="character_counter.input_placeholder"></textarea>
+        <div>
+            <div style="margin-bottom: 30px;">
+                <label style="font-size: 14px; font-weight: 600; margin-bottom: 10px; display: block; color: var(--st-text);" data-i18n="character_counter.input_placeholder">Paste or type your text below:</label>
+                <textarea class="st-textarea" id="textInput" placeholder="Enter your text here..." data-i18n-placeholder="character_counter.input_placeholder"></textarea>
             </div>
 
-            <div class="stats-grid">
-                <div class="stat-box">
-                    <div class="stat-value" id="charCount">0</div>
-                    <div class="stat-label" data-i18n="character_counter.characters">Characters (with spaces)</div>
+            <div class="st-stats-grid">
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="charCount">0</div>
+                    <div class="st-stat-label" data-i18n="character_counter.characters">Characters (with spaces)</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="charNoSpaceCount">0</div>
-                    <div class="stat-label" data-i18n="character_counter.characters_no_space">Characters (no spaces)</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="charNoSpaceCount">0</div>
+                    <div class="st-stat-label" data-i18n="character_counter.characters_no_space">Characters (no spaces)</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="wordCount">0</div>
-                    <div class="stat-label" data-i18n="character_counter.words">Words</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="wordCount">0</div>
+                    <div class="st-stat-label" data-i18n="character_counter.words">Words</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="sentenceCount">0</div>
-                    <div class="stat-label" data-i18n="character_counter.sentences">Sentences</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="sentenceCount">0</div>
+                    <div class="st-stat-label" data-i18n="character_counter.sentences">Sentences</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="paragraphCount">0</div>
-                    <div class="stat-label" data-i18n="character_counter.paragraphs">Paragraphs</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="paragraphCount">0</div>
+                    <div class="st-stat-label" data-i18n="character_counter.paragraphs">Paragraphs</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="lineCount">0</div>
-                    <div class="stat-label">Lines</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="lineCount">0</div>
+                    <div class="st-stat-label">Lines</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="readingTime">0 min</div>
-                    <div class="stat-label" data-i18n="character_counter.reading_time">Reading Time</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="readingTime">0 min</div>
+                    <div class="st-stat-label" data-i18n="character_counter.reading_time">Reading Time</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-value" id="speakingTime">0 min</div>
-                    <div class="stat-label">Speaking Time</div>
+                <div class="st-stat-box">
+                    <div class="st-stat-value" id="speakingTime">0 min</div>
+                    <div class="st-stat-label">Speaking Time</div>
                 </div>
             </div>
 
             <div>
-                <h3 style="font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; margin-top: 30px; margin-bottom: 15px;">Case Converter</h3>
-                <div class="case-converter">
-                    <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
-                    <button class="btn" onclick="convertCase('lower')">lowercase</button>
-                    <button class="btn" onclick="convertCase('title')">Title Case</button>
-                    <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
+                <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 600; margin-top: 30px; margin-bottom: 15px; color: var(--st-text);">Case Converter</h3>
+                <div class="st-pill-group">
+                    <button class="st-pill-btn" onclick="convertCase('upper')">UPPERCASE</button>
+                    <button class="st-pill-btn" onclick="convertCase('lower')">lowercase</button>
+                    <button class="st-pill-btn" onclick="convertCase('title')">Title Case</button>
+                    <button class="st-pill-btn" onclick="convertCase('sentence')">Sentence case</button>
                 </div>
             </div>
 
-            <div class="find-replace">
+            <div class="st-find-replace">
                 <h3>Find & Replace</h3>
-                <div class="find-replace-row">
-                    <div class="find-replace-input">
+                <div class="st-find-replace-row">
+                    <div class="st-find-replace-input">
                         <label>Find:</label>
                         <input type="text" id="findInput" placeholder="Text to find">
                     </div>
-                    <div class="find-replace-input">
+                    <div class="st-find-replace-input">
                         <label>Replace with:</label>
                         <input type="text" id="replaceInput" placeholder="Replacement text">
                     </div>
-                    <button class="btn btn-primary" onclick="findReplace()">Replace All</button>
+                    <button class="st-btn st-btn-primary" onclick="findReplace()">Replace All</button>
                 </div>
             </div>
 
-            <div class="button-group">
-                <button class="btn btn-copy" onclick="copyToClipboard()" data-i18n="character_counter.copy_btn">📋 Copy Text</button>
-                <button class="btn btn-danger" onclick="clearText()" data-i18n="character_counter.clear_btn">🗑️ Clear All</button>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0;">
+                <button class="st-btn st-btn-primary" onclick="copyToClipboard()" data-i18n="character_counter.copy_btn">📋 Copy Text</button>
+                <button class="st-btn st-btn-danger" onclick="clearText()" data-i18n="character_counter.clear_btn">🗑️ Clear All</button>
             </div>
         </div>
 
-        <div class="ad-slot">
+        <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="/legal/privacy">Privacy Policy</a> | <a href="/legal/terms">Terms of Service</a></p>
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div>
+                    <h4>Tools</h4>
+                    <ul>
+                        <li><a href="image-compressor.html">Image Compressor</a></li>
+                        <li><a href="json-formatter.html">JSON Formatter</a></li>
+                        <li><a href="character-counter.html">Character Counter</a></li>
+                        <li><a href="unit-converter.html">Unit Converter</a></li>
+                        <li><a href="color-converter.html">Color Converter</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <p>&copy; 2026 SnapToolbox. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <div class="cookie-banner" id="cookieBanner">
-        <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
-        <button onclick="closeCookieBanner()">Accept</button>
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
+            <div>
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()">Accept</button>
+            </div>
+        </div>
     </div>
 
     <script src="../js/common.js"></script>
@@ -511,19 +403,19 @@
             const replaceText = document.getElementById('replaceInput').value;
 
             if (findText === '') {
-                alert('Please enter text to find');
+                showToast('Please enter text to find');
                 return;
             }
 
             const regex = new RegExp(findText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
             textInput.value = textInput.value.replace(regex, replaceText);
             updateStats();
+            showToast('Replaced successfully');
         }
 
         function copyToClipboard() {
-            textInput.select();
-            document.execCommand('copy');
-            alert('Text copied to clipboard!');
+            copyText(textInput.value);
+            showToast('Text copied to clipboard!');
         }
 
         function clearText() {
@@ -533,16 +425,19 @@
             }
         }
 
-        function closeCookieBanner() {
-            document.getElementById('cookieBanner').classList.add('hidden');
-            localStorage.setItem('cookieConsent', 'accepted');
+        function toggleNav() {
+            const nav = document.querySelector('.st-nav');
+            nav.classList.toggle('active');
         }
 
         window.addEventListener('load', function() {
-            if (!localStorage.getItem('cookieConsent')) {
-                document.getElementById('cookieBanner').classList.remove('hidden');
-            } else {
-                document.getElementById('cookieBanner').classList.add('hidden');
+            const cookieBanner = document.getElementById('cookieBanner');
+            if (CookieConsent && CookieConsent.hasConsent !== undefined) {
+                if (CookieConsent.hasConsent()) {
+                    cookieBanner.style.display = 'none';
+                }
+            } else if (localStorage.getItem('cookieConsent')) {
+                cookieBanner.style.display = 'none';
             }
         });
     </script>
