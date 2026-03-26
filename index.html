@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SnapToolbox - Free online tools for image compression, text processing, unit conversion, and more. Fast, free, no signup required.">
+    <meta name="theme-color" content="#4F46E5">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="SnapToolbox - Free Online Tools">
+    <meta property="og:description" content="Fast, free online tools. No signup, no ads clutter. Image compression, JSON formatting, code tools, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>SnapToolbox - Free Online Tools</title>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SnapToolbox",
+        "description": "Free online tools for image compression, text processing, unit conversion, and more",
+        "url": "https://snaptoolbox.app",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://snaptoolbox.app?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#4F46E5"/>
+                    <path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="white"/>
+                </svg>
+                SnapToolbox
+            </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="nav-links">
+                <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="#about" data-i18n="common.nav_about">About</a>
+                <a href="#contact" data-i18n="common.nav_contact">Contact</a>
+                <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:var(--color-text-secondary);" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero">
+            <h1 data-i18n="index.hero_title">Free Online Tools</h1>
+            <p data-i18n="index.hero_subtitle">Fast, free, and private. No signup required. All tools run entirely in your browser.</p>
+        </section>
+
+        <!-- Featured Tool: Image Compressor (Most Popular) -->
+        <section style="margin-bottom:2rem;">
+            <a href="tools/image-compressor.html" class="tool-card" style="display:block;padding:2.5rem;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);border:2px solid var(--color-primary-light);position:relative;overflow:hidden;">
+                <div style="display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;">
+                    <div style="width:64px;height:64px;border-radius:var(--radius-md);background:var(--color-primary);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;">🗜️</div>
+                    <div style="flex:1;min-width:200px;">
+                        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.25rem;">
+                            <h2 style="font-size:1.5rem;font-weight:700;" data-i18n="index.tool_image_compressor">Image Compressor</h2>
+                            <span style="font-size:0.7rem;padding:0.2rem 0.6rem;background:var(--color-primary);color:white;border-radius:9999px;font-weight:600;" data-i18n="index.featured_badge">Most Popular</span>
+                        </div>
+                        <p style="color:var(--color-text-secondary);font-size:1rem;" data-i18n="index.featured_desc">Compress JPEG, PNG, and WebP images without losing quality. All processing happens in your browser — your images are never uploaded.</p>
+                    </div>
+                    <div style="font-size:2rem;color:var(--color-primary);flex-shrink:0;">→</div>
+                </div>
+            </a>
+        </section>
+
+        <!-- Ad Slot -->
+        <div class="ad-slot">Ad Space</div>
+
+        <!-- Search -->
+        <div class="search-container" style="margin-bottom:1.5rem;">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            <input type="text" id="tool-search" data-i18n-placeholder="index.search_placeholder" placeholder="Search tools..." aria-label="Search tools">
+        </div>
+
+        <!-- Tools Section -->
+        <div id="tools">
+            <!-- Text & Developer Tools -->
+            <section class="category-section">
+                <h2 class="category-title">💻 <span data-i18n="index.cat_text">Text & Developer Tools</span></h2>
+                <div class="tools-grid">
+                    <a href="tools/json-formatter.html" class="tool-card">
+                        <div class="tool-icon icon-text">{ }</div>
+                        <h3 data-i18n="index.tool_json">JSON Formatter</h3>
+                        <p data-i18n="index.tool_json_desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                    </a>
+                    <a href="tools/character-counter.html" class="tool-card">
+                        <div class="tool-icon icon-text">📝</div>
+                        <h3 data-i18n="index.tool_char">Character Counter</h3>
+                        <p data-i18n="index.tool_char_desc">Count characters, words, sentences, and paragraphs in real time.</p>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Ad Slot -->
+            <div class="ad-slot">Ad Space</div>
+
+            <!-- Calculators & Converters -->
+            <section class="category-section">
+                <h2 class="category-title">🔢 <span data-i18n="index.cat_calc">Calculators & Converters</span></h2>
+                <div class="tools-grid">
+                    <a href="tools/unit-converter.html" class="tool-card">
+                        <div class="tool-icon icon-calc">⚖️</div>
+                        <h3 data-i18n="index.tool_unit">Unit Converter</h3>
+                        <p data-i18n="index.tool_unit_desc">Convert between length, weight, temperature, and more.</p>
+                    </a>
+                    <a href="tools/color-converter.html" class="tool-card">
+                        <div class="tool-icon icon-calc">🎨</div>
+                        <h3 data-i18n="index.tool_color">Color Converter</h3>
+                        <p data-i18n="index.tool_color_desc">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                    </a>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- About Section -->
+        <section id="about" style="padding:3rem 0;">
+            <h2 class="category-title" data-i18n="index.about_title">Why SnapToolbox?</h2>
+            <div class="tools-grid" style="margin-top:1rem;">
+                <div class="tool-card" style="cursor:default;">
+                    <div class="tool-icon icon-text">🛡️</div>
+                    <h3 data-i18n="index.about_1_title">Privacy First</h3>
+                    <p data-i18n="index.about_1_desc">All processing happens in your browser. We never upload or store your data.</p>
+                </div>
+                <div class="tool-card" style="cursor:default;">
+                    <div class="tool-icon icon-image">💎</div>
+                    <h3 data-i18n="index.about_2_title">100% Free</h3>
+                    <p data-i18n="index.about_2_desc">No hidden fees, no signup walls, no premium tiers. Every tool is completely free.</p>
+                </div>
+                <div class="tool-card" style="cursor:default;">
+                    <div class="tool-icon icon-dev">⚡</div>
+                    <h3 data-i18n="index.about_3_title">Lightning Fast</h3>
+                    <p data-i18n="index.about_3_desc">No server round-trips. Everything runs locally for instant results.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="text-align:center;padding:2rem 0 3rem;">
+            <h2 class="category-title" style="justify-content:center;">📬 Contact</h2>
+            <p style="color:var(--color-text-secondary);margin-top:0.5rem;">contact@snaptoolbox.app</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="tools/image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="tools/unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="tools/color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p style="font-size:0.9rem;color:var(--color-text-secondary);" data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span data-i18n="common.footer_copyright">© 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="cookie-buttons">
+                <button class="btn btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="btn btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/i18n.js"></script>
+</body>
+</html>
