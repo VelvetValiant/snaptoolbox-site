@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online unit converter. Convert between length, weight, temperature, volume, area, speed, data storage, and time units instantly.">
+    <meta name="keywords" content="unit converter, length converter, weight converter, temperature converter, volume converter">
+    <meta name="author" content="SnapToolbox">
+    <meta property="og:title" content="Unit Converter - SnapToolbox">
+    <meta property="og:description" content="Convert between all common units of measurement instantly.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Unit Converter - SnapToolbox">
+    <meta name="twitter:description" content="Free unit converter for length, weight, temperature, volume, and more.">
+
+    <title>Unit Converter - SnapToolbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .tool-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tool-header p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ad-slot {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            color: #999;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tool-content {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            border: none;
+            background: none;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .tab:hover {
+            color: #0066cc;
+        }
+
+        .tab.active {
+            color: #0066cc;
+            border-bottom-color: #0066cc;
+        }
+
+        .conversion-container {
+            display: none;
+        }
+
+        .conversion-container.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .input-row {
+            display: flex;
+            gap: 15px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .input-field {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+        }
+
+        .swap-btn {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            align-self: flex-end;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swap-btn:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        .result-box {
+            background: #f0f7ff;
+            border: 2px solid #0066cc;
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 5px;
+            font-family: 'Inter', monospace;
+        }
+
+        .result-label {
+            font-size: 14px;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .quick-conversions {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .quick-conversions h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .quick-conversion {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            background: #f9f9f9;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .quick-conversion-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .quick-conversion-value {
+            font-size: 14px;
+            color: #0066cc;
+            font-weight: 600;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            font-size: 14px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            gap: 15px;
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-banner button {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .tool-header h1 {
+                font-size: 24px;
+            }
+
+            .input-row {
+                flex-direction: column;
+            }
+
+            .swap-btn {
+                align-self: flex-start;
+            }
+
+            .tabs {
+                gap: 0;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 20px; border-bottom: 1px solid #eee; font-family: 'Inter', sans-serif; display: flex; justify-content: space-between; align-items: center;">
+        <div style="max-width: 1200px; margin: 0 auto; flex: 1;">
+            <a href="/" style="font-size: 24px; font-weight: 700; color: #333; text-decoration: none;">SnapToolbox</a>
+        </div>
+        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:#666;font-family:'Inter',sans-serif;" data-i18n="common.lang_toggle">日本語</button>
+    </header>
+
+    <div class="tool-container">
+        <nav class="breadcrumb">
+            <a href="/">Home</a> > <span>Unit Converter</span>
+        </nav>
+
+        <div class="tool-header">
+            <h1 data-i18n="unit_converter.title">Unit Converter</h1>
+            <p>Convert between different units of measurement instantly.</p>
+        </div>
+
+        <div class="ad-slot">
+            [Ad Slot - 728x90]
+        </div>
+
+        <div class="tool-content">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('length')">Length</button>
+                <button class="tab" onclick="switchTab('weight')">Weight</button>
+                <button class="tab" onclick="switchTab('temperature')">Temperature</button>
+                <button class="tab" onclick="switchTab('volume')">Volume</button>
+                <button class="tab" onclick="switchTab('area')">Area</button>
+                <button class="tab" onclick="switchTab('speed')">Speed</button>
+                <button class="tab" onclick="switchTab('data')">Data Storage</button>
+                <button class="tab" onclick="switchTab('time')">Time</button>
+            </div>
+
+            <!-- LENGTH -->
+            <div id="length" class="conversion-container active">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="lengthInput" placeholder="Enter value" oninput="convertLength()">
+                        </div>
+                        <div class="input-field">
+                            <select id="lengthFrom" onchange="convertLength()">
+                                <option value="mm">Millimeter (mm)</option>
+                                <option value="cm">Centimeter (cm)</option>
+                                <option value="m">Meter (m)</option>
+                                <option value="km">Kilometer (km)</option>
+                                <option value="in">Inch (in)</option>
+                                <option value="ft">Foot (ft)</option>
+                                <option value="yd">Yard (yd)</option>
+                                <option value="mi">Mile (mi)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapLength()">⇄</button>
+                        <div class="input-field">
+                            <select id="lengthTo" onchange="convertLength()">
+                                <option value="km">Kilometer (km)</option>
+                                <option value="m">Meter (m)</option>
+                                <option value="cm">Centimeter (cm)</option>
+                                <option value="mm">Millimeter (mm)</option>
+                                <option value="mi">Mile (mi)</option>
+                                <option value="yd">Yard (yd)</option>
+                                <option value="ft">Foot (ft)</option>
+                                <option value="in">Inch (in)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="lengthResult" style="display:none;">
+                    <div class="result-value" id="lengthOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+                <div class="quick-conversions">
+                    <h3>Common Conversions</h3>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">1 km = ? mi</span>
+                        <span class="quick-conversion-value" id="kmToMi">0.62 mi</span>
+                    </div>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">1 mi = ? km</span>
+                        <span class="quick-conversion-value" id="miToKm">1.61 km</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WEIGHT -->
+            <div id="weight" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="weightInput" placeholder="Enter value" oninput="convertWeight()">
+                        </div>
+                        <div class="input-field">
+                            <select id="weightFrom" onchange="convertWeight()">
+                                <option value="mg">Milligram (mg)</option>
+                                <option value="g">Gram (g)</option>
+                                <option value="kg">Kilogram (kg)</option>
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="t">Metric Ton (t)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapWeight()">⇄</button>
+                        <div class="input-field">
+                            <select id="weightTo" onchange="convertWeight()">
+                                <option value="kg">Kilogram (kg)</option>
+                                <option value="g">Gram (g)</option>
+                                <option value="mg">Milligram (mg)</option>
+                                <option value="lb">Pound (lb)</option>
+                                <option value="oz">Ounce (oz)</option>
+                                <option value="t">Metric Ton (t)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="weightResult" style="display:none;">
+                    <div class="result-value" id="weightOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+                <div class="quick-conversions">
+                    <h3>Common Conversions</h3>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">1 kg = ? lb</span>
+                        <span class="quick-conversion-value" id="kgToLb">2.20 lb</span>
+                    </div>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">1 lb = ? kg</span>
+                        <span class="quick-conversion-value" id="lbToKg">0.45 kg</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEMPERATURE -->
+            <div id="temperature" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="tempInput" placeholder="Enter value" oninput="convertTemperature()">
+                        </div>
+                        <div class="input-field">
+                            <select id="tempFrom" onchange="convertTemperature()">
+                                <option value="c">Celsius (°C)</option>
+                                <option value="f">Fahrenheit (°F)</option>
+                                <option value="k">Kelvin (K)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapTemperature()">⇄</button>
+                        <div class="input-field">
+                            <select id="tempTo" onchange="convertTemperature()">
+                                <option value="f">Fahrenheit (°F)</option>
+                                <option value="c">Celsius (°C)</option>
+                                <option value="k">Kelvin (K)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="tempResult" style="display:none;">
+                    <div class="result-value" id="tempOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+                <div class="quick-conversions">
+                    <h3>Common Conversions</h3>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">0°C = ? °F</span>
+                        <span class="quick-conversion-value">32°F</span>
+                    </div>
+                    <div class="quick-conversion">
+                        <span class="quick-conversion-label">100°C = ? °F</span>
+                        <span class="quick-conversion-value">212°F</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VOLUME -->
+            <div id="volume" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="volumeInput" placeholder="Enter value" oninput="convertVolume()">
+                        </div>
+                        <div class="input-field">
+                            <select id="volumeFrom" onchange="convertVolume()">
+                                <option value="ml">Milliliter (ml)</option>
+                                <option value="l">Liter (l)</option>
+                                <option value="fl_oz">Fluid Ounce (fl oz)</option>
+                                <option value="cup">Cup (cup)</option>
+                                <option value="pint">Pint (pt)</option>
+                                <option value="gallon">Gallon (gal)</option>
+                                <option value="cm3">Cubic Centimeter (cm³)</option>
+                                <option value="m3">Cubic Meter (m³)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapVolume()">⇄</button>
+                        <div class="input-field">
+                            <select id="volumeTo" onchange="convertVolume()">
+                                <option value="l">Liter (l)</option>
+                                <option value="ml">Milliliter (ml)</option>
+                                <option value="gallon">Gallon (gal)</option>
+                                <option value="pint">Pint (pt)</option>
+                                <option value="cup">Cup (cup)</option>
+                                <option value="fl_oz">Fluid Ounce (fl oz)</option>
+                                <option value="m3">Cubic Meter (m³)</option>
+                                <option value="cm3">Cubic Centimeter (cm³)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="volumeResult" style="display:none;">
+                    <div class="result-value" id="volumeOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+            </div>
+
+            <!-- AREA -->
+            <div id="area" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="areaInput" placeholder="Enter value" oninput="convertArea()">
+                        </div>
+                        <div class="input-field">
+                            <select id="areaFrom" onchange="convertArea()">
+                                <option value="mm2">Square Millimeter (mm²)</option>
+                                <option value="cm2">Square Centimeter (cm²)</option>
+                                <option value="m2">Square Meter (m²)</option>
+                                <option value="km2">Square Kilometer (km²)</option>
+                                <option value="in2">Square Inch (in²)</option>
+                                <option value="ft2">Square Foot (ft²)</option>
+                                <option value="yd2">Square Yard (yd²)</option>
+                                <option value="mi2">Square Mile (mi²)</option>
+                                <option value="hectare">Hectare (ha)</option>
+                                <option value="acre">Acre (ac)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapArea()">⇄</button>
+                        <div class="input-field">
+                            <select id="areaTo" onchange="convertArea()">
+                                <option value="m2">Square Meter (m²)</option>
+                                <option value="km2">Square Kilometer (km²)</option>
+                                <option value="cm2">Square Centimeter (cm²)</option>
+                                <option value="mm2">Square Millimeter (mm²)</option>
+                                <option value="ft2">Square Foot (ft²)</option>
+                                <option value="mi2">Square Mile (mi²)</option>
+                                <option value="yd2">Square Yard (yd²)</option>
+                                <option value="in2">Square Inch (in²)</option>
+                                <option value="hectare">Hectare (ha)</option>
+                                <option value="acre">Acre (ac)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="areaResult" style="display:none;">
+                    <div class="result-value" id="areaOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+            </div>
+
+            <!-- SPEED -->
+            <div id="speed" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="speedInput" placeholder="Enter value" oninput="convertSpeed()">
+                        </div>
+                        <div class="input-field">
+                            <select id="speedFrom" onchange="convertSpeed()">
+                                <option value="m_s">Meter/Second (m/s)</option>
+                                <option value="km_h">Kilometer/Hour (km/h)</option>
+                                <option value="mi_h">Mile/Hour (mi/h)</option>
+                                <option value="ft_s">Foot/Second (ft/s)</option>
+                                <option value="knot">Knot (knot)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapSpeed()">⇄</button>
+                        <div class="input-field">
+                            <select id="speedTo" onchange="convertSpeed()">
+                                <option value="km_h">Kilometer/Hour (km/h)</option>
+                                <option value="m_s">Meter/Second (m/s)</option>
+                                <option value="mi_h">Mile/Hour (mi/h)</option>
+                                <option value="ft_s">Foot/Second (ft/s)</option>
+                                <option value="knot">Knot (knot)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="speedResult" style="display:none;">
+                    <div class="result-value" id="speedOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+            </div>
+
+            <!-- DATA STORAGE -->
+            <div id="data" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="dataInput" placeholder="Enter value" oninput="convertData()">
+                        </div>
+                        <div class="input-field">
+                            <select id="dataFrom" onchange="convertData()">
+                                <option value="b">Byte (B)</option>
+                                <option value="kb">Kilobyte (KB)</option>
+                                <option value="mb">Megabyte (MB)</option>
+                                <option value="gb">Gigabyte (GB)</option>
+                                <option value="tb">Terabyte (TB)</option>
+                                <option value="pb">Petabyte (PB)</option>
+                                <option value="bit">Bit</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapData()">⇄</button>
+                        <div class="input-field">
+                            <select id="dataTo" onchange="convertData()">
+                                <option value="gb">Gigabyte (GB)</option>
+                                <option value="mb">Megabyte (MB)</option>
+                                <option value="kb">Kilobyte (KB)</option>
+                                <option value="b">Byte (B)</option>
+                                <option value="tb">Terabyte (TB)</option>
+                                <option value="pb">Petabyte (PB)</option>
+                                <option value="bit">Bit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="dataResult" style="display:none;">
+                    <div class="result-value" id="dataOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+            </div>
+
+            <!-- TIME -->
+            <div id="time" class="conversion-container">
+                <div class="input-group">
+                    <label class="input-label">Convert from:</label>
+                    <div class="input-row">
+                        <div class="input-field">
+                            <input type="number" id="timeInput" placeholder="Enter value" oninput="convertTime()">
+                        </div>
+                        <div class="input-field">
+                            <select id="timeFrom" onchange="convertTime()">
+                                <option value="ms">Millisecond (ms)</option>
+                                <option value="s">Second (s)</option>
+                                <option value="min">Minute (min)</option>
+                                <option value="h">Hour (h)</option>
+                                <option value="day">Day (d)</option>
+                                <option value="week">Week (w)</option>
+                                <option value="month">Month (mo)</option>
+                                <option value="year">Year (y)</option>
+                            </select>
+                        </div>
+                        <button class="swap-btn" onclick="swapTime()">⇄</button>
+                        <div class="input-field">
+                            <select id="timeTo" onchange="convertTime()">
+                                <option value="s">Second (s)</option>
+                                <option value="min">Minute (min)</option>
+                                <option value="h">Hour (h)</option>
+                                <option value="day">Day (d)</option>
+                                <option value="week">Week (w)</option>
+                                <option value="month">Month (mo)</option>
+                                <option value="year">Year (y)</option>
+                                <option value="ms">Millisecond (ms)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="result-box" id="timeResult" style="display:none;">
+                    <div class="result-value" id="timeOutput">0</div>
+                    <div class="result-label">Result</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ad-slot">
+            [Ad Slot - 728x90]
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="/legal/privacy">Privacy Policy</a> | <a href="/legal/terms">Terms of Service</a></p>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
+        <button onclick="closeCookieBanner()">Accept</button>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.conversion-container').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function swap(fromId, toId) {
+            const temp = document.getElementById(fromId).value;
+            document.getElementById(fromId).value = document.getElementById(toId).value;
+            document.getElementById(toId).value = temp;
+        }
+
+        function convertLength() {
+            const value = parseFloat(document.getElementById('lengthInput').value);
+            const from = document.getElementById('lengthFrom').value;
+            const to = document.getElementById('lengthTo').value;
+
+            const toMeters = {
+                'mm': 0.001, 'cm': 0.01, 'm': 1, 'km': 1000,
+                'in': 0.0254, 'ft': 0.3048, 'yd': 0.9144, 'mi': 1609.34
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toMeters[from]) / toMeters[to];
+                document.getElementById('lengthOutput').textContent = result.toFixed(6);
+                document.getElementById('lengthResult').style.display = 'block';
+            } else {
+                document.getElementById('lengthResult').style.display = 'none';
+            }
+        }
+
+        function convertWeight() {
+            const value = parseFloat(document.getElementById('weightInput').value);
+            const from = document.getElementById('weightFrom').value;
+            const to = document.getElementById('weightTo').value;
+
+            const toGrams = {
+                'mg': 0.001, 'g': 1, 'kg': 1000, 'oz': 28.3495, 'lb': 453.592, 't': 1000000
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toGrams[from]) / toGrams[to];
+                document.getElementById('weightOutput').textContent = result.toFixed(6);
+                document.getElementById('weightResult').style.display = 'block';
+            } else {
+                document.getElementById('weightResult').style.display = 'none';
+            }
+        }
+
+        function convertTemperature() {
+            const value = parseFloat(document.getElementById('tempInput').value);
+            const from = document.getElementById('tempFrom').value;
+            const to = document.getElementById('tempTo').value;
+
+            if (!isNaN(value)) {
+                let celsius;
+                if (from === 'c') celsius = value;
+                else if (from === 'f') celsius = (value - 32) * 5/9;
+                else celsius = value - 273.15;
+
+                let result;
+                if (to === 'c') result = celsius;
+                else if (to === 'f') result = celsius * 9/5 + 32;
+                else result = celsius + 273.15;
+
+                document.getElementById('tempOutput').textContent = result.toFixed(2);
+                document.getElementById('tempResult').style.display = 'block';
+            } else {
+                document.getElementById('tempResult').style.display = 'none';
+            }
+        }
+
+        function convertVolume() {
+            const value = parseFloat(document.getElementById('volumeInput').value);
+            const from = document.getElementById('volumeFrom').value;
+            const to = document.getElementById('volumeTo').value;
+
+            const toMilliliters = {
+                'ml': 1, 'l': 1000, 'fl_oz': 29.5735, 'cup': 236.588,
+                'pint': 473.176, 'gallon': 3785.41, 'cm3': 1, 'm3': 1000000
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toMilliliters[from]) / toMilliliters[to];
+                document.getElementById('volumeOutput').textContent = result.toFixed(6);
+                document.getElementById('volumeResult').style.display = 'block';
+            } else {
+                document.getElementById('volumeResult').style.display = 'none';
+            }
+        }
+
+        function convertArea() {
+            const value = parseFloat(document.getElementById('areaInput').value);
+            const from = document.getElementById('areaFrom').value;
+            const to = document.getElementById('areaTo').value;
+
+            const toSquareMeters = {
+                'mm2': 0.000001, 'cm2': 0.0001, 'm2': 1, 'km2': 1000000,
+                'in2': 0.00064516, 'ft2': 0.092903, 'yd2': 0.836127, 'mi2': 2589988,
+                'hectare': 10000, 'acre': 4046.86
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toSquareMeters[from]) / toSquareMeters[to];
+                document.getElementById('areaOutput').textContent = result.toFixed(6);
+                document.getElementById('areaResult').style.display = 'block';
+            } else {
+                document.getElementById('areaResult').style.display = 'none';
+            }
+        }
+
+        function convertSpeed() {
+            const value = parseFloat(document.getElementById('speedInput').value);
+            const from = document.getElementById('speedFrom').value;
+            const to = document.getElementById('speedTo').value;
+
+            const toMeterPerSecond = {
+                'm_s': 1, 'km_h': 0.27778, 'mi_h': 0.44704, 'ft_s': 0.3048, 'knot': 0.51444
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toMeterPerSecond[from]) / toMeterPerSecond[to];
+                document.getElementById('speedOutput').textContent = result.toFixed(6);
+                document.getElementById('speedResult').style.display = 'block';
+            } else {
+                document.getElementById('speedResult').style.display = 'none';
+            }
+        }
+
+        function convertData() {
+            const value = parseFloat(document.getElementById('dataInput').value);
+            const from = document.getElementById('dataFrom').value;
+            const to = document.getElementById('dataTo').value;
+
+            const toBytes = {
+                'bit': 0.125, 'b': 1, 'kb': 1024, 'mb': 1024*1024, 'gb': 1024*1024*1024,
+                'tb': 1024*1024*1024*1024, 'pb': 1024*1024*1024*1024*1024
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toBytes[from]) / toBytes[to];
+                document.getElementById('dataOutput').textContent = result.toFixed(6);
+                document.getElementById('dataResult').style.display = 'block';
+            } else {
+                document.getElementById('dataResult').style.display = 'none';
+            }
+        }
+
+        function convertTime() {
+            const value = parseFloat(document.getElementById('timeInput').value);
+            const from = document.getElementById('timeFrom').value;
+            const to = document.getElementById('timeTo').value;
+
+            const toSeconds = {
+                'ms': 0.001, 's': 1, 'min': 60, 'h': 3600, 'day': 86400,
+                'week': 604800, 'month': 2592000, 'year': 31536000
+            };
+
+            if (!isNaN(value) && value !== '') {
+                const result = (value * toSeconds[from]) / toSeconds[to];
+                document.getElementById('timeOutput').textContent = result.toFixed(6);
+                document.getElementById('timeResult').style.display = 'block';
+            } else {
+                document.getElementById('timeResult').style.display = 'none';
+            }
+        }
+
+        function swapLength() {
+            swap('lengthFrom', 'lengthTo');
+            convertLength();
+        }
+
+        function swapWeight() {
+            swap('weightFrom', 'weightTo');
+            convertWeight();
+        }
+
+        function swapTemperature() {
+            swap('tempFrom', 'tempTo');
+            convertTemperature();
+        }
+
+        function swapVolume() {
+            swap('volumeFrom', 'volumeTo');
+            convertVolume();
+        }
+
+        function swapArea() {
+            swap('areaFrom', 'areaTo');
+            convertArea();
+        }
+
+        function swapSpeed() {
+            swap('speedFrom', 'speedTo');
+            convertSpeed();
+        }
+
+        function swapData() {
+            swap('dataFrom', 'dataTo');
+            convertData();
+        }
+
+        function swapTime() {
+            swap('timeFrom', 'timeTo');
+            convertTime();
+        }
+
+        function closeCookieBanner() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieBanner').classList.remove('hidden');
+            } else {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        });
+    </script>
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+    // Page-specific translations for unit converter tabs & labels
+    I18N.onTranslate(function(lang) {
+      const tabTexts = {
+        en: ['Length','Weight','Temperature','Volume','Area','Speed','Data Storage','Time'],
+        ja: ['長さ','重さ','温度','体積','面積','速度','データ','時間']
+      };
+      const tabs = document.querySelectorAll('.tab');
+      const texts = tabTexts[lang] || tabTexts['en'];
+      tabs.forEach((tab, i) => { if (texts[i]) tab.textContent = texts[i]; });
+
+      // Subtitle
+      const subtitle = document.querySelector('.tool-header p');
+      if (subtitle) subtitle.textContent = lang === 'ja'
+        ? 'さまざまな単位を即座に変換。' : 'Convert between different units of measurement instantly.';
+
+      // "Convert from:" labels
+      document.querySelectorAll('.input-label').forEach(el => {
+        el.textContent = lang === 'ja' ? '変換元:' : 'Convert from:';
+      });
+
+      // "Result" labels
+      document.querySelectorAll('.result-label').forEach(el => {
+        el.textContent = lang === 'ja' ? '変換結果' : 'Result';
+      });
+
+      // "Common Conversions"
+      document.querySelectorAll('.quick-conversions h3').forEach(el => {
+        el.textContent = lang === 'ja' ? 'よく使う変換' : 'Common Conversions';
+      });
+
+      // Privacy note
+      const privacy = document.querySelector('.privacy-note, footer p');
+      // Breadcrumb
+      const breadcrumb = document.querySelector('.breadcrumb');
+      if (breadcrumb) {
+        const a = breadcrumb.querySelector('a');
+        if (a) a.textContent = lang === 'ja' ? 'ホーム' : 'Home';
+      }
+    });
+    </script>
+</body>
+</html>

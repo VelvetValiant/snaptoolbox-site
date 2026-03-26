@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online character and word counter. Count characters, words, sentences, paragraphs, and get reading time estimates instantly.">
+    <meta name="keywords" content="character counter, word counter, text counter, sentence counter, reading time">
+    <meta name="author" content="SnapToolbox">
+    <meta property="og:title" content="Character and Word Counter - SnapToolbox">
+    <meta property="og:description" content="Instantly count characters, words, sentences, paragraphs, and estimate reading/speaking time.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Character and Word Counter - SnapToolbox">
+    <meta name="twitter:description" content="Free text counter tool with real-time statistics and text manipulation features.">
+
+    <title>Character & Word Counter - SnapToolbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .tool-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .breadcrumb a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .tool-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .tool-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tool-header p {
+            font-size: 16px;
+            color: #666;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .ad-slot {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+            color: #999;
+            border-radius: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tool-content {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', monospace;
+            font-size: 14px;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-box {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0066cc;
+            margin-bottom: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            background: white;
+            color: #333;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            background: #f5f5f5;
+            border-color: #999;
+        }
+
+        .btn-primary {
+            background: #0066cc;
+            color: white;
+            border-color: #0066cc;
+        }
+
+        .btn-primary:hover {
+            background: #0052a3;
+            border-color: #0052a3;
+        }
+
+        .btn-copy {
+            background: #28a745;
+            color: white;
+            border-color: #28a745;
+        }
+
+        .btn-copy:hover {
+            background: #218838;
+            border-color: #218838;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+            border-color: #c82333;
+        }
+
+        .case-converter {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .find-replace {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .find-replace h3 {
+            margin: 0 0 15px 0;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .find-replace-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .find-replace-input {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .find-replace-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .find-replace-input input:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+
+        .find-replace-input label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #666;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: white;
+            padding: 15px 20px;
+            font-size: 14px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+            gap: 15px;
+        }
+
+        .cookie-banner.hidden {
+            display: none;
+        }
+
+        .cookie-banner button {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #666;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .tool-header h1 {
+                font-size: 24px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .case-converter {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .find-replace-row {
+                flex-direction: column;
+            }
+
+            .find-replace-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="padding: 20px; border-bottom: 1px solid #eee; font-family: 'Inter', sans-serif; display: flex; justify-content: space-between; align-items: center;">
+        <div style="max-width: 1200px; margin: 0 auto; flex: 1;">
+            <a href="/" style="font-size: 24px; font-weight: 700; color: #333; text-decoration: none;">SnapToolbox</a>
+        </div>
+        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid #ddd;border-radius:4px;padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:#666;font-family:'Inter',sans-serif;" data-i18n="common.lang_toggle">日本語</button>
+    </header>
+
+    <div class="tool-container">
+        <nav class="breadcrumb">
+            <a href="/" data-i18n="common.breadcrumb_home">Home</a> > <span data-i18n="character_counter.title">Character Counter</span>
+        </nav>
+
+        <div class="tool-header">
+            <h1 data-i18n="character_counter.title">Character & Word Counter</h1>
+            <p data-i18n="character_counter.subtitle">Analyze your text in real-time. Count characters, words, sentences, and more.</p>
+        </div>
+
+        <div class="ad-slot">
+            [Ad Slot - 728x90]
+        </div>
+
+        <div class="tool-content">
+            <div class="input-section">
+                <label class="input-label" data-i18n="character_counter.input_placeholder">Paste or type your text below:</label>
+                <textarea id="textInput" placeholder="Enter your text here..." data-i18n-placeholder="character_counter.input_placeholder"></textarea>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="charCount">0</div>
+                    <div class="stat-label" data-i18n="character_counter.characters">Characters (with spaces)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="charNoSpaceCount">0</div>
+                    <div class="stat-label" data-i18n="character_counter.characters_no_space">Characters (no spaces)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="wordCount">0</div>
+                    <div class="stat-label" data-i18n="character_counter.words">Words</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="sentenceCount">0</div>
+                    <div class="stat-label" data-i18n="character_counter.sentences">Sentences</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="paragraphCount">0</div>
+                    <div class="stat-label" data-i18n="character_counter.paragraphs">Paragraphs</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="lineCount">0</div>
+                    <div class="stat-label">Lines</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="readingTime">0 min</div>
+                    <div class="stat-label" data-i18n="character_counter.reading_time">Reading Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="speakingTime">0 min</div>
+                    <div class="stat-label">Speaking Time</div>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; margin-top: 30px; margin-bottom: 15px;">Case Converter</h3>
+                <div class="case-converter">
+                    <button class="btn" onclick="convertCase('upper')">UPPERCASE</button>
+                    <button class="btn" onclick="convertCase('lower')">lowercase</button>
+                    <button class="btn" onclick="convertCase('title')">Title Case</button>
+                    <button class="btn" onclick="convertCase('sentence')">Sentence case</button>
+                </div>
+            </div>
+
+            <div class="find-replace">
+                <h3>Find & Replace</h3>
+                <div class="find-replace-row">
+                    <div class="find-replace-input">
+                        <label>Find:</label>
+                        <input type="text" id="findInput" placeholder="Text to find">
+                    </div>
+                    <div class="find-replace-input">
+                        <label>Replace with:</label>
+                        <input type="text" id="replaceInput" placeholder="Replacement text">
+                    </div>
+                    <button class="btn btn-primary" onclick="findReplace()">Replace All</button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="btn btn-copy" onclick="copyToClipboard()" data-i18n="character_counter.copy_btn">📋 Copy Text</button>
+                <button class="btn btn-danger" onclick="clearText()" data-i18n="character_counter.clear_btn">🗑️ Clear All</button>
+            </div>
+        </div>
+
+        <div class="ad-slot">
+            [Ad Slot - 728x90]
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="/legal/privacy">Privacy Policy</a> | <a href="/legal/terms">Terms of Service</a></p>
+    </footer>
+
+    <div class="cookie-banner" id="cookieBanner">
+        <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
+        <button onclick="closeCookieBanner()">Accept</button>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+        const textInput = document.getElementById('textInput');
+
+        textInput.addEventListener('input', function() {
+            updateStats();
+        });
+
+        function updateStats() {
+            const text = textInput.value;
+
+            // Character count
+            document.getElementById('charCount').textContent = text.length;
+
+            // Character count without spaces
+            const noSpaces = text.replace(/\s/g, '').length;
+            document.getElementById('charNoSpaceCount').textContent = noSpaces;
+
+            // Word count
+            const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+            document.getElementById('wordCount').textContent = words;
+
+            // Sentence count
+            const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+            document.getElementById('sentenceCount').textContent = text.trim() === '' ? 0 : sentences;
+
+            // Paragraph count
+            const paragraphs = text.split(/\n\n+/).filter(p => p.trim().length > 0).length;
+            document.getElementById('paragraphCount').textContent = text.trim() === '' ? 0 : paragraphs;
+
+            // Line count
+            const lines = text.split('\n').filter(l => l.trim().length > 0).length;
+            document.getElementById('lineCount').textContent = text.trim() === '' ? 0 : lines;
+
+            // Reading time (avg 200 words per minute)
+            const readingTime = Math.ceil(words / 200);
+            document.getElementById('readingTime').textContent = readingTime === 0 ? '0 min' : readingTime + ' min';
+
+            // Speaking time (avg 130 words per minute)
+            const speakingTime = Math.ceil(words / 130);
+            document.getElementById('speakingTime').textContent = speakingTime === 0 ? '0 min' : speakingTime + ' min';
+        }
+
+        function convertCase(type) {
+            let text = textInput.value;
+
+            switch(type) {
+                case 'upper':
+                    text = text.toUpperCase();
+                    break;
+                case 'lower':
+                    text = text.toLowerCase();
+                    break;
+                case 'title':
+                    text = text.replace(/\b\w/g, char => char.toUpperCase());
+                    break;
+                case 'sentence':
+                    text = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
+                    break;
+            }
+
+            textInput.value = text;
+            updateStats();
+        }
+
+        function findReplace() {
+            const findText = document.getElementById('findInput').value;
+            const replaceText = document.getElementById('replaceInput').value;
+
+            if (findText === '') {
+                alert('Please enter text to find');
+                return;
+            }
+
+            const regex = new RegExp(findText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+            textInput.value = textInput.value.replace(regex, replaceText);
+            updateStats();
+        }
+
+        function copyToClipboard() {
+            textInput.select();
+            document.execCommand('copy');
+            alert('Text copied to clipboard!');
+        }
+
+        function clearText() {
+            if (confirm('Are you sure you want to clear all text?')) {
+                textInput.value = '';
+                updateStats();
+            }
+        }
+
+        function closeCookieBanner() {
+            document.getElementById('cookieBanner').classList.add('hidden');
+            localStorage.setItem('cookieConsent', 'accepted');
+        }
+
+        window.addEventListener('load', function() {
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieBanner').classList.remove('hidden');
+            } else {
+                document.getElementById('cookieBanner').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
