@@ -84,6 +84,20 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         <span data-i18n="index.privacy_note">100% browser-based. Your data never leaves your device.</span>
                     </div>
+                    <div class="st-trust-badges">
+                        <span class="st-trust-badge" data-i18n="index.badge_no_upload">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>
+                            No Server Upload
+                        </span>
+                        <span class="st-trust-badge" data-i18n="index.badge_unlimited">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+                            Unlimited &amp; Free
+                        </span>
+                        <span class="st-trust-badge" data-i18n="index.badge_quality">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
+                            Quality Control
+                        </span>
+                    </div>
                 </div>
                 <div class="st-mascot-frame">
                     <img class="st-mascot-img" src="img/mascot/sloth.png" alt="SnapToolbox mascot - cute baby sloth" loading="eager" width="320" height="320">
@@ -167,31 +181,104 @@
                 </div>
             </div>
 
-            <!-- About -->
+            <!-- Why SnapToolbox — 5 Differentiators -->
             <section id="about" style="padding: 2rem 0;">
                 <h2 class="st-section-title" data-i18n="index.about_title">Why SnapToolbox?</h2>
-                <div class="st-features-grid">
-                    <div class="st-feature-card">
-                        <div class="st-feature-icon st-tool-icon-green">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p class="st-section-subtitle" data-i18n="index.about_subtitle">Unlike typical online tools, SnapToolbox is designed to put you in control.</p>
+                <div class="st-diff-grid">
+                    <!-- 1. Privacy -->
+                    <div class="st-diff-card st-diff-card--highlight">
+                        <div class="st-diff-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                         </div>
-                        <h3 data-i18n="index.about_1_title">Privacy First</h3>
-                        <p data-i18n="index.about_1_desc">All processing happens in your browser. We never upload or store your data.</p>
+                        <h3 data-i18n="index.diff_1_title">Your Data Never Leaves</h3>
+                        <p data-i18n="index.diff_1_desc">Other tools upload your files to their servers. SnapToolbox processes everything in your browser — your images, text, and data stay 100% on your device.</p>
+                        <span class="st-diff-vs" data-i18n="index.diff_1_vs">Others: upload to server</span>
                     </div>
-                    <div class="st-feature-card">
-                        <div class="st-feature-icon st-tool-icon-brown">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--st-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <!-- 2. Unlimited Free -->
+                    <div class="st-diff-card">
+                        <div class="st-diff-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
                         </div>
-                        <h3 data-i18n="index.about_2_title">100% Free</h3>
-                        <p data-i18n="index.about_2_desc">No hidden fees, no signup walls, no premium tiers. Every tool is completely free.</p>
+                        <h3 data-i18n="index.diff_2_title">Truly Unlimited & Free</h3>
+                        <p data-i18n="index.diff_2_desc">No "20 files per session" limit, no 5MB cap, no hidden paywalls. Use every tool as many times as you want, with no file size restrictions.</p>
+                        <span class="st-diff-vs" data-i18n="index.diff_2_vs">Others: limited free tier</span>
                     </div>
-                    <div class="st-feature-card">
-                        <div class="st-feature-icon st-tool-icon-yellow">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--st-warning)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <!-- 3. Quality Control -->
+                    <div class="st-diff-card">
+                        <div class="st-diff-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
                         </div>
-                        <h3 data-i18n="index.about_3_title">Lightning Fast</h3>
-                        <p data-i18n="index.about_3_desc">No server round-trips. Everything runs locally for instant results.</p>
+                        <h3 data-i18n="index.diff_3_title">You Control the Quality</h3>
+                        <p data-i18n="index.diff_3_desc">Adjust compression with a quality slider and choose your output format. Other tools decide for you — we let you find the perfect balance.</p>
+                        <span class="st-diff-vs" data-i18n="index.diff_3_vs">Others: no quality control</span>
                     </div>
+                    <!-- 4. Multi-tool -->
+                    <div class="st-diff-card">
+                        <div class="st-diff-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                        </div>
+                        <h3 data-i18n="index.diff_4_title">All-in-One Toolbox</h3>
+                        <p data-i18n="index.diff_4_desc">Image compression, JSON formatting, text counting, unit conversion, and color picking — all in one place. No more juggling between different sites.</p>
+                        <span class="st-diff-vs" data-i18n="index.diff_4_vs">Others: single-purpose only</span>
+                    </div>
+                    <!-- 5. Multilingual -->
+                    <div class="st-diff-card">
+                        <div class="st-diff-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h3 data-i18n="index.diff_5_title">Multilingual Support</h3>
+                        <p data-i18n="index.diff_5_desc">Switch between English and Japanese with one click. We're expanding to more languages — so everyone can use powerful tools in their own language.</p>
+                        <span class="st-diff-vs" data-i18n="index.diff_5_vs">Others: English only</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comparison Table -->
+            <section class="st-compare-section">
+                <h2 class="st-section-title" data-i18n="index.compare_title">How We Compare</h2>
+                <div class="st-compare-table-wrap">
+                    <table class="st-compare-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class="st-compare-us">SnapToolbox</th>
+                                <th data-i18n="index.compare_others">Typical Tools</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-i18n="index.compare_row_privacy">Data Privacy</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_privacy_us">Browser only</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_privacy_them">Server upload</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="index.compare_row_price">Price</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_price_us">Free, unlimited</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_price_them">Free tier limited</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="index.compare_row_quality">Quality Control</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_quality_us">Adjustable slider</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_quality_them">Auto only</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="index.compare_row_filesize">File Size Limit</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_filesize_us">50MB+</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_filesize_them">5MB (free)</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="index.compare_row_tools">Multiple Tools</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_tools_us">5+ tools</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_tools_them">1 tool</span></td>
+                            </tr>
+                            <tr>
+                                <td data-i18n="index.compare_row_lang">Languages</td>
+                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_lang_us">EN / JA</span></td>
+                                <td><span class="st-compare-x" data-i18n="index.compare_lang_them">English only</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </section>
 

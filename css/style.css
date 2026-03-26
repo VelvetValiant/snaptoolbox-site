@@ -1247,3 +1247,218 @@ input[type="range"]::-webkit-slider-thumb {
   }
   .st-cta-banner-img { width: 80px; height: 80px; }
 }
+
+/* ============================================
+   Trust Badges (Hero)
+   ============================================ */
+.st-trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+.st-trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  background: var(--st-primary-container);
+  color: var(--st-primary-dim);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: var(--st-radius-pill);
+  letter-spacing: 0.01em;
+}
+.st-trust-badge svg {
+  flex-shrink: 0;
+  stroke: var(--st-primary);
+}
+
+/* ============================================
+   Differentiator Cards (Why SnapToolbox)
+   ============================================ */
+.st-section-subtitle {
+  color: var(--st-text-secondary);
+  font-size: 1.05rem;
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+}
+.st-diff-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.st-diff-card {
+  background: var(--st-card);
+  border-radius: var(--st-radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--st-shadow-sm);
+  border: 1px solid var(--st-outline-variant);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.st-diff-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--st-shadow-md);
+}
+.st-diff-card--highlight {
+  border-color: var(--st-primary);
+  background: linear-gradient(135deg, #FAFDF2 0%, var(--st-primary-container) 100%);
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr auto;
+  column-gap: 1.25rem;
+}
+.st-diff-card--highlight .st-diff-icon {
+  grid-row: 1 / 3;
+  align-self: start;
+  width: 56px;
+  height: 56px;
+}
+.st-diff-card--highlight h3 {
+  font-size: 1.2rem;
+}
+.st-diff-card--highlight .st-diff-vs {
+  grid-column: 1 / -1;
+}
+.st-diff-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--st-primary-container);
+  border-radius: var(--st-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+.st-diff-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--st-text);
+  margin-bottom: 0.5rem;
+}
+.st-diff-card p {
+  font-size: 0.9rem;
+  color: var(--st-text-secondary);
+  line-height: 1.6;
+  flex: 1;
+}
+.st-diff-vs {
+  display: inline-block;
+  margin-top: 0.75rem;
+  padding: 0.3rem 0.75rem;
+  background: var(--st-error-container);
+  color: var(--st-error);
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--st-radius-pill);
+}
+
+@media (max-width: 900px) {
+  .st-diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .st-diff-card--highlight { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .st-diff-grid { grid-template-columns: 1fr; }
+  .st-diff-card--highlight {
+    display: flex;
+    flex-direction: column;
+  }
+  .st-trust-badges { justify-content: center; }
+}
+
+/* ============================================
+   Comparison Table
+   ============================================ */
+.st-compare-section {
+  padding: 2rem 0 2.5rem;
+}
+.st-compare-table-wrap {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+  border-radius: var(--st-radius-xl);
+  border: 1px solid var(--st-outline-variant);
+  background: var(--st-card);
+  box-shadow: var(--st-shadow-sm);
+}
+.st-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.st-compare-table thead th {
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 2px solid var(--st-outline-variant);
+  color: var(--st-text);
+}
+.st-compare-table thead th:first-child {
+  text-align: left;
+}
+.st-compare-table thead th.st-compare-us {
+  background: var(--st-primary-container);
+  color: var(--st-primary-dim);
+  font-size: 1rem;
+}
+.st-compare-table tbody td {
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  border-bottom: 1px solid var(--st-outline-variant);
+  color: var(--st-text-secondary);
+}
+.st-compare-table tbody td:first-child {
+  text-align: left;
+  font-weight: 600;
+  color: var(--st-text);
+}
+.st-compare-table tbody td.st-compare-us {
+  background: rgba(220, 240, 200, 0.15);
+}
+.st-compare-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.st-compare-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--st-success);
+  font-weight: 600;
+}
+.st-compare-check::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: var(--st-success-container);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%234A8A3C' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+.st-compare-x {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--st-text-tertiary);
+  font-weight: 500;
+}
+.st-compare-x::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background: var(--st-surface-container);
+  border-radius: 50%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%239DA377' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E");
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
