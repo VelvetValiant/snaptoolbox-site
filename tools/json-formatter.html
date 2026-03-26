@@ -3,28 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free JSON formatter and validator tool. Format, beautify, minify, and validate JSON with syntax highlighting. Works entirely in your browser.">
-  <meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, online json tool, free json formatter">
+  <meta name="description" content="Free online JSON formatter, beautifier & validator. Format, minify, and validate JSON instantly with syntax highlighting. No signup, works in your browser.">
+  <meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, format json online, validate json, json pretty print, json lint">
   <meta name="author" content="SnapToolbox">
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="JSON Formatter & Validator">
-  <meta property="og:description" content="Format, validate, and minify JSON online for free">
+  <link rel="canonical" href="https://snaptoolbox.app/tools/json-formatter.html">
+  <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/json-formatter.html">
+  <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/json-formatter.html">
+  <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/json-formatter.html">
+  <meta property="og:title" content="JSON Formatter & Validator - Free Online Tool">
+  <meta property="og:description" content="Format, beautify, minify & validate JSON online for free. No signup required.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snaptoolbox.app/tools/json-formatter.html">
+  <meta property="og:site_name" content="SnapToolbox">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="JSON Formatter & Validator - Free Online Tool">
+  <meta name="twitter:description" content="Format, beautify, minify & validate JSON online for free. No signup required.">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
 
-  <title>JSON Formatter & Validator - Format & Validate JSON Online Free</title>
+  <title>JSON Formatter & Validator Online - Free JSON Beautifier | SnapToolbox</title>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JSON Formatter & Validator",
+      "description": "Free online JSON formatter, beautifier, minifier and validator with syntax highlighting.",
+      "url": "https://snaptoolbox.app/tools/json-formatter.html",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+  }
+  </script>
 
   <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     /* JSON Formatter Specific Styles */
-    .json-container {
+    .st-two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
@@ -32,24 +56,24 @@
     }
 
     @media (max-width: 1024px) {
-      .json-container {
+      .st-two-col {
         grid-template-columns: 1fr;
       }
     }
 
-    .json-section {
+    .st-json-section {
       display: flex;
       flex-direction: column;
     }
 
-    .json-section h3 {
+    .st-json-section h3 {
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 0.75rem;
-      color: var(--color-text);
+      color: var(--st-text);
     }
 
-    .textarea-wrapper {
+    .st-textarea-wrapper {
       position: relative;
       flex: 1;
     }
@@ -58,8 +82,8 @@
       width: 100%;
       min-height: 300px;
       padding: 1rem;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--st-outline-variant);
+      border-radius: var(--st-radius-md);
       font-family: 'Fira Code', monospace;
       font-size: 0.9rem;
       line-height: 1.6;
@@ -67,428 +91,488 @@
       overflow-wrap: normal;
       word-wrap: normal;
       resize: vertical;
-      background: var(--color-bg);
-      color: var(--color-text);
+      background: var(--st-surface);
+      color: var(--st-text);
       outline: none;
       transition: border-color 0.2s;
     }
 
     #jsonInput:focus, #jsonOutput:focus {
-      border-color: var(--color-primary);
+      border-color: var(--st-primary);
     }
 
     #jsonOutput {
-      background: white;
-      color: var(--color-text);
+      background: var(--st-card);
+      color: var(--st-text);
       resize: none;
       overflow-y: auto;
     }
 
     /* Syntax Highlighting */
-    .json-highlight {
+    .st-code-block {
       width: 100%;
       min-height: 300px;
       padding: 1rem;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--st-outline-variant);
+      border-radius: var(--st-radius-md);
       font-family: 'Fira Code', monospace;
       font-size: 0.9rem;
       line-height: 1.6;
       white-space: pre;
       overflow: auto;
-      background: white;
-      color: var(--color-text);
-      border-color: var(--color-primary);
+      background: var(--st-card);
+      color: var(--st-text);
     }
 
-    .json-highlight code {
+    .st-code-block code {
       font-family: 'Fira Code', monospace;
     }
 
     /* Color codes for syntax highlighting */
-    .json-key { color: #AF00DB; font-weight: 500; } /* Purple - keys */
-    .json-string { color: #00AA00; } /* Green - strings */
-    .json-number { color: #0000FF; } /* Blue - numbers */
-    .json-boolean { color: #FF6B00; } /* Orange - booleans */
-    .json-null { color: #A0A0A0; font-weight: 500; } /* Gray - null */
-    .json-bracket { color: var(--color-text); } /* Black - brackets */
+    .json-key { color: #AF00DB; font-weight: 500; }
+    .json-string { color: #00AA00; }
+    .json-number { color: #0000FF; }
+    .json-boolean { color: #FF6B00; }
+    .json-null { color: #A0A0A0; font-weight: 500; }
+    .json-bracket { color: var(--st-text); }
 
-    .controls-section {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
+    .st-controls {
+      background: var(--st-surface);
+      border: 1px solid var(--st-outline-variant);
+      border-radius: var(--st-radius-lg);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
     }
 
-    .controls-header {
+    .st-controls-title {
       font-size: 0.95rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: var(--color-text);
+      color: var(--st-text);
     }
 
-    .button-grid {
+    .st-btn-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 0.75rem;
       margin-bottom: 1rem;
     }
 
-    .button-grid .btn {
+    .st-btn-grid .st-btn {
       width: 100%;
       justify-content: center;
       padding: 0.65rem 0.75rem;
       font-size: 0.85rem;
     }
 
-    .control-group {
+    .st-control-group {
       margin-bottom: 1rem;
     }
 
-    .control-group:last-child {
+    .st-control-group:last-child {
       margin-bottom: 0;
     }
 
-    .control-label {
+    .st-control-label {
       display: block;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      color: var(--color-text);
+      color: var(--st-text);
     }
 
-    .indent-selector {
+    .st-pill-group {
       display: flex;
       gap: 0.5rem;
       flex-wrap: wrap;
     }
 
-    .indent-btn {
+    .st-pill-btn {
       padding: 0.5rem 1rem;
-      border: 1.5px solid var(--color-border);
-      background: var(--color-bg);
-      color: var(--color-text);
-      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--st-outline-variant);
+      background: var(--st-surface);
+      color: var(--st-text);
+      border-radius: var(--st-radius-md);
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: 500;
       transition: all 0.2s;
     }
 
-    .indent-btn:hover {
-      border-color: var(--color-primary);
-      background: #EEF2FF;
+    .st-pill-btn:hover {
+      border-color: var(--st-primary);
+      background: var(--st-primary-container);
     }
 
-    .indent-btn.active {
-      background: var(--color-primary);
+    .st-pill-btn.active {
+      background: var(--st-primary);
       color: white;
-      border-color: var(--color-primary);
+      border-color: var(--st-primary);
     }
 
-    .error-box {
+    .st-msg-error {
       background: #FEE2E2;
       border: 1px solid #FECACA;
-      border-radius: var(--radius-sm);
+      border-radius: var(--st-radius-md);
       padding: 1rem;
       margin-bottom: 1rem;
       display: none;
+      color: #991B1B;
     }
 
-    .error-box.show {
+    .st-msg-error.show {
       display: block;
     }
 
-    .error-title {
+    .st-msg-error strong {
       font-weight: 700;
       color: #DC2626;
       margin-bottom: 0.5rem;
+      display: block;
     }
 
-    .error-line {
+    .st-msg-error-line {
       font-size: 0.85rem;
       color: #991B1B;
       font-family: 'Fira Code', monospace;
     }
 
-    .success-box {
+    .st-msg-success {
       background: #ECFDF5;
       border: 1px solid #A7F3D0;
-      border-radius: var(--radius-sm);
+      border-radius: var(--st-radius-md);
       padding: 1rem;
       margin-bottom: 1rem;
       display: none;
       color: #065F46;
     }
 
-    .success-box.show {
+    .st-msg-success.show {
       display: block;
     }
 
-    .stats-section {
+    .st-stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 1rem;
       padding: 1rem;
-      background: var(--color-bg);
-      border-radius: var(--radius-sm);
+      background: var(--st-surface);
+      border-radius: var(--st-radius-md);
       margin-bottom: 1.5rem;
     }
 
-    .stat-card {
+    .st-stat-box {
       text-align: center;
     }
 
-    .stat-label {
+    .st-stat-label {
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: var(--color-text-secondary);
+      color: var(--st-text-secondary);
       margin-bottom: 0.35rem;
     }
 
-    .stat-value {
+    .st-stat-value {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--color-primary);
+      color: var(--st-primary);
       font-family: 'Fira Code', monospace;
     }
 
-    .breadcrumb {
+    .st-breadcrumb {
       margin-bottom: 1.5rem;
     }
 
-    .breadcrumb a {
-      color: var(--color-text-secondary);
+    .st-breadcrumb a {
+      color: var(--st-text-secondary);
       transition: color 0.2s;
     }
 
-    .breadcrumb a:hover {
-      color: var(--color-primary);
+    .st-breadcrumb a:hover {
+      color: var(--st-primary);
       text-decoration: none;
     }
 
-    .breadcrumb span {
+    .st-breadcrumb span {
       margin: 0 0.25rem;
-      color: var(--color-border);
+      color: var(--st-outline-variant);
     }
 
-    .tool-description {
-      background: #EEF2FF;
-      border-left: 4px solid var(--color-primary);
+    .st-tool-description {
+      background: var(--st-primary-container);
+      border-left: 4px solid var(--st-primary);
       padding: 1rem;
-      border-radius: var(--radius-sm);
+      border-radius: var(--st-radius-md);
       margin-bottom: 1.5rem;
       font-size: 0.9rem;
       line-height: 1.6;
-      color: var(--color-text);
+      color: var(--st-text);
     }
 
-    .sample-json {
-      font-size: 0.8rem;
-      background: var(--color-bg);
-      padding: 0.5rem;
-      border-radius: 4px;
-      overflow-x: auto;
-      max-height: 150px;
-      overflow-y: auto;
-      font-family: 'Fira Code', monospace;
-      color: #666;
+    .st-tool-description strong {
+      color: var(--st-primary-dim);
     }
 
-    .copy-output-btn {
+    .st-ad {
+      background: var(--st-surface-low);
+      border: 1px solid var(--st-outline-variant);
+      border-radius: var(--st-radius-md);
+      padding: 1rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--st-text-secondary);
+    }
+
+    .st-faq {
+      max-width: 800px;
+      margin: 2rem auto;
+    }
+
+    .st-faq h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .st-faq details {
+      border-bottom: 1px solid var(--st-outline-variant);
+      padding: 1rem;
+      background: var(--st-surface);
+    }
+
+    .st-faq details:first-child {
+      border-top: 1px solid var(--st-outline-variant);
+      border-radius: var(--st-radius-sm) var(--st-radius-sm) 0 0;
+    }
+
+    .st-faq details:last-child {
+      border-radius: 0 0 var(--st-radius-sm) var(--st-radius-sm);
+    }
+
+    .st-faq summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--st-primary);
+    }
+
+    .st-faq details p {
       margin-top: 0.75rem;
+      color: var(--st-text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .st-copy-btn-container {
+      margin-top: 0.75rem;
+    }
+
+    .st-tool-content {
+      padding: 0;
     }
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="/" class="logo">
-        <span>⚡</span> SnapToolbox
+  <header class="st-header">
+    <div class="st-header-inner">
+      <a href="/" class="st-logo">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#5B7A4A"/>
+          <path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/>
+        </svg>
+        <span>SnapToolbox</span>
       </a>
-      <nav class="nav-links">
-        <a href="/" data-i18n="common.breadcrumb_home">Home</a>
-        <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
-        <a href="/about" data-i18n="common.nav_about">About</a>
-        <a href="/contact" data-i18n="common.nav_contact">Contact</a>
-        <button class="lang-toggle" onclick="I18N.toggleLang()" style="background:none;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:0.35rem 0.75rem;cursor:pointer;font-size:0.85rem;color:var(--color-text-secondary);" data-i18n="common.lang_toggle">日本語</button>
-      </nav>
-      <button class="nav-toggle" aria-label="Menu">
+      <button class="st-nav-toggle" aria-label="Menu">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
+      <nav class="st-nav">
+        <a href="/" data-i18n="common.breadcrumb_home">Home</a>
+        <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
+        <a href="/about" data-i18n="common.nav_about">About</a>
+        <a href="/contact" data-i18n="common.nav_contact">Contact</a>
+        <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+      </nav>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main class="st-main">
     <!-- Breadcrumb -->
-    <div class="breadcrumb">
+    <div class="st-breadcrumb">
       <a href="/" data-i18n="common.breadcrumb_home">Home</a>
       <span>/</span>
       <span data-i18n="json_formatter.title">JSON Formatter</span>
     </div>
 
-    <!-- Tool Header -->
-    <div class="tool-header" style="margin-bottom: 2rem;">
+            <div class="st-tool-mascot">
+                <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Working sloth mascot" loading="lazy" width="80" height="80">
+                <div class="st-tool-mascot-bubble" data-i18n="json_formatter.mascot_bubble">Paste your JSON and I'll format it nice and neat — no rush!</div>
+            </div>
+
+    <!-- Hero Section -->
+    <div class="st-hero">
       <h1 data-i18n="json_formatter.title">JSON Formatter & Validator</h1>
-      <p data-i18n="json_formatter.subtitle">Format, validate, minify, and beautify JSON online. Instant syntax highlighting and error detection.</p>
+      <p class="st-subtitle" data-i18n="json_formatter.subtitle">Format, validate, minify, and beautify JSON online. Instant syntax highlighting and error detection.</p>
     </div>
 
     <!-- Tool Description -->
-    <div class="tool-description">
+    <div class="st-tool-description">
       <strong>Free JSON Tool:</strong> Paste your JSON code to format, validate, and analyze it instantly. Get real-time error detection with line numbers, character counts, object depth analysis, and more. No installation needed—everything runs in your browser.
     </div>
 
     <!-- Ad Slot 1 -->
-    <div class="ad-slot">
+    <div class="st-ad">
       [Advertisement Slot 1 - 728x90]
     </div>
 
     <!-- Statistics -->
-    <div class="stats-section">
-      <div class="stat-card">
-        <div class="stat-label">Characters</div>
-        <div class="stat-value" id="charCount">0</div>
+    <div class="st-stats-grid">
+      <div class="st-stat-box">
+        <div class="st-stat-label">Characters</div>
+        <div class="st-stat-value" id="charCount">0</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Lines</div>
-        <div class="stat-value" id="lineCount">0</div>
+      <div class="st-stat-box">
+        <div class="st-stat-label">Lines</div>
+        <div class="st-stat-value" id="lineCount">0</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Object Depth</div>
-        <div class="stat-value" id="depthCount">0</div>
+      <div class="st-stat-box">
+        <div class="st-stat-label">Object Depth</div>
+        <div class="st-stat-value" id="depthCount">0</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-label">Status</div>
-        <div class="stat-value" id="statusIcon" style="font-size: 2rem;">—</div>
+      <div class="st-stat-box">
+        <div class="st-stat-label">Status</div>
+        <div class="st-stat-value" id="statusIcon" style="font-size: 2rem;">—</div>
       </div>
     </div>
 
     <!-- Controls -->
-    <div class="controls-section">
-      <div class="controls-header">Controls</div>
+    <div class="st-controls">
+      <div class="st-controls-title">Controls</div>
 
       <!-- Action Buttons -->
-      <div class="button-grid">
-        <button class="btn btn-primary" id="formatBtn" title="Format and beautify JSON" data-i18n="json_formatter.format_btn">Format</button>
-        <button class="btn btn-secondary" id="minifyBtn" title="Minify JSON" data-i18n="json_formatter.minify_btn">Minify</button>
-        <button class="btn btn-secondary" id="validateBtn" title="Validate JSON" data-i18n="common.nav_tools">Validate</button>
-        <button class="btn btn-secondary" id="copyBtn" title="Copy to clipboard" data-i18n="json_formatter.copy_btn">Copy</button>
-        <button class="btn btn-secondary" id="clearBtn" title="Clear all" data-i18n="json_formatter.clear_btn">Clear</button>
-        <button class="btn btn-secondary" id="sampleBtn" title="Load sample JSON">Sample</button>
+      <div class="st-btn-grid">
+        <button class="st-btn st-btn-primary" id="formatBtn" title="Format and beautify JSON" data-i18n="json_formatter.format_btn">Format</button>
+        <button class="st-btn st-btn-secondary" id="minifyBtn" title="Minify JSON" data-i18n="json_formatter.minify_btn">Minify</button>
+        <button class="st-btn st-btn-secondary" id="validateBtn" title="Validate JSON" data-i18n="json_formatter.validate_btn">Validate</button>
+        <button class="st-btn st-btn-secondary" id="copyBtn" title="Copy to clipboard" data-i18n="json_formatter.copy_btn">Copy</button>
+        <button class="st-btn st-btn-secondary" id="clearBtn" title="Clear all" data-i18n="json_formatter.clear_btn">Clear</button>
+        <button class="st-btn st-btn-secondary" id="sampleBtn" title="Load sample JSON">Sample</button>
       </div>
 
       <!-- Indentation Selector -->
-      <div class="control-group">
-        <label class="control-label">Indentation</label>
-        <div class="indent-selector">
-          <button class="indent-btn active" data-indent="2">2 Spaces</button>
-          <button class="indent-btn" data-indent="4">4 Spaces</button>
-          <button class="indent-btn" data-indent="tab">Tab</button>
+      <div class="st-control-group">
+        <label class="st-control-label">Indentation</label>
+        <div class="st-pill-group">
+          <button class="st-pill-btn active" data-indent="2">2 Spaces</button>
+          <button class="st-pill-btn" data-indent="4">4 Spaces</button>
+          <button class="st-pill-btn" data-indent="tab">Tab</button>
         </div>
       </div>
     </div>
 
     <!-- Main Tool Container -->
-    <div class="tool-container" style="padding: 0;">
+    <div class="st-tool-content">
       <!-- Error Display -->
-      <div class="error-box" id="errorBox">
-        <div class="error-title">❌ Invalid JSON</div>
-        <div class="error-line" id="errorMessage"></div>
+      <div class="st-msg-error" id="errorBox">
+        <strong>❌ Invalid JSON</strong>
+        <div class="st-msg-error-line" id="errorMessage"></div>
       </div>
 
       <!-- Success Display -->
-      <div class="success-box" id="successBox">
+      <div class="st-msg-success" id="successBox">
         <strong>✓ Valid JSON</strong> - Your JSON is properly formatted
       </div>
 
       <!-- Input and Output Area -->
-      <div class="json-container" style="padding: 1.5rem; gap: 1.5rem;">
+      <div class="st-two-col" style="padding: 1.5rem;">
         <!-- Input Section -->
-        <div class="json-section">
+        <div class="st-json-section">
           <h3 data-i18n="json_formatter.input_label">📥 JSON Input</h3>
-          <div class="textarea-wrapper">
+          <div class="st-textarea-wrapper">
             <textarea id="jsonInput" placeholder="Paste your JSON here..." data-i18n-placeholder="json_formatter.input_placeholder"></textarea>
           </div>
         </div>
 
         <!-- Output Section -->
-        <div class="json-section">
+        <div class="st-json-section">
           <h3 data-i18n="json_formatter.output_label">📤 Formatted Output</h3>
-          <div class="textarea-wrapper">
-            <div class="json-highlight" id="jsonOutput"><code id="outputCode"></code></div>
+          <div class="st-textarea-wrapper">
+            <div class="st-code-block" id="jsonOutput"><code id="outputCode"></code></div>
           </div>
-          <button class="btn btn-primary copy-output-btn" id="copyOutputBtn" style="margin-top: 0.75rem;" data-i18n="json_formatter.copy_btn">Copy Output</button>
+          <div class="st-copy-btn-container">
+            <button class="st-btn st-btn-primary" id="copyOutputBtn" style="width: 100%;" data-i18n="json_formatter.copy_btn">Copy Output</button>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Ad Slot 2 -->
-    <div class="ad-slot" style="margin-top: 2rem;">
+    <div class="st-ad" style="margin-top: 2rem;">
       [Advertisement Slot 2 - 728x90]
     </div>
 
     <!-- FAQ Section -->
-    <div style="max-width: 800px; margin: 2rem auto;">
-      <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Frequently Asked Questions</h2>
+    <div class="st-faq">
+      <h2>Frequently Asked Questions</h2>
 
-      <div style="background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden;">
-        <details style="border-bottom: 1px solid var(--color-border); padding: 1rem;">
-          <summary style="cursor: pointer; font-weight: 600; color: var(--color-primary);">What is JSON?</summary>
-          <p style="margin-top: 0.75rem; color: var(--color-text-secondary); font-size: 0.95rem;">JSON (JavaScript Object Notation) is a lightweight data format used for data exchange. It's human-readable and widely supported across programming languages.</p>
-        </details>
+      <details>
+        <summary>What is JSON?</summary>
+        <p>JSON (JavaScript Object Notation) is a lightweight data format used for data exchange. It's human-readable and widely supported across programming languages.</p>
+      </details>
 
-        <details style="border-bottom: 1px solid var(--color-border); padding: 1rem;">
-          <summary style="cursor: pointer; font-weight: 600; color: var(--color-primary);">Is my data secure?</summary>
-          <p style="margin-top: 0.75rem; color: var(--color-text-secondary); font-size: 0.95rem;">Yes! All processing happens entirely in your browser. Your data is never sent to any server and never stored anywhere.</p>
-        </details>
+      <details>
+        <summary>Is my data secure?</summary>
+        <p>Yes! All processing happens entirely in your browser. Your data is never sent to any server and never stored anywhere.</p>
+      </details>
 
-        <details style="padding: 1rem;">
-          <summary style="cursor: pointer; font-weight: 600; color: var(--color-primary);">What's the difference between Format and Minify?</summary>
-          <p style="margin-top: 0.75rem; color: var(--color-text-secondary); font-size: 0.95rem;"><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
-        </details>
-      </div>
+      <details>
+        <summary>What's the difference between Format and Minify?</summary>
+        <p><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
+      </details>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-grid">
-        <div class="footer-col">
+  <footer class="st-footer">
+    <div class="st-footer-inner">
+      <div class="st-footer-grid">
+        <div class="st-footer-col">
           <h4>Tools</h4>
-          <a href="/tools/json-formatter">JSON Formatter</a>
-          <a href="/tools/base64-encoder">Base64 Encoder</a>
-          <a href="/tools/color-picker">Color Picker</a>
-          <a href="/tools/markdown-editor">Markdown Editor</a>
+          <a href="image-compressor.html">Image Compressor</a>
+          <a href="json-formatter.html">JSON Formatter</a>
+          <a href="character-counter.html">Character Counter</a>
+          <a href="unit-converter.html">Unit Converter</a>
+          <a href="color-converter.html">Color Converter</a>
         </div>
-        <div class="footer-col">
+        <div class="st-footer-col">
           <h4>Company</h4>
-          <a href="/about">About Us</a>
+          <a href="/">Home</a>
+          <a href="/#tools">Tools</a>
+          <a href="/about">About</a>
           <a href="/contact">Contact</a>
-          <a href="/blog">Blog</a>
-          <a href="/faq">FAQ</a>
         </div>
-        <div class="footer-col">
+        <div class="st-footer-col">
           <h4>Legal</h4>
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/terms">Terms of Service</a>
-          <a href="/cookies">Cookie Policy</a>
+          <a href="../legal/privacy-policy.html">Privacy Policy</a>
+          <a href="../legal/terms-of-service.html">Terms of Service</a>
+          <a href="../legal/cookie-policy.html">Cookie Policy</a>
         </div>
-        <div class="footer-col">
+        <div class="st-footer-col">
           <h4>Follow</h4>
           <a href="https://twitter.com/snaptoolbox">Twitter</a>
           <a href="https://github.com/snaptoolbox">GitHub</a>
           <a href="https://linkedin.com/company/snaptoolbox">LinkedIn</a>
         </div>
       </div>
-      <div class="footer-bottom">
+      <div class="st-footer-bottom">
         <span>&copy; 2024 SnapToolbox. All rights reserved.</span>
         <span>Made with ❤️ for developers</span>
       </div>
@@ -496,15 +580,15 @@
   </footer>
 
   <!-- Cookie Consent Banner -->
-  <div class="cookie-banner">
-    <div class="cookie-inner">
+  <div class="st-cookie">
+    <div class="st-cookie-inner">
       <p>
         We use cookies to enhance your experience. By continuing to browse, you agree to our
-        <a href="/cookies">cookie policy</a>.
+        <a href="../legal/cookie-policy.html">cookie policy</a>.
       </p>
-      <div class="cookie-buttons">
-        <button class="btn btn-secondary" id="cookieDecline">Decline</button>
-        <button class="btn btn-primary" id="cookieAccept">Accept All</button>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="st-btn st-btn-secondary" id="cookieDecline">Decline</button>
+        <button class="st-btn st-btn-primary" id="cookieAccept">Accept All</button>
       </div>
     </div>
   </div>
@@ -540,7 +624,7 @@
         lineCount: document.getElementById('lineCount'),
         depthCount: document.getElementById('depthCount'),
         statusIcon: document.getElementById('statusIcon'),
-        indentBtns: document.querySelectorAll('.indent-btn'),
+        indentBtns: document.querySelectorAll('.st-pill-btn'),
         cookieAccept: document.getElementById('cookieAccept'),
         cookieDecline: document.getElementById('cookieDecline')
       },
@@ -690,7 +774,7 @@
           this.isValid = false;
           this.showError(result.error.message);
           this.elements.statusIcon.textContent = '✗';
-          this.elements.statusIcon.style.color = 'var(--color-error)';
+          this.elements.statusIcon.style.color = 'var(--st-error)';
           return;
         }
 
@@ -699,7 +783,7 @@
         this.hideError();
         this.showSuccess();
         this.elements.statusIcon.textContent = '✓';
-        this.elements.statusIcon.style.color = 'var(--color-secondary)';
+        this.elements.statusIcon.style.color = 'var(--st-success)';
       },
 
       // Auto-validate on input
@@ -708,7 +792,7 @@
         if (!input) {
           this.hideError();
           this.elements.statusIcon.textContent = '—';
-          this.elements.statusIcon.style.color = 'var(--color-text-secondary)';
+          this.elements.statusIcon.style.color = 'var(--st-text-secondary)';
           return;
         }
 
@@ -716,12 +800,12 @@
         if (result.error) {
           this.isValid = false;
           this.elements.statusIcon.textContent = '✗';
-          this.elements.statusIcon.style.color = 'var(--color-error)';
+          this.elements.statusIcon.style.color = 'var(--st-error)';
         } else {
           this.jsonData = result.data;
           this.isValid = true;
           this.elements.statusIcon.textContent = '✓';
-          this.elements.statusIcon.style.color = 'var(--color-secondary)';
+          this.elements.statusIcon.style.color = 'var(--st-success)';
           this.hideError();
         }
       },
@@ -794,7 +878,7 @@
         this.isValid = false;
         this.hideError();
         this.elements.statusIcon.textContent = '—';
-        this.elements.statusIcon.style.color = 'var(--color-text-secondary)';
+        this.elements.statusIcon.style.color = 'var(--st-text-secondary)';
         this.updateStats();
       },
 

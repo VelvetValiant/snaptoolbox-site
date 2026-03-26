@@ -90,6 +90,14 @@ const I18N = {
         about_2_desc: 'No hidden fees, no signup walls, no premium tiers. Every tool is completely free.',
         about_3_title: 'Lightning Fast',
         about_3_desc: 'No server round-trips. Everything runs locally for instant results.',
+        privacy_note: '100% browser-based. Your data never leaves your device.',
+        cta_title: 'Try our most popular tool',
+        cta_desc: 'Compress images up to 80% smaller — right in your browser. No upload, no waiting.',
+        cta_btn: 'Compress Images Now',
+        mascot_curious: 'Curious',
+        mascot_focused: 'Focused',
+        mascot_relaxed: 'Relaxed',
+        mascot_techy: 'Techy',
       },
       ja: {
         hero_title: '無料オンラインツール',
@@ -125,6 +133,14 @@ const I18N = {
         about_2_desc: '隠れた料金なし、登録の壁なし、有料プランなし。すべてのツールが完全無料です。',
         about_3_title: '超高速',
         about_3_desc: 'サーバー通信なし。ローカル処理で瞬時に結果が得られます。',
+        privacy_note: '100%ブラウザ完結。あなたのデータは端末から一切出ません。',
+        cta_title: '一番人気のツールを試す',
+        cta_desc: '画像を最大80%軽量化。ブラウザだけで完結、アップロード不要。',
+        cta_btn: '画像を圧縮する',
+        mascot_curious: 'わくわく',
+        mascot_focused: '集中',
+        mascot_relaxed: 'のんびり',
+        mascot_techy: 'テクノ',
       }
     },
 
@@ -176,6 +192,7 @@ const I18N = {
         valid_json: 'Valid JSON',
         invalid_json: 'Invalid JSON',
         privacy_note: 'No data is sent to any server.',
+        mascot_bubble: 'Paste your JSON and I\'ll format it nice and neat — no rush!',
       },
       ja: {
         title: 'JSON整形・検証ツール',
@@ -191,6 +208,7 @@ const I18N = {
         valid_json: '有効なJSON',
         invalid_json: '無効なJSON',
         privacy_note: 'データがサーバーに送信されることはありません。',
+        mascot_bubble: 'JSONを貼り付けてね。ゆっくりキレイに整えるよ！',
       }
     },
 
@@ -209,6 +227,7 @@ const I18N = {
         clear_btn: 'Clear',
         copy_btn: 'Copy Text',
         privacy_note: 'Your text is never sent to any server.',
+        mascot_bubble: 'Let me count every character for you. Take your time typing!',
       },
       ja: {
         title: '文字数カウンター',
@@ -223,6 +242,7 @@ const I18N = {
         clear_btn: 'クリア',
         copy_btn: 'テキストをコピー',
         privacy_note: 'テキストがサーバーに送信されることはありません。',
+        mascot_bubble: '文字数、ぜ〜んぶ数えるよ。ゆっくり書いてね！',
       }
     },
 
@@ -273,6 +293,7 @@ const I18N = {
         cat_data: 'Data',
         cat_time: 'Time',
         privacy_note: 'All calculations happen in your browser.',
+        mascot_bubble: 'Converting units is easy — just relax and let me handle it!',
       },
       ja: {
         title: '単位変換ツール',
@@ -291,6 +312,7 @@ const I18N = {
         cat_data: 'データ',
         cat_time: '時間',
         privacy_note: 'すべての計算はブラウザ内で行われます。',
+        mascot_bubble: '単位変換はおまかせ！のんびり待っててね！',
       }
     },
 
@@ -305,6 +327,7 @@ const I18N = {
         copy_btn: 'Copy',
         preview_label: 'Color Preview',
         privacy_note: 'All processing happens in your browser.',
+        mascot_bubble: 'Pick any color — I\'ll convert it to every format you need!',
       },
       ja: {
         title: 'カラー変換ツール',
@@ -315,6 +338,7 @@ const I18N = {
         copy_btn: 'コピー',
         preview_label: 'カラープレビュー',
         privacy_note: 'すべての処理はブラウザ内で行われます。',
+        mascot_bubble: '好きな色を選んでね。全フォーマットに変換するよ！',
       }
     },
 
@@ -408,7 +432,7 @@ const I18N = {
     });
 
     // Update lang toggle button text
-    const langBtn = document.querySelector('.lang-toggle');
+    const langBtn = document.querySelector('.lang-toggle') || document.querySelector('.st-lang-btn');
     if (langBtn) {
       langBtn.textContent = this.t('common', 'lang_toggle');
     }

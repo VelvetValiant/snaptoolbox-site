@@ -1,12 +1,12 @@
 /* ============================================
-   SnapToolbox - Shared JavaScript
+   SnapToolbox — Shared JavaScript
    Cookie Consent, Navigation, Utilities
    ============================================ */
 
 // --- Mobile Navigation Toggle ---
 document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav-links');
+  const toggle = document.querySelector('.st-nav-toggle');
+  const nav = document.querySelector('.st-nav');
   if (toggle && nav) {
     toggle.addEventListener('click', () => nav.classList.toggle('open'));
     document.addEventListener('click', (e) => {
@@ -34,7 +34,7 @@ const CookieConsent = {
   },
 
   showBanner() {
-    const banner = document.querySelector('.cookie-banner');
+    const banner = document.querySelector('.st-cookie');
     if (banner) {
       banner.classList.add('show');
     }
@@ -63,7 +63,7 @@ const CookieConsent = {
   },
 
   hideBanner() {
-    const banner = document.querySelector('.cookie-banner');
+    const banner = document.querySelector('.st-cookie');
     if (banner) banner.classList.remove('show');
   },
 
@@ -75,7 +75,6 @@ const CookieConsent = {
     script.src = 'https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID';
     script.async = true;
     document.head.appendChild(script);
-
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -84,15 +83,7 @@ const CookieConsent = {
   },
 
   loadAds() {
-    // AdSense placeholder
-    // Replace with your actual AdSense publisher ID
-    /*
-    const script = document.createElement('script');
-    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX';
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    document.head.appendChild(script);
-    */
+    // AdSense — already loaded via <script> tag in <head>
   }
 };
 
@@ -100,10 +91,10 @@ document.addEventListener('DOMContentLoaded', () => CookieConsent.init());
 
 // --- Toast Notification ---
 function showToast(message, duration = 2500) {
-  let toast = document.querySelector('.toast');
+  let toast = document.querySelector('.st-toast');
   if (!toast) {
     toast = document.createElement('div');
-    toast.className = 'toast';
+    toast.className = 'st-toast';
     document.body.appendChild(toast);
   }
   toast.textContent = message;
@@ -112,12 +103,11 @@ function showToast(message, duration = 2500) {
 }
 
 // --- Copy to Clipboard ---
-async function copyToClipboard(text) {
+async function copyText(text) {
   try {
     await navigator.clipboard.writeText(text);
     showToast('Copied!');
   } catch {
-    // Fallback
     const ta = document.createElement('textarea');
     ta.value = text;
     ta.style.position = 'fixed';
@@ -129,6 +119,9 @@ async function copyToClipboard(text) {
     showToast('Copied!');
   }
 }
+
+// Backward compatibility alias
+const copyToClipboard = copyText;
 
 // --- File Size Formatter ---
 function formatFileSize(bytes) {
@@ -146,24 +139,19 @@ function initSearch() {
 
   input.addEventListener('input', (e) => {
     const query = e.target.value.toLowerCase().trim();
-    const cards = document.querySelectorAll('.tool-card');
-    const categories = document.querySelectorAll('.category-section');
+    const cards = document.querySelectorAll('.st-tool-card');
+    const categories = document.querySelectorAll('.st-category-section');
 
     cards.forEach(card => {
       const text = card.textContent.toLowerCase();
       card.style.display = text.includes(query) ? '' : 'none';
     });
 
-    // Hide empty categories
     categories.forEach(section => {
-      const visibleCards = section.querySelectorAll('.tool-card:not([style*="display: none"])');
+      const visibleCards = section.querySelectorAll('.st-tool-card:not([style*="display: none"])');
       section.style.display = visibleCards.length > 0 ? '' : 'none';
     });
   });
 }
 
 document.addEventListener('DOMContentLoaded', initSearch);
-
-// --- Security: CSP Meta Tag injection ---
-// Additional client-side security headers (complement server-side headers)
-// Note: Real CSP should be set via server/hosting headers
