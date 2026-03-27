@@ -164,6 +164,20 @@ const SnsLinks = {
         box-shadow: 0 2px 8px rgba(61, 92, 46, 0.12);
       }
 
+      /* Greyed-out (unregistered) SNS placeholder */
+      .sns-link-item.sns-inactive {
+        opacity: 0.35;
+        pointer-events: none;
+        user-select: none;
+        background: var(--st-surface-container, #EFF3DE);
+        border-color: var(--st-outline-variant, #CDD2B2);
+      }
+
+      .sns-link-item.sns-inactive:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
       .sns-link-icon {
         font-size: 0.85rem;
         line-height: 1;
@@ -409,6 +423,36 @@ const SnsLinks = {
     return fallback[key] || key;
   },
 
+  // --- Build SNS list HTML (active + inactive placeholders) ---
+  buildLinksHTML(links) {
+    // Registered SNS type keys
+    const registeredKeys = new Set(links.map(l => l.type));
+
+    // Active (registered) links
+    const activeHTML = links.map((link, i) => `
+      <span class="sns-link-item">
+        <a href="${this.escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;color:inherit;text-decoration:none;">
+          <span class="sns-link-icon">${this.SNS_ICONS[link.type] || '🔗'}</span>
+          <span class="sns-link-label">${this.escapeHtml(link.label)}</span>
+          <span class="sns-link-name">${this.escapeHtml(this.extractName(link.url))}</span>
+        </a>
+        <button class="sns-delete-btn" data-index="${i}" title="Delete">×</button>
+      </span>
+    `).join('');
+
+    // Inactive (unregistered) SNS placeholders — exclude 'website' fallback
+    const inactiveHTML = this.SNS_TYPES
+      .filter(sns => sns.key !== 'website' && !registeredKeys.has(sns.key))
+      .map(sns => `
+        <span class="sns-link-item sns-inactive">
+          <span class="sns-link-icon">${this.SNS_ICONS[sns.key] || '🔗'}</span>
+          <span class="sns-link-label">${this.escapeHtml(sns.label)}</span>
+        </span>
+      `).join('');
+
+    return activeHTML + inactiveHTML;
+  },
+
   // --- Render ---
   render() {
     const links = this.getLinks();
@@ -430,19 +474,7 @@ const SnsLinks = {
           <li>${this.t('sns_note_2')}</li>
         </ul>
         <div class="sns-links-list" id="snsLinksList">
-          ${links.length === 0
-            ? `<div class="sns-empty">${this.t('sns_empty')}</div>`
-            : links.map((link, i) => `
-                <span class="sns-link-item">
-                  <a href="${this.escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:0.4rem;color:inherit;text-decoration:none;">
-                    <span class="sns-link-icon">${this.SNS_ICONS[link.type] || '🔗'}</span>
-                    <span class="sns-link-label">${this.escapeHtml(link.label)}</span>
-                    <span class="sns-link-name">${this.escapeHtml(this.extractName(link.url))}</span>
-                  </a>
-                  <button class="sns-delete-btn" data-index="${i}" title="Delete">×</button>
-                </span>
-              `).join('')
-          }
+          ${this.buildLinksHTML(links)}
         </div>
         <div class="sns-form" id="snsForm">
           <div class="sns-form-row">
