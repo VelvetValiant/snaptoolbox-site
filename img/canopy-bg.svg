@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E3A12"/>
+      <stop offset="30%" stop-color="#2B4E1C"/>
+      <stop offset="60%" stop-color="#3D5A2E"/>
+      <stop offset="100%" stop-color="#4A6639"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0.55" cy="0.2" r="0.55">
+      <stop offset="0%" stop-color="#E8C95A" stop-opacity="0.4"/>
+      <stop offset="30%" stop-color="#DCF0C8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#1E3A12" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DCF0C8" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#DCF0C8" stop-opacity="0.08"/>
+      <stop offset="85%" stop-color="#B8CCA0" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#8B6B5E" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3D5A2E" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#5B4A3A" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="farBlur"><feGaussianBlur stdDeviation="6"/></filter>
+    <filter id="midBlur"><feGaussianBlur stdDeviation="3"/></filter>
+    <filter id="leafBlur"><feGaussianBlur stdDeviation="1.5"/></filter>
+    <filter id="glowFilter">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Deep jungle sky -->
+  <rect width="1200" height="500" fill="url(#sky)"/>
+  <rect width="1200" height="500" fill="url(#sunGlow)"/>
+
+  <!-- === LAYER 1: Far background — dense jungle wall === -->
+  <g filter="url(#farBlur)" opacity="0.6">
+    <ellipse cx="-50" cy="160" rx="200" ry="160" fill="#1A3010"/>
+    <ellipse cx="150" cy="130" rx="180" ry="150" fill="#1E3A12"/>
+    <ellipse cx="380" cy="110" rx="220" ry="170" fill="#1A3010"/>
+    <ellipse cx="600" cy="100" rx="250" ry="180" fill="#1E3A12"/>
+    <ellipse cx="850" cy="120" rx="200" ry="160" fill="#1A3010"/>
+    <ellipse cx="1080" cy="105" rx="230" ry="175" fill="#1E3A12"/>
+    <ellipse cx="1250" cy="140" rx="180" ry="150" fill="#1A3010"/>
+  </g>
+
+  <!-- === LAYER 2: Mid trees — varied tropical canopy === -->
+  <g filter="url(#midBlur)" opacity="0.7">
+    <ellipse cx="80" cy="90" rx="130" ry="100" fill="#2B4E1C"/>
+    <ellipse cx="250" cy="70" rx="110" ry="90" fill="#345C24"/>
+    <ellipse cx="420" cy="55" rx="140" ry="100" fill="#2B4E1C"/>
+    <ellipse cx="580" cy="80" rx="120" ry="95" fill="#345C24"/>
+    <ellipse cx="750" cy="60" rx="150" ry="105" fill="#2B4E1C"/>
+    <ellipse cx="940" cy="75" rx="130" ry="95" fill="#345C24"/>
+    <ellipse cx="1120" cy="50" rx="140" ry="100" fill="#2B4E1C"/>
+  </g>
+
+  <!-- === LAYER 3: Tropical tree trunks === -->
+  <g opacity="0.35">
+    <!-- Tall trunks -->
+    <rect x="70" y="80" width="12" height="420" rx="6" fill="#3D2E1E" transform="rotate(-2,76,250)"/>
+    <rect x="280" y="60" width="10" height="440" rx="5" fill="#4A3A28" transform="rotate(1,285,280)"/>
+    <rect x="520" y="70" width="14" height="430" rx="7" fill="#3D2E1E" transform="rotate(-1,527,285)"/>
+    <rect x="800" y="50" width="11" height="450" rx="5.5" fill="#4A3A28" transform="rotate(2,805,275)"/>
+    <rect x="1050" y="65" width="13" height="435" rx="6.5" fill="#3D2E1E" transform="rotate(-1,1056,282)"/>
+    <!-- Thinner understory trunks -->
+    <rect x="180" y="120" width="7" height="380" rx="3.5" fill="#4A3A28" opacity="0.6"/>
+    <rect x="650" y="100" width="8" height="400" rx="4" fill="#3D2E1E" opacity="0.6"/>
+    <rect x="920" y="110" width="7" height="390" rx="3.5" fill="#4A3A28" opacity="0.6"/>
+  </g>
+
+  <!-- === LAYER 4: Light rays (god rays through canopy) === -->
+  <g opacity="0.1">
+    <polygon points="550,0 600,500 520,500" fill="#E8C95A"/>
+    <polygon points="680,0 740,500 660,500" fill="#E8C95A"/>
+    <polygon points="400,0 435,500 375,500" fill="#DCF0C8"/>
+    <polygon points="820,0 880,500 800,500" fill="#E8C95A"/>
+    <polygon points="300,0 325,500 280,500" fill="#DCF0C8" opacity="0.7"/>
+    <polygon points="1000,0 1040,500 970,500" fill="#E8C95A" opacity="0.6"/>
+  </g>
+
+  <!-- === LAYER 5: Foreground canopy — thick overhanging leaves === -->
+  <g opacity="0.85">
+    <!-- Heavy left canopy -->
+    <ellipse cx="-80" cy="-10" rx="250" ry="130" fill="#1E3A12"/>
+    <ellipse cx="100" cy="-20" rx="200" ry="110" fill="#2B4E1C"/>
+    <ellipse cx="50" cy="30" rx="130" ry="60" fill="#345C24"/>
+    <!-- Heavy right canopy -->
+    <ellipse cx="1100" cy="-15" rx="220" ry="120" fill="#1E3A12"/>
+    <ellipse cx="1280" cy="0" rx="200" ry="110" fill="#2B4E1C"/>
+    <ellipse cx="1150" cy="35" rx="140" ry="55" fill="#345C24"/>
+    <!-- Top center gaps (where light comes through) -->
+    <ellipse cx="380" cy="5" rx="100" ry="55" fill="#2B4E1C"/>
+    <ellipse cx="600" cy="-5" rx="80" ry="45" fill="#1E3A12" opacity="0.6"/>
+    <ellipse cx="850" cy="10" rx="110" ry="60" fill="#2B4E1C"/>
+  </g>
+
+  <!-- === LAYER 6: Large tropical leaves (foreground) === -->
+  <g opacity="0.7">
+    <!-- Left hanging palm frond -->
+    <path d="M0,80 Q40,100 80,70 Q120,40 160,60 Q130,80 90,90 Q50,100 0,110Z" fill="#3D6B2E"/>
+    <path d="M0,100 Q30,120 70,95 Q50,115 20,120 Q0,125 0,115Z" fill="#4A7A3A" opacity="0.8"/>
+    <!-- Right hanging leaves -->
+    <path d="M1200,60 Q1160,80 1120,55 Q1080,30 1040,50 Q1070,70 1110,75 Q1150,80 1200,90Z" fill="#3D6B2E"/>
+    <path d="M1200,80 Q1170,100 1130,80 Q1150,95 1180,100 Q1200,105 1200,95Z" fill="#4A7A3A" opacity="0.8"/>
+    <!-- Bottom left large leaf -->
+    <path d="M0,350 Q60,320 120,340 Q80,360 40,370 Q0,380 0,370Z" fill="#2B4E1C" opacity="0.5"/>
+    <!-- Bottom right fern -->
+    <path d="M1200,380 Q1140,350 1100,370 Q1140,380 1170,390 Q1200,400 1200,390Z" fill="#2B4E1C" opacity="0.5"/>
+  </g>
+
+  <!-- === LAYER 7: Hanging vines === -->
+  <g stroke="#2B4E1C" fill="none" opacity="0.5" stroke-width="2.5">
+    <path d="M100,0 Q95,50 105,100 Q115,160 100,220 Q90,260 95,300" stroke-linecap="round"/>
+    <path d="M160,0 Q155,70 165,130 Q170,170 160,210" stroke-linecap="round"/>
+    <path d="M1090,0 Q1095,60 1085,130 Q1080,180 1090,240 Q1095,280 1085,320" stroke-linecap="round"/>
+    <path d="M1040,0 Q1035,40 1045,90 Q1050,140 1040,190" stroke-linecap="round"/>
+  </g>
+  <!-- Vine leaves -->
+  <g fill="#3D6B2E" opacity="0.6">
+    <ellipse cx="103" cy="130" rx="10" ry="5" transform="rotate(-25,103,130)"/>
+    <ellipse cx="97" cy="200" rx="9" ry="4.5" transform="rotate(20,97,200)"/>
+    <ellipse cx="108" cy="270" rx="8" ry="4" transform="rotate(-15,108,270)"/>
+    <ellipse cx="163" cy="100" rx="8" ry="4" transform="rotate(15,163,100)"/>
+    <ellipse cx="158" cy="170" rx="9" ry="4.5" transform="rotate(-20,158,170)"/>
+    <ellipse cx="1087" cy="160" rx="10" ry="5" transform="rotate(25,1087,160)"/>
+    <ellipse cx="1093" cy="240" rx="9" ry="4.5" transform="rotate(-18,1093,240)"/>
+    <ellipse cx="1043" cy="120" rx="8" ry="4" transform="rotate(-22,1043,120)"/>
+    <ellipse cx="1038" cy="170" rx="9" ry="4.5" transform="rotate(15,1038,170)"/>
+  </g>
+
+  <!-- === LAYER 8: Jungle floor — moss, roots, earth === -->
+  <g>
+    <path d="M0,430 Q100,410 250,425 Q400,440 600,420 Q800,400 950,425 Q1100,445 1200,430 L1200,500 L0,500Z" fill="#3D5A2E" opacity="0.4"/>
+    <path d="M0,450 Q150,435 350,445 Q550,455 750,440 Q950,425 1200,445 L1200,500 L0,500Z" fill="#5B4A3A" opacity="0.3"/>
+    <!-- Moss patches -->
+    <ellipse cx="100" cy="470" rx="80" ry="20" fill="#527242" opacity="0.25"/>
+    <ellipse cx="400" cy="480" rx="60" ry="15" fill="#527242" opacity="0.2"/>
+    <ellipse cx="900" cy="465" rx="70" ry="18" fill="#527242" opacity="0.25"/>
+  </g>
+
+  <!-- === LAYER 9: Ground mist === -->
+  <rect width="1200" height="500" fill="url(#mist)"/>
+
+  <!-- === LAYER 10: Fireflies / bokeh particles === -->
+  <g filter="url(#glowFilter)">
+    <circle cx="200" cy="200" r="3" fill="#E8C95A" opacity="0.6"/>
+    <circle cx="450" cy="280" r="2.5" fill="#E8C95A" opacity="0.5"/>
+    <circle cx="700" cy="160" r="3.5" fill="#E8C95A" opacity="0.55"/>
+    <circle cx="350" cy="340" r="2" fill="#DCF0C8" opacity="0.4"/>
+    <circle cx="850" cy="240" r="3" fill="#E8C95A" opacity="0.5"/>
+    <circle cx="550" cy="130" r="2" fill="#DCF0C8" opacity="0.45"/>
+    <circle cx="150" cy="310" r="2.5" fill="#E8C95A" opacity="0.4"/>
+    <circle cx="950" cy="320" r="2.8" fill="#E8C95A" opacity="0.45"/>
+    <circle cx="1050" cy="200" r="2" fill="#DCF0C8" opacity="0.35"/>
+    <circle cx="300" cy="150" r="1.8" fill="#E8C95A" opacity="0.5"/>
+    <circle cx="780" cy="350" r="2.2" fill="#DCF0C8" opacity="0.3"/>
+    <circle cx="480" cy="180" r="2" fill="#E8C95A" opacity="0.4"/>
+  </g>
+
+  <!-- === LAYER 11: Subtle flower/fruit accents === -->
+  <g opacity="0.4">
+    <circle cx="130" cy="160" r="4" fill="#E85A5A"/>
+    <circle cx="125" cy="155" r="3" fill="#E85A5A"/>
+    <circle cx="1070" cy="180" r="3.5" fill="#E8A95A"/>
+    <circle cx="1065" cy="175" r="2.5" fill="#E8A95A"/>
+    <circle cx="170" cy="80" r="3" fill="#E8C95A"/>
+    <circle cx="1030" cy="100" r="3.5" fill="#E8C95A"/>
+  </g>
+</svg>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free online JSON formatter, beautifier & validator. Format, minify, and validate JSON instantly with syntax highlighting. No signup, works in your browser.">
+  <meta name="description" content="Format, validate and beautify JSON instantly. Syntax highlighting, error detection, tree view. Free, private — all processing in your browser.">
+  <meta name="description" lang="ja" content="JSONを瞬時に整形・検証・美化。シンタックスハイライト、エラー検出、ツリー表示対応。無料・プライバシー保護のブラウザ完結ツール。">
   <meta name="keywords" content="json formatter, json validator, json beautifier, json minifier, format json online, validate json, json pretty print, json lint">
   <meta name="author" content="SnapToolbox">
   <meta name="robots" content="index, follow">
@@ -11,14 +12,21 @@
   <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/json-formatter.html">
   <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/json-formatter.html">
   <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/json-formatter.html">
-  <meta property="og:title" content="JSON Formatter & Validator - Free Online Tool">
-  <meta property="og:description" content="Format, beautify, minify & validate JSON online for free. No signup required.">
+  <meta property="og:title" content="Free JSON Formatter & Validator — Beautify JSON Online | SnapToolbox">
+  <meta property="og:description" content="Format, validate and beautify JSON instantly. Syntax highlighting, error detection, tree view. Free, private — all processing in your browser.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://snaptoolbox.app/tools/json-formatter.html">
   <meta property="og:site_name" content="SnapToolbox">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JSON Formatter & Validator - Free Online Tool">
-  <meta name="twitter:description" content="Format, beautify, minify & validate JSON online for free. No signup required.">
+  <meta name="twitter:title" content="Free JSON Formatter & Validator — Beautify JSON Online | SnapToolbox">
+  <meta name="twitter:description" content="Format, validate and beautify JSON instantly. Syntax highlighting, error detection, tree view. Free, private — all processing in your browser.">
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
 
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
@@ -37,6 +45,30 @@
       "operatingSystem": "Any",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
       "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+          {
+              "@type": "Question",
+              "name": "Can this tool validate my JSON?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. The formatter detects syntax errors and highlights the exact line and position where the error occurs." }
+          },
+          {
+              "@type": "Question",
+              "name": "Is my JSON data sent to a server?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No. All formatting and validation runs entirely in your browser. Your data stays on your device." }
+          },
+          {
+              "@type": "Question",
+              "name": "Can I minify JSON as well?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can both beautify (pretty-print) and minify JSON with one click." }
+          }
+      ]
   }
   </script>
 
@@ -382,10 +414,7 @@
   <header class="st-header">
     <div class="st-header-inner">
       <a href="/" class="st-logo">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-          <rect width="32" height="32" rx="8" fill="#5B7A4A"/>
-          <path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/>
-        </svg>
+        <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
         <span>SnapToolbox</span>
       </a>
       <button class="st-nav-toggle" aria-label="Menu">
@@ -404,7 +433,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="st-main">
+  <main class="st-page-wide">
     <!-- Breadcrumb -->
     <div class="st-breadcrumb">
       <a href="/" data-i18n="common.breadcrumb_home">Home</a>
@@ -545,50 +574,41 @@
     <div class="st-footer-inner">
       <div class="st-footer-grid">
         <div class="st-footer-col">
-          <h4>Tools</h4>
-          <a href="image-compressor.html">Image Compressor</a>
-          <a href="json-formatter.html">JSON Formatter</a>
-          <a href="character-counter.html">Character Counter</a>
-          <a href="unit-converter.html">Unit Converter</a>
-          <a href="color-converter.html">Color Converter</a>
+          <h4 data-i18n="common.footer_tools">Tools</h4>
+          <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+          <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+          <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+          <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+          <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
         </div>
         <div class="st-footer-col">
-          <h4>Company</h4>
-          <a href="/">Home</a>
-          <a href="/#tools">Tools</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <h4 data-i18n="common.footer_legal">Legal</h4>
+          <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+          <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+          <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
         </div>
         <div class="st-footer-col">
-          <h4>Legal</h4>
-          <a href="../legal/privacy-policy.html">Privacy Policy</a>
-          <a href="../legal/terms-of-service.html">Terms of Service</a>
-          <a href="../legal/cookie-policy.html">Cookie Policy</a>
+          <h4 data-i18n="common.footer_about">About</h4>
+          <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
         </div>
         <div class="st-footer-col">
-          <h4>Follow</h4>
-          <a href="https://twitter.com/snaptoolbox">Twitter</a>
-          <a href="https://github.com/snaptoolbox">GitHub</a>
-          <a href="https://linkedin.com/company/snaptoolbox">LinkedIn</a>
+          <h4 data-i18n="common.footer_contact">Contact</h4>
+          <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
         </div>
       </div>
       <div class="st-footer-bottom">
-        <span>&copy; 2024 SnapToolbox. All rights reserved.</span>
-        <span>Made with ❤️ for developers</span>
+        <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie Consent Banner -->
-  <div class="st-cookie">
+  <!-- Cookie Consent -->
+  <div class="st-cookie" id="cookieBanner">
     <div class="st-cookie-inner">
-      <p>
-        We use cookies to enhance your experience. By continuing to browse, you agree to our
-        <a href="../legal/cookie-policy.html">cookie policy</a>.
-      </p>
-      <div style="display: flex; gap: 0.75rem;">
-        <button class="st-btn st-btn-secondary" id="cookieDecline">Decline</button>
-        <button class="st-btn st-btn-primary" id="cookieAccept">Accept All</button>
+      <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+      <div class="st-cookie-buttons">
+        <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+        <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
       </div>
     </div>
   </div>

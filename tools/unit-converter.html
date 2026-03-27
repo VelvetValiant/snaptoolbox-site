@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online unit converter. Convert length, weight, temperature, volume, area, speed, data storage & time units instantly. No signup, works in browser.">
+    <meta name="description" content="Convert length, weight, temperature, volume, area, speed, data and time units instantly. Free, accurate unit converter — works offline in your browser.">
+    <meta name="description" lang="ja" content="長さ・重さ・温度・体積・面積・速度・データ・時間を瞬時に変換。正確で無料のブラウザ完結単位変換ツール。">
     <meta name="keywords" content="unit converter, convert units online, length converter, weight converter, temperature converter, kg to lbs, cm to inches, celsius to fahrenheit, metric converter">
     <meta name="author" content="SnapToolbox">
     <meta name="robots" content="index, follow">
@@ -11,14 +12,21 @@
     <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/unit-converter.html">
     <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/unit-converter.html">
     <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/unit-converter.html">
-    <meta property="og:title" content="Unit Converter - Free Online Measurement Converter">
-    <meta property="og:description" content="Convert length, weight, temperature & more units instantly. Free online tool, no signup required.">
+    <meta property="og:title" content="Free Unit Converter — Length, Weight, Temperature & More | SnapToolbox">
+    <meta property="og:description" content="Convert length, weight, temperature, volume, area, speed, data and time units instantly. Free, accurate unit converter — works offline in your browser.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snaptoolbox.app/tools/unit-converter.html">
     <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Unit Converter - Free Online Measurement Converter">
-    <meta name="twitter:description" content="Convert length, weight, temperature & more units instantly. Free, no signup.">
+    <meta name="twitter:title" content="Free Unit Converter — Length, Weight, Temperature & More | SnapToolbox">
+    <meta name="twitter:description" content="Convert length, weight, temperature, volume, area, speed, data and time units instantly. Free, accurate unit converter — works offline in your browser.">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
@@ -40,20 +48,44 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What unit categories are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Length, weight, temperature, volume, area, speed, data storage, and time — with dozens of units in each category." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work offline?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. All conversions are calculated in your browser with no server connection needed." }
+            },
+            {
+                "@type": "Question",
+                "name": "How accurate are the conversions?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Conversions use precise mathematical formulas with up to 10 decimal places of accuracy." }
+            }
+        ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
         :root {
-            --st-primary: #5B7A4A;
-            --st-primary-dim: #4A6639;
-            --st-primary-container: #DCF0C8;
+            --st-primary: #3D5C2E;
+            --st-primary-dim: #2E4A20;
+            --st-primary-container: #D4EDCA;
             --st-surface: #FAFDF2;
             --st-surface-low: #F5F8E8;
             --st-card: #FFFFFF;
-            --st-text: #2D3318;
-            --st-text-secondary: #6B7052;
-            --st-outline-variant: #DDE1C6;
+            --st-text: #1A2008;
+            --st-text-secondary: #4D5338;
+            --st-outline-variant: #CDD2B2;
         }
 
         * {
@@ -251,7 +283,7 @@
     <header class="st-header">
         <div class="st-header-inner">
             <a href="/" class="st-logo">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
             <button class="st-nav-toggle" aria-label="Toggle navigation">
@@ -265,7 +297,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="st-page-wide">
         <!-- Hero Section -->
         <section class="st-hero">
             <div class="st-hero-inner">
@@ -654,35 +686,44 @@
     <footer class="st-footer">
         <div class="st-footer-inner">
             <div class="st-footer-grid">
-                <div>
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="image-compressor.html">Image Compressor</a></li>
-                        <li><a href="json-formatter.html">JSON Formatter</a></li>
-                        <li><a href="character-counter.html">Character Counter</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="color-converter.html">Color Converter</a></li>
-                    </ul>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
                 </div>
-                <div>
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
-                    </ul>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
                 </div>
             </div>
             <div class="st-footer-bottom">
-                <p>&copy; 2026 SnapToolbox. All rights reserved.</p>
+                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>
 
-    <!-- Cookie Banner -->
+    <!-- Cookie Consent -->
     <div class="st-cookie" id="cookieBanner">
-        <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
-        <button onclick="handleCookieAccept()">Accept</button>
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
     </div>
 
     <script src="../js/common.js"></script>

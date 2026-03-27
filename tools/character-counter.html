@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online character counter & word counter. Count characters, words, sentences, paragraphs with reading time estimates. Real-time, no signup needed.">
+    <meta name="description" content="Count characters, words, sentences and paragraphs in real-time. Supports Japanese, Chinese, Korean text. Free, no signup — works offline in your browser.">
+    <meta name="description" lang="ja" content="文字数・単語数・文数・段落数をリアルタイムでカウント。日本語テキスト完全対応。登録不要・無料のブラウザ完結テキストカウンター。">
     <meta name="keywords" content="character counter, word counter, letter counter, text counter, character count online, word count tool, sentence counter, reading time calculator">
     <meta name="author" content="SnapToolbox">
     <meta name="robots" content="index, follow">
@@ -11,14 +12,21 @@
     <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/character-counter.html">
     <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/character-counter.html">
     <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/character-counter.html">
-    <meta property="og:title" content="Character & Word Counter - Free Online Text Counter">
-    <meta property="og:description" content="Count characters, words, sentences & paragraphs instantly. Free online tool, no signup required.">
+    <meta property="og:title" content="Free Character & Word Counter — Count Text Online | SnapToolbox">
+    <meta property="og:description" content="Count characters, words, sentences and paragraphs in real-time. Supports Japanese, Chinese, Korean text. Free, no signup — works offline in your browser.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snaptoolbox.app/tools/character-counter.html">
     <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Character & Word Counter - Free Online Text Counter">
-    <meta name="twitter:description" content="Count characters, words, sentences & paragraphs instantly. Free online tool.">
+    <meta name="twitter:title" content="Free Character & Word Counter — Count Text Online | SnapToolbox">
+    <meta name="twitter:description" content="Count characters, words, sentences and paragraphs in real-time. Supports Japanese, Chinese, Korean text. Free, no signup — works offline in your browser.">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
@@ -40,20 +48,44 @@
     }
     </script>
 
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does it count Japanese and Chinese characters correctly?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each CJK character is counted as one character. The word counter also handles Japanese text properly." }
+            },
+            {
+                "@type": "Question",
+                "name": "What metrics does the counter show?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Characters (with and without spaces), words, sentences, paragraphs, and lines — all updated in real time." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my text stored anywhere?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. The counter runs entirely in your browser. Your text is never sent to any server." }
+            }
+        ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
         body {
-            --st-primary: #5B7A4A;
-            --st-primary-dim: #4A6639;
-            --st-primary-container: #DCF0C8;
+            --st-primary: #3D5C2E;
+            --st-primary-dim: #2E4A20;
+            --st-primary-container: #D4EDCA;
             --st-surface: #FAFDF2;
             --st-surface-low: #F5F8E8;
             --st-card: #FFFFFF;
-            --st-text: #2D3318;
-            --st-text-secondary: #6B7052;
-            --st-outline-variant: #DDE1C6;
+            --st-text: #1A2008;
+            --st-text-secondary: #4D5338;
+            --st-outline-variant: #CDD2B2;
         }
 
         .st-hero {
@@ -145,7 +177,7 @@
         .st-find-replace-input input:focus {
             outline: none;
             border-color: var(--st-primary);
-            box-shadow: 0 0 0 2px rgba(91, 122, 74, 0.1);
+            box-shadow: 0 0 0 2px rgba(61, 92, 46, 0.1);
         }
 
         .st-find-replace-input label {
@@ -184,7 +216,7 @@
     <header class="st-header">
         <div class="st-header-inner">
             <a class="st-logo" href="/">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
             <button class="st-nav-toggle" aria-label="Toggle navigation">
@@ -198,15 +230,15 @@
         </div>
     </header>
 
-    <div class="st-tool-content">
+    <main class="st-page-wide">
         <nav class="st-breadcrumb">
             <a href="/" data-i18n="common.breadcrumb_home">Home</a> / <span data-i18n="character_counter.title">Character Counter</span>
         </nav>
 
-            <div class="st-tool-mascot">
-                <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Curious sloth mascot" loading="lazy" width="80" height="80">
-                <div class="st-tool-mascot-bubble" data-i18n="character_counter.mascot_bubble">Let me count every character for you. Take your time typing!</div>
-            </div>
+        <div class="st-tool-mascot">
+            <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Curious sloth mascot" loading="lazy" width="80" height="80">
+            <div class="st-tool-mascot-bubble" data-i18n="character_counter.mascot_bubble">Let me count every character for you. Take your time typing!</div>
+        </div>
 
         <div class="st-hero">
             <h1 data-i18n="character_counter.title">Character & Word Counter</h1>
@@ -217,7 +249,7 @@
             [Ad Slot - 728x90]
         </div>
 
-        <div>
+        <div class="st-tool-content">
             <div style="margin-bottom: 30px;">
                 <label style="font-size: 14px; font-weight: 600; margin-bottom: 10px; display: block; color: var(--st-text);" data-i18n="character_counter.input_placeholder">Paste or type your text below:</label>
                 <textarea class="st-textarea" id="textInput" placeholder="Enter your text here..." data-i18n-placeholder="character_counter.input_placeholder"></textarea>
@@ -292,42 +324,47 @@
         <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
-    </div>
+    </main>
 
     <footer class="st-footer">
         <div class="st-footer-inner">
             <div class="st-footer-grid">
-                <div>
-                    <h4>Tools</h4>
-                    <ul>
-                        <li><a href="image-compressor.html">Image Compressor</a></li>
-                        <li><a href="json-formatter.html">JSON Formatter</a></li>
-                        <li><a href="character-counter.html">Character Counter</a></li>
-                        <li><a href="unit-converter.html">Unit Converter</a></li>
-                        <li><a href="color-converter.html">Color Converter</a></li>
-                    </ul>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
                 </div>
-                <div>
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="../legal/privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="../legal/terms-of-service.html">Terms of Service</a></li>
-                        <li><a href="../legal/cookie-policy.html">Cookie Policy</a></li>
-                    </ul>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
                 </div>
             </div>
             <div class="st-footer-bottom">
-                <p>&copy; 2026 SnapToolbox. All rights reserved.</p>
+                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>
 
+    <!-- Cookie Consent -->
     <div class="st-cookie" id="cookieBanner">
         <div class="st-cookie-inner">
-            <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
-            <div>
-                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()">Decline</button>
-                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()">Accept</button>
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
             </div>
         </div>
     </div>

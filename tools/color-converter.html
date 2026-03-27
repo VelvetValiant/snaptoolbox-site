@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online color converter & picker. Convert between HEX, RGB, HSL color formats instantly. Generate CSS color codes and palettes. No signup required.">
+    <meta name="description" content="Convert colors between HEX, RGB, HSL and CMYK formats. Built-in color picker. Free, instant — all conversion in your browser.">
+    <meta name="description" lang="ja" content="HEX・RGB・HSL・CMYKのカラーコード変換。カラーピッカー内蔵。無料・即座に変換、ブラウザだけで完結。">
     <meta name="keywords" content="color converter, hex to rgb, rgb to hex, color picker online, hsl converter, css color codes, color palette generator, hex color code">
     <meta name="author" content="SnapToolbox">
     <meta name="robots" content="index, follow">
@@ -11,14 +12,21 @@
     <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/color-converter.html">
     <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/color-converter.html">
     <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/color-converter.html">
-    <meta property="og:title" content="Color Converter & Picker - HEX RGB HSL Online">
-    <meta property="og:description" content="Convert HEX, RGB & HSL colors instantly. Free online color picker & palette generator.">
+    <meta property="og:title" content="Free Color Converter & Picker — HEX, RGB, HSL, CMYK | SnapToolbox">
+    <meta property="og:description" content="Convert colors between HEX, RGB, HSL and CMYK formats. Built-in color picker. Free, instant — all conversion in your browser.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snaptoolbox.app/tools/color-converter.html">
     <meta property="og:site_name" content="SnapToolbox">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Color Converter & Picker - HEX RGB HSL Online">
-    <meta name="twitter:description" content="Convert HEX, RGB & HSL colors instantly. Free online color picker & palette generator.">
+    <meta name="twitter:title" content="Free Color Converter & Picker — HEX, RGB, HSL, CMYK | SnapToolbox">
+    <meta name="twitter:description" content="Convert colors between HEX, RGB, HSL and CMYK formats. Built-in color picker. Free, instant — all conversion in your browser.">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
@@ -39,20 +47,45 @@
         "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
     }
     </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What color formats are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "HEX, RGB, HSL, and CMYK. All formats are converted simultaneously when you pick or input a color." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use the color picker?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Click the color preview to open a visual color picker, or enter values directly in any format." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I copy the color code?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each format has a one-click copy button to copy the color code to your clipboard." }
+            }
+        ]
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 
     <style>
         :root {
-            --st-primary: #5B7A4A;
-            --st-primary-dim: #4A6639;
-            --st-primary-container: #DCF0C8;
+            --st-primary: #3D5C2E;
+            --st-primary-dim: #2E4A20;
+            --st-primary-container: #D4EDCA;
             --st-surface: #FAFDF2;
             --st-surface-low: #F5F8E8;
             --st-card: #FFFFFF;
-            --st-text: #2D3318;
-            --st-text-secondary: #6B7052;
-            --st-outline-variant: #DDE1C6;
+            --st-text: #1A2008;
+            --st-text-secondary: #4D5338;
+            --st-outline-variant: #CDD2B2;
         }
 
         * {
@@ -67,8 +100,7 @@
             padding: 0;
         }
 
-        .st-tool-container {
-            max-width: 900px;
+        .st-page-wide {
             margin: 0 auto;
             padding: 20px;
         }
@@ -388,7 +420,7 @@
     <header class="st-header">
         <div class="st-header-inner">
             <a href="/" class="st-logo">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
             <button class="st-nav-toggle" aria-label="Toggle navigation">
@@ -402,7 +434,7 @@
         </div>
     </header>
 
-    <div class="st-tool-container">
+    <main class="st-page-wide">
         <nav class="st-breadcrumb">
             <a href="/" data-i18n="common.breadcrumb_home">Home</a> > <span data-i18n="color_converter.title">Color Converter</span>
         </nav>
@@ -525,15 +557,49 @@ background-color: hsl(205, 100%, 40%);</div>
         <div class="st-ad">
             [Ad Slot - 728x90]
         </div>
-    </div>
+    </main>
 
     <footer class="st-footer">
-        <p>&copy; 2026 SnapToolbox. All rights reserved. | <a href="../legal/privacy-policy.html" data-i18n="common.privacy_policy">Privacy Policy</a> | <a href="../legal/terms-of-service.html" data-i18n="common.terms_of_service">Terms of Service</a></p>
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
+            </div>
+        </div>
     </footer>
 
+    <!-- Cookie Consent -->
     <div class="st-cookie" id="cookieBanner">
-        <span>We use cookies to improve your experience. By using SnapToolbox, you accept our cookie policy.</span>
-        <button onclick="closeCookieBanner()">Accept</button>
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
     </div>
 
     <script src="../js/common.js"></script>
