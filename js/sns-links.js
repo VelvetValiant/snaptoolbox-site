@@ -81,6 +81,18 @@ const SnsLinks = {
         color: var(--st-text, #1A2008);
       }
 
+      .sns-title-sep {
+        font-weight: 400;
+        color: var(--st-text-tertiary, #687048);
+        margin: 0 0.15rem;
+      }
+
+      .sns-title-sub {
+        font-size: 0.78rem;
+        font-weight: 400;
+        color: var(--st-text-secondary, #4D5338);
+      }
+
       .sns-note {
         font-size: 0.75rem;
         color: var(--st-text-tertiary, #687048);
@@ -384,6 +396,7 @@ const SnsLinks = {
     // Fallback English
     const fallback = {
       sns_title: 'SNS MyLink',
+      sns_title_sub: 'Register your SNS accounts for quick access from any page.',
       sns_add: 'Add Link',
       sns_placeholder: 'https://twitter.com/yourname',
       sns_save: 'Save',
@@ -403,7 +416,7 @@ const SnsLinks = {
     this.container.innerHTML = `
       <div class="sns-section">
         <div class="sns-header">
-          <span class="sns-title">${this.t('sns_title')}</span>
+          <span class="sns-title">${this.t('sns_title')}<span class="sns-title-sep"> / </span><span class="sns-title-sub">${this.t('sns_title_sub')}</span></span>
           <button class="sns-add-btn" id="snsAddBtn">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
               <line x1="8" y1="3" x2="8" y2="13"/>
