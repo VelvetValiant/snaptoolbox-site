@@ -1,0 +1,21 @@
+{
+    "name": "SnapToolbox",
+    "short_name": "SnapToolbox",
+    "description": "Free online tools for image compression, text processing, unit conversion, and more. 100% browser-based.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FAFDF2",
+    "theme_color": "#3D5C2E",
+    "icons": [
+        {
+            "src": "img/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "img/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

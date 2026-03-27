@@ -6,18 +6,19 @@
 
 /* --- Design Tokens --- */
 :root {
-  /* Primary palette — forest green */
-  --st-primary: #5B7A4A;
-  --st-primary-dim: #4A6639;
-  --st-primary-container: #DCF0C8;
+  /* Primary palette — forest green (darkened for AA contrast) */
+  --st-primary: #3D5C2E;
+  --st-primary-dim: #2E4A20;
+  --st-primary-container: #D4EDCA;
   --st-primary-on: #FFFFFF;
 
-  /* Secondary palette — warm brown */
-  --st-secondary: #8B6B5E;
+  /* Secondary palette — warm brown (darkened for AA contrast) */
+  --st-secondary: #6E4F42;
   --st-secondary-container: #FFDDD1;
 
-  /* Accent */
-  --st-accent: #E8C95A;
+  /* Accent (decorative: kept vivid / text usage: use --st-accent-text) */
+  --st-accent: #D4B63C;
+  --st-accent-text: #7D6A14;
 
   /* Surfaces */
   --st-surface: #FAFDF2;
@@ -27,21 +28,21 @@
   --st-surface-highest: #E0E5C0;
   --st-card: #FFFFFF;
 
-  /* Text */
-  --st-text: #2D3318;
-  --st-text-secondary: #6B7052;
-  --st-text-tertiary: #9DA377;
+  /* Text (all pass WCAG AA on surface) */
+  --st-text: #1A2008;
+  --st-text-secondary: #4D5338;
+  --st-text-tertiary: #687048;
 
-  /* Borders & outlines */
-  --st-outline: #C8CDA8;
-  --st-outline-variant: #DDE1C6;
+  /* Borders & outlines (slightly stronger) */
+  --st-outline: #B5BB96;
+  --st-outline-variant: #CDD2B2;
 
-  /* Feedback */
-  --st-success: #4A8A3C;
+  /* Feedback (all AA-compliant on surface) */
+  --st-success: #357A28;
   --st-success-container: #D4EDCE;
-  --st-error: #C14B3B;
+  --st-error: #A83828;
   --st-error-container: #FDDDD7;
-  --st-warning: #B88A2D;
+  --st-warning: #966D1A;
   --st-warning-container: #FFF3D0;
 
   /* Effects */
@@ -125,6 +126,13 @@ input, button, textarea, select { font-family: inherit; }
 
 .st-logo:hover { text-decoration: none; color: var(--st-primary); }
 .st-logo svg { width: 28px; height: 28px; }
+.st-logo-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--st-radius-sm);
+  object-fit: contain;
+  flex-shrink: 0;
+}
 
 .st-nav { display: flex; gap: 1.5rem; align-items: center; }
 .st-nav a {
@@ -199,6 +207,17 @@ main {
   max-width: var(--st-max-width);
   margin: 0 auto;
   padding: 1rem 2rem 3rem;
+}
+
+@media (max-width: 768px) {
+  .st-page-wide {
+    padding: 0.75rem 1rem 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .st-page-wide {
+    padding: 0.5rem 0.75rem 1.5rem;
+  }
 }
 
 /* --- Breadcrumb --- */
@@ -616,6 +635,19 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: var(--st-radius-xl);
   padding: 2rem;
   box-shadow: var(--st-shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .st-tool-content {
+    padding: 1.25rem;
+    border-radius: var(--st-radius-lg);
+  }
+}
+@media (max-width: 480px) {
+  .st-tool-content {
+    padding: 1rem 0.75rem;
+    border-radius: var(--st-radius-md);
+  }
 }
 
 /* --- Controls Section --- */

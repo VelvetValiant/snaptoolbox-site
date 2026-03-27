@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online tools: image compressor, JSON formatter, character counter, unit converter & color picker. Fast, private, no signup. All processing in your browser.">
-    <meta name="keywords" content="free online tools, image compressor, json formatter, character counter, unit converter, color converter, web tools, browser tools, no signup">
+    <meta name="description" content="Free online tools: image compressor, JSON formatter, character counter, unit converter & color picker. Fast, private, no signup — 100% browser-based processing.">
+    <meta name="description" lang="ja" content="無料オンラインツール：画像圧縮、JSON整形、文字数カウント、単位変換、カラー変換。登録不要・サーバー送信なし。すべてブラウザ内で完結。">
+    <meta name="keywords" content="free online tools, image compressor, json formatter, character counter, unit converter, color converter, browser tools, no signup, privacy">
+    <meta name="keywords" lang="ja" content="無料ツール, 画像圧縮, JSON整形, 文字数カウント, 単位変換, カラー変換, ブラウザツール, オンラインツール">
     <meta name="author" content="SnapToolbox">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#5B7A4A">
+    <meta name="theme-color" content="#3D5C2E">
     <meta name="google-site-verification" content="google72676c4b4cc9f5e9.html">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
     <link rel="canonical" href="https://snaptoolbox.app/">
     <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/">
     <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/">
@@ -20,14 +29,16 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
 
     <!-- Open Graph -->
-    <meta property="og:title" content="SnapToolbox - Free Online Tools for Everyone">
-    <meta property="og:description" content="Image compression, JSON formatting, text counting, unit conversion & more. 100% free, no signup, works in your browser.">
+    <meta property="og:title" content="SnapToolbox — Free Browser-Based Online Tools">
+    <meta property="og:description" content="Image compression, JSON formatting, text counting, unit conversion & more. No signup, no upload — 100% private and free.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://snaptoolbox.app">
     <meta property="og:site_name" content="SnapToolbox">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="SnapToolbox - Free Online Tools for Everyone">
-    <meta name="twitter:description" content="Image compression, JSON formatting, unit conversion & more. 100% free, works in your browser.">
+    <meta name="twitter:title" content="SnapToolbox — Free Browser-Based Online Tools">
+    <meta name="twitter:description" content="Image compression, JSON formatting, unit conversion & more. No signup, no upload — 100% private and free.">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,14 +48,16 @@
     <link rel="stylesheet" href="css/style.css">
     <title>SnapToolbox - Free Online Tools | Image Compressor, JSON Formatter & More</title>
 
-    <!-- JSON-LD -->
+    <!-- JSON-LD: WebSite -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "SnapToolbox",
-        "description": "Free online tools for image compression, text processing, unit conversion, and more",
+        "alternateName": "スナップツールボックス",
+        "description": "Free online tools for image compression, text processing, unit conversion, and more. 100% browser-based.",
         "url": "https://snaptoolbox.app",
+        "inLanguage": ["en", "ja"],
         "potentialAction": {
             "@type": "SearchAction",
             "target": { "@type": "EntryPoint", "urlTemplate": "https://snaptoolbox.app?search={search_term_string}" },
@@ -52,13 +65,498 @@
         }
     }
     </script>
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SnapToolbox",
+        "url": "https://snaptoolbox.app",
+        "logo": "https://snaptoolbox.app/img/icon-512x512.png"
+    }
+    </script>
+    <!-- JSON-LD: SoftwareApplication (Image Compressor) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SnapToolbox Image Compressor",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Web Browser",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Compress JPEG, PNG and WebP images up to 80% smaller. 100% browser-based, no upload required.",
+        "url": "https://snaptoolbox.app/tools/image-compressor.html",
+        "inLanguage": ["en", "ja"]
+    }
+    </script>
+    <!-- JSON-LD: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snaptoolbox.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Image Compressor", "item": "https://snaptoolbox.app/tools/image-compressor.html" }
+        ]
+    }
+    </script>
+
+    <style>
+    /* === Image Compressor Embedded Styles === */
+
+    /* Immersive canopy drop zone */
+    .ic-section {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+    .ic-canopy-bg {
+        position: relative;
+        background: url('img/canopy-bg.svg') center/cover no-repeat;
+        background-color: #2B4E1C;
+        padding: 2.5rem 2.5rem 3rem;
+        min-height: 340px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    /* Hero text overlay inside jungle */
+    .ic-hero-overlay {
+        position: relative;
+        z-index: 5;
+        text-align: center;
+        max-width: 680px;
+    }
+    .ic-hero-overlay h1 {
+        color: #fff;
+        font-size: 2.2rem;
+        font-weight: 800;
+        line-height: 1.3;
+        margin: 0 0 0.6rem;
+        text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+    }
+    .ic-hero-sub {
+        color: rgba(255,255,255,0.88);
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.8;
+        margin: 0;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+    }
+    .ic-hero-accent {
+        color: #E8D96A;
+        font-weight: 500;
+    }
+    @media (max-width: 640px) {
+        .ic-hero-overlay h1 { font-size: 1.5rem; }
+        .ic-hero-sub { font-size: 0.88rem; }
+    }
+    /* Vignette + depth overlay */
+    .ic-canopy-bg::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(ellipse at 55% 20%, rgba(232,201,90,0.2) 0%, transparent 45%),
+            radial-gradient(ellipse at center, transparent 35%, rgba(30,58,18,0.35) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* Mascot peeking from right */
+    .ic-mascot-peek {
+        position: absolute;
+        right: -10px;
+        bottom: 0;
+        width: 220px;
+        height: 240px;
+        z-index: 4;
+        pointer-events: none;
+        transition: transform 0.6s var(--st-ease);
+        filter: drop-shadow(-4px 4px 16px rgba(45,51,24,0.2));
+    }
+    .ic-section:hover .ic-mascot-peek {
+        transform: translateX(-8px) rotate(-2deg);
+    }
+    .ic-mascot-peek img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: bottom right;
+    }
+    .ic-dropzone-wrap {
+        position: relative;
+        z-index: 3;
+        max-width: 580px;
+        width: 100%;
+        background: rgba(255,255,255,0.93);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow:
+            0 12px 40px rgba(30,58,18,0.2),
+            0 4px 12px rgba(30,58,18,0.08);
+    }
+    .ic-dropzone {
+        position: relative; z-index: 1;
+        border: 3px dashed rgba(157,163,119,0.6);
+        border-radius: var(--st-radius-lg);
+        padding: 2.5rem 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.4s var(--st-ease);
+        background: rgba(255,255,255,0.6);
+    }
+    .ic-dropzone:hover {
+        border-color: var(--st-primary);
+        background: rgba(255,255,255,0.85);
+        transform: scale(1.005);
+    }
+    .ic-dropzone.drag-over {
+        border-color: var(--st-primary);
+        background: rgba(220,240,200,0.5);
+        box-shadow: 0 0 0 6px var(--st-green-glow);
+        transform: scale(1.01);
+    }
+    .ic-dz-icon {
+        width: 64px; height: 64px;
+        margin: 0 auto 0.6rem;
+        transition: transform 0.6s var(--st-ease);
+    }
+    .ic-dropzone:hover .ic-dz-icon { transform: scale(1.08) rotate(-2deg); }
+    .ic-dz-icon svg { width: 100%; height: 100%; }
+    .ic-dz-title {
+        font-size: 1.15rem; font-weight: 700;
+        color: var(--st-text); margin-bottom: 0.2rem;
+    }
+    .ic-dz-sub {
+        font-size: 0.85rem;
+        color: var(--st-text-secondary);
+        margin-bottom: 1rem;
+    }
+    .ic-dz-btn {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+        color: #fff; border: none;
+        padding: 0.6rem 1.4rem; border-radius: 999px;
+        font-size: 0.88rem; font-weight: 700;
+        font-family: var(--st-font);
+        cursor: pointer; pointer-events: none;
+        box-shadow: 0 4px 16px rgba(91, 122, 74, 0.25);
+    }
+    .ic-dz-formats {
+        margin-top: 0.8rem;
+        display: flex; justify-content: center; gap: 0.6rem;
+    }
+    .ic-dz-formats span {
+        font-size: 0.68rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.08em;
+        color: var(--st-secondary);
+        background: var(--st-secondary-container);
+        padding: 0.18rem 0.55rem; border-radius: 999px;
+    }
+    #icFileInput { display: none; }
+
+    /* Workspace — always visible, grayed out until files added */
+    .ic-workspace {
+        margin-top: 1.5rem;
+        opacity: 0.45;
+        pointer-events: none;
+        transition: opacity 0.4s var(--st-ease);
+    }
+    .ic-workspace.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    @keyframes icFadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .ic-card {
+        background: var(--st-card);
+        border-radius: var(--st-radius-lg);
+        box-shadow: var(--st-shadow-md);
+        overflow: hidden;
+    }
+    .ic-settings {
+        display: flex; align-items: center; gap: 2rem;
+        padding: 1rem 1.5rem;
+        background: var(--st-surface-low);
+    }
+    .ic-setting {
+        display: flex; align-items: center; gap: 0.5rem; flex: 1;
+    }
+    .ic-setting label {
+        font-size: 0.78rem; font-weight: 700;
+        color: var(--st-text-secondary);
+        text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .ic-quality-row { display: flex; align-items: center; gap: 0.5rem; flex: 1; }
+    .ic-quality-row input[type="range"] {
+        flex: 1; height: 6px; appearance: none;
+        background: var(--st-surface-highest);
+        border-radius: 999px; outline: none;
+    }
+    .ic-quality-row input[type="range"]::-webkit-slider-thumb {
+        appearance: none; width: 22px; height: 22px; border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 2px 6px rgba(45,51,24,0.15), 0 0 0 2px var(--st-primary);
+        cursor: pointer;
+    }
+    .ic-quality-val {
+        font-size: 0.9rem; font-weight: 800; color: var(--st-primary);
+        min-width: 32px; text-align: right; font-variant-numeric: tabular-nums;
+    }
+    .ic-setting select {
+        padding: 0.45rem 0.7rem; background: var(--st-card);
+        border-radius: var(--st-radius-sm); font-size: 0.82rem;
+        font-family: var(--st-font); font-weight: 600;
+        color: var(--st-text); cursor: pointer; outline: none; border: none;
+    }
+    .ic-setting select:focus { box-shadow: 0 0 0 2px var(--st-primary) inset; }
+
+    /* File list */
+    .ic-filelist { padding: 0.25rem 0; }
+    .ic-filelist-header {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0.85rem 1.5rem 0.5rem;
+    }
+    .ic-filelist-count {
+        font-size: 0.78rem; font-weight: 700;
+        color: var(--st-text-secondary);
+        text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .ic-clear-btn {
+        font-size: 0.82rem; color: var(--st-primary);
+        background: none; border: none; cursor: pointer;
+        font-weight: 600; font-family: var(--st-font);
+    }
+    .ic-clear-btn:hover { text-decoration: underline; }
+    .ic-file {
+        display: flex; align-items: center; gap: 0.85rem;
+        padding: 0.7rem 1.5rem; transition: background 0.2s;
+    }
+    .ic-file:hover { background: var(--st-surface-low); }
+    .ic-file-thumb {
+        width: 40px; height: 40px; border-radius: var(--st-radius-sm);
+        background: var(--st-surface-container);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; overflow: hidden;
+    }
+    .ic-file-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--st-radius-sm); }
+    .ic-file-thumb svg { width: 18px; height: 18px; color: var(--st-text-secondary); }
+    .ic-file-info { flex: 1; min-width: 0; }
+    .ic-file-name {
+        font-size: 0.88rem; font-weight: 600; color: var(--st-text);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ic-file-meta { font-size: 0.75rem; color: var(--st-text-secondary); }
+    .ic-file-progress {
+        height: 4px; background: var(--st-surface-highest);
+        border-radius: 999px; margin-top: 5px; overflow: hidden; display: none;
+    }
+    .ic-file-progress.active { display: block; }
+    .ic-file-progress-bar {
+        height: 100%; background: var(--st-primary);
+        border-radius: 999px; transition: width 0.3s var(--st-ease); width: 0%;
+    }
+    .ic-badge {
+        font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px;
+    }
+    .ic-badge-ready { background: var(--st-surface-container); color: var(--st-text-secondary); }
+    .ic-badge-working { background: rgba(91,122,74,0.12); color: var(--st-primary); }
+    .ic-badge-done { background: var(--st-primary-container); color: var(--st-primary-dim); }
+    .ic-file-remove {
+        background: none; border: none; cursor: pointer;
+        color: var(--st-outline); padding: 4px; border-radius: 8px;
+        line-height: 0; transition: color 0.2s; flex-shrink: 0;
+    }
+    .ic-file-remove:hover { color: #C0392B; }
+    .ic-file-remove svg { width: 16px; height: 16px; }
+
+    /* Compress button */
+    .ic-compress-bar { padding: 1rem 1.5rem; }
+    .ic-compress-btn {
+        width: 100%; padding: 0.9rem;
+        background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+        color: #fff; border: none; border-radius: 999px;
+        font-size: 1rem; font-weight: 700; font-family: var(--st-font);
+        cursor: pointer; transition: all 0.3s var(--st-ease);
+        box-shadow: 0 4px 16px rgba(91,122,74,0.2);
+    }
+    .ic-compress-btn:hover:not(:disabled) {
+        transform: scale(1.02);
+        box-shadow: 0 6px 24px rgba(91,122,74,0.3);
+    }
+    .ic-compress-btn:active:not(:disabled) { transform: scale(0.98); }
+    .ic-compress-btn:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+
+    /* Results */
+    .ic-results { margin-top: 1.5rem; display: none; }
+    .ic-results.active { display: block; animation: icFadeIn 0.5s var(--st-ease); }
+    .ic-stats {
+        display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 0.75rem; margin-bottom: 1rem;
+    }
+    .ic-stat {
+        text-align: center; padding: 1.1rem 0.75rem;
+        border-radius: var(--st-radius-md);
+    }
+    .ic-stat:nth-child(1) { background: var(--st-surface-container); }
+    .ic-stat:nth-child(2) { background: var(--st-surface-high); }
+    .ic-stat:nth-child(3) { background: var(--st-primary-container); }
+    .ic-stat-label {
+        font-size: 0.7rem; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 0.05em;
+        color: var(--st-text-secondary); margin-bottom: 0.2rem;
+    }
+    .ic-stat-value {
+        font-size: 1.35rem; font-weight: 800;
+        color: var(--st-text); font-variant-numeric: tabular-nums;
+    }
+    .ic-stat-value.saved { color: var(--st-primary); }
+
+    /* Downloads */
+    .ic-downloads {
+        background: var(--st-card);
+        border-radius: var(--st-radius-lg);
+        box-shadow: var(--st-shadow-md); overflow: hidden;
+    }
+    .ic-dl-item {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0.9rem 1.5rem; gap: 1rem; transition: background 0.15s;
+    }
+    .ic-dl-item:hover { background: var(--st-surface-low); }
+    .ic-dl-info { flex: 1; min-width: 0; }
+    .ic-dl-name {
+        font-size: 0.88rem; font-weight: 600; color: var(--st-text);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .ic-dl-meta { font-size: 0.75rem; color: var(--st-text-secondary); margin-top: 0.1rem; }
+    .ic-dl-meta .ic-saved { color: var(--st-primary); font-weight: 700; }
+    .ic-dl-meta .ic-saved--none { color: var(--st-text-tertiary); font-weight: 600; }
+    .ic-dl-btn {
+        background: var(--st-primary); color: #fff; border: none;
+        padding: 0.45rem 1.1rem; border-radius: 999px;
+        font-size: 0.8rem; font-weight: 700; font-family: var(--st-font);
+        cursor: pointer; white-space: nowrap;
+        transition: all 0.2s var(--st-ease); flex-shrink: 0;
+    }
+    .ic-dl-btn:hover { transform: scale(1.04); }
+    .ic-dl-all {
+        display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+        width: calc(100% - 2rem); margin: 0.75rem auto 1rem;
+        padding: 0.85rem 1.5rem;
+        background: var(--st-primary); color: #fff; border: none;
+        border-radius: var(--st-radius-md);
+        font-size: 1rem; font-weight: 700; font-family: var(--st-font);
+        cursor: pointer;
+        transition: all 0.2s var(--st-ease);
+        box-shadow: 0 2px 8px rgba(61,92,46,0.25);
+    }
+    .ic-dl-all:hover {
+        background: var(--st-primary-dim);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(61,92,46,0.3);
+    }
+    .ic-dl-all:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 4px rgba(61,92,46,0.2);
+    }
+    .ic-dl-all-icon {
+        width: 20px; height: 20px; flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+        .ic-canopy-bg { padding: 2.5rem 1.5rem 2rem; min-height: 280px; }
+        .ic-mascot-peek { width: 160px; height: 180px; right: -5px; }
+    }
+    @media (max-width: 640px) {
+        .ic-settings { flex-direction: column; gap: 0.75rem; align-items: stretch; }
+        .ic-setting { flex-direction: column; align-items: stretch; gap: 0.3rem; }
+        .ic-stats { grid-template-columns: 1fr; }
+        .ic-dl-item { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+        .ic-dl-btn { text-align: center; }
+        .ic-dz-formats { flex-wrap: wrap; }
+        .ic-dropzone { padding: 1.5rem 1rem; }
+        .ic-dropzone-wrap { padding: 1.25rem; border-radius: 20px; }
+        .ic-section { border-radius: 20px; }
+        .ic-canopy-bg { padding: 2rem 1rem 1.5rem; min-height: 260px; }
+        .ic-mascot-peek { width: 120px; height: 140px; }
+        .ic-dropzone-wrap { padding: 1.25rem; border-radius: 18px; }
+    }
+    @keyframes icSpin { to { transform: rotate(360deg); } }
+
+    /* Compact About Banner (~200px) */
+    .st-about-banner {
+        background: linear-gradient(135deg, var(--st-primary-container) 0%, var(--st-surface-low) 50%, var(--st-surface-container) 100%);
+        border-radius: var(--st-radius-xl);
+        padding: 1.75rem 2rem;
+        margin: 0.5rem 0 0;
+    }
+    .st-about-banner-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .st-about-banner-pills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    .st-about-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(255,255,255,0.85);
+        padding: 0.4rem 0.85rem;
+        border-radius: var(--st-radius-pill);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--st-primary);
+        white-space: nowrap;
+        box-shadow: 0 1px 3px rgba(61,92,46,0.08);
+    }
+    .st-about-pill svg {
+        flex-shrink: 0;
+    }
+    .st-about-banner-text {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.9rem;
+        color: var(--st-text-secondary);
+    }
+    .st-about-banner-link {
+        font-weight: 700;
+        color: var(--st-primary);
+        white-space: nowrap;
+        text-decoration: none;
+    }
+    .st-about-banner-link:hover {
+        text-decoration: underline;
+        color: var(--st-primary-dim);
+    }
+    @media (max-width: 640px) {
+        .st-about-banner { padding: 1.25rem 1rem; }
+        .st-about-pill { font-size: 0.75rem; padding: 0.35rem 0.7rem; }
+        .st-about-banner-text { flex-direction: column; text-align: center; gap: 0.4rem; font-size: 0.82rem; }
+    }
+    .ic-spin { animation: icSpin 0.8s linear infinite; }
+
+    </style>
 </head>
 <body>
     <!-- Header -->
     <header class="st-header">
         <div class="st-header-inner">
             <a href="/" class="st-logo">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B7A4A"/><path d="M18 6L10 18H16L14 26L22 14H16L18 6Z" fill="#DCF0C8"/></svg>
+                <img src="img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
             <button class="st-nav-toggle" aria-label="Toggle navigation">
@@ -66,8 +564,8 @@
             </button>
             <nav class="st-nav">
                 <a href="#tools" data-i18n="common.nav_tools">Tools</a>
-                <a href="#about" data-i18n="common.nav_about">About</a>
-                <a href="#contact" data-i18n="common.nav_contact">Contact</a>
+                <a href="about.html" data-i18n="common.nav_about">About</a>
+                <a href="about.html#contact" data-i18n="common.nav_contact">Contact</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
         </div>
@@ -75,218 +573,180 @@
 
     <main>
         <div class="st-page-wide">
-            <!-- Hero with Mascot -->
-            <section class="st-hero-with-mascot">
-                <div class="st-hero-text">
-                    <h1 data-i18n="index.hero_title">Free Online Tools</h1>
-                    <p class="st-subtitle" data-i18n="index.hero_subtitle">Fast, free, and private. No signup required. All tools run entirely in your browser.</p>
-                    <div class="st-privacy">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <span data-i18n="index.privacy_note">100% browser-based. Your data never leaves your device.</span>
+            <!-- Full-width Image Compressor (Immersive Canopy) -->
+            <div class="ic-section">
+                <div class="ic-canopy-bg">
+                    <!-- Hero text overlay on jungle -->
+                    <div class="ic-hero-overlay">
+                        <h1 data-i18n="index.hero_title">Image Compression — Fast & Free</h1>
+                        <p class="ic-hero-sub" data-i18n="index.hero_subtitle_1">All tools run 100% in your browser — your files never leave your device.</p>
+                        <p class="ic-hero-sub ic-hero-accent" data-i18n="index.hero_subtitle_2">Fast, free, unlimited. No signup, no server upload.</p>
                     </div>
-                    <div class="st-trust-badges">
-                        <span class="st-trust-badge" data-i18n="index.badge_no_upload">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg>
-                            No Server Upload
-                        </span>
-                        <span class="st-trust-badge" data-i18n="index.badge_unlimited">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
-                            Unlimited &amp; Free
-                        </span>
-                        <span class="st-trust-badge" data-i18n="index.badge_quality">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
-                            Quality Control
-                        </span>
-                    </div>
-                </div>
-                <div class="st-mascot-frame">
-                    <img class="st-mascot-img" src="img/mascot/sloth.png" alt="SnapToolbox mascot - cute baby sloth" loading="eager" width="320" height="320">
-                </div>
-            </section>
 
-            <!-- Featured: Image Compressor -->
-            <a href="tools/image-compressor.html" class="st-featured-card">
-                <div class="st-featured-inner">
-                    <div class="st-featured-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#DCF0C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                    <!-- Sloth peeking from right -->
+                    <div class="ic-mascot-peek">
+                        <img src="img/mascot/sloth.png" alt="SnapToolbox mascot sloth" loading="eager" width="200" height="220">
                     </div>
-                    <div class="st-featured-text">
-                        <h2 data-i18n="index.tool_image_compressor">Image Compressor<span class="st-badge" data-i18n="index.featured_badge">Most Popular</span></h2>
-                        <p data-i18n="index.featured_desc">Compress JPEG, PNG, and WebP images without losing quality. All processing happens in your browser — your images are never uploaded.</p>
+
+                    <div class="ic-dropzone-wrap">
+                        <div class="ic-dropzone" id="icDropZone">
+                            <div class="ic-dz-icon">
+                                <svg viewBox="0 0 80 80" fill="none">
+                                    <rect x="10" y="18" width="60" height="44" rx="8" fill="#EFF3DE" stroke="#3D5C2E" stroke-width="2.5"/>
+                                    <path d="M10 52 L28 34 L40 46 L50 38 L70 52 L70 54 Q70 62 62 62 L18 62 Q10 62 10 54Z" fill="#DCF0C8" opacity="0.8"/>
+                                    <path d="M28 34 L40 46 L50 38 L70 52" stroke="#3D5C2E" stroke-width="1.5" fill="none" opacity="0.5"/>
+                                    <circle cx="54" cy="32" r="6" fill="#E8C95A" opacity="0.7"/>
+                                    <path d="M40 75 L40 62" stroke="#3D5C2E" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M33 69 L40 62 L47 69" stroke="#3D5C2E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="ic-dz-title" data-i18n="image_compressor.drop_title">Drop your images here</div>
+                            <div class="ic-dz-sub" data-i18n="image_compressor.drop_desc">or click to browse your files (JPEG, PNG, WebP — up to 50MB)</div>
+                            <div class="ic-dz-btn">Choose Files</div>
+                            <div class="ic-dz-formats">
+                                <span>JPEG</span>
+                                <span>PNG</span>
+                                <span>WebP</span>
+                            </div>
+                        </div>
                     </div>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;color:var(--st-primary);"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </div>
-            </a>
+            </div>
+
+            <input type="file" id="icFileInput" multiple accept="image/jpeg,image/png,image/webp">
+
+            <!-- Workspace (appears after file selection) -->
+            <div class="ic-workspace" id="icWorkspace">
+                <div class="ic-card">
+                    <div class="ic-settings">
+                        <div class="ic-setting">
+                            <label for="icQualitySlider">Quality</label>
+                            <div class="ic-quality-row">
+                                <input type="range" id="icQualitySlider" min="1" max="100" value="80">
+                                <span class="ic-quality-val">80</span>
+                            </div>
+                        </div>
+                        <div class="ic-setting">
+                            <label for="icFormatSelect">Format</label>
+                            <select id="icFormatSelect">
+                                <option value="original">Original</option>
+                                <option value="jpeg">JPEG</option>
+                                <option value="png">PNG</option>
+                                <option value="webp">WebP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="ic-filelist">
+                        <div class="ic-filelist-header">
+                            <span class="ic-filelist-count" id="icFileCount">0 files</span>
+                            <button class="ic-clear-btn" id="icClearBtn">Clear All</button>
+                        </div>
+                        <div id="icFileList"></div>
+                    </div>
+                    <div class="ic-compress-bar">
+                        <button class="ic-compress-btn" id="icCompressBtn" disabled>Compress</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="ic-results" id="icResultsSection">
+                <div class="ic-stats">
+                    <div class="ic-stat">
+                        <div class="ic-stat-label" data-i18n="image_compressor.original">Original</div>
+                        <div class="ic-stat-value" id="icOriginalSizeTotal">—</div>
+                    </div>
+                    <div class="ic-stat">
+                        <div class="ic-stat-label" data-i18n="image_compressor.compressed">Compressed</div>
+                        <div class="ic-stat-value" id="icCompressedSizeTotal">—</div>
+                    </div>
+                    <div class="ic-stat">
+                        <div class="ic-stat-label" data-i18n="image_compressor.reduction">Saved</div>
+                        <div class="ic-stat-value saved" id="icAverageRatio">—</div>
+                    </div>
+                </div>
+                <div class="ic-downloads" id="icDownloadSection">
+                    <div id="icDownloadGrid"></div>
+                    <button class="ic-dl-all" id="icDownloadAllBtn">
+                        <svg class="ic-dl-all-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 3v10M6 9l4 4 4-4"/>
+                            <path d="M3 15v1a1 1 0 001 1h12a1 1 0 001-1v-1"/>
+                        </svg>
+                        <span data-i18n="image_compressor.download_all_btn">Download All Files</span>
+                    </button>
+                </div>
+            </div>
 
             <!-- Ad -->
             <div class="st-ad">Ad Space</div>
 
-            <!-- Search -->
-            <div class="st-search">
-                <svg class="st-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                <input type="text" id="tool-search" data-i18n-placeholder="index.search_placeholder" placeholder="Search tools..." aria-label="Search tools">
-            </div>
-
-            <!-- Tools -->
+            <!-- Other Tools -->
             <div id="tools">
-                <!-- Text & Developer Tools -->
-                <section class="st-category-section" style="margin-bottom: 2rem;">
-                    <h2 class="st-section-title"><span data-i18n="index.cat_text">Text & Developer Tools</span></h2>
-                    <div class="st-tools-grid">
-                        <a href="tools/json-formatter.html" class="st-tool-card">
-                            <div class="st-tool-icon st-tool-icon-yellow">{ }</div>
-                            <h3 data-i18n="index.tool_json">JSON Formatter</h3>
-                            <p data-i18n="index.tool_json_desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
-                        </a>
-                        <a href="tools/character-counter.html" class="st-tool-card">
-                            <div class="st-tool-icon st-tool-icon-green">Aa</div>
-                            <h3 data-i18n="index.tool_char">Character Counter</h3>
-                            <p data-i18n="index.tool_char_desc">Count characters, words, sentences, and paragraphs in real time.</p>
-                        </a>
-                    </div>
-                </section>
+                <h2 class="st-section-title" style="margin-top: 1rem;"><span data-i18n="index.other_tools_title">More Tools</span></h2>
+
+                <div class="st-tools-grid" style="margin-bottom: 2rem;">
+                    <a href="tools/json-formatter.html" class="st-tool-card">
+                        <div class="st-tool-icon st-tool-icon-yellow">{ }</div>
+                        <h3 data-i18n="index.tool_json">JSON Formatter</h3>
+                        <p data-i18n="index.tool_json_desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                    </a>
+                    <a href="tools/character-counter.html" class="st-tool-card">
+                        <div class="st-tool-icon st-tool-icon-green">Aa</div>
+                        <h3 data-i18n="index.tool_char">Character Counter</h3>
+                        <p data-i18n="index.tool_char_desc">Count characters, words, sentences, and paragraphs in real time.</p>
+                    </a>
+                    <a href="tools/unit-converter.html" class="st-tool-card">
+                        <div class="st-tool-icon st-tool-icon-brown">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+                        </div>
+                        <h3 data-i18n="index.tool_unit">Unit Converter</h3>
+                        <p data-i18n="index.tool_unit_desc">Convert between length, weight, temperature, and more.</p>
+                    </a>
+                    <a href="tools/color-converter.html" class="st-tool-card">
+                        <div class="st-tool-icon st-tool-icon-red">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+                        </div>
+                        <h3 data-i18n="index.tool_color">Color Converter</h3>
+                        <p data-i18n="index.tool_color_desc">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                    </a>
+                </div>
 
                 <!-- Ad -->
                 <div class="st-ad">Ad Space</div>
-
-                <!-- Calculators & Converters -->
-                <section class="st-category-section" style="margin-bottom: 2rem;">
-                    <h2 class="st-section-title"><span data-i18n="index.cat_calc">Calculators & Converters</span></h2>
-                    <div class="st-tools-grid">
-                        <a href="tools/unit-converter.html" class="st-tool-card">
-                            <div class="st-tool-icon st-tool-icon-brown">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-                            </div>
-                            <h3 data-i18n="index.tool_unit">Unit Converter</h3>
-                            <p data-i18n="index.tool_unit_desc">Convert between length, weight, temperature, and more.</p>
-                        </a>
-                        <a href="tools/color-converter.html" class="st-tool-card">
-                            <div class="st-tool-icon st-tool-icon-red">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
-                            </div>
-                            <h3 data-i18n="index.tool_color">Color Converter</h3>
-                            <p data-i18n="index.tool_color_desc">Convert colors between HEX, RGB, HSL formats with live preview.</p>
-                        </a>
-                    </div>
-                </section>
             </div>
 
-            <!-- Mascot CTA Banner -->
-            <div class="st-cta-banner">
-                <img class="st-cta-banner-img" src="img/mascot/sloth.png" alt="Happy sloth mascot" loading="lazy" width="120" height="120">
-                <div class="st-cta-banner-text">
-                    <h3 data-i18n="index.cta_title">Try our most popular tool</h3>
-                    <p data-i18n="index.cta_desc">Compress images up to 80% smaller — right in your browser. No upload, no waiting.</p>
-                    <a href="tools/image-compressor.html" class="st-btn" data-i18n="index.cta_btn">Compress Images Now</a>
-                </div>
-            </div>
-
-            <!-- Why SnapToolbox — 5 Differentiators -->
-            <section id="about" style="padding: 2rem 0;">
-                <h2 class="st-section-title" data-i18n="index.about_title">Why SnapToolbox?</h2>
-                <p class="st-section-subtitle" data-i18n="index.about_subtitle">Unlike typical online tools, SnapToolbox is designed to put you in control.</p>
-                <div class="st-diff-grid">
-                    <!-- 1. Privacy -->
-                    <div class="st-diff-card st-diff-card--highlight">
-                        <div class="st-diff-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        </div>
-                        <h3 data-i18n="index.diff_1_title">Your Data Never Leaves</h3>
-                        <p data-i18n="index.diff_1_desc">Other tools upload your files to their servers. SnapToolbox processes everything in your browser — your images, text, and data stay 100% on your device.</p>
-
+            <!-- Why SnapToolbox — Compact Banner -->
+            <section id="about" class="st-about-banner">
+                <div class="st-about-banner-inner">
+                    <div class="st-about-banner-pills">
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-i18n="index.banner_privacy">100% Browser-Based</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+                            <span data-i18n="index.banner_free">Truly Free & Unlimited</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
+                            <span data-i18n="index.banner_quality">Quality Control</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                            <span data-i18n="index.banner_allinone">5+ Tools in One</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+                            <span data-i18n="index.banner_lang">EN / JA</span>
+                        </span>
                     </div>
-                    <!-- 2. Unlimited Free -->
-                    <div class="st-diff-card">
-                        <div class="st-diff-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
-                        </div>
-                        <h3 data-i18n="index.diff_2_title">Truly Unlimited & Free</h3>
-                        <p data-i18n="index.diff_2_desc">No "20 files per session" limit, no 5MB cap, no hidden paywalls. Use every tool as many times as you want, with no file size restrictions.</p>
-
-                    </div>
-                    <!-- 3. Quality Control -->
-                    <div class="st-diff-card">
-                        <div class="st-diff-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
-                        </div>
-                        <h3 data-i18n="index.diff_3_title">You Control the Quality</h3>
-                        <p data-i18n="index.diff_3_desc">Adjust compression with a quality slider and choose your output format. Other tools decide for you — we let you find the perfect balance.</p>
-
-                    </div>
-                    <!-- 4. Multi-tool -->
-                    <div class="st-diff-card">
-                        <div class="st-diff-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-                        </div>
-                        <h3 data-i18n="index.diff_4_title">All-in-One Toolbox</h3>
-                        <p data-i18n="index.diff_4_desc">Image compression, JSON formatting, text counting, unit conversion, and color picking — all in one place. No more juggling between different sites.</p>
-
-                    </div>
-                    <!-- 5. Multilingual -->
-                    <div class="st-diff-card">
-                        <div class="st-diff-icon">
-                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--st-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        </div>
-                        <h3 data-i18n="index.diff_5_title">Multilingual Support</h3>
-                        <p data-i18n="index.diff_5_desc">Switch between English and Japanese with one click. We're expanding to more languages — so everyone can use powerful tools in their own language.</p>
-
+                    <div class="st-about-banner-text">
+                        <span data-i18n="index.banner_desc">Your data never leaves your device. No signup, no limits.</span>
+                        <a href="about.html" class="st-about-banner-link" data-i18n="index.banner_more">Learn more &rarr;</a>
                     </div>
                 </div>
             </section>
 
-            <!-- Comparison Table -->
-            <section class="st-compare-section">
-                <h2 class="st-section-title" data-i18n="index.compare_title">How We Compare</h2>
-                <div class="st-compare-table-wrap">
-                    <table class="st-compare-table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th class="st-compare-us">SnapToolbox</th>
-                                <th data-i18n="index.compare_others">Typical Tools</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td data-i18n="index.compare_row_privacy">Data Privacy</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_privacy_us">Browser only</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_privacy_them">Server upload</span></td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="index.compare_row_price">Price</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_price_us">Free, unlimited</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_price_them">Free tier limited</span></td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="index.compare_row_quality">Quality Control</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_quality_us">Adjustable slider</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_quality_them">Auto only</span></td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="index.compare_row_filesize">File Size Limit</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_filesize_us">50MB+</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_filesize_them">5MB (free)</span></td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="index.compare_row_tools">Multiple Tools</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_tools_us">5+ tools</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_tools_them">1 tool</span></td>
-                            </tr>
-                            <tr>
-                                <td data-i18n="index.compare_row_lang">Languages</td>
-                                <td class="st-compare-us"><span class="st-compare-check" data-i18n="index.compare_lang_us">EN / JA</span></td>
-                                <td><span class="st-compare-x" data-i18n="index.compare_lang_them">English only</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- Contact -->
-            <section id="contact" style="text-align: center; padding: 1.5rem 0 2rem;">
-                <h2 class="st-section-title" style="justify-content: center;">Contact</h2>
-                <p style="color: var(--st-text-secondary); margin-top: 0.5rem;">contact@snaptoolbox.app</p>
-            </section>
         </div>
     </main>
 
@@ -312,6 +772,10 @@
                     <h4 data-i18n="common.footer_about">About</h4>
                     <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
                 </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
+                </div>
             </div>
             <div class="st-footer-bottom">
                 <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
@@ -332,5 +796,245 @@
 
     <script src="js/common.js"></script>
     <script src="js/i18n.js"></script>
+    <script>
+        /* Embedded Image Compressor (index page) */
+        const IC = {
+            files: [],
+            results: new Map(),
+
+            init() {
+                this.$ = {
+                    dropZone: document.getElementById('icDropZone'),
+                    fileInput: document.getElementById('icFileInput'),
+                    fileList: document.getElementById('icFileList'),
+                    fileCount: document.getElementById('icFileCount'),
+                    workspace: document.getElementById('icWorkspace'),
+                    compressBtn: document.getElementById('icCompressBtn'),
+                    clearBtn: document.getElementById('icClearBtn'),
+                    quality: document.getElementById('icQualitySlider'),
+                    qualityVal: document.querySelector('.ic-quality-val'),
+                    format: document.getElementById('icFormatSelect'),
+                    resultsEl: document.getElementById('icResultsSection'),
+                    dlGrid: document.getElementById('icDownloadGrid'),
+                    dlAllBtn: document.getElementById('icDownloadAllBtn'),
+                    origTotal: document.getElementById('icOriginalSizeTotal'),
+                    compTotal: document.getElementById('icCompressedSizeTotal'),
+                    ratio: document.getElementById('icAverageRatio'),
+                };
+
+                const dz = this.$.dropZone;
+                dz.addEventListener('click', () => this.$.fileInput.click());
+                dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
+                dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+                dz.addEventListener('drop', e => {
+                    e.preventDefault(); dz.classList.remove('drag-over');
+                    this.add(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+                });
+
+                this.$.fileInput.addEventListener('change', e => { this.add(Array.from(e.target.files)); e.target.value = ''; });
+                this.$.compressBtn.addEventListener('click', () => this.compress());
+                this.$.clearBtn.addEventListener('click', () => this.clear());
+                this.$.quality.addEventListener('input', e => { this.$.qualityVal.textContent = e.target.value; });
+                this.$.dlAllBtn.addEventListener('click', () => this.downloadAll());
+            },
+
+            add(newFiles) {
+                newFiles.forEach(f => {
+                    if (!this.files.some(x => x.name === f.name && x.size === f.size)) this.files.push(f);
+                });
+                this.render();
+            },
+
+            render() {
+                const n = this.files.length;
+                this.$.workspace.classList.toggle('active', n > 0);
+                this.$.fileCount.textContent = `${n} file${n !== 1 ? 's' : ''}`;
+                this.$.compressBtn.disabled = n === 0 || this.results.size === n;
+
+                this.$.fileList.innerHTML = this.files.map((f, i) => `
+                    <div class="ic-file" data-i="${i}">
+                        <div class="ic-file-thumb" id="icThumb_${i}">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+                        </div>
+                        <div class="ic-file-info">
+                            <div class="ic-file-name">${this.esc(f.name)}</div>
+                            <div class="ic-file-meta">${(f.size / 1024).toFixed(0)} KB</div>
+                            <div class="ic-file-progress" data-i="${i}"><div class="ic-file-progress-bar"></div></div>
+                        </div>
+                        <div><span class="ic-badge ic-badge-ready">Ready</span></div>
+                        <button class="ic-file-remove" onclick="event.stopPropagation(); IC.remove(${i})" aria-label="Remove">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                    </div>`).join('');
+
+                this.files.forEach((f, i) => {
+                    const el = document.getElementById(`icThumb_${i}`);
+                    if (el && f.type.startsWith('image/')) {
+                        const url = URL.createObjectURL(f);
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.onload = () => { el.innerHTML = ''; el.appendChild(img); };
+                    }
+                });
+            },
+
+            remove(i) {
+                this.files.splice(i, 1);
+                this.results.delete(i);
+                if (!this.files.length) this.$.resultsEl.classList.remove('active');
+                this.render();
+            },
+
+            clear() {
+                this.files = [];
+                this.results.clear();
+                this.$.resultsEl.classList.remove('active');
+                this.render();
+            },
+
+            async compress() {
+                const q = parseInt(this.$.quality.value);
+                const fmt = this.$.format.value;
+                const btn = this.$.compressBtn;
+
+                btn.disabled = true;
+                btn.textContent = 'Compressing\u2026';
+
+                for (let i = 0; i < this.files.length; i++) {
+                    if (!this.results.has(i)) await this._process(i, q, fmt);
+                }
+
+                btn.textContent = 'Done';
+                this.showResults();
+            },
+
+            _process(i, quality, format) {
+                return new Promise(resolve => {
+                    const file = this.files[i];
+                    this._status(i, 'working', 'Compressing');
+                    const reader = new FileReader();
+
+                    reader.onload = e => {
+                        const img = new Image();
+                        img.onload = () => {
+                            this._progress(i, 50);
+                            const c = document.createElement('canvas');
+                            c.width = img.width; c.height = img.height;
+                            c.getContext('2d').drawImage(img, 0, 0);
+
+                            const mime = format === 'original' ? file.type : `image/${format}`;
+                            const out = mime === 'image/jpg' ? 'image/jpeg' : mime;
+
+                            const tryCompress = (outputMime, q) => {
+                                return new Promise(res => {
+                                    c.toBlob(blob => res(blob), outputMime, q);
+                                });
+                            };
+
+                            (async () => {
+                                let bestBlob = null;
+
+                                if (out === 'image/png') {
+                                    bestBlob = await tryCompress('image/png', undefined);
+                                    if (quality < 100) {
+                                        const webpBlob = await tryCompress('image/webp', quality / 100);
+                                        if (webpBlob && webpBlob.size < bestBlob.size) {
+                                            bestBlob = webpBlob;
+                                        }
+                                    }
+                                } else {
+                                    bestBlob = await tryCompress(out, quality / 100);
+                                }
+
+                                let finalBlob = bestBlob;
+                                let finalMime = out;
+                                let finalSize = bestBlob.size;
+
+                                if (bestBlob.size >= file.size) {
+                                    finalBlob = file;
+                                    finalMime = file.type;
+                                    finalSize = file.size;
+                                }
+
+                                this._progress(i, 100);
+                                this.results.set(i, {
+                                    blob: finalBlob,
+                                    name: file.name,
+                                    orig: file.size,
+                                    comp: finalSize,
+                                    mime: finalMime
+                                });
+                                this._status(i, 'done', finalSize >= file.size ? 'Already optimized' : 'Done');
+                                resolve();
+                            })();
+                        };
+                        this._progress(i, 25);
+                        img.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                });
+            },
+
+            _progress(i, pct) {
+                const el = document.querySelector(`.ic-file-progress[data-i="${i}"]`);
+                if (el) { el.classList.add('active'); el.querySelector('.ic-file-progress-bar').style.width = pct + '%'; }
+            },
+
+            _status(i, type, label) {
+                const el = document.querySelector(`.ic-file[data-i="${i}"] .ic-badge`);
+                if (el) { el.className = `ic-badge ic-badge-${type}`; el.textContent = label; }
+            },
+
+            showResults() {
+                let orig = 0, comp = 0;
+                this.results.forEach(r => { orig += r.orig; comp += r.comp; });
+                const pct = orig > 0 ? Math.round((1 - comp / orig) * 100) : 0;
+
+                this.$.origTotal.textContent = formatFileSize(orig);
+                this.$.compTotal.textContent = formatFileSize(comp);
+                this.$.ratio.textContent = pct > 0 ? `\u2212${pct}%` : `0%`;
+
+                this.$.dlGrid.innerHTML = Array.from(this.results.entries()).map(([i, r]) => {
+                    const p = Math.round((1 - r.comp / r.orig) * 100);
+                    const name = r.name.replace(/\.[^.]+$/, '');
+                    const savedLabel = p > 0
+                        ? `<span class="ic-saved">${p}% smaller</span>`
+                        : `<span class="ic-saved ic-saved--none">Already optimized</span>`;
+                    return `
+                    <div class="ic-dl-item">
+                        <div class="ic-dl-info">
+                            <div class="ic-dl-name">${this.esc(name)}${p > 0 ? '-compressed' : ''}</div>
+                            <div class="ic-dl-meta">${formatFileSize(r.orig)} \u2192 ${formatFileSize(r.comp)} ${savedLabel}</div>
+                        </div>
+                        <button class="ic-dl-btn" onclick="IC.download(${i})">Download</button>
+                    </div>`;
+                }).join('');
+
+                this.$.resultsEl.classList.add('active');
+                this.$.compressBtn.disabled = true;
+            },
+
+            download(i) {
+                const r = this.results.get(i);
+                if (!r) return;
+                const ext = r.mime.split('/')[1] === 'jpeg' ? 'jpg' : r.mime.split('/')[1];
+                const name = r.name.replace(/\.[^.]+$/, '') + `-compressed.${ext}`;
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(r.blob);
+                a.download = name;
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                if (typeof showToast === 'function') showToast('Downloaded: ' + name);
+            },
+
+            downloadAll() {
+                let c = 0;
+                this.results.forEach((_, i) => { setTimeout(() => this.download(i), c++ * 300); });
+            },
+
+            esc(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => IC.init());
+    </script>
 </body>
 </html>
