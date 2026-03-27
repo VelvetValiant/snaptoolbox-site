@@ -113,7 +113,7 @@
     }
     .ic-canopy-bg {
         position: relative;
-        background: url('img/canopy-bg.svg') center/cover no-repeat;
+        background: url('img/jungle-bg.jpg') center/cover no-repeat;
         background-color: #2B4E1C;
         padding: 2.5rem 2.5rem 3rem;
         min-height: 340px;
@@ -139,16 +139,23 @@
         text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
     }
     .ic-hero-sub {
-        color: rgba(255,255,255,0.88);
-        font-size: 1rem;
-        font-weight: 400;
+        color: rgba(255,255,255,0.95);
+        font-size: 1.05rem;
+        font-weight: 700;
         line-height: 1.8;
         margin: 0;
-        text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+        text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
     .ic-hero-accent {
-        color: #E8D96A;
-        font-weight: 500;
+        display: inline-block;
+        color: #fff;
+        font-weight: 800;
+        background: rgba(232,217,106,0.3);
+        padding: 0.3rem 1rem;
+        border-radius: 999px;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        margin-top: 0.4rem;
     }
     @media (max-width: 640px) {
         .ic-hero-overlay h1 { font-size: 1.5rem; }
@@ -160,8 +167,8 @@
         position: absolute;
         inset: 0;
         background:
-            radial-gradient(ellipse at 55% 20%, rgba(232,201,90,0.2) 0%, transparent 45%),
-            radial-gradient(ellipse at center, transparent 35%, rgba(30,58,18,0.35) 100%);
+            radial-gradient(ellipse at 55% 20%, rgba(232,201,90,0.15) 0%, transparent 45%),
+            radial-gradient(ellipse at center, rgba(30,58,18,0.25) 0%, rgba(30,58,18,0.5) 100%);
         pointer-events: none;
         z-index: 1;
     }
@@ -191,9 +198,9 @@
         z-index: 3;
         max-width: 580px;
         width: 100%;
-        background: rgba(255,255,255,0.93);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
+        background: rgba(255,255,255,0.6);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border-radius: 24px;
         padding: 2rem;
         box-shadow:
@@ -202,17 +209,17 @@
     }
     .ic-dropzone {
         position: relative; z-index: 1;
-        border: 3px dashed rgba(157,163,119,0.6);
+        border: 3px dashed var(--st-primary);
         border-radius: var(--st-radius-lg);
         padding: 2.5rem 1.5rem;
         text-align: center;
         cursor: pointer;
         transition: all 0.4s var(--st-ease);
-        background: rgba(255,255,255,0.6);
+        background: #fff;
     }
     .ic-dropzone:hover {
         border-color: var(--st-primary);
-        background: rgba(255,255,255,0.85);
+        background: #fff;
         transform: scale(1.005);
     }
     .ic-dropzone.drag-over {
