@@ -4,49 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service - SnapToolbox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="../" class="logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 6v6l4 2"></path>
-                </svg>
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../" class="st-logo">
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
-            <button class="nav-toggle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             </button>
-            <nav class="nav-links">
-                <a href="../">Home</a>
-                <a href="../legal/privacy-policy.html">Privacy</a>
-                <a href="../legal/terms-of-service.html">Terms</a>
-                <a href="../legal/cookie-policy.html">Cookies</a>
+            <nav class="st-nav">
+                <a href="../" data-i18n="common.breadcrumb_home">Home</a>
+                <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../about.html" data-i18n="common.nav_about">About</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="st-page-wide">
         <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="../">Home</a>
-            <span>/</span>
-            <span>Terms of Service</span>
-        </div>
+        <nav class="st-breadcrumb">
+            <a href="../" data-i18n="common.breadcrumb_home">Home</a> &gt; <span>Terms of Service</span>
+        </nav>
 
         <!-- Legal Page Content -->
-        <div class="legal-page">
+        <div class="st-legal">
             <h1>Terms of Service</h1>
-            <p class="last-updated">Last Updated: March 2026</p>
+            <p class="st-legal-updated">Last Updated: March 2026</p>
 
             <h2>1. Acceptance of Terms</h2>
             <p>Welcome to SnapToolbox ("Service", "we," "us," or "our"). SnapToolbox is operated by an individual ("Operator"). These Terms of Service ("Terms") constitute a binding legal agreement between you ("User," "you," or "your") and the Operator of SnapToolbox. By accessing, browsing, or using the SnapToolbox website and all associated tools, features, and services, you acknowledge that you have read, understood, and agree to be bound by these Terms in their entirety.</p>
@@ -249,51 +240,52 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="../">Tools</a>
-                    <a href="../">Home</a>
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="../tools/image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="../tools/image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="../tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="../tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="../tools/unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="../tools/color-converter.html" data-i18n="index.tool_color">Color Converter</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="./privacy-policy.html">Privacy Policy</a>
-                    <a href="./terms-of-service.html">Terms of Service</a>
-                    <a href="./cookie-policy.html">Cookie Policy</a>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="./privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="./terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="./cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <a href="#">Contact</a>
-                    <a href="#">Feedback</a>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 SnapToolbox. All rights reserved.</span>
-                <div>
-                    <a href="./privacy-policy.html">Privacy</a> &bull;
-                    <a href="./terms-of-service.html">Terms</a> &bull;
-                    <a href="./cookie-policy.html">Cookies</a>
-                </div>
+            <div class="st-footer-bottom">
+                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner">
-        <div class="cookie-inner">
-            <p>
-                We use cookies to enhance your experience. By continuing to browse, you consent to our use of cookies and analytics. See our <a href="./privacy-policy.html">Privacy Policy</a> and <a href="./cookie-policy.html">Cookie Policy</a> for details.
-            </p>
-            <div class="cookie-buttons">
-                <button class="btn btn-secondary" onclick="CookieConsent.decline()">Decline</button>
-                <button class="btn btn-primary" onclick="CookieConsent.accept()">Accept</button>
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="./cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

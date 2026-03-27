@@ -4,122 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Policy - SnapToolbox</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        .cookie-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-        .cookie-table thead {
-            background: var(--color-bg);
-            border-bottom: 2px solid var(--color-border);
-        }
-        .cookie-table th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            color: var(--color-text);
-            font-size: 0.9rem;
-        }
-        .cookie-table td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--color-border);
-            font-size: 0.9rem;
-            color: var(--color-text-secondary);
-        }
-        .cookie-table tr:last-child td {
-            border-bottom: none;
-        }
-        .cookie-table tr:hover {
-            background: var(--color-bg);
-        }
-        .cookie-badge {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .badge-essential {
-            background: #DBEAFE;
-            color: #0C4A6E;
-        }
-        .badge-analytics {
-            background: #D1FAE5;
-            color: #065F46;
-        }
-        .badge-advertising {
-            background: #FEF3C7;
-            color: #92400E;
-        }
-        .consent-control {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--color-bg);
-            border-radius: var(--radius-md);
-            margin: 1.5rem 0;
-        }
-        .consent-control h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 0.95rem;
-        }
-        .consent-control p {
-            margin: 0;
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="../" class="logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <path d="M12 6v6l4 2"></path>
-                </svg>
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../" class="st-logo">
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
-            <button class="nav-toggle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
             </button>
-            <nav class="nav-links">
-                <a href="../">Home</a>
-                <a href="../legal/privacy-policy.html">Privacy</a>
-                <a href="../legal/terms-of-service.html">Terms</a>
-                <a href="../legal/cookie-policy.html">Cookies</a>
+            <nav class="st-nav">
+                <a href="../" data-i18n="common.breadcrumb_home">Home</a>
+                <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../about.html" data-i18n="common.nav_about">About</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="st-page-wide">
         <!-- Breadcrumb -->
-        <div class="breadcrumb">
-            <a href="../">Home</a>
-            <span>/</span>
-            <span>Cookie Policy</span>
-        </div>
+        <nav class="st-breadcrumb">
+            <a href="../" data-i18n="common.breadcrumb_home">Home</a> &gt; <span>Cookie Policy</span>
+        </nav>
 
         <!-- Legal Page Content -->
-        <div class="legal-page">
+        <div class="st-legal">
             <h1>Cookie Policy</h1>
-            <p class="last-updated">Last Updated: March 2026</p>
+            <p class="st-legal-updated">Last Updated: March 2026</p>
 
             <h2>1. Introduction to Cookies</h2>
             <p>This Cookie Policy explains what cookies are, how SnapToolbox ("we," "us," or "our"), operated by an individual, uses them, and how you can manage them. By using the SnapToolbox website, you consent to our use of cookies as described in this policy.</p>
@@ -174,7 +92,7 @@
             <h2>4. Cookie Details Table</h2>
             <p>Below is a comprehensive table of the cookies SnapToolbox uses:</p>
 
-            <table class="cookie-table">
+            <table class="st-legal-table">
                 <thead>
                     <tr>
                         <th>Cookie Name</th>
@@ -187,56 +105,56 @@
                 <tbody>
                     <tr>
                         <td>snaptools_cookie_consent</td>
-                        <td><span class="cookie-badge badge-essential">Essential</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-essential">Essential</span></td>
                         <td>Stores your cookie consent preferences (essential, analytics, advertising)</td>
                         <td>Persistent (until cleared)</td>
                         <td>SnapToolbox</td>
                     </tr>
                     <tr>
                         <td>_ga</td>
-                        <td><span class="cookie-badge badge-analytics">Analytics</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-analytics">Analytics</span></td>
                         <td>Google Analytics - Unique user identification and session tracking</td>
                         <td>2 years</td>
                         <td>Google Analytics</td>
                     </tr>
                     <tr>
                         <td>_ga_[ID]</td>
-                        <td><span class="cookie-badge badge-analytics">Analytics</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-analytics">Analytics</span></td>
                         <td>Google Analytics - Session tracking and user behavior analysis</td>
                         <td>2 years</td>
                         <td>Google Analytics</td>
                     </tr>
                     <tr>
                         <td>_gid</td>
-                        <td><span class="cookie-badge badge-analytics">Analytics</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-analytics">Analytics</span></td>
                         <td>Google Analytics - Distinguishes users for analytics purposes</td>
                         <td>24 hours</td>
                         <td>Google Analytics</td>
                     </tr>
                     <tr>
                         <td>NID</td>
-                        <td><span class="cookie-badge badge-advertising">Advertising</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-advertising">Advertising</span></td>
                         <td>Google - User profile and interest targeting for ads</td>
                         <td>6 months</td>
                         <td>Google</td>
                     </tr>
                     <tr>
                         <td>IDE</td>
-                        <td><span class="cookie-badge badge-advertising">Advertising</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-advertising">Advertising</span></td>
                         <td>Google AdSense - Cross-site user identification and ad serving</td>
                         <td>1 year</td>
                         <td>Google AdSense</td>
                     </tr>
                     <tr>
                         <td>ANID</td>
-                        <td><span class="cookie-badge badge-advertising">Advertising</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-advertising">Advertising</span></td>
                         <td>Google - Advertising personalization and frequency capping</td>
                         <td>1 year</td>
                         <td>Google</td>
                     </tr>
                     <tr>
                         <td>CONSENT</td>
-                        <td><span class="cookie-badge badge-advertising">Advertising</span></td>
+                        <td><span class="st-legal-badge st-legal-badge-advertising">Advertising</span></td>
                         <td>Google - Stores user's ad personalization and analytics consent status</td>
                         <td>2 years</td>
                         <td>Google</td>
@@ -422,51 +340,52 @@
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Product</h4>
-                    <a href="../">Tools</a>
-                    <a href="../">Home</a>
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="../tools/image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="../tools/image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="../tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="../tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="../tools/unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
+                    <a href="../tools/color-converter.html" data-i18n="index.tool_color">Color Converter</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <a href="./privacy-policy.html">Privacy Policy</a>
-                    <a href="./terms-of-service.html">Terms of Service</a>
-                    <a href="./cookie-policy.html">Cookie Policy</a>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="./privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="./terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="./cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
                 </div>
-                <div class="footer-col">
-                    <h4>Support</h4>
-                    <a href="#">Contact</a>
-                    <a href="#">Feedback</a>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <span>&copy; 2026 SnapToolbox. All rights reserved.</span>
-                <div>
-                    <a href="./privacy-policy.html">Privacy</a> &bull;
-                    <a href="./terms-of-service.html">Terms</a> &bull;
-                    <a href="./cookie-policy.html">Cookies</a>
-                </div>
+            <div class="st-footer-bottom">
+                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>
 
     <!-- Cookie Consent Banner -->
-    <div class="cookie-banner">
-        <div class="cookie-inner">
-            <p>
-                We use cookies to enhance your experience. By continuing to browse, you consent to our use of cookies and analytics. See our <a href="./privacy-policy.html">Privacy Policy</a> and <a href="./cookie-policy.html">Cookie Policy</a> for details.
-            </p>
-            <div class="cookie-buttons">
-                <button class="btn btn-secondary" onclick="CookieConsent.decline()">Decline</button>
-                <button class="btn btn-primary" onclick="CookieConsent.accept()">Accept</button>
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="./cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
             </div>
         </div>
     </div>
 
     <!-- Scripts -->
     <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>
