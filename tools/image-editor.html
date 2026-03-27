@@ -309,52 +309,7 @@
             color: var(--st-primary-dim);
         }
 
-        /* --- Drop Zone --- */
-        .ie-dropzone-wrap {
-            background: var(--st-surface-low);
-            border-radius: 28px;
-            padding: 2.5rem;
-            max-width: 720px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .ie-dropzone-wrap::before {
-            content: '';
-            position: absolute;
-            top: -40px;
-            right: -40px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--st-green-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .ie-dropzone {
-            position: relative;
-            z-index: 1;
-            border: 3px dashed var(--st-outline);
-            border-radius: var(--st-radius);
-            padding: 3rem 2rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s var(--st-ease);
-            background: var(--st-card);
-        }
-
-        .ie-dropzone:hover {
-            border-color: var(--st-primary);
-            background: #FEFFFA;
-            transform: scale(1.005);
-        }
-
-        .ie-dropzone.drag-over {
-            border-color: var(--st-primary);
-            background: var(--st-primary-container);
-            box-shadow: 0 0 0 6px var(--st-green-glow);
-            transform: scale(1.01);
-        }
+        /* --- Drop Zone (legacy stand-alone styles removed — inline drop zone used) --- */
 
         .ie-dz-icon {
             width: 80px;
@@ -412,14 +367,76 @@
             border-radius: 999px;
         }
 
+        /* Inline drop zone inside workspace (replaces canvas when no image) */
+        .ie-dropzone-inline {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 400px;
+            background: var(--st-surface-container);
+            border: 2.5px dashed var(--st-outline);
+            border-radius: var(--st-radius);
+            padding: 2rem;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+
+        .ie-dropzone-inline:hover,
+        .ie-dropzone-inline.drag-over {
+            border-color: var(--st-primary);
+            background: var(--st-primary-container);
+        }
+
+        .ie-dropzone-inline .ie-dz-icon { width: 64px; height: 64px; margin: 0 auto 0.6rem; }
+        .ie-dropzone-inline .ie-dz-icon svg { width: 100%; height: 100%; }
+        .ie-dropzone-inline .ie-dz-title { font-size: 1.1rem; font-weight: 700; color: var(--st-text); margin-bottom: 0.25rem; }
+        .ie-dropzone-inline .ie-dz-sub { font-size: 0.85rem; color: var(--st-text-secondary); margin-bottom: 1rem; }
+        .ie-dropzone-inline .ie-dz-btn {
+            display: inline-flex;
+            background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+            color: #fff;
+            border: none;
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            cursor: pointer;
+            pointer-events: none;
+        }
+        .ie-dropzone-inline .ie-dz-formats { margin-top: 0.75rem; display: flex; gap: 0.5rem; }
+        .ie-dropzone-inline .ie-dz-formats span {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+            color: var(--st-secondary); background: var(--st-secondary-container); padding: 0.15rem 0.5rem; border-radius: 999px;
+        }
+
         /* --- Editor Workspace --- */
         .ie-workspace {
-            display: none;
             max-width: 1100px;
             margin: 0 auto;
         }
 
-        .ie-workspace.active { display: block; }
+        /* Disabled (greyed out) state before image load */
+        .ie-workspace.disabled .ie-controls {
+            opacity: 0.45;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .ie-workspace.disabled .ie-slider::-webkit-slider-thumb { background: var(--st-outline); }
+        .ie-workspace.disabled .ie-slider::-moz-range-thumb { background: var(--st-outline); }
+        .ie-workspace.disabled .ie-btn { opacity: 0.5; }
+        .ie-workspace.disabled .ie-tab { cursor: default; }
+
+        /* Before image load: hide canvas, show inline drop zone */
+        .ie-workspace.disabled .ie-canvas-wrap { display: none; }
+        .ie-workspace.disabled .ie-dropzone-inline { display: flex; }
+
+        /* After image load: show canvas, hide inline drop zone */
+        .ie-workspace:not(.disabled) .ie-dropzone-inline { display: none !important; }
+        .ie-workspace:not(.disabled) .ie-canvas-wrap { display: flex; }
 
         .ie-editor-layout {
             display: grid;
@@ -835,11 +852,10 @@
         /* --- Responsive --- */
         @media (max-width: 640px) {
             .st-hero h1 { font-size: 1.6rem; }
-            .ie-dropzone-wrap { padding: 1.5rem; border-radius: 20px; }
-            .ie-dropzone { padding: 2rem 1.25rem; }
             .st-features { grid-template-columns: 1fr; }
             .ie-dz-formats { flex-wrap: wrap; }
             .ie-rotate-grid { grid-template-columns: 1fr; }
+            .ie-dropzone-inline { min-height: 280px; padding: 1.5rem; }
         }
     </style>
 </head>
@@ -883,10 +899,11 @@
             </div>
         </div>
 
-        <!-- Drop Zone (shown when no image loaded) -->
-        <div id="dropSection">
-            <div class="ie-dropzone-wrap">
-                <div class="ie-dropzone" id="dropZone">
+        <!-- Editor Workspace (always visible; controls greyed out until image loaded) -->
+        <div class="ie-workspace disabled" id="workspace">
+            <div class="ie-editor-layout">
+                <!-- Inline Drop Zone (shown when no image loaded, replaces canvas) -->
+                <div class="ie-dropzone-inline" id="dropZone">
                     <div class="ie-dz-icon">
                         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="10" y="18" width="60" height="44" rx="8" fill="#EFF3DE" stroke="#3D5C2E" stroke-width="2.5"/>
@@ -905,13 +922,8 @@
                     </div>
                     <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" style="display:none">
                 </div>
-            </div>
-        </div>
 
-        <!-- Editor Workspace (shown when image is loaded) -->
-        <div class="ie-workspace" id="workspace">
-            <div class="ie-editor-layout">
-                <!-- Canvas Preview -->
+                <!-- Canvas Preview (shown when image loaded) -->
                 <div class="ie-canvas-wrap" id="canvasWrap">
                     <canvas id="previewCanvas"></canvas>
                     <div class="ie-crop-overlay" id="cropOverlay"></div>
@@ -1170,9 +1182,8 @@
                     document.getElementById('freeRotate').value = 0;
                     document.getElementById('rotateVal').textContent = '0°';
 
-                    // Show workspace
-                    document.getElementById('dropSection').style.display = 'none';
-                    document.getElementById('workspace').classList.add('active');
+                    // Activate workspace (remove disabled state)
+                    document.getElementById('workspace').classList.remove('disabled');
 
                     // Show size
                     document.getElementById('origSize').textContent = this.formatSize(file.size) + ' (' + img.width + '×' + img.height + ')';
@@ -1636,8 +1647,7 @@
         },
 
         reset() {
-            document.getElementById('dropSection').style.display = '';
-            document.getElementById('workspace').classList.remove('active');
+            document.getElementById('workspace').classList.add('disabled');
             document.getElementById('fileInput').value = '';
             this.originalImage = null;
             this.clearCropSelection();
