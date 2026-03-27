@@ -40,7 +40,7 @@ const I18N = {
         sns_save: 'Save',
         sns_cancel: 'Cancel',
         sns_empty: 'No links yet. Add your social links!',
-        sns_note_1: 'Register your SNS for quick access from any page. Links only — no data is shared.',
+        sns_note_1: 'Links are displayed only — no data is shared.',
         sns_note_2: 'Please download edited images before use.',
         sns_delete_confirm: 'Remove this link?',
       },
@@ -70,7 +70,7 @@ const I18N = {
         sns_save: '保存',
         sns_cancel: 'キャンセル',
         sns_empty: 'リンクはまだありません。SNSリンクを追加しましょう！',
-        sns_note_1: 'SNSを登録すると全ページからアクセス可能です。リンク表示のみ — データ共有なし',
+        sns_note_1: 'リンク表示のみでデータの共有などはありません。',
         sns_note_2: '補正画像はダウンロードしてから利用してください',
         sns_delete_confirm: 'このリンクを削除しますか？',
       }
