@@ -377,13 +377,13 @@ const SnsLinks = {
     }
     // Fallback English
     const fallback = {
-      sns_title: 'My Links',
+      sns_title: 'SNS MyLink',
       sns_add: 'Add Link',
       sns_placeholder: 'https://twitter.com/yourname',
       sns_save: 'Save',
       sns_cancel: 'Cancel',
       sns_empty: 'No links yet. Add your social links!',
-      sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared.',
+      sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared. Edited images must be downloaded before use.',
       sns_delete_confirm: 'Remove this link?',
     };
     return fallback[key] || key;
