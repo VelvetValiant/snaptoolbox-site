@@ -389,9 +389,8 @@ const SnsLinks = {
       sns_save: 'Save',
       sns_cancel: 'Cancel',
       sns_empty: 'No links yet. Add your social links!',
-      sns_note_1: 'Register your SNS for quick access from any page',
-      sns_note_2: 'Only links are displayed — no data is shared',
-      sns_note_3: 'Download edited images before use',
+      sns_note_1: 'Register your SNS for quick access from any page. Links only — no data is shared.',
+      sns_note_2: 'Please download edited images before use.',
       sns_delete_confirm: 'Remove this link?',
     };
     return fallback[key] || key;
@@ -416,7 +415,6 @@ const SnsLinks = {
         <ul class="sns-note">
           <li>${this.t('sns_note_1')}</li>
           <li>${this.t('sns_note_2')}</li>
-          <li>${this.t('sns_note_3')}</li>
         </ul>
         <div class="sns-links-list" id="snsLinksList">
           ${links.length === 0
