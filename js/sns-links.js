@@ -85,7 +85,13 @@ const SnsLinks = {
         font-size: 0.75rem;
         color: var(--st-text-tertiary, #687048);
         margin: 0 0 0.75rem 0;
-        line-height: 1.5;
+        padding-left: 1.2rem;
+        line-height: 1.7;
+        list-style: disc;
+      }
+
+      .sns-note li {
+        margin-bottom: 0.1rem;
       }
 
       .sns-add-btn {
@@ -383,7 +389,9 @@ const SnsLinks = {
       sns_save: 'Save',
       sns_cancel: 'Cancel',
       sns_empty: 'No links yet. Add your social links!',
-      sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared. Edited images must be downloaded before use.',
+      sns_note_1: 'Register your SNS for quick access from any page',
+      sns_note_2: 'Only links are displayed — no data is shared',
+      sns_note_3: 'Download edited images before use',
       sns_delete_confirm: 'Remove this link?',
     };
     return fallback[key] || key;
@@ -405,7 +413,11 @@ const SnsLinks = {
             ${this.t('sns_add')}
           </button>
         </div>
-        <p class="sns-note">${this.t('sns_note')}</p>
+        <ul class="sns-note">
+          <li>${this.t('sns_note_1')}</li>
+          <li>${this.t('sns_note_2')}</li>
+          <li>${this.t('sns_note_3')}</li>
+        </ul>
         <div class="sns-links-list" id="snsLinksList">
           ${links.length === 0
             ? `<div class="sns-empty">${this.t('sns_empty')}</div>`

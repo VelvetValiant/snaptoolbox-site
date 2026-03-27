@@ -40,7 +40,9 @@ const I18N = {
         sns_save: 'Save',
         sns_cancel: 'Cancel',
         sns_empty: 'No links yet. Add your social links!',
-        sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared. Edited images must be downloaded before use.',
+        sns_note_1: 'Register your SNS for quick access from any page',
+        sns_note_2: 'Only links are displayed — no data is shared',
+        sns_note_3: 'Download edited images before use',
         sns_delete_confirm: 'Remove this link?',
       },
       ja: {
@@ -69,7 +71,9 @@ const I18N = {
         sns_save: '保存',
         sns_cancel: 'キャンセル',
         sns_empty: 'リンクはまだありません。SNSリンクを追加しましょう！',
-        sns_note: 'SNSアカウントを登録しておくと、どのページからでも各SNSへ簡単にアクセスできます。リンクが表示されるだけで、その他のデータは共有されません。補正した画像は一度ダウンロードしてからご利用ください。',
+        sns_note_1: 'SNSを登録すると全ページからアクセス可能',
+        sns_note_2: 'リンク表示のみ — データ共有なし',
+        sns_note_3: '補正画像はダウンロードしてから利用',
         sns_delete_confirm: 'このリンクを削除しますか？',
       }
     },
