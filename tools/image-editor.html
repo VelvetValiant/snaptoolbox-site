@@ -739,56 +739,48 @@
 
         /* --- Footer --- */
         .st-footer {
-            background: var(--st-primary);
-            color: var(--st-surface);
-            border-radius: 28px 28px 0 0;
+            background: var(--st-surface-low);
+            border-top: 1px solid var(--st-outline-variant);
             margin-top: auto;
         }
-
         .st-footer-inner {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 2.5rem 2rem;
+            padding: 2rem 2rem;
         }
-
         .st-footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
-
         .st-footer-col h4 {
             font-size: 0.78rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--st-primary-container);
-            margin-bottom: 0.75rem;
+            color: var(--st-text-secondary);
+            margin-bottom: 0.6rem;
         }
-
         .st-footer-col a {
             display: block;
-            color: rgba(250, 253, 242, 0.75);
+            color: var(--st-text-secondary);
             font-size: 0.88rem;
             padding: 0.2rem 0;
-            font-weight: 500;
             transition: color 0.2s;
         }
-
-        .st-footer-col a:hover { color: #fff; text-decoration: none; }
-
+        .st-footer-col a:hover { color: var(--st-primary); text-decoration: none; }
         .st-footer-col p {
-            color: rgba(250, 253, 242, 0.6);
-            font-size: 0.82rem;
-            line-height: 1.5;
+            font-size: 0.88rem;
+            color: var(--st-text-secondary);
+            line-height: 1.55;
         }
-
         .st-footer-bottom {
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(250, 253, 242, 0.15);
+            border-top: 1px solid var(--st-outline-variant);
+            padding-top: 1.25rem;
             font-size: 0.78rem;
-            color: rgba(250, 253, 242, 0.6);
+            color: var(--st-text-secondary);
+            text-align: center;
         }
 
         /* --- Cookie Banner --- */
@@ -1038,12 +1030,13 @@
             <div class="st-footer-grid">
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="../" data-i18n="common.footer_home_link">Back to Top</a>
                     <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
-                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
                     <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
                     <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
                     <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
                     <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
                 </div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_legal">Legal</h4>

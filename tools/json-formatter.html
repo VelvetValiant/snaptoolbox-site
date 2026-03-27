@@ -79,6 +79,60 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --st-primary: #3D5C2E;
+      --st-primary-dim: #2E4A20;
+      --st-primary-container: #D4EDCA;
+      --st-surface: #FAFDF2;
+      --st-surface-low: #F5F8E8;
+      --st-surface-container: #EFF3DE;
+      --st-surface-high: #E8EDCF;
+      --st-card: #FFFFFF;
+      --st-text: #1A2008;
+      --st-text-secondary: #4D5338;
+      --st-outline: #687048;
+      --st-outline-variant: #CDD2B2;
+      --st-radius: 20px;
+      --st-radius-lg: 24px;
+      --st-radius-md: 14px;
+      --st-radius-sm: 10px;
+      --st-ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --st-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
+
+    /* Base Layout */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--st-font);
+      background: var(--st-surface);
+      color: var(--st-text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: var(--st-primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .st-page-wide {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1rem 2rem 3rem;
+      flex: 1;
+    }
+    @media (max-width: 768px) {
+      .st-page-wide { padding: 0.75rem 1rem 2rem; }
+    }
+    @media (max-width: 480px) {
+      .st-page-wide { padding: 0.5rem 0.75rem 1.5rem; }
+    }
+    .st-breadcrumb {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.82rem; color: var(--st-text-secondary);
+      margin-bottom: 0.5rem;
+    }
+    .st-breadcrumb a { color: var(--st-text-secondary); }
+    .st-breadcrumb a:hover { color: var(--st-primary); }
+
     /* JSON Formatter Specific Styles */
     .st-two-col {
       display: grid;
@@ -365,6 +419,10 @@
     .st-faq {
       max-width: 800px;
       margin: 2rem auto;
+      background: var(--st-card);
+      border-radius: var(--st-radius);
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(45,51,24,0.06);
     }
 
     .st-faq h2 {
@@ -376,15 +434,16 @@
     .st-faq details {
       border-bottom: 1px solid var(--st-outline-variant);
       padding: 1rem;
-      background: var(--st-surface);
+      background: var(--st-surface-low);
     }
 
-    .st-faq details:first-child {
+    .st-faq details:first-of-type {
       border-top: 1px solid var(--st-outline-variant);
       border-radius: var(--st-radius-sm) var(--st-radius-sm) 0 0;
     }
 
-    .st-faq details:last-child {
+    .st-faq details:last-of-type {
+      border-bottom: none;
       border-radius: 0 0 var(--st-radius-sm) var(--st-radius-sm);
     }
 
@@ -566,9 +625,9 @@
         <p><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
       </details>
     </div>
-  </main>
 
-  <div id="snsLinksSection"></div>
+    <div id="snsLinksSection"></div>
+  </main>
 
   <!-- Footer -->
   <footer class="st-footer">
@@ -576,6 +635,7 @@
       <div class="st-footer-grid">
         <div class="st-footer-col">
           <h4 data-i18n="common.footer_tools">Tools</h4>
+          <a href="../" data-i18n="common.footer_home_link">Back to Top</a>
           <a href="image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
           <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
           <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>

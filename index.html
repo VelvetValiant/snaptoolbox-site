@@ -146,20 +146,43 @@
         margin: 0;
         text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
-    .ic-hero-accent {
-        display: inline-block;
-        color: #fff;
-        font-weight: 800;
-        background: rgba(232,217,106,0.3);
-        padding: 0.3rem 1rem;
+    /* Privacy pill on jungle hero */
+    .ic-privacy-wrap { text-align: center; }
+    .ic-privacy-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 1rem;
+        background: rgba(212, 237, 202, 0.8);
         border-radius: 999px;
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
-        margin-top: 0.4rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        color: #2E4A20;
+        font-size: 0.82rem;
+        font-weight: 600;
+    }
+    .ic-privacy-pill svg { flex-shrink: 0; color: #3D5C2E; }
+    /* Advantage pills on jungle hero */
+    .ic-advantage-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.35rem 0.85rem;
+        background: rgba(255,255,255,0.8);
+        color: #2E4A20;
+        font-size: 0.75rem;
+        font-weight: 700;
+        border-radius: 999px;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
     @media (max-width: 640px) {
         .ic-hero-overlay h1 { font-size: 1.5rem; }
         .ic-hero-sub { font-size: 0.88rem; }
+        .ic-privacy-pill { font-size: 0.75rem; padding: 0.35rem 0.8rem; }
+        .ic-advantage-pill { font-size: 0.68rem; }
     }
     /* Vignette + depth overlay */
     .ic-canopy-bg::before {
@@ -585,8 +608,17 @@
                     <!-- Hero text overlay on jungle -->
                     <div class="ic-hero-overlay">
                         <h1 data-i18n="index.hero_title">Image Compression — Fast & Free</h1>
-                        <p class="ic-hero-sub" data-i18n="index.hero_subtitle_1">All tools run 100% in your browser — your files never leave your device.</p>
-                        <p class="ic-hero-sub ic-hero-accent" data-i18n="index.hero_subtitle_2">Fast, free, unlimited. No signup, no server upload.</p>
+                        <div class="ic-privacy-wrap" style="margin-top: 0.8rem;">
+                            <div class="ic-privacy-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <span data-i18n="image_compressor.privacy_note">Your images stay on your device. Nothing is uploaded.</span>
+                            </div>
+                        </div>
+                        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-top:0.6rem;">
+                            <span class="ic-advantage-pill" data-i18n="image_compressor.adv_unlimited">Unlimited — No file count limit</span>
+                            <span class="ic-advantage-pill" data-i18n="image_compressor.adv_quality">Adjustable quality slider</span>
+                            <span class="ic-advantage-pill" data-i18n="image_compressor.adv_size">50MB+ per file</span>
+                        </div>
                     </div>
 
                     <!-- Sloth peeking from right -->
@@ -771,6 +803,7 @@
             <div class="st-footer-grid">
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_tools">Tools</h4>
+                    <a href="/" data-i18n="common.footer_home_link">Back to Top</a>
                     <a href="tools/image-compressor.html" data-i18n="index.tool_image_compressor">Image Compressor</a>
                     <a href="tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
                     <a href="tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
