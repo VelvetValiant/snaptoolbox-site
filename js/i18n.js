@@ -40,6 +40,7 @@ const I18N = {
         sns_save: 'Save',
         sns_cancel: 'Cancel',
         sns_empty: 'No links yet. Add your social links!',
+        sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared.',
         sns_delete_confirm: 'Remove this link?',
       },
       ja: {
@@ -68,6 +69,7 @@ const I18N = {
         sns_save: '保存',
         sns_cancel: 'キャンセル',
         sns_empty: 'リンクはまだありません。SNSリンクを追加しましょう！',
+        sns_note: 'SNSアカウントを登録しておくと、どのページからでも各SNSへ簡単にアクセスできます。リンクが表示されるだけで、その他のデータは共有されません。',
         sns_delete_confirm: 'このリンクを削除しますか？',
       }
     },

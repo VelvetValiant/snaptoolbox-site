@@ -81,6 +81,13 @@ const SnsLinks = {
         color: var(--st-text, #1A2008);
       }
 
+      .sns-note {
+        font-size: 0.75rem;
+        color: var(--st-text-tertiary, #687048);
+        margin: 0 0 0.75rem 0;
+        line-height: 1.5;
+      }
+
       .sns-add-btn {
         display: inline-flex;
         align-items: center;
@@ -376,6 +383,7 @@ const SnsLinks = {
       sns_save: 'Save',
       sns_cancel: 'Cancel',
       sns_empty: 'No links yet. Add your social links!',
+      sns_note: 'Register your SNS accounts to quickly access them from any page. Links are simply displayed — no other data is shared.',
       sns_delete_confirm: 'Remove this link?',
     };
     return fallback[key] || key;
@@ -397,6 +405,7 @@ const SnsLinks = {
             ${this.t('sns_add')}
           </button>
         </div>
+        <p class="sns-note">${this.t('sns_note')}</p>
         <div class="sns-links-list" id="snsLinksList">
           ${links.length === 0
             ? `<div class="sns-empty">${this.t('sns_empty')}</div>`
