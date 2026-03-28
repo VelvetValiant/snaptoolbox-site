@@ -1213,18 +1213,14 @@
         window.addEventListener('beforeinstallprompt', e => {
             e.preventDefault();
             deferredPrompt = e;
-            // 閉じた記録がなければ表示
-            if (!sessionStorage.getItem('pwa_dismissed')) {
-                floatEl.style.display = 'flex';
-            }
         });
 
-        // iOS Safari 向け: beforeinstallprompt が発火しない場合の表示
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone;
-        if (isIOS && !isStandalone && !sessionStorage.getItem('pwa_dismissed')) {
-            // 少し遅延して表示
-            setTimeout(() => { floatEl.style.display = 'flex'; }, 2000);
+
+        // すでにPWAとして起動中でなく、閉じた記録がなければ常に表示
+        if (!isStandalone && !sessionStorage.getItem('pwa_dismissed')) {
+            setTimeout(() => { floatEl.style.display = 'flex'; }, 1500);
         }
 
         // インストールボタン
