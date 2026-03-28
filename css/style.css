@@ -371,6 +371,8 @@ main {
 .st-tool-icon-brown { background: var(--st-secondary-container); }
 .st-tool-icon-yellow { background: var(--st-warning-container); }
 .st-tool-icon-red { background: var(--st-error-container); }
+.st-tool-icon-primary { background: var(--st-primary); color: #fff; }
+.st-tool-icon-primary svg { stroke: #fff; }
 
 .st-tool-card h3 {
   font-size: 1rem;
