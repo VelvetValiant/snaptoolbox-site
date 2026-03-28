@@ -330,6 +330,12 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
 }
+@media (max-width: 768px) {
+  .st-tools-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .st-tools-grid { grid-template-columns: 1fr; }
+}
 
 .st-tool-card {
   background: var(--st-card);
@@ -1242,7 +1248,7 @@ input[type="range"]::-webkit-slider-thumb {
   gap: 1.5rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 480px) {
   .st-two-col { grid-template-columns: 1fr; }
 }
 
