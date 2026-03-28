@@ -351,7 +351,10 @@ main {
   .st-tools-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .st-tools-grid { grid-template-columns: 1fr; }
+  .st-tools-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .st-tool-card { padding: 1rem; }
+  .st-tool-card h3 { font-size: 0.8rem; }
+  .st-tool-card p { font-size: 0.7rem; }
 }
 
 .st-tool-card {
