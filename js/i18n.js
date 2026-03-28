@@ -46,7 +46,7 @@ const I18N = {
         sns_note_1: 'Links are displayed only — no data is shared.',
         sns_note_2: 'Please download edited images before use.',
         sns_delete_confirm: 'Remove this link?',
-        pwa_install: 'Add to Home',
+        pwa_install: 'Install App',
       },
       ja: {
         nav_tools: 'ツール',
@@ -80,7 +80,7 @@ const I18N = {
         sns_note_1: 'リンク表示のみでデータの共有などはありません。',
         sns_note_2: '補正画像はダウンロードしてから利用してください',
         sns_delete_confirm: 'このリンクを削除しますか？',
-        pwa_install: 'ホーム画面に追加',
+        pwa_install: 'アプリで使う',
       }
     },
 
