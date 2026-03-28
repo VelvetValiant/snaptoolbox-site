@@ -386,35 +386,75 @@ const I18N = {
     json_formatter: {
       en: {
         title: 'JSON Formatter & Validator',
-        subtitle: 'Format, validate, and beautify JSON data instantly.',
-        input_label: 'Input JSON',
+        subtitle: 'Format, validate, minify, and beautify JSON online. Instant syntax highlighting and error detection.',
+        input_label: '📥 JSON Input',
         input_placeholder: 'Paste your JSON here...',
         format_btn: 'Format',
         minify_btn: 'Minify',
+        validate_btn: 'Validate',
         clear_btn: 'Clear',
         copy_btn: 'Copy',
-        output_label: 'Formatted Output',
-        indent_label: 'Indent',
-        valid_json: 'Valid JSON',
-        invalid_json: 'Invalid JSON',
+        copy_output_btn: 'Copy Output',
+        sample_btn: 'Sample',
+        output_label: '📤 Formatted Output',
+        indent_label: 'Indentation',
+        indent_2: '2 Spaces',
+        indent_4: '4 Spaces',
+        indent_tab: 'Tab',
+        controls_title: 'Controls',
+        stat_chars: 'Characters',
+        stat_lines: 'Lines',
+        stat_depth: 'Object Depth',
+        stat_status: 'Status',
+        valid_json: '✓ Valid JSON',
+        valid_json_desc: 'Your JSON is properly formatted',
+        invalid_json: '❌ Invalid JSON',
         privacy_note: 'No data is sent to any server.',
+        tool_desc: '<strong>Free JSON Tool:</strong> Paste your JSON code to format, validate, and analyze it instantly. Get real-time error detection with line numbers, character counts, object depth analysis, and more. No installation needed — everything runs in your browser.',
         mascot_bubble: 'Paste your JSON and I\'ll format it nice and neat — no rush!',
+        faq_title: 'Frequently Asked Questions',
+        faq_q1: 'What is JSON?',
+        faq_a1: 'JSON (JavaScript Object Notation) is a lightweight data format used for data exchange. It\'s human-readable and widely supported across programming languages.',
+        faq_q2: 'Is my data secure?',
+        faq_a2: 'Yes! All processing happens entirely in your browser. Your data is never sent to any server and never stored anywhere.',
+        faq_q3: 'What\'s the difference between Format and Minify?',
+        faq_a3: '<strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.',
       },
       ja: {
         title: 'JSON整形・検証ツール',
-        subtitle: 'JSONデータを即座に整形・検証・美化。',
-        input_label: '入力JSON',
+        subtitle: 'JSONの整形・検証・圧縮・美化をオンラインで。シンタックスハイライトとエラー検出をリアルタイムに。',
+        input_label: '📥 JSON入力',
         input_placeholder: 'JSONをここに貼り付け...',
         format_btn: '整形',
         minify_btn: '圧縮',
+        validate_btn: '検証',
         clear_btn: 'クリア',
         copy_btn: 'コピー',
-        output_label: '整形結果',
+        copy_output_btn: '結果をコピー',
+        sample_btn: 'サンプル',
+        output_label: '📤 整形結果',
         indent_label: 'インデント',
-        valid_json: '有効なJSON',
-        invalid_json: '無効なJSON',
+        indent_2: '2スペース',
+        indent_4: '4スペース',
+        indent_tab: 'タブ',
+        controls_title: '操作パネル',
+        stat_chars: '文字数',
+        stat_lines: '行数',
+        stat_depth: 'ネストの深さ',
+        stat_status: 'ステータス',
+        valid_json: '✓ 有効なJSON',
+        valid_json_desc: 'JSONは正しい形式です',
+        invalid_json: '❌ 無効なJSON',
         privacy_note: 'データがサーバーに送信されることはありません。',
+        tool_desc: '<strong>無料JSONツール：</strong>JSONコードを貼り付けるだけで、整形・検証・分析が即座にできます。行番号付きのリアルタイムエラー検出、文字数カウント、オブジェクトの深さ分析など。インストール不要 — すべてブラウザ内で完結します。',
         mascot_bubble: 'JSONを貼り付けてね。ゆっくりキレイに整えるよ！',
+        faq_title: 'よくある質問',
+        faq_q1: 'JSONとは？',
+        faq_a1: 'JSON（JavaScript Object Notation）は、データの受け渡しに使われる軽量なデータ形式です。人間にも読みやすく、多くのプログラミング言語でサポートされています。',
+        faq_q2: 'データは安全ですか？',
+        faq_a2: 'はい！すべての処理はブラウザ内で完結します。データがサーバーに送信されたり、保存されたりすることは一切ありません。',
+        faq_q3: '「整形」と「圧縮」の違いは？',
+        faq_a3: '<strong>整形</strong>はインデントと改行を追加して読みやすくします。<strong>圧縮</strong>は余分な空白をすべて取り除き、ファイルサイズを最小化します。',
       }
     },
 
@@ -628,6 +668,13 @@ const I18N = {
       const [section, key] = el.getAttribute('data-i18n-placeholder').split('.');
       const text = this.t(section, key);
       if (text) el.placeholder = text;
+    });
+
+    // Elements with data-i18n-html="section.key" (innerHTML)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const [section, key] = el.getAttribute('data-i18n-html').split('.');
+      const text = this.t(section, key);
+      if (text) el.innerHTML = text;
     });
 
     // Elements with data-i18n-title="section.key"

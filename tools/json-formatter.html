@@ -529,8 +529,8 @@
     </div>
 
     <!-- Tool Description -->
-    <div class="st-tool-description">
-      <strong>Free JSON Tool:</strong> Paste your JSON code to format, validate, and analyze it instantly. Get real-time error detection with line numbers, character counts, object depth analysis, and more. No installation needed—everything runs in your browser.
+    <div class="st-tool-description" data-i18n-html="json_formatter.tool_desc">
+      <strong>Free JSON Tool:</strong> Paste your JSON code to format, validate, and analyze it instantly. Get real-time error detection with line numbers, character counts, object depth analysis, and more. No installation needed — everything runs in your browser.
     </div>
 
     <!-- Ad Slot 1 -->
@@ -541,26 +541,26 @@
     <!-- Statistics -->
     <div class="st-stats-grid">
       <div class="st-stat-box">
-        <div class="st-stat-label">Characters</div>
+        <div class="st-stat-label" data-i18n="json_formatter.stat_chars">Characters</div>
         <div class="st-stat-value" id="charCount">0</div>
       </div>
       <div class="st-stat-box">
-        <div class="st-stat-label">Lines</div>
+        <div class="st-stat-label" data-i18n="json_formatter.stat_lines">Lines</div>
         <div class="st-stat-value" id="lineCount">0</div>
       </div>
       <div class="st-stat-box">
-        <div class="st-stat-label">Object Depth</div>
+        <div class="st-stat-label" data-i18n="json_formatter.stat_depth">Object Depth</div>
         <div class="st-stat-value" id="depthCount">0</div>
       </div>
       <div class="st-stat-box">
-        <div class="st-stat-label">Status</div>
+        <div class="st-stat-label" data-i18n="json_formatter.stat_status">Status</div>
         <div class="st-stat-value" id="statusIcon" style="font-size: 2rem;">—</div>
       </div>
     </div>
 
     <!-- Controls -->
     <div class="st-controls">
-      <div class="st-controls-title">Controls</div>
+      <div class="st-controls-title" data-i18n="json_formatter.controls_title">Controls</div>
 
       <!-- Action Buttons -->
       <div class="st-btn-grid">
@@ -569,16 +569,16 @@
         <button class="st-btn st-btn-secondary" id="validateBtn" title="Validate JSON" data-i18n="json_formatter.validate_btn">Validate</button>
         <button class="st-btn st-btn-secondary" id="copyBtn" title="Copy to clipboard" data-i18n="json_formatter.copy_btn">Copy</button>
         <button class="st-btn st-btn-secondary" id="clearBtn" title="Clear all" data-i18n="json_formatter.clear_btn">Clear</button>
-        <button class="st-btn st-btn-secondary" id="sampleBtn" title="Load sample JSON">Sample</button>
+        <button class="st-btn st-btn-secondary" id="sampleBtn" title="Load sample JSON" data-i18n="json_formatter.sample_btn">Sample</button>
       </div>
 
       <!-- Indentation Selector -->
       <div class="st-control-group">
-        <label class="st-control-label">Indentation</label>
+        <label class="st-control-label" data-i18n="json_formatter.indent_label">Indentation</label>
         <div class="st-pill-group">
-          <button class="st-pill-btn active" data-indent="2">2 Spaces</button>
-          <button class="st-pill-btn" data-indent="4">4 Spaces</button>
-          <button class="st-pill-btn" data-indent="tab">Tab</button>
+          <button class="st-pill-btn active" data-indent="2" data-i18n="json_formatter.indent_2">2 Spaces</button>
+          <button class="st-pill-btn" data-indent="4" data-i18n="json_formatter.indent_4">4 Spaces</button>
+          <button class="st-pill-btn" data-indent="tab" data-i18n="json_formatter.indent_tab">Tab</button>
         </div>
       </div>
     </div>
@@ -587,13 +587,13 @@
     <div class="st-tool-content">
       <!-- Error Display -->
       <div class="st-msg-error" id="errorBox">
-        <strong>❌ Invalid JSON</strong>
+        <strong data-i18n="json_formatter.invalid_json">❌ Invalid JSON</strong>
         <div class="st-msg-error-line" id="errorMessage"></div>
       </div>
 
       <!-- Success Display -->
       <div class="st-msg-success" id="successBox">
-        <strong>✓ Valid JSON</strong> - Your JSON is properly formatted
+        <strong data-i18n="json_formatter.valid_json">✓ Valid JSON</strong> - <span data-i18n="json_formatter.valid_json_desc">Your JSON is properly formatted</span>
       </div>
 
       <!-- Input and Output Area -->
@@ -613,7 +613,7 @@
             <div class="st-code-block" id="jsonOutput"><code id="outputCode"></code></div>
           </div>
           <div class="st-copy-btn-container">
-            <button class="st-btn st-btn-primary" id="copyOutputBtn" style="width: 100%;" data-i18n="json_formatter.copy_btn">Copy Output</button>
+            <button class="st-btn st-btn-primary" id="copyOutputBtn" style="width: 100%;" data-i18n="json_formatter.copy_output_btn">Copy Output</button>
           </div>
         </div>
       </div>
@@ -626,21 +626,21 @@
 
     <!-- FAQ Section -->
     <div class="st-faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2 data-i18n="json_formatter.faq_title">Frequently Asked Questions</h2>
 
       <details>
-        <summary>What is JSON?</summary>
-        <p>JSON (JavaScript Object Notation) is a lightweight data format used for data exchange. It's human-readable and widely supported across programming languages.</p>
+        <summary data-i18n="json_formatter.faq_q1">What is JSON?</summary>
+        <p data-i18n="json_formatter.faq_a1">JSON (JavaScript Object Notation) is a lightweight data format used for data exchange. It's human-readable and widely supported across programming languages.</p>
       </details>
 
       <details>
-        <summary>Is my data secure?</summary>
-        <p>Yes! All processing happens entirely in your browser. Your data is never sent to any server and never stored anywhere.</p>
+        <summary data-i18n="json_formatter.faq_q2">Is my data secure?</summary>
+        <p data-i18n="json_formatter.faq_a2">Yes! All processing happens entirely in your browser. Your data is never sent to any server and never stored anywhere.</p>
       </details>
 
       <details>
-        <summary>What's the difference between Format and Minify?</summary>
-        <p><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
+        <summary data-i18n="json_formatter.faq_q3">What's the difference between Format and Minify?</summary>
+        <p data-i18n-html="json_formatter.faq_a3"><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
       </details>
     </div>
 
