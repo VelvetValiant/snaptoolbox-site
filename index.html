@@ -903,6 +903,12 @@
                     if (!this.files.some(x => x.name === f.name && x.size === f.size)) this.files.push(f);
                 });
                 this.render();
+                // ファイル追加後にサムネイルリストへスムーズスクロール
+                if (this.files.length > 0) {
+                    setTimeout(() => {
+                        this.$.fileList.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                }
             },
 
             render() {
