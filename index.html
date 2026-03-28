@@ -527,7 +527,10 @@
         .ic-dropzone-wrap { padding: 1.25rem; border-radius: 18px; }
     }
     @media (max-width: 480px) {
-        .ic-stats { grid-template-columns: 1fr; }
+        .ic-stats { grid-template-columns: repeat(3, 1fr); gap: 0.4rem; }
+        .ic-stat { padding: 0.8rem 0.4rem; }
+        .ic-stat-label { font-size: 0.6rem; }
+        .ic-stat-value { font-size: 1rem; }
     }
     @keyframes icSpin { to { transform: rotate(360deg); } }
 
