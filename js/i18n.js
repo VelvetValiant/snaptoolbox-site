@@ -126,7 +126,7 @@ const I18N = {
         banner_more: 'Learn more →',
         support_title: 'Buy this sloth a coffee ☕',
         support_desc: 'SnapToolbox is free forever. If you find it useful, a small coffee helps keep the servers running!',
-        support_btn: 'Buy me a coffee',
+        support_btn: '☕ Buy me a coffee',
       },
       ja: {
         hero_title: '画像圧縮 — 高速＆無料',
@@ -168,7 +168,7 @@ const I18N = {
         banner_more: '詳しく見る →',
         support_title: 'このナマケモノにコーヒーを ☕',
         support_desc: 'SnapToolboxはずっと無料です。もし気に入っていただけたら、コーヒー1杯分のサポートが運営の力になります！',
-        support_btn: 'コーヒーをおごる',
+        support_btn: '☕ コーヒーをおごる',
         mascot_curious: 'わくわく',
         mascot_focused: '集中',
         mascot_relaxed: 'のんびり',
