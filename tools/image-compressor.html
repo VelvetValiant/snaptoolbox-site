@@ -1240,6 +1240,50 @@
 
         <!-- Ad -->
         <div class="st-ad">Ad Space</div>
+
+        <!-- Support -->
+        <div class="st-support-mini">
+            <img src="../img/mascot/sloth.png" alt="" width="36" height="36" class="st-support-mini-icon">
+            <span data-i18n="index.support_desc">SnapToolbox is free forever. If you find it useful, a small coffee helps keep the servers running!</span>
+            <a href="https://buymeacoffee.com/YOUR_ID" target="_blank" rel="noopener noreferrer" class="st-support-mini-btn" data-i18n="index.support_btn">Buy me a coffee</a>
+        </div>
+        <style>
+        .st-support-mini {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fdf6ec;
+            border: 1px solid #f0e0c8;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin: 1.5rem 0;
+            font-size: 0.8rem;
+            color: #7a5c3a;
+        }
+        .st-support-mini-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .st-support-mini-btn {
+            flex-shrink: 0;
+            padding: 8px 16px;
+            background: #FFDD00;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.8rem;
+            border-radius: 999px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s;
+        }
+        .st-support-mini-btn:hover { transform: scale(1.05); }
+        @media (max-width: 480px) {
+            .st-support-mini { flex-direction: column; text-align: center; gap: 8px; }
+        }
+        </style>
     </main>
 
     <!-- Footer -->
