@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3D5C2E">
     <meta name="description" content="Convert colors between HEX, RGB, HSL and CMYK formats. Built-in color picker. Free, instant — all conversion in your browser.">
     <meta name="description" lang="ja" content="HEX・RGB・HSL・CMYKのカラーコード変換。カラーピッカー内蔵。無料・即座に変換、ブラウザだけで完結。">
     <meta name="keywords" content="color converter, hex to rgb, rgb to hex, color picker online, hsl converter, css color codes, color palette generator, hex color code">
@@ -437,16 +438,15 @@
 <body>
     <header class="st-header">
         <div class="st-header-inner">
-            <a href="/" class="st-logo">
+            <a href="../" class="st-logo">
                 <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
             <button class="st-nav-toggle" aria-label="Toggle navigation">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
             <nav class="st-nav">
-                <a href="/" data-i18n="common.breadcrumb_home">Home</a>
-                <a href="/#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
                 <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
@@ -454,10 +454,6 @@
     </header>
 
     <main class="st-page-wide">
-        <nav class="st-breadcrumb">
-            <a href="/" data-i18n="common.breadcrumb_home">Home</a> > <span data-i18n="color_converter.title">Color Converter</span>
-        </nav>
-
         <div class="st-tool-mascot">
             <img class="st-tool-mascot-img" src="../img/mascot/sloth.png" alt="Tech sloth mascot" loading="lazy" width="80" height="80">
             <div class="st-tool-mascot-bubble" data-i18n="color_converter.mascot_bubble">Pick any color — I'll convert it to every format you need!</div>
@@ -578,19 +574,73 @@ background-color: hsl(205, 100%, 40%);</div>
         </div>
 
         <div id="snsLinksSection"></div>
+
+        <!-- All Tools -->
+        <div id="tools" style="scroll-margin-top: 80px;">
+            <h2 class="st-section-title" style="margin-top: 1rem;"><span data-i18n="index.other_tools_title">All Tools</span></h2>
+
+            <div class="st-tools-grid" style="margin-bottom: 1.5rem;">
+                <a href="../" class="st-tool-card st-tool-card-sloth">
+                    <div class="st-tool-icon st-tool-icon-sloth">
+                        <img src="../img/mascot/sloth-icon-48.png" alt="">
+                    </div>
+                    <h3 data-i18n="index.tool_image_compressor">Image Compressor</h3>
+                    <p data-i18n="index.tool_image_compressor_desc">Compress images without losing quality. Supports JPEG, PNG, WebP.</p>
+                </a>
+                <a href="pdf-converter.html" class="st-tool-card st-tool-card-pdf">
+                    <div class="st-tool-icon st-tool-icon-pdf">
+                        <img src="../img/mascot/seal-baby.png" alt="">
+                    </div>
+                    <h3 data-i18n="index.tool_pdf_converter">PDF Converter</h3>
+                    <p data-i18n="index.tool_pdf_converter_desc">Convert PDF to images or images to PDF. All in your browser.</p>
+                </a>
+                <a href="image-editor.html" class="st-tool-card st-tool-card-rhino">
+                    <div class="st-tool-icon st-tool-icon-rhino">
+                        <img src="../img/mascot/rhino-icon-48.png" alt="">
+                    </div>
+                    <h3 data-i18n="index.tool_image_editor">Image Editor</h3>
+                    <p data-i18n="index.tool_image_editor_desc">Adjust brightness, contrast, saturation, and apply filters to images.</p>
+                </a>
+            </div>
+
+            <h3 class="st-section-subtitle"><span data-i18n="index.other_tools_sub">Other Tools</span></h3>
+
+            <div class="st-tools-grid" style="margin-bottom: 2rem;">
+                <a href="json-formatter.html" class="st-tool-card">
+                    <span class="st-tool-sub" data-i18n="index.tool_json_sub">Dev & Data</span>
+                    <h3 data-i18n="index.tool_json">JSON Formatter</h3>
+                    <p data-i18n="index.tool_json_desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </a>
+                <a href="character-counter.html" class="st-tool-card">
+                    <span class="st-tool-sub" data-i18n="index.tool_char_sub">Writing & Text</span>
+                    <h3 data-i18n="index.tool_char">Character Counter</h3>
+                    <p data-i18n="index.tool_char_desc">Count characters, words, sentences, and paragraphs in real time.</p>
+                </a>
+                <a href="color-converter.html" class="st-tool-card">
+                    <span class="st-tool-sub" data-i18n="index.tool_color_sub">Design & Color</span>
+                    <h3 data-i18n="index.tool_color">Color Converter</h3>
+                    <p data-i18n="index.tool_color_desc">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                </a>
+            </div>
+
+            <div class="st-ad">Ad Space</div>
+        </div>
     </main>
 
     <footer class="st-footer">
         <div class="st-footer-inner">
             <div class="st-footer-grid">
                 <div class="st-footer-col">
-                    <h4 data-i18n="common.footer_tools">Tools</h4>
-                    <a href="../" data-i18n="common.footer_home_link">Back to Top</a>
+                    <h4 data-i18n="common.footer_image_tools">Image Tools</h4>
+                    <a href="../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">Other Tools</h4>
                     <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
                     <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
-                    <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
                     <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
-                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
                 </div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_legal">Legal</h4>
@@ -601,6 +651,7 @@ background-color: hsl(205, 100%, 40%);</div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_about">About</h4>
                     <a href="../about.html" data-i18n="common.nav_about">About</a>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
                 </div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_contact">Contact</h4>
@@ -608,7 +659,7 @@ background-color: hsl(205, 100%, 40%);</div>
                 </div>
             </div>
             <div class="st-footer-bottom">
-                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.<br>All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>

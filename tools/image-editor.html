@@ -8,7 +8,7 @@
     <meta name="keywords" content="image editor, photo editor online, brightness contrast, crop image, rotate image, denoise, image adjustment, free photo editor">
     <meta name="author" content="SnapToolbox">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#3D5C2E">
+    <meta name="theme-color" content="#5C3D6E">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -99,28 +99,28 @@
            ============================================ */
 
         :root {
-            --st-primary: #3D5C2E;
-            --st-primary-dim: #2E4A20;
-            --st-primary-container: #D4EDCA;
-            --st-secondary: #6E4F42;
-            --st-secondary-container: #FFDDD1;
-            --st-surface: #FAFDF2;
-            --st-surface-low: #F5F8E8;
-            --st-surface-container: #EFF3DE;
-            --st-surface-high: #E8EDCF;
-            --st-surface-highest: #E0E5C0;
+            --st-primary: #5C3D6E;
+            --st-primary-dim: #46295A;
+            --st-primary-container: #E6D4F0;
+            --st-secondary: #6E4F68;
+            --st-secondary-container: #F5DDF0;
+            --st-surface: #FAF5FC;
+            --st-surface-low: #F5EEF8;
+            --st-surface-container: #EDE3F3;
+            --st-surface-high: #E3D6EC;
+            --st-surface-highest: #D8C8E2;
             --st-card: #FFFFFF;
-            --st-text: #1A2008;
-            --st-text-secondary: #4D5338;
-            --st-text-tertiary: #687048;
-            --st-outline: #B5BB96;
-            --st-outline-variant: #CDD2B2;
-            --st-accent: #D4B63C;
-            --st-accent-text: #7D6A14;
-            --st-success: #357A28;
+            --st-text: #1A0E22;
+            --st-text-secondary: #4D3858;
+            --st-text-tertiary: #68506E;
+            --st-outline: #B596BB;
+            --st-outline-variant: #D2B8D8;
+            --st-accent: #9B6DB5;
+            --st-accent-text: #6A3D82;
+            --st-success: #5C8A50;
             --st-error: #A83828;
             --st-warning: #966D1A;
-            --st-green-glow: rgba(61, 92, 46, 0.12);
+            --st-purple-glow: rgba(92, 61, 110, 0.12);
             --st-radius: 20px;
             --st-radius-xl: 24px;
             --st-radius-lg: 16px;
@@ -255,6 +255,17 @@
             .st-page-wide { padding: 0.5rem 0.75rem 1.5rem; }
         }
 
+        /* --- Tools Grid Responsive --- */
+        @media (max-width: 768px) {
+            .st-tools-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 480px) {
+            .st-tools-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.6rem !important; }
+            .st-tool-card { padding: 1rem !important; }
+            .st-tool-card h3 { font-size: 0.8rem !important; }
+            .st-tool-card p { font-size: 0.7rem !important; }
+        }
+
         /* --- Breadcrumb --- */
         .st-breadcrumb {
             display: flex;
@@ -268,26 +279,83 @@
         .st-breadcrumb a { color: var(--st-text-secondary); }
         .st-breadcrumb a:hover { color: var(--st-primary); }
 
-        /* --- Hero --- */
+        /* --- Hero with forest background --- */
+        .ie-hero-wrap {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .ie-hero-bg {
+            position: relative;
+            background: url('../img/forest-editor-bg.jpg') center/cover no-repeat;
+            background-color: #2A1A35;
+            padding: 2.5rem 2.5rem 2rem;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .ie-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(160,130,200,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at center, rgba(26,14,34,0.2) 0%, rgba(26,14,34,0.45) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
         .st-hero {
+            position: relative;
+            z-index: 5;
             text-align: center;
-            padding: 0.75rem 0 1.5rem;
+            max-width: 680px;
+            padding: 0;
+        }
+
+        /* Rhino mascot peeking from bottom-right */
+        .ie-hero-mascot {
+            position: absolute;
+            right: 40px;
+            bottom: 0;
+            width: 180px;
+            height: 200px;
+            z-index: 4;
+            pointer-events: none;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: drop-shadow(-4px 4px 16px rgba(26,14,34,0.25));
+            object-fit: contain;
+            object-position: bottom right;
+        }
+        .ie-hero-bg:hover .ie-hero-mascot {
+            transform: translateX(-8px) rotate(-2deg);
+        }
+        @media (max-width: 768px) {
+            .ie-hero-mascot { width: 130px; height: 150px; right: 20px; }
+        }
+        @media (max-width: 480px) {
+            .ie-hero-mascot { display: none; }
         }
 
         .st-hero h1 {
             font-size: 2.2rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            color: var(--st-text);
+            color: #fff;
             line-height: 1.1;
             margin-bottom: 0.5rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
         }
 
         .st-hero .st-subtitle {
             font-size: 1.05rem;
-            font-weight: 400;
-            color: var(--st-text-secondary);
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
             line-height: 1.5;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
         /* --- Privacy Pill --- */
@@ -296,9 +364,12 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.55rem 1.1rem;
-            background: var(--st-primary-container);
+            background: rgba(230, 212, 240, 0.8);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
             border-radius: 999px;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .st-hero .st-privacy-wrap { text-align: center; }
@@ -314,6 +385,11 @@
             font-size: 0.82rem;
             font-weight: 600;
             color: var(--st-primary-dim);
+        }
+
+        @media (max-width: 640px) {
+            .ie-hero-bg { padding: 1.5rem 1.25rem; min-height: auto; }
+            .st-hero h1 { font-size: 1.5rem; }
         }
 
         /* --- Drop Zone (legacy stand-alone styles removed — inline drop zone used) --- */
@@ -757,8 +833,8 @@
         }
         .st-footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem 2rem;
             margin-bottom: 1.5rem;
         }
         .st-footer-col h4 {
@@ -866,8 +942,8 @@
                 <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
                 SnapToolbox
             </a>
-            <button class="st-nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.st-nav').classList.toggle('open')">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6H21M3 12H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             </button>
             <nav class="st-nav">
                 <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
@@ -878,21 +954,19 @@
     </header>
 
     <main class="st-page-wide">
-        <!-- Breadcrumb -->
-        <div class="st-breadcrumb">
-            <a href="../" data-i18n="common.breadcrumb_home">Home</a>
-            <span>/</span>
-            <span data-i18n="image_editor.breadcrumb">Image Editor</span>
-        </div>
-
-        <!-- Hero -->
-        <div class="st-hero">
-            <h1 data-i18n="image_editor.title">Image Editor</h1>
-            <p class="st-subtitle" data-i18n="image_editor.subtitle">Adjust, crop, rotate and enhance — all in your browser.</p>
-            <div class="st-privacy-wrap" style="margin-top: 1rem;">
-                <div class="st-privacy">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                    <span data-i18n="image_editor.privacy_note">Your images stay on your device. Nothing is uploaded.</span>
+        <!-- Hero with forest background -->
+        <div class="ie-hero-wrap">
+            <div class="ie-hero-bg">
+                <img src="../img/mascot/rhino-baby.png" alt="Baby Rhino mascot" class="ie-hero-mascot">
+                <div class="st-hero">
+                    <h1 data-i18n="image_editor.title">Image Editor</h1>
+                    <p class="st-subtitle" data-i18n="image_editor.subtitle">Adjust, crop, rotate and enhance — all in your browser.</p>
+                    <div class="st-privacy-wrap" style="margin-top: 1rem;">
+                        <div class="st-privacy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-i18n="image_editor.privacy_note">Your images stay on your device. Nothing is uploaded.</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -904,10 +978,10 @@
                 <div class="ie-dropzone-inline" id="dropZone">
                     <div class="ie-dz-icon">
                         <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="10" y="18" width="60" height="44" rx="8" fill="#EFF3DE" stroke="#3D5C2E" stroke-width="2.5"/>
-                            <circle cx="30" cy="35" r="6" fill="#D4EDCA" stroke="#3D5C2E" stroke-width="2"/>
-                            <path d="M14 52l14-12 10 8 12-16 16 20H14z" fill="#D4EDCA" stroke="#3D5C2E" stroke-width="2" stroke-linejoin="round"/>
-                            <path d="M40 8v10M35 13l5-5 5 5" stroke="#3D5C2E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <rect x="10" y="18" width="60" height="44" rx="8" fill="#EDE3F3" stroke="#5C3D6E" stroke-width="2.5"/>
+                            <circle cx="30" cy="35" r="6" fill="#E6D4F0" stroke="#5C3D6E" stroke-width="2"/>
+                            <path d="M14 52l14-12 10 8 12-16 16 20H14z" fill="#E6D4F0" stroke="#5C3D6E" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M40 8v10M35 13l5-5 5 5" stroke="#5C3D6E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <div class="ie-dz-title" data-i18n="image_editor.drop_title">Drop an image here</div>
@@ -1027,8 +1101,146 @@
         <!-- Ad -->
         <div class="st-ad">Ad Space</div>
 
-        <!-- Ad -->
-        <div class="st-ad">Ad Space</div>
+        <!-- All Tools -->
+        <div id="tools" style="scroll-margin-top: 80px;">
+            <h2 class="st-section-title" style="margin-top: 1rem;"><span data-i18n="index.other_tools_title">All Tools</span></h2>
+
+            <div class="st-tools-grid" style="margin-bottom: 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+                <a href="../" class="st-tool-card st-tool-card-sloth" style="border: 1px solid #c5d6a8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #f5f9ef 0%, #edf4e4 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #e8f0dc 0%, #dce8ce 100%); border: 1.5px solid #c5d6a8;">
+                        <img src="../img/mascot/sloth-icon-48.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_image_compressor" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Image Compressor</h3>
+                    <p data-i18n="index.tool_image_compressor_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Compress images without losing quality. Supports JPEG, PNG, WebP.</p>
+                </a>
+                <a href="pdf-converter.html" class="st-tool-card st-tool-card-pdf" style="border: 1px solid #b8daf0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #C9E3F5 0%, #DEF0FC 100%); border: 1.5px solid #a8d4f0;">
+                        <img src="../img/mascot/seal-baby.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_pdf_converter" style="margin: 0; font-size: 16px; font-weight: 600; color: #0A1628;">PDF Converter</h3>
+                    <p data-i18n="index.tool_pdf_converter_desc" style="margin: 0; font-size: 14px; color: #334155;">Convert PDF to images or images to PDF. All in your browser.</p>
+                </a>
+                <a href="image-editor.html" class="st-tool-card" style="border: 1px solid #d4bee6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #faf5fc 0%, #f3ebf8 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #E6D4F0 0%, #F0E4F8 100%); border: 1.5px solid #c9a8e0;">
+                        <img src="../img/mascot/rhino-icon-48.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_image_editor" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A0E22;">Image Editor</h3>
+                    <p data-i18n="index.tool_image_editor_desc" style="margin: 0; font-size: 14px; color: #4D3858;">Adjust brightness, contrast, saturation, and apply filters to images.</p>
+                </a>
+            </div>
+
+            <h3 style="color: #4D5338; font-size: 1.05rem; text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;"><span data-i18n="index.other_tools_sub">Other Tools</span></h3>
+
+            <div class="st-tools-grid" style="margin-bottom: 2rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;">
+                <a href="json-formatter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_json_sub">Dev & Data</span>
+                    <h3 data-i18n="index.tool_json" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">JSON Formatter</h3>
+                    <p data-i18n="index.tool_json_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </a>
+                <a href="character-counter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_char_sub">Writing & Text</span>
+                    <h3 data-i18n="index.tool_char" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Character Counter</h3>
+                    <p data-i18n="index.tool_char_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Count characters, words, sentences, and paragraphs in real time.</p>
+                </a>
+                <a href="color-converter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_color_sub">Design & Color</span>
+                    <h3 data-i18n="index.tool_color" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Color Converter</h3>
+                    <p data-i18n="index.tool_color_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                </a>
+            </div>
+
+            <div class="st-ad">Ad Space</div>
+
+            <!-- Support Section -->
+            <section class="st-support-section">
+                <div class="st-support-inner">
+                    <div class="st-support-mascot">
+                        <img src="../img/mascot/rhino-baby.png" alt="Baby Rhino mascot" width="80" height="80">
+                    </div>
+                    <div class="st-support-content">
+                        <h3 class="st-support-title" data-i18n="image_editor.support_title">Buy this baby rhino a coffee ☕</h3>
+                        <p class="st-support-desc" data-i18n="index.support_desc">SnapToolbox is free forever. If you find it useful, a small coffee helps keep the servers running!</p>
+                        <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-support-btn" id="bmcLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            <span data-i18n="index.support_btn">Buy me a coffee</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <style>
+            .st-support-section {
+                margin: 2rem 0;
+                padding: 0;
+            }
+            .st-support-inner {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                background: linear-gradient(135deg, #fdf6ec 0%, #fff9f0 100%);
+                border: 1px solid #f0e0c8;
+                border-radius: 16px;
+                padding: 1.5rem 2rem;
+            }
+            .st-support-mascot {
+                flex-shrink: 0;
+            }
+            .st-support-mascot img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+            }
+            .st-support-content {
+                flex: 1;
+            }
+            .st-support-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #5c3d1a;
+                margin: 0 0 0.4rem;
+            }
+            .st-support-desc {
+                font-size: 0.85rem;
+                color: #7a5c3a;
+                margin: 0 0 0.8rem;
+                line-height: 1.5;
+            }
+            .st-support-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 24px;
+                background: #FFDD00;
+                color: #000;
+                font-weight: 700;
+                font-size: 0.9rem;
+                border-radius: 999px;
+                text-decoration: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+                box-shadow: 0 2px 12px rgba(255,221,0,0.4);
+            }
+            .st-support-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(255,221,0,0.5);
+            }
+            .st-support-btn:active {
+                transform: scale(0.97);
+            }
+            .st-support-btn svg {
+                stroke: #000;
+            }
+            @media (max-width: 480px) {
+                .st-support-inner {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 1.2rem;
+                    gap: 0.8rem;
+                }
+            }
+            </style>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -1036,13 +1248,16 @@
         <div class="st-footer-inner">
             <div class="st-footer-grid">
                 <div class="st-footer-col">
-                    <h4 data-i18n="common.footer_tools">Tools</h4>
-                    <a href="../" data-i18n="common.footer_home_link">Back to Top</a>
+                    <h4 data-i18n="common.footer_image_tools">Image Tools</h4>
+                    <a href="../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">Other Tools</h4>
                     <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
                     <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
-                    <a href="unit-converter.html" data-i18n="index.tool_unit">Unit Converter</a>
                     <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
-                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
                 </div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_legal">Legal</h4>
@@ -1053,6 +1268,7 @@
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_about">About</h4>
                     <a href="../about.html" data-i18n="common.nav_about">About</a>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
                 </div>
                 <div class="st-footer-col">
                     <h4 data-i18n="common.footer_contact">Contact</h4>
@@ -1060,7 +1276,7 @@
                 </div>
             </div>
             <div class="st-footer-bottom">
-                <span data-i18n="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved. All processing is done locally in your browser.</span>
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.<br>All processing is done locally in your browser.</span>
             </div>
         </div>
     </footer>

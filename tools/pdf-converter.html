@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert PDF to images or images to PDF for free. No upload, no signup — 100% browser-based PDF conversion tool.">
+    <meta name="description" lang="ja" content="PDFを画像に、画像をPDFに無料変換。サーバー送信なし・登録不要 — ブラウザだけで完結するPDF変換ツール。">
+    <meta name="keywords" content="pdf converter, pdf to image, image to pdf, pdf to png, pdf to jpg, convert pdf online, free pdf converter, browser pdf tool">
+    <meta name="author" content="SnapToolbox">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1B3A5C">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="canonical" href="https://snaptoolbox.app/tools/pdf-converter.html">
+    <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/pdf-converter.html">
+    <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/pdf-converter.html">
+    <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/pdf-converter.html">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free PDF Converter — PDF to Image & Image to PDF Online | SnapToolbox">
+    <meta property="og:description" content="Convert PDF to images or images to PDF for free. No upload, no signup — 100% browser-based.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app/tools/pdf-converter.html">
+    <meta property="og:site_name" content="SnapToolbox">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free PDF Converter — PDF to Image & Image to PDF Online | SnapToolbox">
+    <meta name="twitter:description" content="Convert PDF to images or images to PDF for free. No upload, no signup — 100% browser-based.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- PDF.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <title>PDF Converter Online — PDF to Image & Image to PDF Free | SnapToolbox</title>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PDF Converter",
+        "description": "Free online PDF conversion tool. Convert PDF to images or images to PDF. All processing happens in your browser.",
+        "url": "https://snaptoolbox.app/tools/pdf-converter.html",
+        "applicationCategory": "Utility",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Is my PDF uploaded to a server?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. All conversion happens in your browser using JavaScript. Your files never leave your device." }
+            },
+            {
+                "@type": "Question",
+                "name": "What conversion modes are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "PDF to Image (PNG/JPEG) and Image to PDF are supported. You can convert multiple pages at once." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a file size limit?",
+                "acceptedAnswer": { "@type": "Answer", "text": "There is no hard limit. Large files may be slower to process since everything runs in your browser." }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ============================================
+           SnapToolbox PDF Converter
+           Design Language: Arctic Breeze
+           Inspired by cool, ocean aesthetics
+           ============================================ */
+
+        :root {
+            --st-primary: #1B3A5C;
+            --st-primary-dim: #0F2744;
+            --st-primary-container: #B8D4ED;
+            --st-secondary: #4A6B8A;
+            --st-secondary-container: #D0E4F5;
+            --st-surface: #F0F4F8;
+            --st-surface-low: #E6ECF2;
+            --st-surface-container: #DAE3ED;
+            --st-surface-high: #CDD8E5;
+            --st-surface-highest: #BFCDD8;
+            --st-card: #FFFFFF;
+            --st-text: #0A1628;
+            --st-text-secondary: #334155;
+            --st-outline: #5A7088;
+            --st-outline-variant: #BFCDD8;
+            --st-accent: #3B82D4;
+            --st-success: #2563A0;
+            --st-error: #B91C1C;
+            --st-warning: #8A6D1B;
+            --st-blue-glow: rgba(27, 58, 92, 0.12);
+            --st-radius: 20px;
+            --st-radius-xl: 24px;
+            --st-radius-lg: 16px;
+            --st-radius-md: 14px;
+            --st-radius-sm: 10px;
+            --st-radius-pill: 999px;
+            --st-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --st-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--st-font);
+            background: var(--st-surface);
+            color: var(--st-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: var(--st-primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* Antarctic Hero — matches index.html ic-canopy-bg layout */
+        .pc-antarctic-hero {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .pc-canopy-bg {
+            position: relative;
+            background: url('../img/antarctic-bg.jpg') center/cover no-repeat;
+            background-color: #0F1E30;
+            padding: 2.5rem 2.5rem 3rem;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        .pc-canopy-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 55% 20%, rgba(100,180,220,0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at center, rgba(10,27,42,0.2) 0%, rgba(10,27,42,0.45) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* Hero text overlay */
+        .pc-hero-overlay {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 680px;
+        }
+        .pc-hero-overlay h1 {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin: 0 0 0.6rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+        }
+        .pc-hero-overlay .pc-hero-sub {
+            color: rgba(255,255,255,0.95);
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.8;
+            margin: 0;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        /* Privacy pills */
+        .pc-privacy-wrap { text-align: center; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+        .pc-privacy-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1rem;
+            background: rgba(201, 227, 245, 0.8);
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            color: var(--st-primary-dim);
+            font-size: 0.82rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .pc-browser-pill {
+            background: rgba(46, 90, 123, 0.85);
+            color: #fff;
+        }
+        .pc-privacy-pill svg { flex-shrink: 0; color: var(--st-primary-dim); }
+        .pc-browser-pill svg { color: #fff; }
+        /* Advantage pills */
+        .pc-advantage-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.35rem 0.85rem;
+            background: rgba(255,255,255,0.8);
+            color: var(--st-primary-dim);
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 999px;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        /* Seal mascot peeking from right */
+        .pc-mascot-peek {
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+            width: 200px;
+            height: 220px;
+            z-index: 4;
+            pointer-events: none;
+            transition: transform 0.6s var(--st-ease);
+            filter: drop-shadow(-4px 4px 16px rgba(10,27,42,0.2));
+        }
+        .pc-antarctic-hero:hover .pc-mascot-peek {
+            transform: translateX(-8px) rotate(-2deg);
+        }
+        .pc-mascot-peek img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: bottom right;
+        }
+        /* Frosted glass drop zone wrapper */
+        .pc-dropzone-wrap-hero {
+            position: relative;
+            z-index: 3;
+            max-width: 620px;
+            width: 100%;
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow:
+                0 12px 40px rgba(10,27,42,0.2),
+                0 4px 12px rgba(10,27,42,0.08);
+        }
+        .pc-dropzone-wrap-hero .st-mode-btn {
+            background: rgba(255,255,255,0.85);
+            border-color: rgba(200,220,240,0.5);
+        }
+        .pc-dropzone-wrap-hero .st-mode-btn.active {
+            background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+            color: #fff;
+            border-color: var(--st-primary);
+            box-shadow: 0 4px 16px rgba(46, 90, 123, 0.35);
+        }
+        /* Breadcrumb */
+        .pc-antarctic-hero .st-breadcrumb {
+            position: relative;
+            z-index: 5;
+            width: 100%;
+            padding: 0;
+            margin-bottom: 0.5rem;
+        }
+        .pc-antarctic-hero .st-breadcrumb,
+        .pc-antarctic-hero .st-breadcrumb a {
+            color: rgba(255,255,255,0.7);
+        }
+        .pc-antarctic-hero .st-breadcrumb a:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .pc-mascot-peek { width: 160px; height: 180px; right: -5px; }
+        }
+        @media (max-width: 640px) {
+            .pc-hero-overlay h1 { font-size: 1.5rem; }
+            .pc-hero-overlay .pc-hero-sub { font-size: 0.88rem; }
+            .pc-privacy-pill { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
+            .pc-advantage-pill { font-size: 0.68rem; }
+            .pc-canopy-bg { padding: 1.5rem 1.25rem 2rem; min-height: auto; }
+            .pc-dropzone-wrap-hero { padding: 1.25rem; }
+            .pc-mascot-peek { width: 120px; height: 140px; }
+        }
+
+        /* --- Header --- */
+        .st-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--st-surface);
+            box-shadow: 0 40px 40px -5px rgba(10, 27, 42, 0.04);
+        }
+
+        .st-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .st-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--st-primary);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .st-logo:hover { text-decoration: none; }
+        .st-logo svg { width: 28px; height: 28px; }
+
+        .st-logo-icon {
+          width: 34px;
+          height: 34px;
+          border-radius: 10px;
+          object-fit: contain;
+          flex-shrink: 0;
+        }
+
+        .st-nav { display: flex; gap: 1.5rem; align-items: center; }
+
+        .st-nav a {
+            color: var(--st-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .st-nav a:hover { color: var(--st-primary); text-decoration: none; }
+
+        .st-nav-coffee {
+            background: #FFDD00;
+            color: #000 !important;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .st-nav-coffee:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(255,221,0,0.4);
+            color: #000 !important;
+            text-decoration: none;
+        }
+
+        .st-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .st-lang-btn {
+            background: none;
+            border: 1.5px solid var(--st-surface-high);
+            border-radius: 999px;
+            padding: 0.3rem 0.75rem;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--st-text-secondary);
+            font-family: var(--st-font);
+        }
+
+        @media (max-width: 768px) {
+            .st-nav-toggle { display: block; }
+            .st-nav {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--st-surface);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 20px 30px rgba(10, 27, 42, 0.06);
+            }
+            .st-nav.open { display: flex; }
+        }
+
+        /* --- Page Layout --- */
+        .st-page-wide {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem 3rem;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .st-page-wide { padding: 0.75rem 1rem 2rem; }
+        }
+        @media (max-width: 480px) {
+            .st-page-wide { padding: 0.5rem 0.75rem 1.5rem; }
+        }
+
+        /* --- Breadcrumb --- */
+        .st-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: var(--st-text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .st-breadcrumb a { color: var(--st-text-secondary); }
+        .st-breadcrumb a:hover { color: var(--st-primary); }
+
+        /* --- Hero --- */
+        .st-hero {
+            text-align: center;
+            padding: 0.75rem 0 1.5rem;
+        }
+
+        .st-hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--st-text);
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .st-hero .st-subtitle {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--st-text-secondary);
+            line-height: 1.5;
+        }
+
+        /* --- Privacy Pill --- */
+        .st-privacy {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.1rem;
+            background: var(--st-primary-container);
+            border-radius: 999px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .st-hero .st-privacy-wrap { text-align: center; }
+
+        .st-privacy svg {
+            width: 16px;
+            height: 16px;
+            color: var(--st-primary);
+            flex-shrink: 0;
+        }
+
+        .st-privacy span {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--st-primary-dim);
+        }
+
+        .st-advantage-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.75rem;
+            background: var(--st-surface-container);
+            color: var(--st-text-secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 999px;
+            border: 1px solid var(--st-surface-highest);
+        }
+
+        /* --- Mode Switcher --- */
+        .st-mode-switch {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .st-mode-btn {
+            padding: 0.65rem 1.5rem;
+            border: 2px solid var(--st-surface-highest);
+            border-radius: 999px;
+            background: var(--st-card);
+            color: var(--st-text-secondary);
+            font-family: var(--st-font);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--st-ease);
+        }
+
+        .st-mode-btn:hover {
+            border-color: var(--st-primary);
+            color: var(--st-primary);
+        }
+
+        .st-mode-btn.active {
+            background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+            color: #fff;
+            border-color: var(--st-primary);
+            box-shadow: 0 4px 16px rgba(46, 90, 123, 0.25);
+        }
+
+        /* --- Drop Zone --- */
+        .st-dropzone-outer {
+            position: relative;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Left seal peeking */
+        .st-seal-left {
+            position: absolute;
+            left: -90px;
+            bottom: 20px;
+            width: 140px;
+            height: 180px;
+            z-index: 2;
+            pointer-events: none;
+            transition: transform 0.6s var(--st-ease);
+            filter: drop-shadow(0 4px 12px rgba(10, 27, 42, 0.08));
+            object-fit: contain;
+        }
+
+        .st-dropzone-outer:hover .st-seal-left {
+            transform: translateX(6px) rotate(3deg);
+        }
+
+        /* Right seal peeking */
+        .st-seal-right {
+            position: absolute;
+            right: -85px;
+            top: 15px;
+            width: 130px;
+            height: 170px;
+            z-index: 2;
+            pointer-events: none;
+            transition: transform 0.6s var(--st-ease);
+            filter: drop-shadow(0 4px 12px rgba(10, 27, 42, 0.08));
+            object-fit: contain;
+        }
+
+        .st-dropzone-outer:hover .st-seal-right {
+            transform: translateX(-6px) rotate(-3deg);
+        }
+
+        .st-dropzone-wrap {
+            background: #fff;
+            border-radius: 28px;
+            padding: 2rem 2.5rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(10, 27, 42, 0.12);
+        }
+
+        /* Antarctic decorative background */
+        .st-dropzone-wrap::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--st-blue-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 900px) {
+            .st-seal-left { left: -20px; width: 90px; height: 115px; bottom: -10px; }
+            .st-seal-right { right: -20px; width: 85px; height: 110px; top: -10px; }
+        }
+
+        @media (max-width: 640px) {
+            .st-seal-left, .st-seal-right { display: none; }
+        }
+
+        .st-dropzone {
+            position: relative;
+            z-index: 1;
+            border: 3px dashed var(--st-surface-highest);
+            border-radius: var(--st-radius);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s var(--st-ease);
+            background: var(--st-surface-low);
+        }
+
+        .st-dropzone:hover {
+            border-color: var(--st-primary);
+            background: #F8FCFF;
+            transform: scale(1.005);
+        }
+
+        .st-dropzone.drag-over {
+            border-color: var(--st-primary);
+            background: var(--st-primary-container);
+            box-shadow: 0 0 0 6px var(--st-blue-glow);
+            transform: scale(1.01);
+        }
+
+        .st-dz-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 0.8rem;
+            transition: transform 0.6s var(--st-ease);
+        }
+
+        .st-dropzone:hover .st-dz-icon { transform: scale(1.08) rotate(-2deg); }
+
+        .st-dz-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .st-dz-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--st-text);
+            margin-bottom: 0.3rem;
+        }
+
+        .st-dz-sub {
+            font-size: 0.9rem;
+            color: var(--st-text-secondary);
+            margin-bottom: 1.25rem;
+        }
+
+        .st-dz-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+            color: #fff;
+            border: none;
+            padding: 0.65rem 1.6rem;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            cursor: pointer;
+            pointer-events: none;
+            transition: all 0.3s var(--st-ease);
+            box-shadow: 0 4px 16px rgba(46, 90, 123, 0.25);
+        }
+
+        .st-dropzone:hover .st-dz-btn {
+            box-shadow: 0 6px 24px rgba(46, 90, 123, 0.35);
+        }
+
+        .st-dz-formats {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .st-dz-formats span {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--st-primary-dim);
+            background: var(--st-primary-container);
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        #fileInput { display: none; }
+
+        /* --- Workspace --- */
+        .st-workspace {
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .st-workspace.active {
+            display: block;
+            animation: stFadeIn 0.4s var(--st-ease);
+        }
+
+        @keyframes stFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .st-card {
+            background: var(--st-card);
+            border-radius: var(--st-radius);
+            box-shadow: 0 2px 20px rgba(10, 27, 42, 0.04);
+            overflow: hidden;
+        }
+
+        /* --- Settings --- */
+        .st-settings {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--st-surface-low);
+            flex-wrap: wrap;
+        }
+
+        .st-setting {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .st-setting label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--st-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .st-setting select {
+            padding: 0.45rem 0.7rem;
+            background: var(--st-card);
+            border-radius: var(--st-radius-sm);
+            font-size: 0.82rem;
+            font-family: var(--st-font);
+            font-weight: 600;
+            color: var(--st-text);
+            cursor: pointer;
+            outline: none;
+            border: none;
+        }
+
+        .st-setting select:focus {
+            box-shadow: 0 0 0 2px var(--st-primary) inset;
+        }
+
+        .st-quality-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .st-quality-row input[type="range"] {
+            flex: 1;
+            height: 6px;
+            appearance: none;
+            background: var(--st-surface-highest);
+            border-radius: 999px;
+            outline: none;
+        }
+
+        .st-quality-row input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(10, 27, 42, 0.15), 0 0 0 2px var(--st-primary);
+            cursor: pointer;
+        }
+
+        .st-quality-val {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--st-primary);
+            min-width: 32px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* --- File List --- */
+        .st-filelist { padding: 0.25rem 0; }
+
+        .st-filelist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.85rem 1.5rem 0.5rem;
+        }
+
+        .st-filelist-count {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--st-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .st-clear-btn {
+            font-size: 0.82rem;
+            color: var(--st-primary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--st-font);
+        }
+
+        .st-clear-btn:hover { text-decoration: underline; }
+
+        .st-file {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            padding: 0.7rem 1.5rem;
+            transition: background 0.2s;
+        }
+
+        .st-file:hover { background: var(--st-surface-low); }
+
+        .st-file-thumb {
+            width: 40px;
+            height: 40px;
+            border-radius: var(--st-radius-sm);
+            background: var(--st-surface-container);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .st-file-thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: var(--st-radius-sm); }
+        .st-file-thumb svg { width: 18px; height: 18px; color: var(--st-text-secondary); }
+
+        .st-file-info { flex: 1; min-width: 0; }
+
+        .st-file-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--st-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .st-file-meta { font-size: 0.75rem; color: var(--st-text-secondary); }
+
+        .st-file-progress {
+            height: 4px;
+            background: var(--st-surface-highest);
+            border-radius: 999px;
+            margin-top: 5px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .st-file-progress.active { display: block; }
+
+        .st-file-progress-bar {
+            height: 100%;
+            background: var(--st-primary);
+            border-radius: 999px;
+            transition: width 0.3s var(--st-ease);
+            width: 0%;
+        }
+
+        .st-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+        }
+
+        .st-badge-ready { background: var(--st-surface-container); color: var(--st-text-secondary); }
+        .st-badge-working { background: rgba(46, 90, 123, 0.12); color: var(--st-primary); }
+        .st-badge-done { background: var(--st-primary-container); color: var(--st-primary-dim); }
+
+        .st-file-remove {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--st-outline);
+            padding: 4px;
+            border-radius: 8px;
+            line-height: 0;
+            transition: color 0.2s;
+            flex-shrink: 0;
+        }
+
+        .st-file-remove:hover { color: #C0392B; }
+        .st-file-remove svg { width: 16px; height: 16px; }
+
+        /* --- Convert Button --- */
+        .st-compress-bar { padding: 1rem 1.5rem; }
+
+        .st-compress-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, var(--st-primary) 0%, var(--st-primary-dim) 100%);
+            color: #fff;
+            border: none;
+            border-radius: 999px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            cursor: pointer;
+            transition: all 0.3s var(--st-ease);
+            box-shadow: 0 4px 16px rgba(46, 90, 123, 0.2);
+        }
+
+        .st-compress-btn:hover:not(:disabled) {
+            transform: scale(1.02);
+            box-shadow: 0 6px 24px rgba(46, 90, 123, 0.3);
+        }
+
+        .st-compress-btn:active:not(:disabled) { transform: scale(0.98); }
+        .st-compress-btn:disabled { opacity: 0.35; cursor: default; box-shadow: none; }
+
+        /* --- Results --- */
+        .st-results {
+            margin-top: 1.5rem;
+            display: none;
+        }
+
+        .st-results.active {
+            display: block;
+            animation: stFadeIn 0.5s var(--st-ease);
+        }
+
+        .st-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .st-stat {
+            text-align: center;
+            padding: 1.1rem 0.75rem;
+            border-radius: var(--st-radius-md);
+        }
+
+        .st-stat:nth-child(1) { background: var(--st-surface-container); }
+        .st-stat:nth-child(2) { background: var(--st-surface-high); }
+        .st-stat:nth-child(3) { background: var(--st-primary-container); }
+
+        .st-stat-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--st-text-secondary);
+            margin-bottom: 0.2rem;
+        }
+
+        .st-stat-value {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--st-text);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .st-stat-value.highlight { color: var(--st-primary); }
+
+        /* --- Downloads --- */
+        .st-downloads {
+            background: var(--st-card);
+            border-radius: var(--st-radius);
+            box-shadow: 0 2px 20px rgba(10, 27, 42, 0.04);
+            overflow: hidden;
+        }
+
+        .st-dl-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.9rem 1.5rem;
+            gap: 1rem;
+            transition: background 0.15s;
+        }
+
+        .st-dl-item:hover { background: var(--st-surface-low); }
+
+        .st-dl-info { flex: 1; min-width: 0; }
+
+        .st-dl-name {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--st-text);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .st-dl-meta { font-size: 0.75rem; color: var(--st-text-secondary); margin-top: 0.1rem; }
+
+        .st-dl-btn {
+            background: var(--st-primary);
+            color: #fff;
+            border: none;
+            padding: 0.45rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s var(--st-ease);
+            flex-shrink: 0;
+        }
+
+        .st-dl-btn:hover { transform: scale(1.04); }
+
+        .st-dl-all {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: calc(100% - 2rem);
+            margin: 0.75rem auto 1rem;
+            padding: 0.85rem 1.5rem;
+            background: var(--st-primary);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 8px rgba(46,90,123,0.25);
+        }
+        .st-dl-all:hover {
+            background: var(--st-primary-dim);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(46,90,123,0.3);
+        }
+        .st-dl-all:active {
+            transform: translateY(0);
+            box-shadow: 0 1px 4px rgba(46,90,123,0.2);
+        }
+        .st-dl-all-icon {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* --- Preview Grid --- */
+        .st-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .st-preview-item {
+            border-radius: var(--st-radius-sm);
+            overflow: hidden;
+            border: 2px solid var(--st-surface-highest);
+            background: #fff;
+            transition: border-color 0.2s;
+        }
+
+        .st-preview-item:hover { border-color: var(--st-primary); }
+
+        .st-preview-item img, .st-preview-item canvas {
+            width: 100%;
+            display: block;
+        }
+
+        .st-preview-label {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--st-text-secondary);
+            text-align: center;
+            background: var(--st-surface-low);
+        }
+
+        /* --- Features --- */
+        .st-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .st-feature {
+            padding: 1.25rem;
+            border-radius: var(--st-radius-md);
+            text-align: center;
+        }
+
+        .st-feature:nth-child(1) { background: var(--st-surface-high); }
+        .st-feature:nth-child(2) { background: var(--st-surface-container); }
+        .st-feature:nth-child(3) { background: var(--st-secondary-container); }
+
+        .st-feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .st-feature h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--st-text);
+            margin-bottom: 0.2rem;
+        }
+
+        .st-feature p {
+            font-size: 0.75rem;
+            color: var(--st-text-secondary);
+            line-height: 1.4;
+        }
+
+        /* --- Ad --- */
+        .st-ad {
+            margin: 2rem 0;
+            background: var(--st-surface-low);
+            border-radius: var(--st-radius-md);
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--st-text-secondary);
+            font-size: 0.75rem;
+        }
+
+        /* --- Footer --- */
+        .st-footer {
+            background: #F5F0E8;
+            border-top: 1px solid #E0D8CC;
+            margin-top: auto;
+        }
+
+        .st-footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .st-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .st-footer-col h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #4D5338;
+            margin-bottom: 0.75rem;
+        }
+
+        .st-footer-col a {
+            display: block;
+            color: #4D5338;
+            font-size: 0.88rem;
+            padding: 0.2rem 0;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .st-footer-col a:hover { color: #3D5C2E; text-decoration: none; }
+
+        .st-footer-col p {
+            font-size: 0.88rem;
+            color: #4D5338;
+            line-height: 1.55;
+        }
+
+        .st-footer-bottom {
+            border-top: 1px solid #E0D8CC;
+            padding-top: 1.25rem;
+            font-size: 0.78rem;
+            color: #8A8568;
+            text-align: center;
+        }
+
+        /* --- Cookie Banner --- */
+        .st-cookie {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--st-card);
+            box-shadow: 0 -4px 20px rgba(10, 27, 42, 0.08);
+            padding: 1.25rem 1.5rem;
+            z-index: 9999;
+            display: none;
+        }
+
+        .st-cookie.show { display: block; }
+
+        .st-cookie-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .st-cookie-inner p {
+            font-size: 0.85rem;
+            color: var(--st-text-secondary);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .st-cookie-inner p a { text-decoration: underline; }
+
+        .st-cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
+
+        .st-cookie-btns button {
+            font-family: var(--st-font);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.5rem 1.1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .st-btn-decline {
+            background: var(--st-surface-container);
+            border: none;
+            color: var(--st-text-secondary);
+        }
+
+        .st-btn-accept {
+            background: var(--st-primary);
+            border: none;
+            color: #fff;
+        }
+
+        /* --- Toast --- */
+        .st-toast {
+            position: fixed;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--st-text);
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10000;
+            transition: bottom 0.3s var(--st-ease);
+            white-space: nowrap;
+        }
+        .st-toast.show { bottom: 24px; }
+
+        /* --- Responsive --- */
+        @media (max-width: 640px) {
+            .st-hero h1 { font-size: 1.6rem; }
+            .st-dropzone-wrap { padding: 1.5rem; border-radius: 20px; }
+            .st-dropzone { padding: 2rem 1.25rem; }
+            .st-settings { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+            .st-setting { flex-direction: column; align-items: stretch; gap: 0.3rem; }
+            .st-stats { grid-template-columns: repeat(2, 1fr); }
+            .st-features { grid-template-columns: repeat(2, 1fr); }
+            .st-dl-item { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+            .st-dl-btn { text-align: center; }
+            .st-dz-formats { flex-wrap: wrap; }
+            .st-mode-switch { flex-direction: column; align-items: center; }
+            .st-preview-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+        }
+        @media (max-width: 480px) {
+            .st-stats { grid-template-columns: 1fr; }
+            .st-features { grid-template-columns: 1fr; }
+        }
+
+        @keyframes stSpin { to { transform: rotate(360deg); } }
+        .st-spin { animation: stSpin 0.8s linear infinite; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../" class="st-logo">
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="st-page-wide">
+            <!-- Full-width PDF Converter (Immersive Antarctic) -->
+            <div class="pc-antarctic-hero">
+                <div class="pc-canopy-bg">
+                    <!-- Hero text overlay on antarctic -->
+                    <div class="pc-hero-overlay">
+                        <h1 data-i18n="pdf_converter.title">PDF Converter</h1>
+                        <div class="pc-privacy-wrap" style="margin-top: 0.8rem;">
+                            <div class="pc-privacy-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                <span data-i18n="pdf_converter.privacy_note">Your files stay on your device. Nothing is uploaded.</span>
+                            </div>
+                            <div class="pc-privacy-pill pc-browser-pill">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                <span data-i18n="index.banner_privacy">100% Browser-Based</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Seal mascot peeking from right -->
+                    <div class="pc-mascot-peek">
+                        <img src="../img/mascot/seal-baby.png" alt="Baby Seal mascot" loading="eager" width="200" height="220">
+                    </div>
+
+                    <!-- Frosted glass drop zone -->
+                    <div class="pc-dropzone-wrap-hero">
+                        <!-- Mode Switcher -->
+                        <div class="st-mode-switch" style="margin-bottom:1rem;">
+                            <button class="st-mode-btn active" id="modePdf2Img" onclick="PC.setMode('pdf2img')" data-i18n="pdf_converter.mode_pdf2img">PDF → Image</button>
+                            <button class="st-mode-btn" id="modeImg2Pdf" onclick="PC.setMode('img2pdf')" data-i18n="pdf_converter.mode_img2pdf">Image → PDF</button>
+                        </div>
+
+                        <div class="st-dropzone" id="dropZone">
+                            <div class="st-dz-icon">
+                                <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="14" y="8" width="52" height="52" rx="8" fill="#DEF0FC" stroke="#1B3A5C" stroke-width="2.5"/>
+                                    <rect x="14" y="8" width="52" height="16" rx="8" fill="#1B3A5C"/>
+                                    <text x="28" y="20" font-family="sans-serif" font-size="10" font-weight="800" fill="#fff">PDF</text>
+                                    <rect x="22" y="32" width="28" height="3.5" rx="1.8" fill="#1B3A5C" opacity="0.25"/>
+                                    <rect x="22" y="39" width="36" height="3.5" rx="1.8" fill="#1B3A5C" opacity="0.18"/>
+                                    <rect x="22" y="46" width="24" height="3.5" rx="1.8" fill="#1B3A5C" opacity="0.12"/>
+                                    <path d="M40 75 L40 62" stroke="#1B3A5C" stroke-width="3" stroke-linecap="round"/>
+                                    <path d="M33 69 L40 62 L47 69" stroke="#1B3A5C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </div>
+                            <div class="st-dz-title" id="dzTitle" data-i18n="pdf_converter.drop_title_pdf">Drop your PDF here</div>
+                            <div class="st-dz-sub" id="dzSub" data-i18n="pdf_converter.drop_desc_pdf">or click to browse your files</div>
+                            <div class="st-dz-btn" data-i18n="pdf_converter.drop_btn">Choose Files</div>
+                            <div class="st-dz-formats" id="dzFormats">
+                                <span>PDF</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <input type="file" id="fileInput" accept=".pdf">
+
+        <!-- Workspace -->
+        <div class="st-workspace" id="workspace">
+            <div class="st-card">
+                <!-- Settings for PDF to Image -->
+                <div class="st-settings" id="settingsPdf2Img">
+                    <div class="st-setting">
+                        <label for="outputFormat" data-i18n="pdf_converter.format_label">Format</label>
+                        <select id="outputFormat">
+                            <option value="png">PNG</option>
+                            <option value="jpeg">JPEG</option>
+                            <option value="webp">WebP</option>
+                        </select>
+                    </div>
+                    <div class="st-setting">
+                        <label for="scaleSlider" data-i18n="pdf_converter.scale_label">Scale</label>
+                        <div class="st-quality-row">
+                            <input type="range" id="scaleSlider" min="1" max="4" value="2" step="0.5">
+                            <span class="st-quality-val" id="scaleVal">2x</span>
+                        </div>
+                    </div>
+                    <div class="st-setting">
+                        <label for="pageRange" data-i18n="pdf_converter.pages_label">Pages</label>
+                        <select id="pageRange">
+                            <option value="all" data-i18n="pdf_converter.pages_all">All Pages</option>
+                            <option value="first" data-i18n="pdf_converter.pages_first">First Page Only</option>
+                            <option value="custom" data-i18n="pdf_converter.pages_custom">Custom Range</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Settings for Image to PDF -->
+                <div class="st-settings" id="settingsImg2Pdf" style="display:none;">
+                    <div class="st-setting">
+                        <label for="pageSize" data-i18n="pdf_converter.page_size_label">Page Size</label>
+                        <select id="pageSize">
+                            <option value="a4">A4</option>
+                            <option value="letter">Letter</option>
+                            <option value="fit" data-i18n="pdf_converter.page_size_fit">Fit to Image</option>
+                        </select>
+                    </div>
+                    <div class="st-setting">
+                        <label for="orientation" data-i18n="pdf_converter.orientation_label">Orientation</label>
+                        <select id="orientation">
+                            <option value="auto" data-i18n="pdf_converter.orientation_auto">Auto</option>
+                            <option value="portrait" data-i18n="pdf_converter.orientation_portrait">Portrait</option>
+                            <option value="landscape" data-i18n="pdf_converter.orientation_landscape">Landscape</option>
+                        </select>
+                    </div>
+                    <div class="st-setting">
+                        <label for="jpegQuality" data-i18n="pdf_converter.quality_label">Quality</label>
+                        <div class="st-quality-row">
+                            <input type="range" id="jpegQuality" min="10" max="100" value="90">
+                            <span class="st-quality-val" id="jpegQualityVal">90</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="st-filelist">
+                    <div class="st-filelist-header">
+                        <span class="st-filelist-count" id="fileCount">0 files</span>
+                        <button class="st-clear-btn" id="clearBtn" data-i18n="pdf_converter.clear_all">Clear All</button>
+                    </div>
+                    <div id="fileList"></div>
+                </div>
+
+                <div class="st-compress-bar">
+                    <button class="st-compress-btn" id="convertBtn" disabled data-i18n="pdf_converter.convert_btn">Convert</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="st-results" id="resultsSection">
+            <div class="st-stats">
+                <div class="st-stat">
+                    <div class="st-stat-label" id="statLabel1">Input</div>
+                    <div class="st-stat-value" id="statVal1">—</div>
+                </div>
+                <div class="st-stat">
+                    <div class="st-stat-label" id="statLabel2">Output</div>
+                    <div class="st-stat-value" id="statVal2">—</div>
+                </div>
+                <div class="st-stat">
+                    <div class="st-stat-label" id="statLabel3">Pages</div>
+                    <div class="st-stat-value highlight" id="statVal3">—</div>
+                </div>
+            </div>
+
+            <div class="st-downloads" id="downloadSection">
+                <div id="downloadGrid"></div>
+                <button class="st-dl-all" id="downloadAllBtn">
+                    <svg class="st-dl-all-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10 3v10M6 9l4 4 4-4"/>
+                        <path d="M3 15v1a1 1 0 001 1h12a1 1 0 001-1v-1"/>
+                    </svg>
+                    <span data-i18n="pdf_converter.download_all_btn">Download All Files</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="snsLinksSection"></div>
+
+        <!-- Ad -->
+        <div class="st-ad">Ad Space</div>
+
+            <!-- All Tools -->
+            <div id="tools" style="scroll-margin-top: 80px;">
+                <h2 class="st-section-title" style="margin-top: 1rem;"><span data-i18n="index.other_tools_title">All Tools</span></h2>
+
+                <div class="st-tools-grid-pc" style="margin-bottom: 1.5rem;">
+                    <a href="../" class="st-tool-card-pc st-tool-card-pc-sloth">
+                        <div class="st-tool-icon-pc st-tool-icon-pc-sloth">
+                            <img src="../img/mascot/sloth-icon-48.png" alt="">
+                        </div>
+                        <h3 data-i18n="index.tool_image_compressor">Image Compressor</h3>
+                        <p data-i18n="index.tool_image_compressor_desc">Compress images without losing quality. Supports JPEG, PNG, WebP.</p>
+                    </a>
+                    <a href="pdf-converter.html" class="st-tool-card-pc st-tool-card-pc-pdf">
+                        <div class="st-tool-icon-pc st-tool-icon-pc-pdf">
+                            <img src="../img/mascot/seal-baby.png" alt="">
+                        </div>
+                        <h3 data-i18n="index.tool_pdf_converter">PDF Converter</h3>
+                        <p data-i18n="index.tool_pdf_converter_desc">Convert PDF to images or images to PDF. All in your browser.</p>
+                    </a>
+                    <a href="image-editor.html" class="st-tool-card-pc st-tool-card-pc-rhino">
+                        <div class="st-tool-icon-pc st-tool-icon-pc-rhino">
+                            <img src="../img/mascot/rhino-icon-48.png" alt="">
+                        </div>
+                        <h3 data-i18n="index.tool_image_editor">Image Editor</h3>
+                        <p data-i18n="index.tool_image_editor_desc">Adjust brightness, contrast, saturation, and apply filters to images.</p>
+                    </a>
+                </div>
+
+                <h3 class="st-section-subtitle-pc"><span data-i18n="index.other_tools_sub">Other Tools</span></h3>
+
+                <div class="st-tools-grid-pc" style="margin-bottom: 2rem;">
+                    <a href="json-formatter.html" class="st-tool-card-pc">
+                        <span class="st-tool-sub-pc" data-i18n="index.tool_json_sub">Dev & Data</span>
+                        <h3 data-i18n="index.tool_json">JSON Formatter</h3>
+                        <p data-i18n="index.tool_json_desc">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                    </a>
+                    <a href="character-counter.html" class="st-tool-card-pc">
+                        <span class="st-tool-sub-pc" data-i18n="index.tool_char_sub">Writing & Text</span>
+                        <h3 data-i18n="index.tool_char">Character Counter</h3>
+                        <p data-i18n="index.tool_char_desc">Count characters, words, sentences, and paragraphs in real time.</p>
+                    </a>
+                    <a href="color-converter.html" class="st-tool-card-pc">
+                        <span class="st-tool-sub-pc" data-i18n="index.tool_color_sub">Design & Color</span>
+                        <h3 data-i18n="index.tool_color">Color Converter</h3>
+                        <p data-i18n="index.tool_color_desc">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                    </a>
+                </div>
+
+                <!-- Ad -->
+                <div class="st-ad">Ad Space</div>
+            </div>
+
+            <style>
+            .st-section-title {
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: var(--st-text);
+                margin-bottom: 1.5rem;
+            }
+            .st-section-subtitle-pc {
+                color: var(--st-text-secondary);
+                font-size: 1.05rem;
+                text-align: center;
+                margin-top: 2rem;
+                margin-bottom: 1.5rem;
+            }
+            .st-tools-grid-pc {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1rem;
+            }
+            @media (max-width: 768px) {
+                .st-tools-grid-pc { grid-template-columns: repeat(2, 1fr); }
+            }
+            @media (max-width: 480px) {
+                .st-tools-grid-pc { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+                .st-tool-card-pc { padding: 1rem; }
+                .st-tool-card-pc h3 { font-size: 0.8rem; }
+                .st-tool-card-pc p { font-size: 0.7rem; }
+            }
+            .st-tool-card-pc {
+                background: #fff;
+                border: 1px solid var(--st-surface-highest);
+                border-radius: var(--st-radius);
+                padding: 1.5rem;
+                transition: transform 0.25s var(--st-ease), box-shadow 0.25s var(--st-ease);
+                cursor: pointer;
+                display: block;
+                color: inherit;
+                text-decoration: none;
+            }
+            .st-tool-card-pc:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 32px rgba(46, 90, 123, 0.1);
+                text-decoration: none;
+                color: inherit;
+            }
+            .st-tool-icon-pc {
+                width: 48px;
+                height: 48px;
+                border-radius: var(--st-radius-md);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+            }
+            .st-tool-icon-pc-primary { background: var(--st-primary); color: #fff; }
+            .st-tool-icon-pc-primary svg { stroke: #fff; }
+            /* Mascot icons — larger, no padding */
+            .st-tool-icon-pc-sloth,
+            .st-tool-icon-pc-pdf,
+            .st-tool-icon-pc-rhino {
+                width: 52px;
+                height: 52px;
+                padding: 0;
+                overflow: hidden;
+                border-radius: 14px;
+            }
+            .st-tool-icon-pc-sloth img,
+            .st-tool-icon-pc-pdf img,
+            .st-tool-icon-pc-rhino img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .st-tool-icon-pc-sloth {
+                background: linear-gradient(135deg, #e8f0dc 0%, #dce8ce 100%);
+                border: 1.5px solid #c5d6a8;
+            }
+            .st-tool-card-pc-sloth {
+                background: linear-gradient(135deg, #f5f9ef 0%, #edf4e4 100%) !important;
+                border-color: #c5d6a8 !important;
+            }
+            .st-tool-card-pc-sloth:hover {
+                border-color: #6B8F3C !important;
+                box-shadow: 0 8px 24px rgba(107, 143, 60, 0.15) !important;
+            }
+            .st-tool-icon-pc-pdf {
+                background: linear-gradient(135deg, #C9E3F5 0%, #DEF0FC 100%);
+                border: 1.5px solid #a8d4f0;
+            }
+            .st-tool-card-pc-pdf {
+                background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%) !important;
+                border-color: #b8daf0 !important;
+            }
+            .st-tool-card-pc-pdf:hover {
+                border-color: #1B3A5C !important;
+                box-shadow: 0 8px 24px rgba(46, 90, 123, 0.15) !important;
+            }
+            .st-tool-icon-pc-rhino {
+                background: linear-gradient(135deg, #E6D4F0 0%, #F0E4F8 100%);
+                border: 1.5px solid #c9a8e0;
+            }
+            .st-tool-card-pc-rhino {
+                background: linear-gradient(135deg, #faf5fc 0%, #f3ebf8 100%) !important;
+                border-color: #d4bee6 !important;
+            }
+            .st-tool-card-pc-rhino:hover {
+                border-color: #5C3D6E !important;
+                box-shadow: 0 8px 24px rgba(92, 61, 110, 0.15) !important;
+            }
+            .st-tool-icon-pc-green { background: var(--st-primary-container); }
+            .st-tool-icon-pc-brown { background: var(--st-secondary-container); }
+            .st-tool-icon-pc-yellow { background: #FFF3D0; }
+            .st-tool-icon-pc-red { background: #FDDDD7; }
+            .st-tool-card-pc h3 {
+                font-size: 1rem;
+                font-weight: 600;
+                margin-bottom: 0.3rem;
+                color: var(--st-text);
+            }
+            .st-tool-card-pc p {
+                font-size: 0.85rem;
+                color: var(--st-text-secondary);
+                line-height: 1.5;
+            }
+            .st-tool-sub-pc {
+                display: inline-block;
+                font-size: 0.65rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: var(--st-text-secondary);
+                background: var(--st-surface-container);
+                padding: 0.15rem 0.5rem;
+                border-radius: 999px;
+                margin-bottom: 0.15rem;
+            }
+            </style>
+
+            <!-- Support Section -->
+            <section class="st-support-section">
+                <div class="st-support-inner">
+                    <div class="st-support-mascot">
+                        <img src="../img/mascot/seal-baby.png" alt="Baby Seal mascot" width="80" height="80">
+                    </div>
+                    <div class="st-support-content">
+                        <h3 class="st-support-title" data-i18n="pdf_converter.support_title">Buy this baby seal a coffee ☕</h3>
+                        <p class="st-support-desc" data-i18n="index.support_desc">SnapToolbox is free forever. If you find it useful, a small coffee helps keep the servers running!</p>
+                        <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-support-btn" id="bmcLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            <span data-i18n="index.support_btn">Buy me a coffee</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <style>
+            .st-support-section {
+                margin: 2rem 0;
+                padding: 0;
+            }
+            .st-support-inner {
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                background: linear-gradient(135deg, #fdf6ec 0%, #fff9f0 100%);
+                border: 1px solid #f0e0c8;
+                border-radius: 16px;
+                padding: 1.5rem 2rem;
+            }
+            .st-support-mascot {
+                flex-shrink: 0;
+            }
+            .st-support-mascot img {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                object-fit: cover;
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+            }
+            .st-support-content {
+                flex: 1;
+            }
+            .st-support-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #5c3d1a;
+                margin: 0 0 0.4rem;
+            }
+            .st-support-desc {
+                font-size: 0.85rem;
+                color: #7a5c3a;
+                margin: 0 0 0.8rem;
+                line-height: 1.5;
+            }
+            .st-support-btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 10px 24px;
+                background: #FFDD00;
+                color: #000;
+                font-weight: 700;
+                font-size: 0.9rem;
+                border-radius: 999px;
+                text-decoration: none;
+                transition: transform 0.2s, box-shadow 0.2s;
+                box-shadow: 0 2px 12px rgba(255,221,0,0.4);
+            }
+            .st-support-btn:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 20px rgba(255,221,0,0.5);
+            }
+            .st-support-btn:active {
+                transform: scale(0.97);
+            }
+            .st-support-btn svg {
+                stroke: #000;
+            }
+            @media (max-width: 480px) {
+                .st-support-inner {
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 1.2rem;
+                    gap: 0.8rem;
+                }
+                .st-support-mascot img {
+                    width: 64px;
+                    height: 64px;
+                }
+            }
+            </style>
+
+            <style>
+            /* Compact About Banner */
+            .st-about-banner {
+                background: #142D47;
+                border-radius: 28px;
+                padding: 1.75rem 2rem;
+                margin: 0.5rem 0 0;
+            }
+            .st-about-banner-inner {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .st-about-banner-pills {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            .st-about-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.35rem;
+                background: rgba(255,255,255,0.15);
+                padding: 0.4rem 0.85rem;
+                border-radius: 999px;
+                font-size: 0.82rem;
+                font-weight: 600;
+                color: #fff;
+                white-space: nowrap;
+            }
+            .st-about-pill svg {
+                flex-shrink: 0;
+                stroke: #fff;
+            }
+            .st-about-banner-text {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                font-size: 0.9rem;
+                color: rgba(255,255,255,0.8);
+            }
+            .st-about-banner-link {
+                font-weight: 700;
+                color: #FFDD00;
+                white-space: nowrap;
+                text-decoration: none;
+            }
+            .st-about-banner-link:hover {
+                text-decoration: underline;
+                color: #ffe94d;
+            }
+            @media (max-width: 640px) {
+                .st-about-banner { padding: 1.25rem 1rem; }
+                .st-about-pill { font-size: 0.75rem; padding: 0.35rem 0.7rem; }
+                .st-about-banner-text { flex-direction: column; text-align: center; gap: 0.4rem; font-size: 0.82rem; }
+            }
+            </style>
+
+            <!-- Why SnapToolbox — Compact Banner -->
+            <section id="about" class="st-about-banner">
+                <div class="st-about-banner-inner">
+                    <div class="st-about-banner-pills">
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-i18n="index.banner_privacy">100% Browser-Based</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z"/></svg>
+                            <span data-i18n="index.banner_free">Truly Free & Unlimited</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M6 20V4M18 20v-6"/></svg>
+                            <span data-i18n="index.banner_quality">Quality Control</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                            <span data-i18n="index.banner_allinone">5+ Tools in One</span>
+                        </span>
+                        <span class="st-about-pill">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+                            <span data-i18n="index.banner_lang">EN / JA</span>
+                        </span>
+                    </div>
+                    <div class="st-about-banner-text">
+                        <span data-i18n="index.banner_desc">Your data never leaves your device. No signup, no limits.</span>
+                        <a href="../about.html" class="st-about-banner-link" data-i18n="index.banner_more">Learn more &rarr;</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_image_tools">Image Tools</h4>
+                    <a href="../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">Other Tools</h4>
+                    <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <a href="../about.html" data-i18n="common.nav_about">About</a>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.<br>All processing is done locally in your browser.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-btns">
+                <button class="st-btn-decline" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn-accept" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script>
+        // Set PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+        const PC = {
+            mode: 'pdf2img', // 'pdf2img' or 'img2pdf'
+            files: [],
+            results: [],
+
+            init() {
+                this.$ = {
+                    dropZone: document.getElementById('dropZone'),
+                    fileInput: document.getElementById('fileInput'),
+                    fileList: document.getElementById('fileList'),
+                    fileCount: document.getElementById('fileCount'),
+                    workspace: document.getElementById('workspace'),
+                    convertBtn: document.getElementById('convertBtn'),
+                    clearBtn: document.getElementById('clearBtn'),
+                    resultsEl: document.getElementById('resultsSection'),
+                    dlGrid: document.getElementById('downloadGrid'),
+                    dlAllBtn: document.getElementById('downloadAllBtn'),
+                    settingsPdf2Img: document.getElementById('settingsPdf2Img'),
+                    settingsImg2Pdf: document.getElementById('settingsImg2Pdf'),
+                    outputFormat: document.getElementById('outputFormat'),
+                    scaleSlider: document.getElementById('scaleSlider'),
+                    scaleVal: document.getElementById('scaleVal'),
+                    pageRange: document.getElementById('pageRange'),
+                    pageSize: document.getElementById('pageSize'),
+                    orientation: document.getElementById('orientation'),
+                    jpegQuality: document.getElementById('jpegQuality'),
+                    jpegQualityVal: document.getElementById('jpegQualityVal'),
+                    dzTitle: document.getElementById('dzTitle'),
+                    dzSub: document.getElementById('dzSub'),
+                    dzFormats: document.getElementById('dzFormats'),
+                    statLabel1: document.getElementById('statLabel1'),
+                    statLabel2: document.getElementById('statLabel2'),
+                    statLabel3: document.getElementById('statLabel3'),
+                    statVal1: document.getElementById('statVal1'),
+                    statVal2: document.getElementById('statVal2'),
+                    statVal3: document.getElementById('statVal3'),
+                };
+
+                const dz = this.$.dropZone;
+                dz.addEventListener('click', () => this.$.fileInput.click());
+                dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
+                dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+                dz.addEventListener('drop', e => {
+                    e.preventDefault(); dz.classList.remove('drag-over');
+                    this.add(Array.from(e.dataTransfer.files));
+                });
+
+                this.$.fileInput.addEventListener('change', e => { this.add(Array.from(e.target.files)); e.target.value = ''; });
+                this.$.convertBtn.addEventListener('click', () => this.convert());
+                this.$.clearBtn.addEventListener('click', () => this.clear());
+                this.$.scaleSlider.addEventListener('input', e => { this.$.scaleVal.textContent = e.target.value + 'x'; });
+                this.$.jpegQuality.addEventListener('input', e => { this.$.jpegQualityVal.textContent = e.target.value; });
+                this.$.dlAllBtn.addEventListener('click', () => this.downloadAll());
+            },
+
+            setMode(mode) {
+                this.mode = mode;
+                this.clear();
+
+                document.getElementById('modePdf2Img').classList.toggle('active', mode === 'pdf2img');
+                document.getElementById('modeImg2Pdf').classList.toggle('active', mode === 'img2pdf');
+
+                this.$.settingsPdf2Img.style.display = mode === 'pdf2img' ? 'flex' : 'none';
+                this.$.settingsImg2Pdf.style.display = mode === 'img2pdf' ? 'flex' : 'none';
+
+                if (mode === 'pdf2img') {
+                    this.$.fileInput.accept = '.pdf';
+                    this.$.fileInput.removeAttribute('multiple');
+                    this.$.dzTitle.textContent = I18N.t('pdf_converter', 'drop_title_pdf');
+                    this.$.dzTitle.setAttribute('data-i18n', 'pdf_converter.drop_title_pdf');
+                    this.$.dzSub.textContent = I18N.t('pdf_converter', 'drop_desc_pdf');
+                    this.$.dzSub.setAttribute('data-i18n', 'pdf_converter.drop_desc_pdf');
+                    this.$.dzFormats.innerHTML = '<span>PDF</span>';
+                } else {
+                    this.$.fileInput.accept = 'image/jpeg,image/png,image/webp';
+                    this.$.fileInput.setAttribute('multiple', '');
+                    this.$.dzTitle.textContent = I18N.t('pdf_converter', 'drop_title_img');
+                    this.$.dzTitle.setAttribute('data-i18n', 'pdf_converter.drop_title_img');
+                    this.$.dzSub.textContent = I18N.t('pdf_converter', 'drop_desc_img');
+                    this.$.dzSub.setAttribute('data-i18n', 'pdf_converter.drop_desc_img');
+                    this.$.dzFormats.innerHTML = '<span>JPEG</span><span>PNG</span><span>WebP</span>';
+                }
+            },
+
+            add(newFiles) {
+                if (this.mode === 'pdf2img') {
+                    // Only accept first PDF
+                    const pdf = newFiles.find(f => f.type === 'application/pdf' || f.name.endsWith('.pdf'));
+                    if (pdf) {
+                        this.files = [pdf];
+                    }
+                } else {
+                    const images = newFiles.filter(f => f.type.startsWith('image/'));
+                    images.forEach(f => {
+                        if (!this.files.some(x => x.name === f.name && x.size === f.size)) this.files.push(f);
+                    });
+                }
+                this.render();
+            },
+
+            render() {
+                const n = this.files.length;
+                this.$.workspace.classList.toggle('active', n > 0);
+                this.$.fileCount.textContent = `${n} file${n !== 1 ? 's' : ''}`;
+                this.$.convertBtn.disabled = n === 0;
+                this.$.convertBtn.textContent = I18N.t('pdf_converter', 'convert_btn');
+
+                const icon = this.mode === 'pdf2img'
+                    ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h3M8 10h8M8 14h6"/></svg>'
+                    : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 15l-5-5L5 21"/></svg>';
+
+                this.$.fileList.innerHTML = this.files.map((f, i) => `
+                    <div class="st-file" data-i="${i}">
+                        <div class="st-file-thumb" id="thumb_${i}">
+                            ${icon}
+                        </div>
+                        <div class="st-file-info">
+                            <div class="st-file-name">${this.esc(f.name)}</div>
+                            <div class="st-file-meta">${this.fmtSize(f.size)}</div>
+                            <div class="st-file-progress" data-i="${i}"><div class="st-file-progress-bar"></div></div>
+                        </div>
+                        <div><span class="st-badge st-badge-ready" id="badge_${i}">${I18N.t('pdf_converter', 'badge_ready')}</span></div>
+                        <button class="st-file-remove" onclick="event.stopPropagation(); PC.remove(${i})" aria-label="Remove">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </button>
+                    </div>`).join('');
+
+                // Show image thumbnails for img2pdf mode
+                if (this.mode === 'img2pdf') {
+                    this.files.forEach((f, i) => {
+                        const el = document.getElementById(`thumb_${i}`);
+                        if (el && f.type.startsWith('image/')) {
+                            const url = URL.createObjectURL(f);
+                            const img = document.createElement('img');
+                            img.src = url;
+                            img.onload = () => { el.innerHTML = ''; el.appendChild(img); };
+                        }
+                    });
+                }
+            },
+
+            remove(i) {
+                this.files.splice(i, 1);
+                this.results = [];
+                this.$.resultsEl.classList.remove('active');
+                this.render();
+            },
+
+            clear() {
+                this.files = [];
+                this.results = [];
+                this.$.resultsEl.classList.remove('active');
+                this.render();
+            },
+
+            async convert() {
+                const btn = this.$.convertBtn;
+                btn.disabled = true;
+                btn.textContent = I18N.t('pdf_converter', 'converting');
+
+                try {
+                    if (this.mode === 'pdf2img') {
+                        await this.convertPdfToImages();
+                    } else {
+                        await this.convertImagesToPdf();
+                    }
+                    btn.textContent = I18N.t('pdf_converter', 'done');
+                } catch (err) {
+                    console.error(err);
+                    btn.textContent = I18N.t('pdf_converter', 'error_retry');
+                    btn.disabled = false;
+                    showToast('Conversion failed: ' + err.message);
+                }
+            },
+
+            async convertPdfToImages() {
+                const file = this.files[0];
+                const format = this.$.outputFormat.value;
+                const scale = parseFloat(this.$.scaleSlider.value);
+                const rangeMode = this.$.pageRange.value;
+
+                this.setBadge(0, 'working', 'Loading PDF…');
+                this.setProgress(0, 10);
+
+                const arrayBuf = await file.arrayBuffer();
+                const pdf = await pdfjsLib.getDocument({ data: arrayBuf }).promise;
+                const totalPages = pdf.numPages;
+
+                let pages = [];
+                if (rangeMode === 'all') {
+                    pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+                } else if (rangeMode === 'first') {
+                    pages = [1];
+                } else {
+                    // custom — for now do all
+                    pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+                }
+
+                this.results = [];
+                const mime = format === 'jpeg' ? 'image/jpeg' : format === 'webp' ? 'image/webp' : 'image/png';
+                const ext = format === 'jpeg' ? 'jpg' : format;
+
+                for (let idx = 0; idx < pages.length; idx++) {
+                    const pageNum = pages[idx];
+                    this.setBadge(0, 'working', `Page ${pageNum}/${totalPages}`);
+                    this.setProgress(0, 10 + (idx / pages.length) * 85);
+
+                    const page = await pdf.getPage(pageNum);
+                    const viewport = page.getViewport({ scale });
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+
+                    // White background for JPEG
+                    if (format === 'jpeg') {
+                        ctx.fillStyle = '#ffffff';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    }
+
+                    await page.render({ canvasContext: ctx, viewport }).promise;
+
+                    const quality = format === 'png' ? undefined : 0.92;
+                    const blob = await new Promise(res => canvas.toBlob(res, mime, quality));
+
+                    const baseName = file.name.replace(/\.pdf$/i, '');
+                    this.results.push({
+                        blob,
+                        name: `${baseName}_page${pageNum}.${ext}`,
+                        size: blob.size,
+                        pageNum
+                    });
+                }
+
+                this.setProgress(0, 100);
+                this.setBadge(0, 'done', 'Done');
+
+                // Show results
+                this.$.statLabel1.textContent = I18N.t('pdf_converter', 'stat_input');
+                this.$.statVal1.textContent = this.fmtSize(file.size);
+                this.$.statLabel2.textContent = I18N.t('pdf_converter', 'stat_format');
+                this.$.statVal2.textContent = format.toUpperCase();
+                this.$.statLabel3.textContent = I18N.t('pdf_converter', 'stat_pages');
+                this.$.statVal3.textContent = pages.length;
+
+                this.showDownloads();
+            },
+
+            async convertImagesToPdf() {
+                const { jsPDF } = window.jspdf;
+                const pageSize = this.$.pageSize.value;
+                const orient = this.$.orientation.value;
+                const quality = parseInt(this.$.jpegQuality.value) / 100;
+
+                this.results = [];
+
+                // Determine base orientation
+                let pdfOrient = orient === 'landscape' ? 'l' : 'p';
+
+                // Create PDF with first image to determine size
+                let pdf = null;
+                let totalSize = 0;
+
+                for (let i = 0; i < this.files.length; i++) {
+                    const file = this.files[i];
+                    totalSize += file.size;
+                    this.setBadge(i, 'working', 'Processing…');
+                    this.setProgress(i, 30);
+
+                    const imgData = await this.readFileAsDataURL(file);
+                    const img = await this.loadImage(imgData);
+
+                    let imgOrient = pdfOrient;
+                    if (orient === 'auto') {
+                        imgOrient = img.width > img.height ? 'l' : 'p';
+                    }
+
+                    if (i === 0) {
+                        if (pageSize === 'fit') {
+                            // Convert px to mm (72 DPI assumption → ~0.3528 mm/px)
+                            const wMM = img.width * 0.3528;
+                            const hMM = img.height * 0.3528;
+                            pdf = new jsPDF({ unit: 'mm', format: [wMM, hMM] });
+                            pdf.addImage(imgData, 'JPEG', 0, 0, wMM, hMM, undefined, 'FAST');
+                        } else {
+                            pdf = new jsPDF({ orientation: imgOrient, unit: 'mm', format: pageSize });
+                            this.addImageFit(pdf, imgData, img);
+                        }
+                    } else {
+                        if (pageSize === 'fit') {
+                            const wMM = img.width * 0.3528;
+                            const hMM = img.height * 0.3528;
+                            pdf.addPage([wMM, hMM]);
+                            pdf.addImage(imgData, 'JPEG', 0, 0, wMM, hMM, undefined, 'FAST');
+                        } else {
+                            pdf.addPage(pageSize, imgOrient);
+                            this.addImageFit(pdf, imgData, img);
+                        }
+                    }
+
+                    this.setProgress(i, 100);
+                    this.setBadge(i, 'done', 'Done');
+                }
+
+                if (!pdf) return;
+
+                const pdfBlob = pdf.output('blob');
+                const baseName = this.files.length === 1
+                    ? this.files[0].name.replace(/\.[^.]+$/, '')
+                    : 'combined';
+
+                this.results.push({
+                    blob: pdfBlob,
+                    name: `${baseName}.pdf`,
+                    size: pdfBlob.size
+                });
+
+                // Stats
+                this.$.statLabel1.textContent = I18N.t('pdf_converter', 'stat_images');
+                this.$.statVal1.textContent = this.files.length;
+                this.$.statLabel2.textContent = I18N.t('pdf_converter', 'stat_pdf_size');
+                this.$.statVal2.textContent = this.fmtSize(pdfBlob.size);
+                this.$.statLabel3.textContent = I18N.t('pdf_converter', 'stat_pages');
+                this.$.statVal3.textContent = this.files.length;
+
+                this.showDownloads();
+            },
+
+            addImageFit(pdf, imgData, img) {
+                const pageW = pdf.internal.pageSize.getWidth();
+                const pageH = pdf.internal.pageSize.getHeight();
+                const margin = 5; // mm
+                const maxW = pageW - margin * 2;
+                const maxH = pageH - margin * 2;
+
+                const ratio = Math.min(maxW / (img.width * 0.3528), maxH / (img.height * 0.3528));
+                const w = img.width * 0.3528 * ratio;
+                const h = img.height * 0.3528 * ratio;
+                const x = (pageW - w) / 2;
+                const y = (pageH - h) / 2;
+
+                pdf.addImage(imgData, 'JPEG', x, y, w, h, undefined, 'FAST');
+            },
+
+            readFileAsDataURL(file) {
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = e => resolve(e.target.result);
+                    reader.readAsDataURL(file);
+                });
+            },
+
+            loadImage(src) {
+                return new Promise((resolve) => {
+                    const img = new Image();
+                    img.onload = () => resolve(img);
+                    img.src = src;
+                });
+            },
+
+            showDownloads() {
+                this.$.dlGrid.innerHTML = this.results.map((r, i) => `
+                    <div class="st-dl-item">
+                        <div class="st-dl-info">
+                            <div class="st-dl-name">${this.esc(r.name)}</div>
+                            <div class="st-dl-meta">${this.fmtSize(r.size)}</div>
+                        </div>
+                        <button class="st-dl-btn" onclick="PC.download(${i})">${I18N.t('pdf_converter', 'download_btn')}</button>
+                    </div>`).join('');
+
+                this.$.resultsEl.classList.add('active');
+                this.$.dlAllBtn.style.display = this.results.length > 1 ? 'flex' : 'none';
+            },
+
+            download(i) {
+                const r = this.results[i];
+                if (!r) return;
+                const a = document.createElement('a');
+                a.href = URL.createObjectURL(r.blob);
+                a.download = r.name;
+                document.body.appendChild(a); a.click(); document.body.removeChild(a);
+                showToast('Downloaded: ' + r.name);
+            },
+
+            downloadAll() {
+                let c = 0;
+                this.results.forEach((_, i) => { setTimeout(() => this.download(i), c++ * 300); });
+            },
+
+            setBadge(i, type, label) {
+                const el = document.getElementById(`badge_${i}`);
+                if (el) { el.className = `st-badge st-badge-${type}`; el.textContent = label; }
+            },
+
+            setProgress(i, pct) {
+                const el = document.querySelector(`.st-file-progress[data-i="${i}"]`);
+                if (el) { el.classList.add('active'); el.querySelector('.st-file-progress-bar').style.width = pct + '%'; }
+            },
+
+            fmtSize(bytes) {
+                if (typeof formatFileSize === 'function') return formatFileSize(bytes);
+                if (bytes === 0) return '0 B';
+                const k = 1024;
+                const sizes = ['B', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            },
+
+            esc(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => PC.init());
+    </script>
+</body>
+</html>

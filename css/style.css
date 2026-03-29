@@ -398,7 +398,7 @@ main {
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--st-text);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -456,6 +456,62 @@ main {
 .st-tool-icon-red { background: var(--st-error-container); }
 .st-tool-icon-primary { background: var(--st-primary); color: #fff; }
 .st-tool-icon-primary svg { stroke: #fff; }
+/* Mascot icon shared — larger, no padding */
+.st-tool-icon-sloth,
+.st-tool-icon-pdf {
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 14px;
+}
+.st-tool-icon-sloth img,
+.st-tool-icon-pdf img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Image Compressor card — Forest theme with sloth mascot */
+.st-tool-icon-sloth {
+  background: linear-gradient(135deg, #e8f0dc 0%, #dce8ce 100%);
+  border: 1.5px solid #c5d6a8;
+}
+.st-tool-card-sloth {
+  background: linear-gradient(135deg, #f5f9ef 0%, #edf4e4 100%) !important;
+  border-color: #c5d6a8 !important;
+}
+.st-tool-card-sloth:hover {
+  border-color: #6B8F3C !important;
+  box-shadow: 0 8px 24px rgba(107, 143, 60, 0.15) !important;
+}
+/* PDF tool card — Arctic Breeze blue theme with seal mascot */
+.st-tool-icon-pdf {
+  background: linear-gradient(135deg, #C9E3F5 0%, #DEF0FC 100%);
+  border: 1.5px solid #a8d4f0;
+}
+.st-tool-card-pdf {
+  background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%) !important;
+  border-color: #b8daf0 !important;
+}
+.st-tool-card-pdf:hover {
+  border-color: #2E5A7B !important;
+  box-shadow: 0 8px 24px rgba(46, 90, 123, 0.15) !important;
+}
+/* Image Editor card — Lavender Forest purple theme with rhino mascot */
+.st-tool-icon-rhino {
+  background: linear-gradient(135deg, #E6D4F0 0%, #F0E4F8 100%);
+  border: 1.5px solid #c9a8e0;
+}
+.st-tool-card-rhino {
+  background: linear-gradient(135deg, #faf5fc 0%, #f3ebf8 100%) !important;
+  border-color: #d4bee6 !important;
+}
+.st-tool-card-rhino:hover {
+  border-color: #5C3D6E !important;
+  box-shadow: 0 8px 24px rgba(92, 61, 110, 0.15) !important;
+}
+.st-tool-icon-sloth, .st-tool-icon-pdf, .st-tool-icon-rhino { width:52px; height:52px; padding:0; overflow:hidden; border-radius:14px; }
+.st-tool-icon-sloth img, .st-tool-icon-pdf img, .st-tool-icon-rhino img { width:100%; height:100%; object-fit:cover; }
 
 .st-tool-card h3 {
   font-size: 1rem;
@@ -468,6 +524,19 @@ main {
   font-size: 0.85rem;
   color: var(--st-text-secondary);
   line-height: 1.5;
+}
+
+.st-tool-sub {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--st-text-tertiary);
+  background: var(--st-surface-container);
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: 0.15rem;
 }
 
 /* --- Featured Card --- */
@@ -904,8 +973,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 .st-footer-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem 2rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1538,8 +1607,8 @@ input[type="range"]::-webkit-slider-thumb {
   color: var(--st-text-secondary);
   font-size: 1.05rem;
   text-align: center;
-  margin-top: -0.5rem;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 .st-diff-grid {
   display: grid;
