@@ -1458,8 +1458,11 @@
                 btn.disabled = true;
                 btn.textContent = 'Compressing\u2026';
 
+                // Clear previous results so re-compression with new settings works
+                this.results.clear();
+
                 for (let i = 0; i < this.files.length; i++) {
-                    if (!this.results.has(i)) await this._process(i, q, fmt);
+                    await this._process(i, q, fmt);
                 }
 
                 btn.textContent = 'Done';
@@ -1483,56 +1486,99 @@
                             const mime = format === 'original' ? file.type : `image/${format}`;
                             const out = mime === 'image/jpg' ? 'image/jpeg' : mime;
 
-                            // For PNG: try converting to lossy format for real compression,
-                            // or if user wants PNG output, try multiple strategies
                             const tryCompress = (outputMime, q) => {
                                 return new Promise(res => {
                                     c.toBlob(blob => res(blob), outputMime, q);
                                 });
                             };
 
+                            // Check if image has transparency (alpha channel)
+                            const hasAlpha = (() => {
+                                if (out !== 'image/png') return false;
+                                try {
+                                    const ctx = c.getContext('2d');
+                                    // Sample pixels to detect transparency (faster than checking all)
+                                    const w = Math.min(c.width, 100);
+                                    const h = Math.min(c.height, 100);
+                                    const sampleCanvas = document.createElement('canvas');
+                                    sampleCanvas.width = w; sampleCanvas.height = h;
+                                    const sCtx = sampleCanvas.getContext('2d');
+                                    sCtx.drawImage(img, 0, 0, w, h);
+                                    const data = sCtx.getImageData(0, 0, w, h).data;
+                                    for (let p = 3; p < data.length; p += 16) { // sample every 4th pixel
+                                        if (data[p] < 250) return true;
+                                    }
+                                    return false;
+                                } catch(e) { return true; } // assume transparency if can't check
+                            })();
+
                             (async () => {
                                 let bestBlob = null;
+                                let bestMime = out;
 
                                 if (out === 'image/png') {
-                                    // PNG: canvas.toBlob ignores quality param.
-                                    // Strategy 1: output as PNG directly
-                                    bestBlob = await tryCompress('image/png', undefined);
+                                    // PNG: canvas.toBlob ignores quality param entirely.
+                                    // Strategy: always try lossy alternatives and pick the smallest.
+                                    const q = quality / 100;
 
-                                    // Strategy 2: if quality < 100, try WebP and JPEG as alternatives
-                                    // and pick the smallest that's still under original
-                                    if (quality < 100) {
-                                        const webpBlob = await tryCompress('image/webp', quality / 100);
-                                        const jpegBlob = await tryCompress('image/jpeg', quality / 100);
+                                    // Always get PNG baseline (may be same size or larger)
+                                    const pngBlob = await tryCompress('image/png', undefined);
+                                    bestBlob = pngBlob;
+                                    bestMime = 'image/png';
 
-                                        // For PNG input with quality slider < 100, convert to WebP
-                                        // as it provides the best compression with transparency support
-                                        if (webpBlob && webpBlob.size < bestBlob.size) {
-                                            bestBlob = webpBlob;
-                                            // Update output mime to webp since it's smaller
+                                    // Try WebP (supports transparency + lossy compression)
+                                    const webpBlob = await tryCompress('image/webp', q);
+                                    if (webpBlob && webpBlob.size < bestBlob.size) {
+                                        bestBlob = webpBlob;
+                                        bestMime = 'image/webp';
+                                    }
+
+                                    // Try JPEG if no transparency (best compression for opaque images)
+                                    if (!hasAlpha) {
+                                        const jpegBlob = await tryCompress('image/jpeg', q);
+                                        if (jpegBlob && jpegBlob.size < bestBlob.size) {
+                                            bestBlob = jpegBlob;
+                                            bestMime = 'image/jpeg';
+                                        }
+                                    }
+
+                                    // If quality is 100 and PNG baseline is still large,
+                                    // try WebP at max quality as lossless alternative
+                                    if (quality >= 100 && bestBlob.size >= file.size) {
+                                        const webpLossless = await tryCompress('image/webp', 1.0);
+                                        if (webpLossless && webpLossless.size < bestBlob.size) {
+                                            bestBlob = webpLossless;
+                                            bestMime = 'image/webp';
                                         }
                                     }
                                 } else {
                                     // JPEG/WebP: quality param works correctly
                                     bestBlob = await tryCompress(out, quality / 100);
+                                    bestMime = out;
                                 }
 
                                 // Safety: if compressed is larger than original, use original
                                 let finalBlob = bestBlob;
-                                let finalMime = out;
+                                let finalMime = bestMime;
                                 let finalSize = bestBlob.size;
 
                                 if (bestBlob.size >= file.size) {
-                                    // Compressed is bigger — return original file as-is
                                     finalBlob = file;
                                     finalMime = file.type;
                                     finalSize = file.size;
                                 }
 
+                                // Update filename extension to match actual output format
+                                let outName = file.name;
+                                if (finalMime !== file.type && finalBlob !== file) {
+                                    const ext = finalMime === 'image/webp' ? '.webp' : finalMime === 'image/jpeg' ? '.jpg' : '.png';
+                                    outName = file.name.replace(/\.[^.]+$/, ext);
+                                }
+
                                 this._progress(i, 100);
                                 this.results.set(i, {
                                     blob: finalBlob,
-                                    name: file.name,
+                                    name: outName,
                                     orig: file.size,
                                     comp: finalSize,
                                     mime: finalMime
