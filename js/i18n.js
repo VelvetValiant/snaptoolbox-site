@@ -973,18 +973,128 @@ const I18N = {
       if (text) el.title = text;
     });
 
-    // Update lang toggle button text — show the NEXT language name
-    const langBtn = document.querySelector('.lang-toggle') || document.querySelector('.st-lang-btn');
-    if (langBtn) {
-      const nextLangLabels = { 'en': '日本語', 'ja': '繁體中文', 'zh-TW': 'English' };
-      langBtn.textContent = nextLangLabels[this.currentLang] || 'English';
-    }
+    // Update language selector dropdown
+    this._updateLangSelector();
 
     // Update html lang attribute
     document.documentElement.lang = this.currentLang;
   },
 
-  // --- Toggle Language (cycle: en → ja → zh-TW → en) ---
+  // --- Language definitions for dropdown ---
+  _langMeta: {
+    'en':    { flag: '🇺🇸', label: 'English' },
+    'ja':    { flag: '🇯🇵', label: '日本語' },
+    'zh-TW': { flag: '🇹🇼', label: '繁體中文' },
+  },
+
+  // --- Build / update language selector dropdown ---
+  _updateLangSelector() {
+    document.querySelectorAll('.st-lang-select').forEach(wrap => {
+      const btnLabel = wrap.querySelector('.st-lang-current-label');
+      const btnFlag = wrap.querySelector('.st-lang-current-flag');
+      if (btnLabel) btnLabel.textContent = this._langMeta[this.currentLang].label;
+      if (btnFlag) btnFlag.textContent = this._langMeta[this.currentLang].flag;
+      // Update active state
+      wrap.querySelectorAll('.st-lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.lang === this.currentLang);
+      });
+    });
+  },
+
+  // --- Initialize dropdown from a placeholder element ---
+  _initLangDropdowns() {
+    // Inject dropdown CSS if not already present (for pages without style.css)
+    if (!document.getElementById('st-lang-dropdown-css')) {
+      const style = document.createElement('style');
+      style.id = 'st-lang-dropdown-css';
+      style.textContent = `
+        .st-lang-select{position:relative;display:inline-block}
+        .st-lang-select-btn{display:inline-flex;align-items:center;gap:.4rem;background:none;border:1.5px solid var(--st-outline-variant,#ccc);border-radius:999px;padding:.3rem .7rem .3rem .6rem;cursor:pointer;font-size:.8rem;font-weight:600;color:var(--st-text-secondary,#555);font-family:var(--st-font,system-ui,sans-serif);transition:all .2s;white-space:nowrap}
+        .st-lang-select-btn svg{width:15px;height:15px;flex-shrink:0;opacity:.7}
+        .st-lang-select-btn .st-lang-chevron{width:12px;height:12px;transition:transform .2s}
+        .st-lang-select-btn:hover,.st-lang-select.open .st-lang-select-btn{border-color:var(--st-primary,#3D5C2E);color:var(--st-primary,#3D5C2E);background:var(--st-primary-container,#EFF3DE)}
+        .st-lang-select.open .st-lang-select-btn svg{opacity:1}
+        .st-lang-select.open .st-lang-chevron{transform:rotate(180deg)}
+        .st-lang-dropdown{display:none;position:absolute;top:calc(100% + 6px);right:0;min-width:150px;background:#fff;border:1px solid #e0e0e0;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);z-index:1000;overflow:hidden;animation:st-lang-fade .15s ease}
+        @keyframes st-lang-fade{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+        .st-lang-select.open .st-lang-dropdown{display:block}
+        .st-lang-option{display:flex;align-items:center;gap:.5rem;width:100%;padding:.55rem .9rem;border:none;background:none;cursor:pointer;font-size:.82rem;font-weight:500;color:#333;font-family:var(--st-font,system-ui,sans-serif);transition:background .15s;text-align:left}
+        .st-lang-option:hover{background:#f0f4e8}
+        .st-lang-option.active{background:var(--st-primary-container,#EFF3DE);color:var(--st-primary,#3D5C2E);font-weight:700}
+        .st-lang-option .st-lang-flag{font-size:1.05rem}
+        .st-lang-option+.st-lang-option{border-top:1px solid #f0f0f0}
+      `;
+      document.head.appendChild(style);
+    }
+
+    document.querySelectorAll('.st-lang-btn').forEach(oldBtn => {
+      // Build dropdown HTML
+      const wrap = document.createElement('div');
+      wrap.className = 'st-lang-select';
+
+      const meta = this._langMeta[this.currentLang];
+      const globeSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>';
+      const chevronSvg = '<svg class="st-lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>';
+
+      wrap.innerHTML = `
+        <button class="st-lang-select-btn" aria-haspopup="listbox" aria-expanded="false">
+          ${globeSvg}
+          <span class="st-lang-current-flag">${meta.flag}</span>
+          <span class="st-lang-current-label">${meta.label}</span>
+          ${chevronSvg}
+        </button>
+        <div class="st-lang-dropdown" role="listbox">
+          ${this.supported.map(code => {
+            const m = this._langMeta[code];
+            const active = code === this.currentLang ? ' active' : '';
+            return `<button class="st-lang-option${active}" role="option" data-lang="${code}">
+              <span class="st-lang-flag">${m.flag}</span>${m.label}
+            </button>`;
+          }).join('')}
+        </div>
+      `;
+
+      // Events
+      const btn = wrap.querySelector('.st-lang-select-btn');
+      const dropdown = wrap.querySelector('.st-lang-dropdown');
+
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = wrap.classList.contains('open');
+        // Close all other dropdowns
+        document.querySelectorAll('.st-lang-select.open').forEach(el => el.classList.remove('open'));
+        if (!isOpen) {
+          wrap.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      dropdown.addEventListener('click', (e) => {
+        const opt = e.target.closest('.st-lang-option');
+        if (opt) {
+          const lang = opt.dataset.lang;
+          wrap.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          this.setLang(lang);
+        }
+      });
+
+      // Replace old button
+      oldBtn.parentNode.replaceChild(wrap, oldBtn);
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.st-lang-select.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.st-lang-select-btn').setAttribute('aria-expanded', 'false');
+      });
+    });
+  },
+
+  // --- Toggle Language (cycle — kept for backward compatibility) ---
   toggleLang() {
     const order = ['en', 'ja', 'zh-TW'];
     const idx = order.indexOf(this.currentLang);
@@ -1021,6 +1131,7 @@ const I18N = {
   // --- Initialize ---
   init() {
     this.currentLang = this.detectLanguage();
+    this._initLangDropdowns();
     this.applyTranslations();
     // Run page-specific callbacks
     this._pageCallbacks.forEach(cb => cb(this.currentLang));
