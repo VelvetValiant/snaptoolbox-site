@@ -1337,17 +1337,24 @@
                 }
             } else {
                 // iOS / PC 共通フォールバック: ブラウザごとの手順を案内
-                const lang = document.documentElement.lang === 'ja' ||
-                    (typeof I18N !== 'undefined' && I18N.currentLang === 'ja') ? 'ja' : 'en';
+                const lang = (typeof I18N !== 'undefined') ? I18N.currentLang : 'en';
                 let msg;
                 if (isIOS) {
-                    msg = lang === 'ja'
-                        ? '📲 アプリとして使えます！\n\n① 下の共有ボタン（□↑）をタップ\n②「ホーム画面に追加」を選ぶだけ！'
-                        : '📲 Use this as an app!\n\n① Tap the Share button (□↑) below\n② Select "Add to Home Screen"';
+                    if (lang === 'ja') {
+                        msg = '📲 アプリとして使えます！\n\n① 下の共有ボタン（□↑）をタップ\n②「ホーム画面に追加」を選ぶだけ！';
+                    } else if (lang === 'zh-TW') {
+                        msg = '📲 可以當作 App 使用！\n\n① 點擊下方分享按鈕（□↑）\n② 選擇「加到主畫面」即可！';
+                    } else {
+                        msg = '📲 Use this as an app!\n\n① Tap the Share button (□↑) below\n② Select "Add to Home Screen"';
+                    }
                 } else {
-                    msg = lang === 'ja'
-                        ? '📲 ブックマークのように使えます！\n\nChrome：アドレスバー右のインストールアイコン（⊕）をクリック\nEdge：アドレスバー右の「アプリとしてインストール」をクリック\nSafari：メニューバー →「ファイル」→「Dockに追加」\nBrave：アドレスバー右のインストールアイコン（⊕）をクリック\nFirefox：ブックマークに追加してご利用ください'
-                        : '📲 Add this to your desktop!\n\nChrome: Click the install icon (⊕) in the address bar\nEdge: Click "Install as app" in the address bar\nSafari: Menu bar → File → Add to Dock\nBrave: Click the install icon (⊕) in the address bar\nFirefox: Bookmark this page for quick access';
+                    if (lang === 'ja') {
+                        msg = '📲 ブックマークのように使えます！\n\nChrome：アドレスバー右のインストールアイコン（⊕）をクリック\nEdge：アドレスバー右の「アプリとしてインストール」をクリック\nSafari：メニューバー →「ファイル」→「Dockに追加」\nBrave：アドレスバー右のインストールアイコン（⊕）をクリック\nFirefox：ブックマークに追加してご利用ください';
+                    } else if (lang === 'zh-TW') {
+                        msg = '📲 可以加到桌面使用！\n\nChrome：點擊網址列右側的安裝圖示（⊕）\nEdge：點擊網址列右側的「安裝為應用程式」\nSafari：選單列 →「檔案」→「加入 Dock」\nBrave：點擊網址列右側的安裝圖示（⊕）\nFirefox：請將此頁加入書籤以便快速存取';
+                    } else {
+                        msg = '📲 Add this to your desktop!\n\nChrome: Click the install icon (⊕) in the address bar\nEdge: Click "Install as app" in the address bar\nSafari: Menu bar → File → Add to Dock\nBrave: Click the install icon (⊕) in the address bar\nFirefox: Bookmark this page for quick access';
+                    }
                 }
                 alert(msg);
             }
