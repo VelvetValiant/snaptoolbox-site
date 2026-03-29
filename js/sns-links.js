@@ -567,4 +567,12 @@ const SnsLinks = {
 };
 
 // Auto-initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => SnsLinks.init());
+document.addEventListener('DOMContentLoaded', () => {
+  SnsLinks.init();
+  // Re-render on language change
+  if (typeof I18N !== 'undefined' && I18N.onTranslate) {
+    I18N.onTranslate(() => {
+      if (SnsLinks.container) SnsLinks.render();
+    });
+  }
+});
