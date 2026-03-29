@@ -581,14 +581,21 @@
         color: rgba(255,255,255,0.8);
     }
     .st-about-banner-link {
-        font-weight: 700;
-        color: #FFDD00;
+        font-weight: 600;
+        color: #fff;
         white-space: nowrap;
         text-decoration: none;
+        border: 1.5px solid rgba(255,255,255,0.6);
+        padding: 0.35rem 1rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        transition: all 0.2s;
     }
     .st-about-banner-link:hover {
-        text-decoration: underline;
-        color: #ffe94d;
+        background: rgba(255,255,255,0.12);
+        border-color: #fff;
+        color: #fff;
+        text-decoration: none;
     }
     @media (max-width: 640px) {
         .st-about-banner { padding: 1.25rem 1rem; }
@@ -910,7 +917,7 @@
                     </div>
                     <div class="st-about-banner-text">
                         <span data-i18n="index.banner_desc">Your data never leaves your device. No signup, no limits.</span>
-                        <a href="about.html" class="st-about-banner-link" data-i18n="index.banner_more">Learn more &rarr;</a>
+                        <a href="about.html" class="st-about-banner-link" data-i18n="index.banner_more">Learn more</a>
                     </div>
                 </div>
             </section>
