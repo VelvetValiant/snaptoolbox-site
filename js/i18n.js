@@ -396,7 +396,7 @@ const I18N = {
       en: {
         title: 'Image Editor',
         subtitle: 'Adjust, crop, rotate and enhance — all in your browser.',
-        privacy_note: 'Your images stay on your device. Nothing is uploaded.',
+        privacy_note: 'Your images stay on your device.<br class="sp-br"> Nothing is uploaded.',
         breadcrumb: 'Image Editor',
         drop_title: 'Drop an image here',
         drop_sub: 'or click to select a file',
@@ -434,7 +434,7 @@ const I18N = {
       ja: {
         title: '画像補正ツール',
         subtitle: '調整・トリミング・回転・補正 — すべてブラウザ内で完結。',
-        privacy_note: '画像はデバイスの外に出ません。アップロードは一切なし。',
+        privacy_note: '画像はデバイスの外に出ません。<br class="sp-br">アップロードは一切なし。',
         breadcrumb: '画像補正ツール',
         drop_title: 'ここに画像をドロップ',
         drop_sub: 'またはクリックしてファイルを選択',
@@ -472,7 +472,7 @@ const I18N = {
       'zh-TW': {
         title: '圖片編輯器',
         subtitle: '調整、裁切、旋轉和增強 — 全部在瀏覽器中完成。',
-        privacy_note: '圖片不會離開您的裝置，不會上傳任何內容。',
+        privacy_note: '圖片不會離開您的裝置。<br class="sp-br">不會上傳任何內容。',
         breadcrumb: '圖片編輯器',
         drop_title: '將圖片拖放至此',
         drop_sub: '或點擊選擇檔案',

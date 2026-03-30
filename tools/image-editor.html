@@ -283,8 +283,8 @@
         .ie-hero-wrap {
             position: relative;
             border-radius: 28px;
-            overflow: visible;
-            margin-bottom: 1.8rem;
+            overflow: hidden;
+            margin-bottom: 1rem;
         }
         .ie-hero-bg {
             position: relative;
@@ -318,12 +318,12 @@
             padding: 0;
         }
 
-        /* Rhino mascot — bottom-right, overlaps hero edge */
+        /* Rhino mascot — bottom-right, inside hero */
         .ie-hero-mascot {
             position: absolute;
             z-index: 10;
-            right: 24px;
-            bottom: -18px;
+            right: 20px;
+            bottom: 0;
             width: 150px;
             height: auto;
             pointer-events: none;
@@ -331,14 +331,14 @@
             filter: drop-shadow(0 6px 20px rgba(26,14,34,0.35));
             object-fit: contain;
         }
-        .ie-hero-wrap:hover .ie-hero-mascot {
+        .ie-hero-bg:hover .ie-hero-mascot {
             transform: translateY(-4px) rotate(-2deg);
         }
         @media (max-width: 768px) {
-            .ie-hero-mascot { width: 115px; right: 16px; bottom: -14px; }
+            .ie-hero-mascot { width: 110px; right: 12px; }
         }
         @media (max-width: 480px) {
-            .ie-hero-mascot { width: 85px; right: 10px; bottom: -10px; }
+            .ie-hero-mascot { width: 80px; right: 8px; }
         }
 
         .st-hero h1 {
@@ -404,10 +404,17 @@
         .st-browser-pill svg { width: 16px; height: 16px; color: rgba(255,255,255,0.9); flex-shrink: 0; }
         .st-browser-pill span { font-size: 0.82rem; font-weight: 600; color: #fff; }
 
+        /* SP break tag: hidden on PC, visible on SP */
+        .sp-br { display: none; }
+
         /* SP: privacy text line break + pill stack */
         @media (max-width: 480px) {
+            .sp-br { display: inline; }
             .st-privacy-wrap { flex-direction: column; align-items: center; gap: 0.4rem; }
-            .st-privacy span { display: block; text-align: center; }
+            .st-privacy span {
+                display: block;
+                text-align: center;
+            }
         }
 
         @media (max-width: 640px) {
@@ -986,7 +993,7 @@
                     <div class="st-privacy-wrap" style="margin-top: 1rem;">
                         <div class="st-privacy">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            <span data-i18n="image_editor.privacy_note">Your images stay on your device. Nothing is uploaded.</span>
+                            <span data-i18n-html="image_editor.privacy_note">Your images stay on your device.<br class="sp-br"> Nothing is uploaded.</span>
                         </div>
                         <div class="st-browser-pill">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -994,8 +1001,8 @@
                         </div>
                     </div>
                 </div>
+                <img src="../img/mascot/rhino-baby.png" alt="Baby Rhino mascot" class="ie-hero-mascot">
             </div>
-            <img src="../img/mascot/rhino-baby.png" alt="Baby Rhino mascot" class="ie-hero-mascot">
         </div>
 
         <!-- Editor Workspace (always visible; controls greyed out until image loaded) -->
