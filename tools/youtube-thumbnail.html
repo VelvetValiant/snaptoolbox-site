@@ -39,7 +39,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;700&family=Montserrat:wght@400;700;800&family=Oswald:wght@400;700&family=Bebas+Neue&family=Poppins:wght@400;600;700&family=Anton&family=Permanent+Marker&family=Bangers&family=Playfair+Display:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=M+PLUS+Rounded+1c:wght@400;700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
 
     <title>YouTube Thumbnail Generator - Create Eye-Catching Thumbnails Free | SnapToolbox</title>
 
@@ -1071,12 +1071,6 @@
                         <label class="ytg-control-label" data-i18n="youtube_thumb.upload_bg">Upload Background</label>
                         <input type="file" id="bgUpload" accept="image/*">
                     </div>
-                    <div class="ytg-control-group">
-                        <label class="ytg-control-label" data-i18n="youtube_thumb.bg_color">Background Color</label>
-                        <div class="ytg-control-row">
-                            <input type="color" id="bgColor" value="#1a1a2e">
-                        </div>
-                    </div>
                 </div>
 
                 <!-- Text Panel -->
@@ -1092,6 +1086,23 @@
                         <hr style="border: none; border-top: 1px solid var(--st-outline-variant); margin: 0.5rem 0;">
                         <label class="ytg-control-label" data-i18n="youtube_thumb.text_label">Text Content</label>
                         <input type="text" id="textContent" data-i18n-placeholder="youtube_thumb.text_placeholder" placeholder="Enter text">
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.font_family">Font</label>
+                        <select id="fontFamily">
+                            <option value="Impact">Impact</option>
+                            <option value="Anton">Anton</option>
+                            <option value="Bebas Neue">Bebas Neue</option>
+                            <option value="Oswald">Oswald</option>
+                            <option value="Bangers">Bangers</option>
+                            <option value="Roboto">Roboto</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Poppins">Poppins</option>
+                            <option value="Nunito">Nunito</option>
+                            <option value="Permanent Marker">Permanent Marker</option>
+                            <option value="Playfair Display">Playfair Display</option>
+                            <option value="Noto Sans JP">Noto Sans JP</option>
+                            <option value="M PLUS Rounded 1c">M PLUS Rounded 1c</option>
+                        </select>
 
                         <label class="ytg-control-label" data-i18n="youtube_thumb.font_size">Font Size</label>
                         <div class="ytg-control-row">
@@ -1133,10 +1144,16 @@
                     <div class="ytg-control-group">
                         <label class="ytg-control-label" data-i18n="youtube_thumb.tab_style">Templates</label>
                         <div class="ytg-templates">
-                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('bold')" data-i18n="youtube_thumb.template_bold">Bold Impact</button>
                             <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('gaming')" data-i18n="youtube_thumb.template_gaming">Gaming</button>
-                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('tutorial')" data-i18n="youtube_thumb.template_tutorial">Tutorial</button>
                             <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('vlog')" data-i18n="youtube_thumb.template_vlog">Vlog</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('tutorial')" data-i18n="youtube_thumb.template_tutorial">Tutorial</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('reaction')" data-i18n="youtube_thumb.template_reaction">Reaction</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('business')" data-i18n="youtube_thumb.template_business">Business</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('cooking')" data-i18n="youtube_thumb.template_cooking">Cooking</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('before_after')" data-i18n="youtube_thumb.template_before_after">Before/After</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('ranking')" data-i18n="youtube_thumb.template_ranking">Ranking</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('travel')" data-i18n="youtube_thumb.template_travel">Travel</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('tech')" data-i18n="youtube_thumb.template_tech">Tech</button>
                         </div>
                     </div>
                 </div>
@@ -1287,6 +1304,7 @@
         ctx: null,
         bgImage: null,
         bgColor: '#1a1a2e',
+        bgGradient: null,
         texts: [],
         activeTextIndex: -1,
         isDragging: false,
@@ -1306,18 +1324,19 @@
                 if (e.target.files[0]) this.loadBgImage(e.target.files[0]);
             });
 
-            // Bind background color
-            document.getElementById('bgColor').addEventListener('change', (e) => {
-                this.bgColor = e.target.value;
-                this.render();
-            });
-
             // Bind text controls
             document.getElementById('textContent').addEventListener('input', () => {
                 if (this.activeTextIndex >= 0) {
                     this.texts[this.activeTextIndex].text = document.getElementById('textContent').value;
                     this.render();
                     this.updateTextList();
+                }
+            });
+
+            document.getElementById('fontFamily').addEventListener('change', (e) => {
+                if (this.activeTextIndex >= 0) {
+                    this.texts[this.activeTextIndex].fontFamily = e.target.value;
+                    this.render();
                 }
             });
 
@@ -1394,7 +1413,7 @@
                 x: this.canvas.width / 2,
                 y: type === 'title' ? this.canvas.height / 3 : (this.canvas.height * 2) / 3,
                 fontSize: type === 'title' ? 72 : 48,
-                fontFamily: 'Arial',
+                fontFamily: 'Impact',
                 color: '#FFFFFF',
                 strokeColor: '#000000',
                 strokeWidth: 2,
@@ -1417,6 +1436,7 @@
             }
             document.getElementById('textEditorGroup').style.display = 'flex';
             document.getElementById('textContent').value = t.text;
+            document.getElementById('fontFamily').value = t.fontFamily || 'Impact';
             document.getElementById('fontSize').value = t.fontSize;
             document.getElementById('fontSizeVal').textContent = t.fontSize;
             document.getElementById('textColor').value = t.color;
@@ -1493,31 +1513,74 @@
 
         applyTemplate(name) {
             const templates = {
-                'bold': {
-                    bgColor: '#1a1a1a',
-                    texts: [
-                        { text: 'BOLD TITLE', x: 640, y: 200, fontSize: 100, color: '#FFFFFF', strokeColor: '#FF0000', strokeWidth: 3, bold: true }
-                    ]
-                },
                 'gaming': {
-                    bgColor: '#2a0f4f',
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#0f0c29'], [0.5, '#302b63'], [1, '#24243e']] },
                     texts: [
-                        { text: 'EPIC GAMEPLAY', x: 640, y: 250, fontSize: 80, color: '#FFFF00', strokeColor: '#000000', strokeWidth: 4, bold: true },
-                        { text: 'Watch till the end!', x: 640, y: 500, fontSize: 50, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2 }
-                    ]
-                },
-                'tutorial': {
-                    bgColor: '#1e5a96',
-                    texts: [
-                        { text: 'How to...', x: 640, y: 250, fontSize: 70, color: '#FFFFFF', strokeColor: '#0a3d6e', strokeWidth: 2 },
-                        { text: 'Complete Guide', x: 640, y: 500, fontSize: 48, color: '#b3d9ff', strokeColor: 'none', strokeWidth: 0 }
+                        { text: 'EPIC GAMEPLAY', x: 640, y: 220, fontSize: 110, color: '#FFFF00', strokeColor: '#000000', strokeWidth: 5, bold: true, fontFamily: 'Bebas Neue' },
+                        { text: 'WATCH TILL THE END!', x: 640, y: 560, fontSize: 58, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 3, bold: true, fontFamily: 'Oswald' }
                     ]
                 },
                 'vlog': {
-                    bgColor: '#ff4d8f',
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#f093fb'], [1, '#f5576c']] },
                     texts: [
-                        { text: 'VLOG', x: 640, y: 250, fontSize: 100, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 3, bold: true },
-                        { text: 'Day in My Life', x: 640, y: 520, fontSize: 50, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2 }
+                        { text: 'Day in My Life', x: 640, y: 280, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: false, fontFamily: 'Permanent Marker' },
+                        { text: 'Tokyo Vlog 2024', x: 640, y: 460, fontSize: 55, color: '#fff0f0', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Nunito' }
+                    ]
+                },
+                'tutorial': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#0f2027'], [0.5, '#203a43'], [1, '#2c5364']] },
+                    texts: [
+                        { text: 'How To...', x: 640, y: 220, fontSize: 95, color: '#FFFFFF', strokeColor: '#0f2027', strokeWidth: 3, bold: true, fontFamily: 'Montserrat' },
+                        { text: 'Complete Guide', x: 640, y: 490, fontSize: 58, color: '#7dd3fc', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
+                    ]
+                },
+                'reaction': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 0, stops: [[0, '#f7971e'], [1, '#ffd200']] },
+                    texts: [
+                        { text: "I CAN'T BELIEVE THIS!!", x: 640, y: 220, fontSize: 78, color: '#000000', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Anton' },
+                        { text: 'SHOCKING!!', x: 640, y: 490, fontSize: 110, color: '#CC0000', strokeColor: '#000000', strokeWidth: 4, bold: true, fontFamily: 'Impact' }
+                    ]
+                },
+                'business': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#0a0a0a'], [1, '#1a1a2e']] },
+                    texts: [
+                        { text: '5 STRATEGIES', x: 640, y: 220, fontSize: 95, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Montserrat' },
+                        { text: 'That Changed My Business', x: 640, y: 490, fontSize: 52, color: '#94a3b8', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Roboto' }
+                    ]
+                },
+                'cooking': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#f7971e'], [0.5, '#e05050'], [1, '#c0392b']] },
+                    texts: [
+                        { text: 'Secret Recipe', x: 640, y: 230, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Playfair Display' },
+                        { text: 'Ready in 15 Minutes!', x: 640, y: 490, fontSize: 58, color: '#fff3e0', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Nunito' }
+                    ]
+                },
+                'before_after': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 0, stops: [[0, '#1a1a1a'], [0.499, '#1a1a1a'], [0.501, '#f0f0f0'], [1, '#f0f0f0']] },
+                    texts: [
+                        { text: 'BEFORE', x: 320, y: 360, fontSize: 95, color: '#FFFFFF', strokeColor: '#555555', strokeWidth: 2, bold: true, fontFamily: 'Oswald' },
+                        { text: 'AFTER', x: 960, y: 360, fontSize: 95, color: '#111111', strokeColor: '#aaaaaa', strokeWidth: 2, bold: true, fontFamily: 'Oswald' }
+                    ]
+                },
+                'ranking': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#141e30'], [1, '#243b55']] },
+                    texts: [
+                        { text: 'TOP 10', x: 640, y: 200, fontSize: 130, color: '#FFD700', strokeColor: '#000000', strokeWidth: 5, bold: true, fontFamily: 'Anton' },
+                        { text: 'Best Tools Ever!', x: 640, y: 530, fontSize: 62, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2, fontFamily: 'Montserrat' }
+                    ]
+                },
+                'travel': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#1a9dc2'], [0.5, '#2ec4b6'], [1, '#40e0d0']] },
+                    texts: [
+                        { text: 'Amazing Journey', x: 640, y: 250, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2, bold: true, fontFamily: 'Montserrat' },
+                        { text: 'Travel Vlog 2024', x: 640, y: 490, fontSize: 58, color: '#e0f7fa', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
+                    ]
+                },
+                'tech': {
+                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#0d1117'], [0.5, '#1a1a3e'], [1, '#5e60ce']] },
+                    texts: [
+                        { text: 'HONEST REVIEW', x: 640, y: 220, fontSize: 100, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Bebas Neue' },
+                        { text: 'Is It Worth It?', x: 640, y: 490, fontSize: 65, color: '#c7d2fe', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
                     ]
                 }
             };
@@ -1525,9 +1588,9 @@
             const template = templates[name];
             if (!template) return;
 
-            this.bgColor = template.bgColor;
             this.bgImage = null;
-            document.getElementById('bgColor').value = template.bgColor;
+            this.bgGradient = template.bgGradient || null;
+            this.bgColor = template.bgColor || '#1a1a2e';
             this.texts = [];
             this.activeTextIndex = -1;
 
@@ -1537,7 +1600,7 @@
                     x: t.x,
                     y: t.y,
                     fontSize: t.fontSize,
-                    fontFamily: 'Arial',
+                    fontFamily: t.fontFamily || 'Impact',
                     color: t.color,
                     strokeColor: t.strokeColor || '#000000',
                     strokeWidth: t.strokeWidth || 0,
@@ -1561,20 +1624,32 @@
             // Background
             if (this.bgImage) {
                 ctx.drawImage(this.bgImage, 0, 0, w, h);
+            } else if (this.bgGradient) {
+                const g = this.bgGradient;
+                let gradient;
+                if (g.type === 'radial') {
+                    gradient = ctx.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) / 2);
+                } else {
+                    gradient = ctx.createLinearGradient(g.x0 * w, g.y0 * h, g.x1 * w, g.y1 * h);
+                }
+                g.stops.forEach(([offset, color]) => gradient.addColorStop(offset, color));
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, 0, w, h);
             } else {
                 ctx.fillStyle = this.bgColor;
                 ctx.fillRect(0, 0, w, h);
             }
 
             // Draw texts
-            this.texts.forEach((t, i) => {
+            this.texts.forEach((t) => {
                 this.drawText(t);
             });
         },
 
         drawText(t) {
             const ctx = this.ctx;
-            ctx.font = (t.bold ? 'bold ' : '') + t.fontSize + 'px Arial';
+            const family = t.fontFamily || 'Impact';
+            ctx.font = (t.bold ? 'bold ' : '') + t.fontSize + 'px "' + family + '", sans-serif';
             ctx.fillStyle = t.color;
             ctx.strokeStyle = t.strokeColor;
             ctx.lineWidth = t.strokeWidth;
@@ -1672,10 +1747,10 @@
 
         reset() {
             this.bgColor = '#1a1a2e';
+            this.bgGradient = null;
             this.bgImage = null;
             this.texts = [];
             this.activeTextIndex = -1;
-            document.getElementById('bgColor').value = this.bgColor;
             document.getElementById('bgUpload').value = '';
             this.updateTextEditor();
             this.updateTextList();
