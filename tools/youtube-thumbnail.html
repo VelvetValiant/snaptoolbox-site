@@ -274,7 +274,8 @@
             position: relative;
             border-radius: 28px;
             overflow: hidden;
-            background: linear-gradient(135deg, #CC0000 0%, #A00000 100%);
+            background: url('../img/flamingo-lake-bg.jpg') center/cover no-repeat;
+            background-color: #5A1A1A;
             padding: 2.5rem 2.5rem 2rem;
             min-height: 260px;
             display: flex;
@@ -288,8 +289,8 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(ellipse at 50% 30%, rgba(255,150,150,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at center, rgba(26,8,8,0.2) 0%, rgba(26,8,8,0.35) 100%);
+                radial-gradient(ellipse at 50% 30%, rgba(255,150,100,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at center, rgba(26,8,8,0.15) 0%, rgba(26,8,8,0.3) 100%);
             pointer-events: none;
             z-index: 1;
         }
@@ -319,18 +320,18 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.3);
         }
 
-        /* --- Privacy Pill --- */
+        /* --- Privacy Pill (warm tone to match sunset lake) --- */
         .st-privacy {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1.1rem;
-            background: rgba(255,224,224,0.85);
+            background: rgba(245, 224, 208, 0.82);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             border-radius: 999px;
             margin: 0 auto 0;
-            box-shadow: 0 2px 10px rgba(204,0,0,0.12);
+            box-shadow: 0 2px 10px rgba(90,26,26,0.15);
         }
 
         .st-hero .st-privacy-wrap { text-align: center; }
@@ -338,14 +339,14 @@
         .st-privacy svg {
             width: 16px;
             height: 16px;
-            color: var(--st-primary);
+            color: #7A3020;
             flex-shrink: 0;
         }
 
         .st-privacy span {
             font-size: 0.82rem;
             font-weight: 600;
-            color: var(--st-primary-dim);
+            color: #5A1A10;
             line-height: 1.4;
         }
 
@@ -355,18 +356,19 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.5rem 1.1rem;
-            background: rgba(204, 0, 0, 0.85);
+            background: rgba(90, 26, 26, 0.82);
             backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             color: #fff;
             border-radius: 999px;
             margin: 0 auto 0;
-            box-shadow: 0 2px 10px rgba(204,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(90,26,26,0.2);
         }
 
         .st-browser-pill svg {
             width: 16px;
             height: 16px;
-            color: #fff;
+            color: rgba(255,255,255,0.9);
             flex-shrink: 0;
         }
 
@@ -956,8 +958,8 @@
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            background: linear-gradient(135deg, #fff0f0 0%, #fff5f5 100%);
-            border: 1px solid var(--st-outline-variant);
+            background: linear-gradient(135deg, #fdf6f0 0%, #f8ede4 100%);
+            border: 1px solid #e6cdb8;
             border-radius: 16px;
             padding: 1.5rem 2rem;
         }
