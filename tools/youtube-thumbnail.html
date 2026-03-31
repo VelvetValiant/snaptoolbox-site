@@ -1514,70 +1514,60 @@
         applyTemplate(name) {
             const templates = {
                 'gaming': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#0f0c29'], [0.5, '#302b63'], [1, '#24243e']] },
                     texts: [
                         { text: 'EPIC GAMEPLAY', x: 640, y: 220, fontSize: 110, color: '#FFFF00', strokeColor: '#000000', strokeWidth: 5, bold: true, fontFamily: 'Bebas Neue' },
                         { text: 'WATCH TILL THE END!', x: 640, y: 560, fontSize: 58, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 3, bold: true, fontFamily: 'Oswald' }
                     ]
                 },
                 'vlog': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#f093fb'], [1, '#f5576c']] },
                     texts: [
                         { text: 'Day in My Life', x: 640, y: 280, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: false, fontFamily: 'Permanent Marker' },
                         { text: 'Tokyo Vlog 2024', x: 640, y: 460, fontSize: 55, color: '#fff0f0', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Nunito' }
                     ]
                 },
                 'tutorial': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#0f2027'], [0.5, '#203a43'], [1, '#2c5364']] },
                     texts: [
                         { text: 'How To...', x: 640, y: 220, fontSize: 95, color: '#FFFFFF', strokeColor: '#0f2027', strokeWidth: 3, bold: true, fontFamily: 'Montserrat' },
                         { text: 'Complete Guide', x: 640, y: 490, fontSize: 58, color: '#7dd3fc', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
                     ]
                 },
                 'reaction': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 0, stops: [[0, '#f7971e'], [1, '#ffd200']] },
                     texts: [
                         { text: "I CAN'T BELIEVE THIS!!", x: 640, y: 220, fontSize: 78, color: '#000000', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Anton' },
                         { text: 'SHOCKING!!', x: 640, y: 490, fontSize: 110, color: '#CC0000', strokeColor: '#000000', strokeWidth: 4, bold: true, fontFamily: 'Impact' }
                     ]
                 },
                 'business': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#0a0a0a'], [1, '#1a1a2e']] },
                     texts: [
                         { text: '5 STRATEGIES', x: 640, y: 220, fontSize: 95, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Montserrat' },
                         { text: 'That Changed My Business', x: 640, y: 490, fontSize: 52, color: '#94a3b8', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Roboto' }
                     ]
                 },
                 'cooking': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#f7971e'], [0.5, '#e05050'], [1, '#c0392b']] },
                     texts: [
                         { text: 'Secret Recipe', x: 640, y: 230, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Playfair Display' },
                         { text: 'Ready in 15 Minutes!', x: 640, y: 490, fontSize: 58, color: '#fff3e0', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Nunito' }
                     ]
                 },
                 'before_after': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 0, stops: [[0, '#1a1a1a'], [0.499, '#1a1a1a'], [0.501, '#f0f0f0'], [1, '#f0f0f0']] },
                     texts: [
                         { text: 'BEFORE', x: 320, y: 360, fontSize: 95, color: '#FFFFFF', strokeColor: '#555555', strokeWidth: 2, bold: true, fontFamily: 'Oswald' },
                         { text: 'AFTER', x: 960, y: 360, fontSize: 95, color: '#111111', strokeColor: '#aaaaaa', strokeWidth: 2, bold: true, fontFamily: 'Oswald' }
                     ]
                 },
                 'ranking': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 0, y1: 1, stops: [[0, '#141e30'], [1, '#243b55']] },
                     texts: [
                         { text: 'TOP 10', x: 640, y: 200, fontSize: 130, color: '#FFD700', strokeColor: '#000000', strokeWidth: 5, bold: true, fontFamily: 'Anton' },
                         { text: 'Best Tools Ever!', x: 640, y: 530, fontSize: 62, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2, fontFamily: 'Montserrat' }
                     ]
                 },
                 'travel': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#1a9dc2'], [0.5, '#2ec4b6'], [1, '#40e0d0']] },
                     texts: [
                         { text: 'Amazing Journey', x: 640, y: 250, fontSize: 90, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2, bold: true, fontFamily: 'Montserrat' },
                         { text: 'Travel Vlog 2024', x: 640, y: 490, fontSize: 58, color: '#e0f7fa', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
                     ]
                 },
                 'tech': {
-                    bgGradient: { type: 'linear', x0: 0, y0: 0, x1: 1, y1: 1, stops: [[0, '#0d1117'], [0.5, '#1a1a3e'], [1, '#5e60ce']] },
                     texts: [
                         { text: 'HONEST REVIEW', x: 640, y: 220, fontSize: 100, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 0, bold: true, fontFamily: 'Bebas Neue' },
                         { text: 'Is It Worth It?', x: 640, y: 490, fontSize: 65, color: '#c7d2fe', strokeColor: '#000000', strokeWidth: 0, fontFamily: 'Poppins' }
@@ -1588,9 +1578,6 @@
             const template = templates[name];
             if (!template) return;
 
-            this.bgImage = null;
-            this.bgGradient = template.bgGradient || null;
-            this.bgColor = template.bgColor || '#1a1a2e';
             this.texts = [];
             this.activeTextIndex = -1;
 
