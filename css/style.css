@@ -469,7 +469,8 @@ main {
 .st-tool-icon-pdf img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  padding: 4px;
 }
 /* Image Compressor card — Forest theme with sloth mascot */
 .st-tool-icon-sloth {
@@ -524,7 +525,56 @@ main {
   box-shadow: 0 8px 24px rgba(184, 80, 64, 0.15) !important;
 }
 .st-tool-icon-sloth, .st-tool-icon-pdf, .st-tool-icon-rhino, .st-tool-icon-youtube { width:52px; height:52px; padding:0; overflow:hidden; border-radius:14px; }
-.st-tool-icon-sloth img, .st-tool-icon-pdf img, .st-tool-icon-rhino img, .st-tool-icon-youtube img { width:100%; height:100%; object-fit:cover; }
+.st-tool-icon-sloth img, .st-tool-icon-pdf img, .st-tool-icon-rhino img, .st-tool-icon-youtube img { width:100%; height:100%; object-fit:contain; padding:4px; }
+
+/* JSON Formatter card — Amber/Orange theme */
+.st-tool-icon-json {
+  width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px;
+  background: linear-gradient(135deg, #F0E0C0 0%, #E8D4A8 100%);
+  border: 1.5px solid #d4c090;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.st-tool-card-json {
+  background: linear-gradient(135deg, #fdf8ef 0%, #f8f0e0 100%) !important;
+  border-color: #e0d0b0 !important;
+}
+.st-tool-card-json:hover {
+  border-color: #8B7340 !important;
+  box-shadow: 0 8px 24px rgba(139, 115, 64, 0.15) !important;
+}
+/* Character Counter card — Teal/Cyan theme */
+.st-tool-icon-counter {
+  width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px;
+  background: linear-gradient(135deg, #C8E8E0 0%, #B8DED4 100%);
+  border: 1.5px solid #98cabe;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.st-tool-card-counter {
+  background: linear-gradient(135deg, #f0faf7 0%, #e8f6f2 100%) !important;
+  border-color: #b8dcd4 !important;
+}
+.st-tool-card-counter:hover {
+  border-color: #3A7A6A !important;
+  box-shadow: 0 8px 24px rgba(58, 122, 106, 0.15) !important;
+}
+/* Color Converter card — Rose/Pink theme */
+.st-tool-icon-color {
+  width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px;
+  background: linear-gradient(135deg, #F0D0E0 0%, #E8C0D4 100%);
+  border: 1.5px solid #d8a8c0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.st-tool-card-color {
+  background: linear-gradient(135deg, #fdf5f8 0%, #f8ecf2 100%) !important;
+  border-color: #e0c0d0 !important;
+}
+.st-tool-card-color:hover {
+  border-color: #8B4068 !important;
+  box-shadow: 0 8px 24px rgba(139, 64, 104, 0.15) !important;
+}
 
 .st-tool-card h3 {
   font-size: 1rem;
