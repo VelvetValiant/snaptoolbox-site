@@ -564,6 +564,8 @@ const I18N = {
         no_text: 'Add title or subtitle to begin.',
         delete_text: 'Delete',
         select_text: 'Select a text layer to edit',
+        text_label: 'Text Content',
+        text_placeholder: 'Enter text',
       },
       ja: {
         title: 'YouTubeサムネイルジェネレーター',
@@ -609,6 +611,8 @@ const I18N = {
         no_text: 'タイトルまたはサブタイトルを追加してください。',
         delete_text: '削除',
         select_text: '編集するテキストレイヤーを選択',
+        text_label: 'テキスト内容',
+        text_placeholder: 'テキストを入力',
       },
       'zh-TW': {
         title: 'YouTube 縮圖產生器',
@@ -654,6 +658,8 @@ const I18N = {
         no_text: '新增標題或副標題以開始。',
         delete_text: '刪除',
         select_text: '選擇要編輯的文字圖層',
+        text_label: '文字內容',
+        text_placeholder: '輸入文字',
       }
     },
 
