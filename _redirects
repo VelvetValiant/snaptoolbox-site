@@ -2,3 +2,5 @@
 # Add custom redirects here if needed
 
 # Example: /old-tool  /tools/new-tool  301
+
+/tools/image-compressor.html / 301
