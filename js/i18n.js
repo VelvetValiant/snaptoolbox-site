@@ -522,7 +522,6 @@ const I18N = {
     youtube_thumb: {
       en: {
         title: 'YouTube Thumbnail Generator',
-        subtitle: 'Create professional, eye-catching thumbnails for your videos instantly.',
         privacy_note: 'Your images stay on your device.<br class="sp-br"> Nothing is uploaded.',
         tab_background: 'Background',
         tab_text: 'Text',
@@ -576,7 +575,6 @@ const I18N = {
       },
       ja: {
         title: 'YouTubeサムネイルジェネレーター',
-        subtitle: 'プロ品質の目を引くサムネイルを、あなたの動画のために即座に作成。',
         privacy_note: '画像はデバイスの外に出ません。<br class="sp-br">アップロードは一切なし。',
         tab_background: '背景',
         tab_text: 'テキスト',
@@ -630,7 +628,6 @@ const I18N = {
       },
       'zh-TW': {
         title: 'YouTube 縮圖產生器',
-        subtitle: '立即為您的影片建立專業、吸睛的縮圖。',
         privacy_note: '圖片不會離開您的裝置。<br class="sp-br">不會上傳任何內容。',
         tab_background: '背景',
         tab_text: '文字',
