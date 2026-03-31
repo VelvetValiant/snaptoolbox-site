@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free YouTube Thumbnail Generator — Create professional, eye-catching thumbnails for your videos. 1280×720 HD, 100% browser-based, no watermark.">
+    <meta name="description" lang="ja" content="無料YouTube動画サムネイル作成ツール。プロフェッショナルで目を引くサムネイルを作成。1280×720 HD、サーバー送信なし、ウォーターマークなし。">
+    <meta name="keywords" content="YouTube thumbnail generator, create thumbnail, video thumbnail maker, free thumbnail editor, 1280x720">
+    <meta name="author" content="SnapToolbox">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#CC0000">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+
+    <!-- Favicon & App Icons -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="canonical" href="https://snaptoolbox.app/tools/youtube-thumbnail.html">
+    <link rel="alternate" hreflang="en" href="https://snaptoolbox.app/tools/youtube-thumbnail.html">
+    <link rel="alternate" hreflang="ja" href="https://snaptoolbox.app/tools/youtube-thumbnail.html">
+    <link rel="alternate" hreflang="x-default" href="https://snaptoolbox.app/tools/youtube-thumbnail.html">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="YouTube Thumbnail Generator - Create Eye-Catching Thumbnails Free | SnapToolbox">
+    <meta property="og:description" content="Design professional YouTube thumbnails in your browser. 1280×720 HD, fully customizable, no watermark — free forever.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://snaptoolbox.app/tools/youtube-thumbnail.html">
+    <meta property="og:site_name" content="SnapToolbox">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="YouTube Thumbnail Generator - Create Eye-Catching Thumbnails Free | SnapToolbox">
+    <meta name="twitter:description" content="Design professional YouTube thumbnails in your browser. 1280×720 HD, fully customizable, no watermark.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <title>YouTube Thumbnail Generator - Create Eye-Catching Thumbnails Free | SnapToolbox</title>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "YouTube Thumbnail Generator",
+        "description": "Free online YouTube thumbnail generator with 1280x720 HD canvas. Create professional thumbnails with custom text, colors, and backgrounds. All processing happens in your browser.",
+        "url": "https://snaptoolbox.app/tools/youtube-thumbnail.html",
+        "applicationCategory": "Utility",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "author": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the optimal YouTube thumbnail size?",
+                "acceptedAnswer": { "@type": "Answer", "text": "YouTube recommends 1280×720 pixels (16:9 aspect ratio) with a file size under 2MB. This tool creates thumbnails at the perfect size." }
+            },
+            {
+                "@type": "Question",
+                "name": "Is my data uploaded to a server?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. All thumbnail creation happens entirely in your browser. Your images never leave your device." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I add text to my thumbnail?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can add multiple text layers with customizable fonts, sizes, colors, and text effects like outlines and shadows." }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snaptoolbox.app/" },
+            { "@type": "ListItem", "position": 2, "name": "YouTube Thumbnail Generator", "item": "https://snaptoolbox.app/tools/youtube-thumbnail.html" }
+        ]
+    }
+    </script>
+
+    <style>
+        /* ============================================
+           SnapToolbox YouTube Thumbnail Generator
+           Design Language: Red/Crimson YouTube Theme
+           ============================================ */
+
+        :root {
+            --st-primary: #CC0000;
+            --st-primary-dim: #A00000;
+            --st-primary-container: #FFE0E0;
+            --st-secondary: #6E3B3B;
+            --st-secondary-container: #F5DDDD;
+            --st-surface: #FFFAFA;
+            --st-surface-low: #FFF5F5;
+            --st-surface-container: #F5E8E8;
+            --st-surface-high: #ECD8D8;
+            --st-surface-highest: #E2C8C8;
+            --st-card: #FFFFFF;
+            --st-text: #1A0808;
+            --st-text-secondary: #4D2828;
+            --st-text-tertiary: #683838;
+            --st-outline: #BB8888;
+            --st-outline-variant: #D8B8B8;
+            --st-accent: #E04040;
+            --st-accent-text: #CC0000;
+            --st-success: #5C8A50;
+            --st-error: #A83828;
+            --st-warning: #966D1A;
+            --st-radius: 20px;
+            --st-radius-xl: 24px;
+            --st-radius-lg: 16px;
+            --st-radius-md: 14px;
+            --st-radius-sm: 10px;
+            --st-radius-pill: 999px;
+            --st-ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --st-font: 'Plus Jakarta Sans', -apple-system, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--st-font);
+            background: var(--st-surface);
+            color: var(--st-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a { color: var(--st-primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* --- Header --- */
+        .st-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--st-surface);
+            box-shadow: 0 40px 40px -5px rgba(45, 51, 24, 0.04);
+        }
+
+        .st-header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .st-logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--st-primary);
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .st-logo:hover { text-decoration: none; }
+
+        .st-logo-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 10px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .st-nav { display: flex; gap: 1.5rem; align-items: center; }
+
+        .st-nav a {
+            color: var(--st-text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .st-nav a:hover { color: var(--st-primary); text-decoration: none; }
+
+        .st-nav-coffee {
+            background: #FFDD00;
+            color: #000 !important;
+            font-weight: 600;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        .st-nav-coffee:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 10px rgba(255,221,0,0.4);
+            color: #000 !important;
+            text-decoration: none;
+        }
+
+        .st-nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .st-nav-toggle { display: block; }
+            .st-nav {
+                display: none;
+                position: absolute;
+                top: 68px;
+                left: 0;
+                right: 0;
+                background: var(--st-surface);
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 20px 30px rgba(45, 51, 24, 0.06);
+            }
+            .st-nav.open { display: flex; }
+        }
+
+        /* --- Page Layout --- */
+        .st-page-wide {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 2rem 3rem;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .st-page-wide { padding: 0.75rem 1rem 2rem; }
+        }
+        @media (max-width: 480px) {
+            .st-page-wide { padding: 0.5rem 0.75rem 1.5rem; }
+        }
+
+        /* --- Tools Grid Responsive --- */
+        @media (max-width: 768px) {
+            .st-tools-grid { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 480px) {
+            .st-tools-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.6rem !important; }
+            .st-tool-card { padding: 1rem !important; }
+            .st-tool-card h3 { font-size: 0.8rem !important; }
+            .st-tool-card p { font-size: 0.7rem !important; }
+        }
+
+        /* --- Hero with red gradient background --- */
+        .ytg-hero-wrap {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .ytg-hero-bg {
+            position: relative;
+            border-radius: 28px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #CC0000 0%, #A00000 100%);
+            padding: 2.5rem 2.5rem 2rem;
+            min-height: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .ytg-hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(255,150,150,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at center, rgba(26,8,8,0.2) 0%, rgba(26,8,8,0.35) 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .st-hero {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            max-width: 680px;
+            padding: 0;
+        }
+
+        .st-hero h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.35), 0 1px 3px rgba(0,0,0,0.25);
+        }
+
+        .st-hero .st-subtitle {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.5;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* --- Privacy Pill --- */
+        .st-privacy {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.1rem;
+            background: rgba(255,224,224,0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 999px;
+            margin: 0 auto 0;
+            box-shadow: 0 2px 10px rgba(204,0,0,0.12);
+        }
+
+        .st-hero .st-privacy-wrap { text-align: center; }
+
+        .st-privacy svg {
+            width: 16px;
+            height: 16px;
+            color: var(--st-primary);
+            flex-shrink: 0;
+        }
+
+        .st-privacy span {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--st-primary-dim);
+            line-height: 1.4;
+        }
+
+        .st-privacy-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+        .st-browser-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.1rem;
+            background: rgba(204, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            border-radius: 999px;
+            margin: 0 auto 0;
+            box-shadow: 0 2px 10px rgba(204,0,0,0.2);
+        }
+
+        .st-browser-pill svg {
+            width: 16px;
+            height: 16px;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .st-browser-pill span {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        /* --- Flamingo mascot — bottom-right, inside hero --- */
+        .ytg-hero-mascot {
+            position: absolute;
+            z-index: 10;
+            right: 20px;
+            bottom: 0;
+            width: 160px;
+            height: auto;
+            pointer-events: none;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: drop-shadow(0 6px 20px rgba(26,8,8,0.35));
+            object-fit: contain;
+        }
+        .ytg-hero-bg:hover .ytg-hero-mascot {
+            transform: translateY(-4px) rotate(-2deg);
+        }
+        @media (max-width: 768px) {
+            .ytg-hero-mascot { width: 120px; right: 12px; }
+        }
+        @media (max-width: 480px) {
+            .ytg-hero-mascot { width: 80px; right: 8px; }
+        }
+
+        /* --- Editor Layout --- */
+        .ytg-workspace {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .ytg-workspace {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        .ytg-canvas-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--st-surface-container);
+            border-radius: var(--st-radius);
+            padding: 1rem;
+            min-height: 300px;
+            overflow: hidden;
+        }
+
+        #ytgCanvas {
+            width: 100%;
+            height: auto;
+            border-radius: var(--st-radius-sm);
+            cursor: crosshair;
+            background: #1a1a2e;
+        }
+
+        .ytg-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ytg-tabs {
+            display: flex;
+            background: var(--st-card);
+            border-radius: var(--st-radius);
+            box-shadow: 0 2px 12px rgba(45, 51, 24, 0.06);
+            overflow: hidden;
+            border-bottom: 2px solid var(--st-surface-container);
+        }
+
+        .ytg-tab {
+            flex: 1;
+            padding: 0.75rem 0.5rem;
+            text-align: center;
+            font-size: 0.82rem;
+            font-weight: 700;
+            font-family: var(--st-font);
+            color: var(--st-text-secondary);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .ytg-tab:hover { color: var(--st-primary); }
+
+        .ytg-tab.active {
+            color: var(--st-primary);
+            border-bottom-color: var(--st-primary);
+            background: var(--st-surface-low);
+        }
+
+        .ytg-panel {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--st-card);
+            border-radius: var(--st-radius);
+            padding: 1.25rem;
+            box-shadow: 0 2px 12px rgba(45, 51, 24, 0.06);
+            overflow-y: auto;
+        }
+
+        .ytg-panel.active {
+            display: flex;
+        }
+
+        .ytg-control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .ytg-control-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--st-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .ytg-control-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        input[type="color"] {
+            width: 50px;
+            height: 40px;
+            border: 2px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-sm);
+            cursor: pointer;
+            padding: 2px;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            border-radius: 999px;
+            background: var(--st-surface-container);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--st-primary);
+            cursor: pointer;
+            box-shadow: 0 1px 4px rgba(204,0,0,0.3);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--st-primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 1px 4px rgba(204,0,0,0.3);
+        }
+
+        .ytg-slider-value {
+            min-width: 40px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--st-text-secondary);
+        }
+
+        input[type="text"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-sm);
+            font-family: var(--st-font);
+            font-size: 0.85rem;
+            background: var(--st-surface-low);
+            color: var(--st-text);
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--st-primary);
+            background: var(--st-card);
+        }
+
+        .ytg-btn-add,
+        .ytg-btn {
+            width: 100%;
+            padding: 0.7rem;
+            background: var(--st-primary);
+            border: none;
+            border-radius: var(--st-radius-sm);
+            font-family: var(--st-font);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .ytg-btn-add:hover,
+        .ytg-btn:hover {
+            background: var(--st-primary-dim);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(204,0,0,0.2);
+        }
+
+        .ytg-btn-add:active,
+        .ytg-btn:active {
+            transform: translateY(0);
+        }
+
+        .ytg-btn-secondary {
+            background: var(--st-surface-container);
+            color: var(--st-text-secondary);
+        }
+
+        .ytg-btn-secondary:hover {
+            background: var(--st-surface-high);
+            color: var(--st-text);
+        }
+
+        .ytg-action-bar {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .ytg-action-bar button {
+            flex: 1;
+        }
+
+        /* Position presets */
+        .ytg-position-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+        }
+
+        .ytg-position-btn {
+            padding: 0.6rem !important;
+            font-size: 0.75rem !important;
+            background: var(--st-surface-container);
+            color: var(--st-text-secondary);
+            border: 1px solid var(--st-outline-variant);
+        }
+
+        .ytg-position-btn.active {
+            background: var(--st-primary);
+            color: #fff;
+            border-color: var(--st-primary);
+        }
+
+        /* Template buttons */
+        .ytg-templates {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .ytg-template-btn {
+            padding: 0.7rem !important;
+            font-size: 0.8rem !important;
+            background: var(--st-surface-container);
+            color: var(--st-text-secondary);
+            border: 1px solid var(--st-outline-variant);
+        }
+
+        .ytg-template-btn:hover {
+            background: var(--st-surface-high);
+        }
+
+        /* Text item list */
+        .ytg-text-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .ytg-text-item {
+            padding: 0.7rem;
+            background: var(--st-surface-low);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-sm);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ytg-text-item.active {
+            background: var(--st-primary-container);
+            border-color: var(--st-primary);
+        }
+
+        .ytg-text-item span {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--st-text-secondary);
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .ytg-text-item button {
+            background: none;
+            border: none;
+            color: var(--st-error);
+            cursor: pointer;
+            font-size: 0.9rem;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Features section */
+        .st-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+            margin: 2rem 0;
+        }
+
+        .st-feature {
+            background: var(--st-card);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .st-feature-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .st-feature h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--st-text);
+            margin-bottom: 0.4rem;
+        }
+
+        .st-feature p {
+            font-size: 0.85rem;
+            color: var(--st-text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .st-features { grid-template-columns: 1fr; }
+        }
+
+        .st-ad {
+            background: var(--st-surface-container);
+            border: 2px dashed var(--st-outline-variant);
+            border-radius: var(--st-radius-md);
+            padding: 2rem;
+            text-align: center;
+            color: var(--st-text-tertiary);
+            font-size: 0.9rem;
+            margin: 2rem 0;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .st-footer {
+            background: var(--st-surface-low);
+            border-top: 1px solid var(--st-outline-variant);
+            margin-top: auto;
+        }
+        .st-footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+        .st-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .st-footer-col h4 {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--st-text-secondary);
+            margin-bottom: 0.6rem;
+        }
+        .st-footer-col a {
+            display: block;
+            color: var(--st-text-secondary);
+            font-size: 0.88rem;
+            padding: 0.2rem 0;
+            transition: color 0.2s;
+        }
+        .st-footer-col a:hover { color: var(--st-primary); text-decoration: none; }
+        .st-footer-col p {
+            font-size: 0.88rem;
+            color: var(--st-text-secondary);
+            line-height: 1.55;
+        }
+        .st-footer-bottom {
+            border-top: 1px solid var(--st-outline-variant);
+            padding-top: 1.25rem;
+            font-size: 0.78rem;
+            color: var(--st-text-secondary);
+            text-align: center;
+        }
+
+        /* Cookie Banner */
+        .st-cookie {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--st-card);
+            box-shadow: 0 -4px 20px rgba(45, 51, 24, 0.08);
+            padding: 1.25rem 1.5rem;
+            z-index: 9999;
+            display: none;
+        }
+
+        .st-cookie.show { display: block; }
+
+        .st-cookie-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .st-cookie-inner p {
+            font-size: 0.85rem;
+            color: var(--st-text-secondary);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .st-cookie-inner p a { text-decoration: underline; }
+
+        .st-cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
+
+        .st-cookie-btns button {
+            font-family: var(--st-font);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.5rem 1.1rem;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .st-btn-decline {
+            background: var(--st-surface-container);
+            border: none;
+            color: var(--st-text-secondary);
+        }
+
+        .st-btn-accept {
+            background: var(--st-primary);
+            border: none;
+            color: #fff;
+        }
+
+        .st-section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--st-text);
+            margin: 2rem 0 1rem;
+        }
+
+        .st-tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1rem;
+        }
+
+        .st-tool-card {
+            border: 1px solid var(--st-outline-variant);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s;
+            background: var(--st-card);
+        }
+
+        .st-tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .st-tool-card h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--st-text);
+        }
+
+        .st-tool-card p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--st-text-secondary);
+        }
+
+        /* Support section */
+        .st-support-section {
+            margin: 2rem 0;
+            padding: 0;
+        }
+        .st-support-inner {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: linear-gradient(135deg, #fff0f0 0%, #fff5f5 100%);
+            border: 1px solid var(--st-outline-variant);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+        }
+        .st-support-mascot {
+            flex-shrink: 0;
+        }
+        .st-support-mascot img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+        }
+        .st-support-content {
+            flex: 1;
+        }
+        .st-support-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--st-primary-dim);
+            margin: 0 0 0.4rem;
+        }
+        .st-support-desc {
+            font-size: 0.85rem;
+            color: var(--st-text-secondary);
+            margin: 0 0 0.8rem;
+            line-height: 1.5;
+        }
+        .st-support-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            background: #FFDD00;
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 12px rgba(255,221,0,0.4);
+        }
+        .st-support-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(255,221,0,0.5);
+        }
+        .st-support-btn:active {
+            transform: scale(0.97);
+        }
+        .st-support-btn svg {
+            stroke: #000;
+        }
+        @media (max-width: 480px) {
+            .st-support-inner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.2rem;
+                gap: 0.8rem;
+            }
+        }
+
+        /* SP break tag: hidden on PC, visible on SP */
+        .sp-br { display: none; }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .st-hero h1 { font-size: 1.5rem; }
+            .ytg-hero-bg { padding: 1.5rem 1.25rem; min-height: auto; }
+            .ytg-canvas-wrap { min-height: 200px; padding: 0.5rem; }
+        }
+        @media (max-width: 480px) {
+            .sp-br { display: inline; }
+            .st-privacy-wrap { flex-direction: column; align-items: center; gap: 0.4rem; }
+            .st-privacy span { display: block; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../" class="st-logo">
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="st-page-wide">
+        <!-- Hero -->
+        <div class="ytg-hero-wrap">
+            <div class="ytg-hero-bg">
+                <div class="st-hero">
+                    <h1 data-i18n="youtube_thumb.title">YouTube Thumbnail Generator</h1>
+                    <p class="st-subtitle" data-i18n="youtube_thumb.subtitle">Create professional, eye-catching thumbnails for your videos instantly.</p>
+                    <div class="st-privacy-wrap" style="margin-top: 1rem;">
+                        <div class="st-privacy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span data-i18n-html="youtube_thumb.privacy_note">Your images stay on your device.<br class="sp-br"> Nothing is uploaded.</span>
+                        </div>
+                        <div class="st-browser-pill">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            <span data-i18n="index.banner_privacy">100% Browser-Based</span>
+                        </div>
+                    </div>
+                </div>
+                <img src="../img/mascot/flamingo-baby.png" alt="Baby Flamingo mascot" class="ytg-hero-mascot">
+            </div>
+        </div>
+
+        <!-- Editor Workspace -->
+        <div class="ytg-workspace" id="workspace">
+            <!-- Canvas Preview -->
+            <div class="ytg-canvas-wrap">
+                <canvas id="ytgCanvas" width="1280" height="720"></canvas>
+            </div>
+
+            <!-- Controls -->
+            <div class="ytg-controls">
+                <!-- Tabs -->
+                <div class="ytg-tabs">
+                    <button class="ytg-tab active" data-tab="background" data-i18n="youtube_thumb.tab_background">Background</button>
+                    <button class="ytg-tab" data-tab="text" data-i18n="youtube_thumb.tab_text">Text</button>
+                    <button class="ytg-tab" data-tab="style" data-i18n="youtube_thumb.tab_style">Templates</button>
+                </div>
+
+                <!-- Background Panel -->
+                <div class="ytg-panel active" id="panelBackground">
+                    <div class="ytg-control-group">
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.upload_bg">Upload Background</label>
+                        <input type="file" id="bgUpload" accept="image/*">
+                    </div>
+                    <div class="ytg-control-group">
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.bg_color">Background Color</label>
+                        <div class="ytg-control-row">
+                            <input type="color" id="bgColor" value="#1a1a2e">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Panel -->
+                <div class="ytg-panel" id="panelText">
+                    <div class="ytg-control-group">
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.text_layers">Text Layers</label>
+                        <div class="ytg-text-list" id="textList"></div>
+                    </div>
+                    <button class="ytg-btn-add" onclick="YTG.addText('title')" data-i18n="youtube_thumb.add_title">+ Add Title</button>
+                    <button class="ytg-btn-add" onclick="YTG.addText('subtitle')" data-i18n="youtube_thumb.add_subtitle">+ Add Subtitle</button>
+
+                    <div class="ytg-control-group" id="textEditorGroup" style="display:none;">
+                        <hr style="border: none; border-top: 1px solid var(--st-outline-variant); margin: 0.5rem 0;">
+                        <label class="ytg-control-label">TEXT</label>
+                        <input type="text" id="textContent" placeholder="Enter text">
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.font_size">Font Size</label>
+                        <div class="ytg-control-row">
+                            <input type="range" id="fontSize" min="12" max="120" value="48">
+                            <span class="ytg-slider-value" id="fontSizeVal">48</span>
+                        </div>
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.text_color">Text Color</label>
+                        <input type="color" id="textColor" value="#FFFFFF">
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.stroke_color">Outline Color</label>
+                        <input type="color" id="strokeColor" value="#000000">
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.stroke_width">Outline Width</label>
+                        <div class="ytg-control-row">
+                            <input type="range" id="strokeWidth" min="0" max="10" value="2">
+                            <span class="ytg-slider-value" id="strokeWidthVal">2</span>
+                        </div>
+
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.position">Position Presets</label>
+                        <div class="ytg-position-grid">
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('top-left')">↖</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('top-center')">↑</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('top-right')">↗</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('left')">←</button>
+                            <button class="ytg-btn ytg-position-btn active" onclick="YTG.setPosition('center')">●</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('right')">→</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('bottom-left')">↙</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('bottom-center')">↓</button>
+                            <button class="ytg-btn ytg-position-btn" onclick="YTG.setPosition('bottom-right')">↘</button>
+                        </div>
+
+                        <button class="ytg-btn ytg-btn-secondary" onclick="YTG.removeText()" data-i18n="youtube_thumb.delete_text">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Templates Panel -->
+                <div class="ytg-panel" id="panelStyle">
+                    <div class="ytg-control-group">
+                        <label class="ytg-control-label" data-i18n="youtube_thumb.tab_style">Templates</label>
+                        <div class="ytg-templates">
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('bold')" data-i18n="youtube_thumb.template_bold">Bold Impact</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('gaming')" data-i18n="youtube_thumb.template_gaming">Gaming</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('tutorial')" data-i18n="youtube_thumb.template_tutorial">Tutorial</button>
+                            <button class="ytg-btn ytg-template-btn" onclick="YTG.applyTemplate('vlog')" data-i18n="youtube_thumb.template_vlog">Vlog</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Bar -->
+                <div class="ytg-action-bar">
+                    <button class="ytg-btn ytg-btn-secondary" onclick="YTG.reset()" data-i18n="youtube_thumb.btn_reset">Reset</button>
+                    <button class="ytg-btn" onclick="YTG.download()" data-i18n="youtube_thumb.btn_download">Download PNG</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="st-features">
+            <div class="st-feature">
+                <div class="st-feature-icon">🎥</div>
+                <h3 data-i18n="youtube_thumb.feature_hd">1280×720 HD</h3>
+                <p data-i18n="youtube_thumb.feature_hd_desc">Perfect YouTube thumbnail size, ready to upload.</p>
+            </div>
+            <div class="st-feature">
+                <div class="st-feature-icon">⚙️</div>
+                <h3 data-i18n="youtube_thumb.feature_browser">100% Browser-Based</h3>
+                <p data-i18n="youtube_thumb.feature_browser_desc">No server uploads, no installation needed.</p>
+            </div>
+            <div class="st-feature">
+                <div class="st-feature-icon">✨</div>
+                <h3 data-i18n="youtube_thumb.feature_watermark">No Watermark</h3>
+                <p data-i18n="youtube_thumb.feature_watermark_desc">Your thumbnail is yours—completely original.</p>
+            </div>
+        </div>
+
+        <!-- Tools Grid -->
+        <div id="tools" style="scroll-margin-top: 80px;">
+            <h2 class="st-section-title"><span data-i18n="index.other_tools_title">All Tools</span></h2>
+
+            <!-- Image Tools -->
+            <div class="st-tools-grid" style="margin-bottom: 1.5rem;">
+                <a href="../" class="st-tool-card" style="border: 1px solid #c5d6a8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #f5f9ef 0%, #edf4e4 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #e8f0dc 0%, #dce8ce 100%); border: 1.5px solid #c5d6a8;">
+                        <img src="../img/mascot/sloth-icon-48.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_image_compressor" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Image Compressor</h3>
+                    <p data-i18n="index.tool_image_compressor_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Compress images without losing quality. Supports JPEG, PNG, WebP.</p>
+                </a>
+                <a href="pdf-converter.html" class="st-tool-card" style="border: 1px solid #b8daf0; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #f0f8ff 0%, #e8f4fd 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #C9E3F5 0%, #DEF0FC 100%); border: 1.5px solid #a8d4f0;">
+                        <img src="../img/mascot/seal-baby.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_pdf_converter" style="margin: 0; font-size: 16px; font-weight: 600; color: #0A1628;">PDF Converter</h3>
+                    <p data-i18n="index.tool_pdf_converter_desc" style="margin: 0; font-size: 14px; color: #334155;">Convert PDF to images or images to PDF. All in your browser.</p>
+                </a>
+                <a href="image-editor.html" class="st-tool-card" style="border: 1px solid #d4bee6; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #faf5fc 0%, #f3ebf8 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #E6D4F0 0%, #F0E4F8 100%); border: 1.5px solid #c9a8e0;">
+                        <img src="../img/mascot/rhino-icon-48.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_image_editor" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A0E22;">Image Editor</h3>
+                    <p data-i18n="index.tool_image_editor_desc" style="margin: 0; font-size: 14px; color: #4D3858;">Adjust brightness, contrast, saturation, and apply filters to images.</p>
+                </a>
+                <a href="youtube-thumbnail.html" class="st-tool-card" style="border: 1px solid #f0b8b8; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: linear-gradient(135deg, #fff5f5 0%, #ffe8e8 100%);">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; padding: 0; overflow: hidden; border-radius: 14px; background: linear-gradient(135deg, #FFE0E0 0%, #FFD0D0 100%); border: 1.5px solid #f0a0a0;">
+                        <img src="../img/mascot/flamingo-icon-48.png" alt="" style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 data-i18n="index.tool_youtube_thumb" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A0808;">YouTube Thumbnail</h3>
+                    <p data-i18n="index.tool_youtube_thumb_desc" style="margin: 0; font-size: 14px; color: #4D2828;">Create eye-catching YouTube thumbnails with text, templates & backgrounds.</p>
+                </a>
+            </div>
+
+            <h3 style="color: #4D5338; font-size: 1.05rem; text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;"><span data-i18n="index.other_tools_sub">Other Tools</span></h3>
+
+            <!-- Other Tools -->
+            <div class="st-tools-grid" style="margin-bottom: 2rem;">
+                <a href="json-formatter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_json_sub">Dev & Data</span>
+                    <h3 data-i18n="index.tool_json" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">JSON Formatter</h3>
+                    <p data-i18n="index.tool_json_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Format, validate, and beautify JSON data with syntax highlighting.</p>
+                </a>
+                <a href="character-counter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_char_sub">Writing & Text</span>
+                    <h3 data-i18n="index.tool_char" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Character Counter</h3>
+                    <p data-i18n="index.tool_char_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Count characters, words, sentences, and paragraphs in real time.</p>
+                </a>
+                <a href="color-converter.html" class="st-tool-card" style="border: 1px solid #CDD2B2; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; text-decoration: none; color: inherit; transition: all 0.2s; background: #FFFFFF;">
+                    <span style="display:inline-block;font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:#4D5338;background:#EFF3DE;padding:0.15rem 0.5rem;border-radius:999px;margin-bottom:0.15rem;width:fit-content;" data-i18n="index.tool_color_sub">Design & Color</span>
+                    <h3 data-i18n="index.tool_color" style="margin: 0; font-size: 16px; font-weight: 600; color: #1A2008;">Color Converter</h3>
+                    <p data-i18n="index.tool_color_desc" style="margin: 0; font-size: 14px; color: #4D5338;">Convert colors between HEX, RGB, HSL formats with live preview.</p>
+                </a>
+            </div>
+
+            <div class="st-ad">Ad Space</div>
+
+            <!-- Support Section -->
+            <section class="st-support-section">
+                <div class="st-support-inner">
+                    <div class="st-support-mascot">
+                        <img src="../img/mascot/flamingo-baby.png" alt="Baby Flamingo mascot" width="80" height="80">
+                    </div>
+                    <div class="st-support-content">
+                        <h3 class="st-support-title" data-i18n="youtube_thumb.support_title">Buy this baby rhino a coffee ☕</h3>
+                        <p class="st-support-desc" data-i18n="index.support_desc">SnapToolbox is free forever. If you find it useful, a small coffee helps keep the servers running!</p>
+                        <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-support-btn" id="bmcLink">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                            <span data-i18n="index.support_btn">Buy me a coffee</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_image_tools">Image Tools</h4>
+                    <a href="../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                    <a href="youtube-thumbnail.html" data-i18n="index.tool_youtube_thumb">YouTube Thumbnail</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">Other Tools</h4>
+                    <a href="json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_about">About</h4>
+                    <a href="../about.html" data-i18n="common.nav_about">About</a>
+                    <p data-i18n="common.footer_about_text">Free online tools that run entirely in your browser. No signup, no data collection.</p>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_contact">Contact</h4>
+                    <a href="../about.html#contact" data-i18n="common.footer_contact_link">Contact Us</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.<br>All processing is done locally in your browser.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent -->
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic. No personal data is collected by our tools.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-btns">
+                <button class="st-btn-decline" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn-accept" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+    <script src="../js/sns-links.js"></script>
+    <script>
+    const YTG = {
+        canvas: null,
+        ctx: null,
+        bgImage: null,
+        bgColor: '#1a1a2e',
+        texts: [],
+        activeTextIndex: -1,
+        isDragging: false,
+        dragOffset: { x: 0, y: 0 },
+
+        init() {
+            this.canvas = document.getElementById('ytgCanvas');
+            this.ctx = this.canvas.getContext('2d');
+
+            // Bind tab switching
+            document.querySelectorAll('.ytg-tab').forEach(tab => {
+                tab.addEventListener('click', () => this.switchTab(tab));
+            });
+
+            // Bind background upload
+            document.getElementById('bgUpload').addEventListener('change', (e) => {
+                if (e.target.files[0]) this.loadBgImage(e.target.files[0]);
+            });
+
+            // Bind background color
+            document.getElementById('bgColor').addEventListener('change', (e) => {
+                this.bgColor = e.target.value;
+                this.render();
+            });
+
+            // Bind text controls
+            document.getElementById('textContent').addEventListener('input', () => {
+                if (this.activeTextIndex >= 0) {
+                    this.texts[this.activeTextIndex].text = document.getElementById('textContent').value;
+                    this.render();
+                    this.updateTextList();
+                }
+            });
+
+            const sliders = ['fontSize', 'strokeWidth'];
+            sliders.forEach(name => {
+                const slider = document.getElementById(name);
+                const valEl = document.getElementById(name + 'Val');
+                slider.addEventListener('input', () => {
+                    if (this.activeTextIndex >= 0) {
+                        const prop = name === 'fontSize' ? 'fontSize' : 'strokeWidth';
+                        this.texts[this.activeTextIndex][prop] = parseInt(slider.value);
+                        valEl.textContent = slider.value;
+                        this.render();
+                    }
+                });
+            });
+
+            document.getElementById('textColor').addEventListener('change', (e) => {
+                if (this.activeTextIndex >= 0) {
+                    this.texts[this.activeTextIndex].color = e.target.value;
+                    this.render();
+                }
+            });
+
+            document.getElementById('strokeColor').addEventListener('change', (e) => {
+                if (this.activeTextIndex >= 0) {
+                    this.texts[this.activeTextIndex].strokeColor = e.target.value;
+                    this.render();
+                }
+            });
+
+            // Canvas drag to move text
+            this.canvas.addEventListener('mousedown', (e) => this.handleMouseDown(e));
+            this.canvas.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+            this.canvas.addEventListener('mouseup', () => this.handleMouseUp());
+            this.canvas.addEventListener('mouseleave', () => this.handleMouseUp());
+
+            this.canvas.addEventListener('touchstart', (e) => this.handleTouchStart(e));
+            this.canvas.addEventListener('touchmove', (e) => this.handleTouchMove(e));
+            this.canvas.addEventListener('touchend', () => this.handleMouseUp());
+
+            // Nav toggle
+            document.querySelector('.st-nav-toggle').addEventListener('click', () => {
+                document.querySelector('.st-nav').classList.toggle('open');
+            });
+
+            this.render();
+        },
+
+        switchTab(tab) {
+            document.querySelectorAll('.ytg-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.ytg-panel').forEach(p => p.classList.remove('active'));
+            tab.classList.add('active');
+            const panelId = 'panel' + tab.dataset.tab.charAt(0).toUpperCase() + tab.dataset.tab.slice(1);
+            document.getElementById(panelId).classList.add('active');
+        },
+
+        loadBgImage(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    this.bgImage = img;
+                    this.render();
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
+
+        addText(type) {
+            const textObj = {
+                text: type === 'title' ? 'Your Title' : 'Your Subtitle',
+                x: this.canvas.width / 2,
+                y: type === 'title' ? this.canvas.height / 3 : (this.canvas.height * 2) / 3,
+                fontSize: type === 'title' ? 72 : 48,
+                fontFamily: 'Arial',
+                color: '#FFFFFF',
+                strokeColor: '#000000',
+                strokeWidth: 2,
+                align: 'center',
+                bold: type === 'title',
+                italic: false
+            };
+            this.texts.push(textObj);
+            this.activeTextIndex = this.texts.length - 1;
+            this.updateTextEditor();
+            this.updateTextList();
+            this.render();
+        },
+
+        updateTextEditor() {
+            const t = this.texts[this.activeTextIndex];
+            if (!t) {
+                document.getElementById('textEditorGroup').style.display = 'none';
+                return;
+            }
+            document.getElementById('textEditorGroup').style.display = 'flex';
+            document.getElementById('textContent').value = t.text;
+            document.getElementById('fontSize').value = t.fontSize;
+            document.getElementById('fontSizeVal').textContent = t.fontSize;
+            document.getElementById('textColor').value = t.color;
+            document.getElementById('strokeColor').value = t.strokeColor;
+            document.getElementById('strokeWidth').value = t.strokeWidth;
+            document.getElementById('strokeWidthVal').textContent = t.strokeWidth;
+        },
+
+        updateTextList() {
+            const list = document.getElementById('textList');
+            list.innerHTML = '';
+            this.texts.forEach((t, i) => {
+                const item = document.createElement('div');
+                item.className = 'ytg-text-item' + (i === this.activeTextIndex ? ' active' : '');
+                item.innerHTML = `
+                    <span>${t.text.substring(0, 20)}</span>
+                    <button onclick="YTG.removeTextAt(${i})">×</button>
+                `;
+                item.addEventListener('click', () => {
+                    this.activeTextIndex = i;
+                    this.updateTextList();
+                    this.updateTextEditor();
+                    this.render();
+                });
+                list.appendChild(item);
+            });
+        },
+
+        removeText() {
+            if (this.activeTextIndex >= 0) {
+                this.texts.splice(this.activeTextIndex, 1);
+                this.activeTextIndex = Math.max(-1, this.activeTextIndex - 1);
+                this.updateTextEditor();
+                this.updateTextList();
+                this.render();
+            }
+        },
+
+        removeTextAt(idx) {
+            this.texts.splice(idx, 1);
+            if (this.activeTextIndex === idx) this.activeTextIndex = -1;
+            this.updateTextEditor();
+            this.updateTextList();
+            this.render();
+        },
+
+        setPosition(pos) {
+            if (this.activeTextIndex < 0) return;
+            const t = this.texts[this.activeTextIndex];
+            const cw = this.canvas.width, ch = this.canvas.height;
+            const positions = {
+                'top-left': { x: 60, y: 100 },
+                'top-center': { x: cw / 2, y: 100 },
+                'top-right': { x: cw - 60, y: 100 },
+                'left': { x: 60, y: ch / 2 },
+                'center': { x: cw / 2, y: ch / 2 },
+                'right': { x: cw - 60, y: ch / 2 },
+                'bottom-left': { x: 60, y: ch - 100 },
+                'bottom-center': { x: cw / 2, y: ch - 100 },
+                'bottom-right': { x: cw - 60, y: ch - 100 }
+            };
+            if (positions[pos]) {
+                t.x = positions[pos].x;
+                t.y = positions[pos].y;
+            }
+            // Update position buttons
+            document.querySelectorAll('.ytg-position-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.ytg-position-btn').forEach((btn, i) => {
+                const posKeys = Object.keys(positions);
+                if (posKeys[i] === pos) btn.classList.add('active');
+            });
+            this.render();
+        },
+
+        applyTemplate(name) {
+            const templates = {
+                'bold': {
+                    bgColor: '#1a1a1a',
+                    texts: [
+                        { text: 'BOLD TITLE', x: 640, y: 200, fontSize: 100, color: '#FFFFFF', strokeColor: '#FF0000', strokeWidth: 3, bold: true }
+                    ]
+                },
+                'gaming': {
+                    bgColor: '#2a0f4f',
+                    texts: [
+                        { text: 'EPIC GAMEPLAY', x: 640, y: 250, fontSize: 80, color: '#FFFF00', strokeColor: '#000000', strokeWidth: 4, bold: true },
+                        { text: 'Watch till the end!', x: 640, y: 500, fontSize: 50, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2 }
+                    ]
+                },
+                'tutorial': {
+                    bgColor: '#1e5a96',
+                    texts: [
+                        { text: 'How to...', x: 640, y: 250, fontSize: 70, color: '#FFFFFF', strokeColor: '#0a3d6e', strokeWidth: 2 },
+                        { text: 'Complete Guide', x: 640, y: 500, fontSize: 48, color: '#b3d9ff', strokeColor: 'none', strokeWidth: 0 }
+                    ]
+                },
+                'vlog': {
+                    bgColor: '#ff4d8f',
+                    texts: [
+                        { text: 'VLOG', x: 640, y: 250, fontSize: 100, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 3, bold: true },
+                        { text: 'Day in My Life', x: 640, y: 520, fontSize: 50, color: '#FFFFFF', strokeColor: '#000000', strokeWidth: 2 }
+                    ]
+                }
+            };
+
+            const template = templates[name];
+            if (!template) return;
+
+            this.bgColor = template.bgColor;
+            this.bgImage = null;
+            document.getElementById('bgColor').value = template.bgColor;
+            this.texts = [];
+            this.activeTextIndex = -1;
+
+            template.texts.forEach(t => {
+                this.texts.push({
+                    text: t.text,
+                    x: t.x,
+                    y: t.y,
+                    fontSize: t.fontSize,
+                    fontFamily: 'Arial',
+                    color: t.color,
+                    strokeColor: t.strokeColor || '#000000',
+                    strokeWidth: t.strokeWidth || 0,
+                    align: 'center',
+                    bold: t.bold || false,
+                    italic: false
+                });
+            });
+
+            this.updateTextList();
+            this.render();
+        },
+
+        render() {
+            const ctx = this.ctx;
+            const w = this.canvas.width, h = this.canvas.height;
+
+            // Clear
+            ctx.clearRect(0, 0, w, h);
+
+            // Background
+            if (this.bgImage) {
+                ctx.drawImage(this.bgImage, 0, 0, w, h);
+            } else {
+                ctx.fillStyle = this.bgColor;
+                ctx.fillRect(0, 0, w, h);
+            }
+
+            // Draw texts
+            this.texts.forEach((t, i) => {
+                this.drawText(t);
+            });
+        },
+
+        drawText(t) {
+            const ctx = this.ctx;
+            ctx.font = (t.bold ? 'bold ' : '') + t.fontSize + 'px Arial';
+            ctx.fillStyle = t.color;
+            ctx.strokeStyle = t.strokeColor;
+            ctx.lineWidth = t.strokeWidth;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            if (t.strokeWidth > 0) {
+                ctx.strokeText(t.text, t.x, t.y);
+            }
+            ctx.fillText(t.text, t.x, t.y);
+        },
+
+        handleMouseDown(e) {
+            const rect = this.canvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+
+            // Check if click on text
+            for (let i = this.texts.length - 1; i >= 0; i--) {
+                const t = this.texts[i];
+                const m = this.ctx.measureText(t.text);
+                if (x > t.x - m.width / 2 && x < t.x + m.width / 2 &&
+                    y > t.y - t.fontSize / 2 && y < t.y + t.fontSize / 2) {
+                    this.activeTextIndex = i;
+                    this.isDragging = true;
+                    this.dragOffset = { x: x - t.x, y: y - t.y };
+                    this.updateTextEditor();
+                    this.updateTextList();
+                    return;
+                }
+            }
+        },
+
+        handleMouseMove(e) {
+            if (!this.isDragging || this.activeTextIndex < 0) return;
+            const rect = this.canvas.getBoundingClientRect();
+            const x = (e.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (e.clientY - rect.top) * (this.canvas.height / rect.height);
+
+            const t = this.texts[this.activeTextIndex];
+            t.x = x - this.dragOffset.x;
+            t.y = y - this.dragOffset.y;
+            this.render();
+        },
+
+        handleMouseUp() {
+            this.isDragging = false;
+        },
+
+        handleTouchStart(e) {
+            const touch = e.touches[0];
+            const rect = this.canvas.getBoundingClientRect();
+            const x = (touch.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (touch.clientY - rect.top) * (this.canvas.height / rect.height);
+
+            for (let i = this.texts.length - 1; i >= 0; i--) {
+                const t = this.texts[i];
+                const m = this.ctx.measureText(t.text);
+                if (x > t.x - m.width / 2 && x < t.x + m.width / 2 &&
+                    y > t.y - t.fontSize / 2 && y < t.y + t.fontSize / 2) {
+                    this.activeTextIndex = i;
+                    this.isDragging = true;
+                    this.dragOffset = { x: x - t.x, y: y - t.y };
+                    this.updateTextEditor();
+                    this.updateTextList();
+                    return;
+                }
+            }
+        },
+
+        handleTouchMove(e) {
+            if (!this.isDragging || this.activeTextIndex < 0) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            const rect = this.canvas.getBoundingClientRect();
+            const x = (touch.clientX - rect.left) * (this.canvas.width / rect.width);
+            const y = (touch.clientY - rect.top) * (this.canvas.height / rect.height);
+
+            const t = this.texts[this.activeTextIndex];
+            t.x = x - this.dragOffset.x;
+            t.y = y - this.dragOffset.y;
+            this.render();
+        },
+
+        download() {
+            this.canvas.toBlob((blob) => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'youtube-thumbnail.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            }, 'image/png', 0.95);
+        },
+
+        reset() {
+            this.bgColor = '#1a1a2e';
+            this.bgImage = null;
+            this.texts = [];
+            this.activeTextIndex = -1;
+            document.getElementById('bgColor').value = this.bgColor;
+            document.getElementById('bgUpload').value = '';
+            this.updateTextEditor();
+            this.updateTextList();
+            this.render();
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => YTG.init());
+    </script>
+</body>
+</html>
