@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn how to format, validate and debug JSON data. A practical guide for developers and non-developers covering JSON syntax, common errors, and free online tools.">
+    <meta name="description" lang="ja" content="JSONの整形・検証・デバッグ方法を解説。開発者・非開発者向けに、JSON構文、よくあるエラー、無料オンラインツールの使い方をわかりやすく説明。">
+    <meta name="keywords" content="JSON formatter guide, format JSON online, JSON validator, JSON syntax, pretty print JSON, JSON debugging">
+    <meta name="author" content="SnapToolbox">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3D5C2E">
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="canonical" href="https://snaptoolbox.app/blog/json-formatting-guide.html">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
+
+    <meta property="og:title" content="JSON Formatting Guide: How to Read, Write and Debug JSON | SnapToolbox Blog">
+    <meta property="og:description" content="A practical guide to JSON — formatting, validation, common errors, and using free online tools to work with JSON data.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snaptoolbox.app/blog/json-formatting-guide.html">
+    <meta property="og:site_name" content="SnapToolbox">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <title>JSON Formatting Guide: How to Read, Write and Debug JSON | SnapToolbox Blog</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "JSON Formatting Guide: How to Read, Write and Debug JSON",
+        "description": "A practical guide to JSON formatting, validation, and debugging for developers and beginners alike.",
+        "url": "https://snaptoolbox.app/blog/json-formatting-guide.html",
+        "datePublished": "2026-04-10",
+        "dateModified": "2026-04-10",
+        "author": { "@type": "Organization", "name": "SnapToolbox" },
+        "publisher": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://snaptoolbox.app/" },
+            { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://snaptoolbox.app/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "JSON Formatting Guide", "item": "https://snaptoolbox.app/blog/json-formatting-guide.html" }
+        ]
+    }
+    </script>
+
+    <style>
+    .blog-meta {
+        font-size: 0.875rem;
+        color: var(--st-text-secondary);
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .blog-tag {
+        background: #E8F0E3;
+        color: #3D5C2E;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .blog-article {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+    }
+    .blog-article h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--st-text);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    .blog-article h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--st-text);
+        margin: 2.5rem 0 0.75rem;
+        padding-top: 0.5rem;
+        border-top: 2px solid var(--st-outline-variant);
+    }
+    .blog-article h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--st-text);
+        margin: 1.5rem 0 0.5rem;
+    }
+    .blog-article p {
+        color: var(--st-text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+    .blog-article ul, .blog-article ol {
+        color: var(--st-text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+    .blog-article li { margin-bottom: 0.4rem; }
+    .code-block {
+        background: #1e2a1a;
+        color: #c8e6c9;
+        border-radius: 10px;
+        padding: 1.25rem;
+        font-family: 'Courier New', monospace;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        overflow-x: auto;
+        margin: 1.25rem 0;
+    }
+    .code-block .key { color: #80cbc4; }
+    .code-block .string { color: #a5d6a7; }
+    .code-block .number { color: #ffe082; }
+    .code-block .bool { color: #ef9a9a; }
+    .blog-cta {
+        background: linear-gradient(135deg, #3D5C2E, #5A8A3C);
+        color: #fff;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        margin: 2.5rem 0;
+    }
+    .blog-cta h3 { color: #fff; margin: 0 0 0.5rem; font-size: 1.2rem; }
+    .blog-cta p { color: rgba(255,255,255,0.85); margin-bottom: 1.25rem; }
+    .blog-cta a {
+        display: inline-block;
+        background: #fff;
+        color: #3D5C2E;
+        font-weight: 700;
+        padding: 0.65rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+    .info-box {
+        background: var(--st-surface-variant);
+        border-left: 4px solid #3D5C2E;
+        border-radius: 0 8px 8px 0;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .info-box p { margin: 0; }
+    .error-box {
+        background: #fff3f3;
+        border-left: 4px solid #e53935;
+        border-radius: 0 8px 8px 0;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .error-box p { margin: 0; color: #c62828; }
+    </style>
+</head>
+<body>
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../" class="st-logo">
+                <img src="../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="../#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="index.html">Blog</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="st-page-wide">
+        <div class="blog-article">
+            <div class="blog-meta">
+                <span class="blog-tag">Developer Tools</span>
+                <span>April 10, 2026</span>
+                <span>7 min read</span>
+            </div>
+
+            <h1>JSON Formatting Guide: How to Read, Write and Debug JSON</h1>
+            <p>JSON整形ツールの使い方 — JSON (JavaScript Object Notation) is the universal language of data exchange on the web. Whether you're working with APIs, configuration files, or data exports, you'll encounter JSON constantly. This guide covers the fundamentals of JSON and how to work with it efficiently.</p>
+
+            <h2>What Is JSON?</h2>
+            <p>JSON is a lightweight, human-readable data format. It represents data as key-value pairs and ordered lists. Here's a simple example:</p>
+            <div class="code-block">
+{<br>
+&nbsp;&nbsp;<span class="key">"name"</span>: <span class="string">"SnapToolbox"</span>,<br>
+&nbsp;&nbsp;<span class="key">"version"</span>: <span class="number">2.0</span>,<br>
+&nbsp;&nbsp;<span class="key">"free"</span>: <span class="bool">true</span>,<br>
+&nbsp;&nbsp;<span class="key">"tools"</span>: [<span class="string">"image-compressor"</span>, <span class="string">"json-formatter"</span>, <span class="string">"color-converter"</span>]<br>
+}
+            </div>
+            <p>JSON supports six data types: strings, numbers, booleans (true/false), null, objects (key-value pairs in curly braces), and arrays (ordered lists in square brackets).</p>
+
+            <h2>Why Format JSON?</h2>
+            <p>JSON from APIs and data sources is often "minified" — compressed into a single line to reduce file size. While efficient for machines, minified JSON is nearly impossible for humans to read:</p>
+            <div class="code-block">
+{"user":{"id":1,"name":"Alice","roles":["admin","editor"],"active":true}}
+            </div>
+            <p>Formatting (also called "pretty-printing") adds indentation and line breaks to reveal the structure:</p>
+            <div class="code-block">
+{<br>
+&nbsp;&nbsp;<span class="key">"user"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"id"</span>: <span class="number">1</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"name"</span>: <span class="string">"Alice"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"roles"</span>: [<span class="string">"admin"</span>, <span class="string">"editor"</span>],<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"active"</span>: <span class="bool">true</span><br>
+&nbsp;&nbsp;}<br>
+}
+            </div>
+
+            <h2>Common JSON Syntax Errors</h2>
+            <p>JSON syntax is strict. A single mistake breaks the entire document. Here are the most frequent errors:</p>
+
+            <h3>1. Trailing Commas</h3>
+            <div class="error-box">
+                <p>{ "name": "Alice", "age": 30<strong>,</strong> }  ← Extra comma before closing brace is invalid</p>
+            </div>
+            <p>JSON does not allow trailing commas after the last item in an object or array.</p>
+
+            <h3>2. Single Quotes Instead of Double Quotes</h3>
+            <div class="error-box">
+                <p>{ 'name': 'Alice' }  ← Single quotes are not valid JSON</p>
+            </div>
+            <p>Both keys and string values must use double quotes in JSON.</p>
+
+            <h3>3. Unquoted Keys</h3>
+            <div class="error-box">
+                <p>{ name: "Alice" }  ← Keys must be quoted strings</p>
+            </div>
+
+            <h3>4. Comments</h3>
+            <p>JSON does not support comments. If you see <code>//</code> or <code>/* */</code> in a JSON file, it's technically not valid JSON (some parsers accept it as an extension).</p>
+
+            <h2>Using JSON in Practice</h2>
+            <h3>Working with APIs</h3>
+            <p>Most REST APIs return JSON responses. When debugging an API integration, paste the raw response into a JSON formatter to see the data structure clearly before writing code to parse it.</p>
+
+            <h3>Configuration Files</h3>
+            <p>Many tools use JSON for configuration: <code>package.json</code> (Node.js), <code>tsconfig.json</code> (TypeScript), <code>settings.json</code> (VS Code), and many more. Formatting these files keeps them maintainable as they grow.</p>
+
+            <h3>Data Import/Export</h3>
+            <p>Databases, spreadsheet tools, and analytics platforms often export data as JSON. Format the output to understand the schema before importing it elsewhere.</p>
+
+            <div class="info-box">
+                <p><strong>Tip:</strong> When sharing JSON in documentation or bug reports, always format it first. Minified JSON is almost impossible to review and makes collaboration harder.</p>
+            </div>
+
+            <h2>JSON vs. Related Formats</h2>
+            <ul>
+                <li><strong>JSON5:</strong> A superset of JSON that allows comments, trailing commas, and unquoted keys. Common in configuration files but not widely supported in APIs.</li>
+                <li><strong>YAML:</strong> More human-readable than JSON, widely used in DevOps (Docker Compose, Kubernetes). Indentation-sensitive — one wrong tab breaks everything.</li>
+                <li><strong>XML:</strong> The predecessor to JSON. More verbose, harder to read, but still used in some enterprise systems and document formats.</li>
+                <li><strong>CSV:</strong> Ideal for tabular data (spreadsheets). Not suitable for nested data structures.</li>
+            </ul>
+
+            <div class="blog-cta">
+                <h3>Format and Validate JSON Instantly — Free</h3>
+                <p>Paste any JSON into SnapToolbox's JSON Formatter to pretty-print, validate, and identify errors in seconds. Works entirely in your browser.</p>
+                <a href="../tools/json-formatter.html">Open JSON Formatter</a>
+            </div>
+
+            <h2>Summary</h2>
+            <p>JSON is a simple but powerful data format you'll work with constantly in modern development. Understanding the six data types, strict syntax rules (double quotes, no trailing commas, no comments), and using a formatter to read complex structures will save you hours of debugging time. Always validate JSON before parsing it programmatically to avoid runtime errors.</p>
+        </div>
+    </main>
+
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_image_tools">Image Tools</h4>
+                    <a href="../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="../tools/image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="../tools/pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                    <a href="../tools/youtube-thumbnail.html" data-i18n="index.tool_youtube_thumb">YouTube Thumbnail</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">Other Tools</h4>
+                    <a href="../tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="../tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="../tools/color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4>Blog</h4>
+                    <a href="index.html">All Articles</a>
+                    <a href="json-formatting-guide.html">JSON Formatting Guide</a>
+                    <a href="character-counting-tips.html">Character Counting Tips</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">Legal</h4>
+                    <a href="../legal/privacy-policy.html" data-i18n="common.footer_privacy">Privacy Policy</a>
+                    <a href="../legal/terms-of-service.html" data-i18n="common.footer_terms">Terms of Service</a>
+                    <a href="../legal/cookie-policy.html" data-i18n="common.footer_cookies">Cookie Policy</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic.</span> <a href="../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/i18n.js"></script>
+</body>
+</html>
