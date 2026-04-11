@@ -49,7 +49,6 @@ const CookieConsent = {
     }));
     this.hideBanner();
     this.loadAnalytics();
-    this.loadAds();
   },
 
   decline() {
@@ -80,10 +79,6 @@ const CookieConsent = {
     gtag('js', new Date());
     gtag('config', 'GA_MEASUREMENT_ID', { anonymize_ip: true });
     */
-  },
-
-  loadAds() {
-    // AdSense — already loaded via <script> tag in <head>
   }
 };
 
