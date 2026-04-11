@@ -958,21 +958,6 @@ input[type="range"]::-webkit-slider-thumb {
 
 .st-msg-success.show { display: block; }
 
-/* --- Ad Slot --- */
-.st-ad {
-  background: var(--st-surface-low);
-  border: 1px dashed var(--st-outline-variant);
-  border-radius: var(--st-radius-sm);
-  padding: 1rem;
-  text-align: center;
-  margin: 1.5rem 0;
-  min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--st-text-tertiary);
-  font-size: 0.78rem;
-}
 
 /* --- Sections Container (colored bg) --- */
 .st-section-tint {
