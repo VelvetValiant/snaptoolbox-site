@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="初心者向け画像補正の基本テクニック。明度・コントラスト・彩度・トリミングなど、プロのソフトなしで写真を改善する方法を解説。">
+    <meta name="description" lang="ja" content="初心者向け画像補正の基本テクニック。明度・コントラスト・彩度・トリミングなど、プロのソフトなしで写真を改善する方法を解説。">
+    <meta name="keywords" content="画像編集の基本, 写真編集初心者向け, 明度コントラスト, トリミング, 画像補正, 無料画像エディタ">
+    <meta name="author" content="SnapToolbox">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3D5C2E">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="canonical" href="https://snaptoolbox.app/blog/ja/image-editing-basics.html">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
+
+    <meta property="og:title" content="画像編集の基本：より良い写真のための必須テクニック | SnapToolbox ブログ">
+    <meta property="og:description" content="明度・コントラスト・彩度・ホワイトバランス・トリミングなど、写真を改善するための基本的な画像編集テクニックを学びましょう。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snaptoolbox.app/blog/ja/image-editing-basics.html">
+    <meta property="og:site_name" content="SnapToolbox">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>画像編集の基本：より良い写真のための必須テクニック | SnapToolbox ブログ</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "画像編集の基本：より良い写真のための必須テクニック",
+        "description": "初心者向け画像編集ガイド。明度、コントラスト、彩度、ホワイトバランス、トリミング、シャープネスを解説。",
+        "url": "https://snaptoolbox.app/blog/ja/image-editing-basics.html",
+        "datePublished": "2026/04/10",
+        "dateModified": "2026/04/10",
+        "author": { "@type": "Organization", "name": "SnapToolbox" },
+        "publisher": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://snaptoolbox.app/" },
+            { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://snaptoolbox.app/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "画像編集の基本", "item": "https://snaptoolbox.app/blog/ja/image-editing-basics.html" }
+        ]
+    }
+    </script>
+
+    <style>
+    .blog-meta { font-size: 0.875rem; color: var(--st-text-secondary); margin-bottom: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .blog-tag { background: #E8F0E3; color: #3D5C2E; padding: 0.2rem 0.6rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+    .blog-article { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 3rem; }
+    .blog-article h1 { font-size: 2rem; font-weight: 800; color: var(--st-text); margin-bottom: 1rem; line-height: 1.3; }
+    .blog-article h2 { font-size: 1.4rem; font-weight: 700; color: var(--st-text); margin: 2.5rem 0 0.75rem; padding-top: 0.5rem; border-top: 2px solid var(--st-outline-variant); }
+    .blog-article h3 { font-size: 1.15rem; font-weight: 600; color: var(--st-text); margin: 1.5rem 0 0.5rem; }
+    .blog-article p { color: var(--st-text-secondary); line-height: 1.8; margin-bottom: 1rem; }
+    .blog-article ul, .blog-article ol { color: var(--st-text-secondary); line-height: 1.8; margin-bottom: 1rem; padding-left: 1.5rem; }
+    .blog-article li { margin-bottom: 0.4rem; }
+    .technique-card { background: var(--st-card); border: 1px solid var(--st-outline-variant); border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start; }
+    .technique-icon { width: 52px; height: 52px; background: linear-gradient(135deg, #3D5C2E, #5A8A3C); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .technique-card h3 { margin: 0 0 0.4rem; font-size: 1rem; }
+    .technique-card p { margin: 0; font-size: 0.9rem; }
+    .blog-cta { background: linear-gradient(135deg, #3D5C2E, #5A8A3C); color: #fff; border-radius: 16px; padding: 2rem; text-align: center; margin: 2.5rem 0; }
+    .blog-cta h3 { color: #fff; margin: 0 0 0.5rem; font-size: 1.2rem; }
+    .blog-cta p { color: rgba(255,255,255,0.85); margin-bottom: 1.25rem; }
+    .blog-cta a { display: inline-block; background: #fff; color: #3D5C2E; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; text-decoration: none; }
+    .info-box { background: var(--st-surface-variant); border-left: 4px solid #3D5C2E; border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+    .info-box p { margin: 0; }
+    </style>
+</head>
+<body data-blog-en="../image-editing-basics.html">
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../../" class="st-logo">
+                <img src="../../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="ナビゲーション切り替え">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="../../#tools" data-i18n="common.nav_tools">ツール</a>
+                <a href="../index.html">ブログ</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">English</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="st-page-wide">
+        <div class="blog-article">
+            <div class="blog-meta">
+                <span class="blog-tag">画像ツール</span>
+                <span>2026/04/10</span>
+                <span>6分読了</span>
+            </div>
+
+            <h1>画像編集の基本：より良い写真のための必須テクニック</h1>
+            <p>Photoshopは必要ありません。基本的な調整（明度、コントラスト、彩度、ホワイトバランス、トリミング）を理解することで、フラットまたは露出不足の画像をプロのような結果に変えることができます。このガイドでは、各テクニックと、いつそれを適用するかを説明します。</p>
+
+            <h2>調整の順序が重要</h2>
+            <p>プロの写真編集者は一貫したワークフローに従います。間違った順序で調整すると、前のステップをやり直すことが強制されます。推奨される順序：</p>
+            <ol>
+                <li><strong>トリミングと回転</strong> — 最初に構図を定義</li>
+                <li><strong>露出/明度</strong> — 全体の明度を調整</li>
+                <li><strong>コントラスト</strong> — ハイライトとシャドウを分離</li>
+                <li><strong>ホワイトバランス</strong> — 色温度を補正</li>
+                <li><strong>彩度/ビブランス</strong> — 色の濃度を調整</li>
+                <li><strong>シャープネス</strong> — 最後に適用してオーバーシャープン化を避ける</li>
+            </ol>
+
+            <h2>コア調整テクニック</h2>
+
+            <div class="technique-card">
+                <div class="technique-icon">☀️</div>
+                <div>
+                    <h3>明度と露出</h3>
+                    <p>画像の全体的な明るさをコントロールします。明度を上げるとすべてのピクセルが明るくなり、下げるとすべてが暗くなります。露出不足の写真（暗すぎる）の場合は明度を上げます。露出過度の写真（白っぽい）の場合は下げます。極端な調整はハイライトまたはシャドウの詳細が失われるので注意してください。</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-icon">◑</div>
+                <div>
+                    <h3>コントラスト</h3>
+                    <p>明るい領域と暗い領域の差を増やします。コントラストが低い写真は灰色でフラットに見えます。コントラストを上げると色が鮮やかになり、画像がより鮮明に見えます。コントラストが多すぎるとシャドウが純黒になり、ハイライトが飛びます。通常、中程度の増加（10～30%）で十分です。</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-icon">🌡️</div>
+                <div>
+                    <h3>ホワイトバランス（色温度）</h3>
+                    <p>異なる光源によって引き起こされる色かぶりを補正します。室内の人工光は写真を黄色/オレンジにします。曇りの日は青色のかぶり。蛍光灯は緑色のかぶりを引き起こします。温度スライダーを青側に移動させると暖色のかぶりが補正でき、オレンジ側に移動させると寒色のかぶりが補正できます。ティントスライダーは緑/マゼンタの不均衡を修正します。</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-icon">🎨</div>
+                <div>
+                    <h3>彩度とビブランス</h3>
+                    <p>彩度はすべての色の色の濃度を均一にコントロールします。ビブランスはより賢いバージョンです。彩度の低い色をより積極的にブーストしながら、既に飽和した色と肌トーンを保護します。自然な結果のために、彩度ではなくビブランスを選びます。彩度を0%に下げるとモノクロ画像になります。</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-icon">✂️</div>
+                <div>
+                    <h3>トリミングと回転</h3>
+                    <p>トリミングは気を散らす要素を削除し、構図を改善します。三分の一の法則（3×3のグリッドの4つの交差点のいずれかに被写体を配置）により、被写体を中央に配置するよりも動的な構図が作成されます。地平線と垂直線は回転ツールで真っすぐにしてください。傾いた地平線は最も一般的な構図の欠陥です。</p>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <div class="technique-icon">🔍</div>
+                <div>
+                    <h3>シャープネス</h3>
+                    <p>シャープニングはエッジの定義を強化し、写真をより鮮明に見えさせます。特に詳細が多い被写体（テクスチャ、建築、製品写真）に効果的です。シャープネスを評価する際は、必ず100%にズームしてください。オーバーシャープニングはザラザラした人工的な見た目になり、エッジの周りにハロがあります。すべての他の調整後に最後にシャープネスを適用してください。</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>非破壊編集：</strong>可能な限り調整レイヤーで作業するか、元のファイルを保持します。これにより、個々の調整を再検討および修正でき、複数の保存サイクルからの画像品質低下を避けることができます。</p>
+            </div>
+
+            <h2>一般的なシナリオとクイック修正</h2>
+            <h3>暗い室内写真</h3>
+            <p>明度を20～30%上げ、コントラストを10～15%ブーストして深度を復元し、ホワイトバランスをわずかに暖かくして暗い露出下での冷たい見た目に対抗します。</p>
+
+            <h3>フラットな色の屋外写真</h3>
+            <p>コントラストを15～25%上げ、ビブランス（彩度ではなく）を10～15%わずかに上げ、空が自然に見えるかどうか確認してください。過度な飽和状態への押し込みを避けてください。</p>
+
+            <h3>肌色のポートレート</h3>
+            <p>肌トーンの彩度は控えめにしてください。彩度の代わりにビブランスを使用してください。軽微な明度増加、最小限のコントラスト。ホワイトバランスが中立であることを確認してください。肌は自然に見えるべきで、オレンジまたはマゼンタに見えるべきではありません。</p>
+
+            <h3>白い背景の製品写真</h3>
+            <p>背景が真っ白であることを確認するために明度を上げ、製品を目立たせるために軽いコントラストを追加し、シャープネスが詳細の可視性のために高いことを確認します。スタジオ照明のカラーキャストを削除してください。</p>
+
+            <div class="blog-cta">
+                <h3>ブラウザで無料に画像を編集</h3>
+                <p>SnapToolboxのImage Editorを使用して、明度、コントラスト、彩度などを調整できます。ソフトウェアをインストールせず、登録も不要で完全に無料です。</p>
+                <a href="../../tools/image-editor.html">画像エディタを開く</a>
+            </div>
+
+            <h2>まとめ</h2>
+            <p>効果的な画像編集は一貫したワークフローに従います：最初にトリミング、次に露出、コントラスト、ホワイトバランス、彩度、最後にシャープネス。大きな変更よりも小さなターゲット調整がほぼ常に見栄えが良くなります。目標は、キャプチャされたものを強化することであり、人工的な見た目を作成することではありません。これら6つの領域でも控えめに改善すると、普通の写真を魅力的な画像に変えることができます。</p>
+        </div>
+    </main>
+
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_image_tools">画像ツール</h4>
+                    <a href="../../" data-i18n="index.tool_image_compressor">画像圧縮</a>
+                    <a href="../../tools/image-editor.html" data-i18n="index.tool_image_editor">画像エディタ</a>
+                    <a href="../../tools/pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF変換</a>
+                    <a href="../../tools/youtube-thumbnail.html" data-i18n="index.tool_youtube_thumb">YouTubeサムネイル</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">その他のツール</h4>
+                    <a href="../../tools/json-formatter.html" data-i18n="index.tool_json">JSONフォーマッター</a>
+                    <a href="../../tools/character-counter.html" data-i18n="index.tool_char">文字数カウント</a>
+                    <a href="../../tools/color-converter.html" data-i18n="index.tool_color">カラーコード変換</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4>ブログ</h4>
+                    <a href="../index.html">すべての記事</a>
+                    <a href="image-editing-basics.html">画像編集の基本</a>
+                    <a href="how-to-compress-images.html">画像圧縮ガイド</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">法務</h4>
+                    <a href="../../legal/privacy-policy.html" data-i18n="common.footer_privacy">プライバシーポリシー</a>
+                    <a href="../../legal/terms-of-service.html" data-i18n="common.footer_terms">利用規約</a>
+                    <a href="../../legal/cookie-policy.html" data-i18n="common.footer_cookies">クッキーポリシー</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">We use cookies to improve your experience and analyze site traffic.</span> <a href="../../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">Cookie Policy</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">Decline</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/i18n.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="画像圧縮の基礎を解説。JPEG・PNG・WebPのファイルサイズを品質を保ちながら削減する方法を初心者向けにわかりやすくご説明します。">
+    <meta name="keywords" content="画像圧縮ガイド, 画像の圧縮, 画像ファイルサイズの削減, JPEG圧縮, PNG圧縮, WebP, 画像最適化">
+    <meta name="author" content="SnapToolbox">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#3D5C2E">
+
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png">
+    <link rel="manifest" href="../../manifest.json">
+    <link rel="canonical" href="https://snaptoolbox.app/blog/ja/how-to-compress-images.html">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5450108505357223" crossorigin="anonymous"></script>
+
+    <meta property="og:title" content="画像圧縮のやり方：完全ガイド | SnapToolbox ブログ">
+    <meta property="og:description" content="画像圧縮の方法を徹底解説。ファイルサイズを削減しながら品質を保つ。JPEG・PNG・WebP形式に対応。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://snaptoolbox.app/blog/ja/how-to-compress-images.html">
+    <meta property="og:site_name" content="SnapToolbox">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="画像圧縮のやり方：完全ガイド | SnapToolbox ブログ">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <title>画像圧縮のやり方：完全ガイド | SnapToolbox ブログ</title>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "画像圧縮の基礎と活用法",
+        "description": "JPEG・PNG・WebPのファイルサイズを品質を保ちながら削減する実用的なガイド。",
+        "url": "https://snaptoolbox.app/blog/ja/how-to-compress-images.html",
+        "datePublished": "2026-04-10",
+        "dateModified": "2026-04-10",
+        "author": { "@type": "Organization", "name": "SnapToolbox" },
+        "publisher": { "@type": "Organization", "name": "SnapToolbox", "url": "https://snaptoolbox.app" },
+        "isPartOf": { "@type": "WebSite", "name": "SnapToolbox", "url": "https://snaptoolbox.app" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://snaptoolbox.app/" },
+            { "@type": "ListItem", "position": 2, "name": "ブログ", "item": "https://snaptoolbox.app/blog/" },
+            { "@type": "ListItem", "position": 3, "name": "画像圧縮のやり方", "item": "https://snaptoolbox.app/blog/ja/how-to-compress-images.html" }
+        ]
+    }
+    </script>
+
+    <style>
+    .blog-hero {
+        padding: 3rem 1rem 2rem;
+        max-width: 780px;
+        margin: 0 auto;
+    }
+    .blog-meta {
+        font-size: 0.875rem;
+        color: var(--st-text-secondary);
+        margin-bottom: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .blog-tag {
+        background: #E8F0E3;
+        color: #3D5C2E;
+        padding: 0.2rem 0.6rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    .blog-article {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+    }
+    .blog-article h1 {
+        font-size: 2rem;
+        font-weight: 800;
+        color: var(--st-text);
+        margin-bottom: 1rem;
+        line-height: 1.3;
+    }
+    .blog-article h2 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--st-text);
+        margin: 2.5rem 0 0.75rem;
+        padding-top: 0.5rem;
+        border-top: 2px solid var(--st-outline-variant);
+    }
+    .blog-article h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--st-text);
+        margin: 1.5rem 0 0.5rem;
+    }
+    .blog-article p {
+        color: var(--st-text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+    .blog-article ul, .blog-article ol {
+        color: var(--st-text-secondary);
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+    .blog-article li {
+        margin-bottom: 0.4rem;
+    }
+    .blog-cta {
+        background: linear-gradient(135deg, #3D5C2E, #5A8A3C);
+        color: #fff;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        margin: 2.5rem 0;
+    }
+    .blog-cta h3 {
+        color: #fff;
+        margin: 0 0 0.5rem;
+        font-size: 1.2rem;
+    }
+    .blog-cta p {
+        color: rgba(255,255,255,0.85);
+        margin-bottom: 1.25rem;
+    }
+    .blog-cta a {
+        display: inline-block;
+        background: #fff;
+        color: #3D5C2E;
+        font-weight: 700;
+        padding: 0.65rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: opacity 0.2s;
+    }
+    .blog-cta a:hover { opacity: 0.85; }
+    .info-box {
+        background: var(--st-surface-variant);
+        border-left: 4px solid #3D5C2E;
+        border-radius: 0 8px 8px 0;
+        padding: 1rem 1.25rem;
+        margin: 1.5rem 0;
+    }
+    .info-box p { margin: 0; }
+    </style>
+</head>
+<body data-blog-en="../how-to-compress-images.html">
+    <header class="st-header">
+        <div class="st-header-inner">
+            <a href="../../" class="st-logo">
+                <img src="../../img/mascot/sloth-icon-48.png" alt="SnapToolbox" class="st-logo-icon" width="34" height="34">
+                SnapToolbox
+            </a>
+            <button class="st-nav-toggle" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <nav class="st-nav">
+                <a href="../../#tools" data-i18n="common.nav_tools">ツール</a>
+                <a href="../index.html">ブログ</a>
+                <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">English</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="st-page-wide">
+        <div class="blog-article">
+            <div class="blog-meta">
+                <span class="blog-tag">画像ツール</span>
+                <span>2026年4月10日</span>
+                <span>5分で読了</span>
+            </div>
+
+            <h1>画像圧縮のやり方：基礎と実践的なコツ</h1>
+            <p>画像はWebサイトを遅くさせる最大の要因です。圧縮していないJPEGは5～10MBになることもありますが、同じ写真を適切に圧縮すれば、見た目の変わりはほぼなく500KB以下にすることができます。このガイドでは、画像圧縮がどのように機能するのか、そして効果的に使う方法を解説します。</p>
+
+            <h2>画像圧縮とは</h2>
+            <p>画像圧縮は、冗長なデータを削除することでファイルサイズを削減するプロセスです。基本的には2つのアプローチがあります：</p>
+            <ul>
+                <li><strong>非可逆圧縮</strong>は画像データの一部を永続的に削除します。JPEGがこの方式を使い、品質レベルで制御できます。圧縮率が高いほどファイルサイズは小さくなりますが、ノイズが増えます。</li>
+                <li><strong>可逆圧縮</strong>はデータを失わずにファイルサイズを削減します。PNGは可逆圧縮を使い、解凍したファイルは元のファイルと同じです。</li>
+            </ul>
+            <p>WebPは非可逆・可逆の両方に対応しており、最も柔軟なモダン画像形式です。</p>
+
+            <h2>画像圧縮が必要な場面</h2>
+            <p>画像圧縮が重要になる状況はいくつかあります：</p>
+            <ul>
+                <li><strong>Webサイト最適化：</strong>大きな画像はページ読み込み時間を遅くし、ユーザー体験とSEOランキングに悪影響を与えます。</li>
+                <li><strong>メール添付：</strong>メールプロバイダーは通常、添付ファイルサイズを10～25MB程度に制限しています。圧縮された画像はこの範囲内に収まります。</li>
+                <li><strong>SNS投稿：</strong>InstagramやTwitterなどのプラットフォームはいずれにしてもあなたの画像を再圧縮します。最適化されたファイルを投稿すれば、最終的な出力をより制御できます。</li>
+                <li><strong>クラウドストレージ：</strong>休暇写真のフォルダを圧縮すれば、ストレージ使用量をギガバイト単位からメガバイト単位に削減できます。</li>
+                <li><strong>モバイルアプリ：</strong>限られたデータプランのユーザーは、大きな画像をダウンロードしないアプリを高く評価します。</li>
+            </ul>
+
+            <h2>適切な形式を選択する</h2>
+            <h3>JPEG — 写真に最適</h3>
+            <p>JPEGは写真やグラデーションや多くの色を含む複雑な画像に最適です。品質設定は70～85%が、ファイルサイズと視覚的品質の良いバランスを実現します。60%以下では圧縮アーティファクトが見えるようになります。</p>
+
+            <h3>PNG — グラフィックスとスクリーンショットに最適</h3>
+            <p>透明度が必要な場合、またはテキスト、鋭いエッジ、単色（ロゴ、アイコン、UI スクリーンショット）を含む画像に PNG を使用します。PNGの可逆性により、同じ視覚的品質のJPEGと比べてピクセルパーフェクトな品質を確保できますが、ファイルサイズはより大きくなります。</p>
+
+            <h3>WebP — Web用に最適</h3>
+            <p>WebPは同等の品質でJPEGより25～35%小さいファイルサイズを実現し、透明度をサポートしています。すべてのモダンブラウザが現在対応しています。Webサイトを構築する場合、WebPへの変換は最高の最適化の1つです。</p>
+
+            <div class="info-box">
+                <p><strong>ヒント：</strong>Core Web Vitals（Googleのサイト性能指標）では、各画像は理想的には200KB以下にすべきです。<em>最大視認可能要素（LCP）</em>メトリクスはしばしばヒーロー画像が支配的です。ヒーロー画像を最適化すればスコアを大幅に改善できます。</p>
+            </div>
+
+            <h2>ステップバイステップ：SnapToolboxで画像を圧縮する</h2>
+            <ol>
+                <li><a href="../../">SnapToolbox Image Compressor</a>を開きます。</li>
+                <li>画像ファイルをドラッグ&ドロップするか（またはクリックして選択）します。</li>
+                <li>品質スライダーを調整します。まず80%から開始して、ファイルサイズが必要な大きさになるまで下げます。</li>
+                <li>出力形式を選択します（JPEG、PNG、またはWebP）。</li>
+                <li>「ダウンロード」をクリックして圧縮された画像を保存します。</li>
+            </ol>
+            <p>すべてはブラウザで実行されます。ファイルがサーバーにアップロードされることはありません。つまり、画像は安全に保たれ、処理は瞬時です。</p>
+
+            <h2>ユースケース別の実用的なターゲット</h2>
+            <ul>
+                <li><strong>ブログのヒーロー画像：</strong>200KB以下、幅1200pxまで</li>
+                <li><strong>商品写真（eコマース）：</strong>150KB以下、WebPを使用</li>
+                <li><strong>サムネイル：</strong>50KB以下</li>
+                <li><strong>メール内のインライン画像：</strong>100KB以下</li>
+                <li><strong>プロフィール画像：</strong>30KB以下、200×200pxで</li>
+            </ul>
+
+            <h2>よくある間違いを避ける</h2>
+            <p>多くの人は画像を圧縮しすぎるか、圧縮が不十分です。最も一般的な落とし穴は以下の通りです：</p>
+            <ul>
+                <li>すでに圧縮されたJPEGを再圧縮するとダブル圧縮アーティファクトが生じます。常に元のファイルを保持し、そこから圧縮してください。</li>
+                <li>写真にPNGを使うと膨大なファイルサイズになります。代わりにJPEGまたはWebPを使ってください。</li>
+                <li>画像の寸法を無視する。400×300で表示する4000×3000の写真は帯域幅を浪費しています。まずリサイズしてから圧縮してください。</li>
+                <li>実際のデバイスでテストしない。大きなモニターでは良く見える圧縮アーティファクトがスマートフォン画面では悪く見えるかもしれません。</li>
+            </ul>
+
+            <div class="blog-cta">
+                <h3>SnapToolbox Image Compressor を試す — 無料</h3>
+                <p>JPEG、PNG、WebP画像をブラウザで直接圧縮。アップロード、登録、制限なし。</p>
+                <a href="../../">今すぐ画像を圧縮</a>
+            </div>
+
+            <h2>まとめ</h2>
+            <p>画像圧縮はWebサイトの性能、ストレージ効率、ファイル共有に対して最も高い影響を与える最適化の1つです。写真にはJPEG、グラフィックスにはPNG、モダンブラウザを対象とするときはWebPを選択してください。ほとんどのユースケースでは品質設定を70～85%に設定し、常に公開する前に結果を視覚的にテストしてください。</p>
+        </div>
+    </main>
+
+    <footer class="st-footer">
+        <div class="st-footer-inner">
+            <div class="st-footer-grid">
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_image_tools">画像ツール</h4>
+                    <a href="../../" data-i18n="index.tool_image_compressor">Image Compressor</a>
+                    <a href="../../tools/image-editor.html" data-i18n="index.tool_image_editor">Image Editor</a>
+                    <a href="../../tools/pdf-converter.html" data-i18n="index.tool_pdf_converter">PDF Converter</a>
+                    <a href="../../tools/youtube-thumbnail.html" data-i18n="index.tool_youtube_thumb">YouTube Thumbnail</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_other_tools">その他のツール</h4>
+                    <a href="../../tools/json-formatter.html" data-i18n="index.tool_json">JSON Formatter</a>
+                    <a href="../../tools/character-counter.html" data-i18n="index.tool_char">Character Counter</a>
+                    <a href="../../tools/color-converter.html" data-i18n="index.tool_color">Color Converter</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4>ブログ</h4>
+                    <a href="../index.html">すべての記事</a>
+                    <a href="how-to-compress-images.html">画像圧縮ガイド</a>
+                    <a href="youtube-thumbnail-tips.html">YouTubeサムネイルのコツ</a>
+                </div>
+                <div class="st-footer-col">
+                    <h4 data-i18n="common.footer_legal">法務</h4>
+                    <a href="../../legal/privacy-policy.html" data-i18n="common.footer_privacy">プライバシーポリシー</a>
+                    <a href="../../legal/terms-of-service.html" data-i18n="common.footer_terms">利用規約</a>
+                    <a href="../../legal/cookie-policy.html" data-i18n="common.footer_cookies">クッキーポリシー</a>
+                </div>
+            </div>
+            <div class="st-footer-bottom">
+                <span data-i18n-html="common.footer_copyright">&copy; 2026 SnapToolbox. All rights reserved.</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="st-cookie" id="cookieBanner">
+        <div class="st-cookie-inner">
+            <p><span data-i18n="common.cookie_message">ユーザー体験の向上とサイトトラフィックの分析のためにクッキーを使用しています。</span> <a href="../../legal/cookie-policy.html" data-i18n="common.cookie_policy_link">クッキーポリシー</a></p>
+            <div class="st-cookie-buttons">
+                <button class="st-btn st-btn-secondary" onclick="CookieConsent.decline()" data-i18n="common.cookie_decline">拒否</button>
+                <button class="st-btn st-btn-primary" onclick="CookieConsent.accept()" data-i18n="common.cookie_accept">同意</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/common.js"></script>
+    <script src="../../js/i18n.js"></script>
+</body>
+</html>

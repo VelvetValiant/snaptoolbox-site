@@ -21,6 +21,7 @@ const I18N = {
         footer_image_tools: 'Image Tools',
         footer_other_tools: 'Other Tools',
         footer_legal: 'Legal',
+        footer_blog: 'Blog',
         footer_about: 'About',
         footer_privacy: 'Privacy Policy',
         footer_terms: 'Terms of Service',
@@ -57,6 +58,7 @@ const I18N = {
         footer_image_tools: '画像ツール',
         footer_other_tools: 'その他のツール',
         footer_legal: '法的情報',
+        footer_blog: 'ブログ',
         footer_about: 'サイトについて',
         footer_privacy: 'プライバシーポリシー',
         footer_terms: '利用規約',
@@ -1297,6 +1299,90 @@ const I18N = {
         privacy_note: '在瀏覽器中使用加密隨機數產生。絕不會傳送至伺服器。',
       }
     },
+
+    // ===== Blog =====
+    blog: {
+      en: {
+        hero_title: 'SnapToolbox Blog',
+        hero_desc: 'Practical guides and tips for making the most of free online tools — from image optimization to web development utilities.',
+        tag_image: 'Image Tools',
+        tag_youtube: 'YouTube Tools',
+        tag_dev: 'Developer Tools',
+        tag_prod: 'Productivity',
+        tag_web: 'Web Development',
+        tag_doc: 'Document Tools',
+        read_article: 'Read article →',
+        card1_title: 'How to Compress Images: Basics and Practical Tips',
+        card1_desc: 'Learn how image compression works, when to use JPEG vs PNG vs WebP, and how to hit the right file size targets for web and email.',
+        card1_read: '5 min read',
+        card2_title: 'YouTube Thumbnail Tips: A Complete Creation Guide',
+        card2_desc: 'Design thumbnails that get clicks — covers the 1280×720 spec, contrast principles, face psychology, text placement, and A/B testing.',
+        card2_read: '6 min read',
+        card3_title: 'JSON Formatting Guide: How to Read, Write and Debug JSON',
+        card3_desc: 'Understand JSON data types, syntax rules, common errors (trailing commas, single quotes), and when to use JSON vs YAML vs CSV.',
+        card3_read: '7 min read',
+        card4_title: 'Character Counting Tips: Social Media, SEO and Beyond',
+        card4_desc: 'Master character limits for Twitter, Instagram, LinkedIn, SEO meta tags, and SMS — with practical tips for writing within constraints.',
+        card4_read: '5 min read',
+        card5_title: 'Unit Conversion Guide: Essential Conversions for Everyday Use',
+        card5_desc: 'Quick-reference guide for length, weight, temperature, area, volume, and digital storage — with mental math shortcuts.',
+        card5_read: '6 min read',
+        card6_title: 'Color Code Converter Guide: HEX, RGB, HSL, and HSB',
+        card6_desc: 'Understand every web color format — when to use HEX vs RGB vs HSL, why HSL is powerful for theming, and WCAG contrast.',
+        card6_read: '6 min read',
+        card7_title: 'Image Editing Basics: Essential Techniques for Better Photos',
+        card7_desc: 'The correct order of adjustments and how to use brightness, contrast, white balance, saturation, cropping, and sharpness.',
+        card7_read: '6 min read',
+        card8_title: 'PDF Conversion Tips: Convert, Compress, and Manage PDF Files',
+        card8_desc: 'Practical guide to converting images to PDF, reducing oversized PDFs, choosing the right DPI, and privacy with browser-based tools.',
+        card8_read: '5 min read',
+        foot_all: 'All Articles',
+        foot_compress: 'Image Compression',
+        foot_thumbnail: 'YouTube Thumbnails',
+        foot_json: 'JSON Formatting',
+        foot_char: 'Character Counting',
+      },
+      ja: {
+        hero_title: 'SnapToolbox ブログ',
+        hero_desc: '無料オンラインツールを最大限に活用するための実践ガイド集 — 画像最適化からWeb開発ユーティリティまで。',
+        tag_image: '画像ツール',
+        tag_youtube: 'YouTubeツール',
+        tag_dev: '開発者ツール',
+        tag_prod: '生産性',
+        tag_web: 'Web開発',
+        tag_doc: 'ドキュメントツール',
+        read_article: '記事を読む →',
+        card1_title: '画像圧縮の基礎と実践テクニック',
+        card1_desc: '画像圧縮の仕組み、JPEG・PNG・WebPの使い分け、Web・メール向けの最適なファイルサイズ目標を解説。',
+        card1_read: '5分で読める',
+        card2_title: 'YouTubeサムネイル作成ガイド：完全版',
+        card2_desc: 'クリックされるサムネイルのデザイン — 1280×720仕様、コントラスト原則、顔の心理効果、テキスト配置、A/Bテスト。',
+        card2_read: '6分で読める',
+        card3_title: 'JSON整形ガイド：読み方・書き方・デバッグ方法',
+        card3_desc: 'JSONのデータ型、構文ルール、よくあるエラー（末尾カンマ、シングルクォート）、JSON vs YAML vs CSV。',
+        card3_read: '7分で読める',
+        card4_title: '文字数カウントのコツ：SNS・SEO・実務活用法',
+        card4_desc: 'Twitter、Instagram、LinkedIn、SEOメタタグ、SMSの文字数制限を攻略。制約内で書くための実践テクニック。',
+        card4_read: '5分で読める',
+        card5_title: '単位変換ガイド：日常で使える必須変換まとめ',
+        card5_desc: '長さ・重さ・温度・面積・体積・デジタルストレージのクイックリファレンス。暗算のコツも紹介。',
+        card5_read: '6分で読める',
+        card6_title: 'カラーコード変換ガイド：HEX・RGB・HSL・HSB',
+        card6_desc: 'Webカラー形式を完全理解 — HEX vs RGB vs HSLの使い分け、テーマ設計でのHSL活用法、WCAGコントラスト。',
+        card6_read: '6分で読める',
+        card7_title: '画像編集の基礎：写真を劇的に良くするテクニック',
+        card7_desc: '正しい調整順序と、明るさ・コントラスト・ホワイトバランス・彩度・トリミング・シャープネスの効果的な使い方。',
+        card7_read: '6分で読める',
+        card8_title: 'PDF変換のコツ：作成・圧縮・管理の実践ガイド',
+        card8_desc: '画像からPDFへの変換、大きすぎるPDFの圧縮、適切なDPIの選び方、ブラウザベースツールでのプライバシー保護。',
+        card8_read: '5分で読める',
+        foot_all: 'すべての記事',
+        foot_compress: '画像圧縮',
+        foot_thumbnail: 'YouTubeサムネイル',
+        foot_json: 'JSON整形',
+        foot_char: '文字数カウント',
+      }
+    },
   },
 
   // --- Detect Language ---
@@ -1478,8 +1564,29 @@ const I18N = {
   toggleLang() {
     const order = ['en', 'ja', 'zh-TW'];
     const idx = order.indexOf(this.currentLang);
-    this.currentLang = order[(idx + 1) % order.length];
-    localStorage.setItem('snaptools_lang', this.currentLang);
+    const newLang = order[(idx + 1) % order.length];
+    this.currentLang = newLang;
+    localStorage.setItem('snaptools_lang', newLang);
+
+    // Blog article redirect: EN ↔ JA
+    const path = window.location.pathname;
+    if (path.includes('/blog/')) {
+      // On English blog article → switch to JA
+      if (newLang === 'ja' && !path.includes('/blog/ja/')) {
+        const filename = path.split('/').pop() || 'index.html';
+        const jaUrl = path.replace(/\/blog\/[^/]+$/, '/blog/ja/' + filename);
+        window.location.href = jaUrl;
+        return;
+      }
+      // On JA blog article → switch to EN
+      if (newLang !== 'ja' && path.includes('/blog/ja/')) {
+        const filename = path.split('/').pop() || 'index.html';
+        const enUrl = path.replace('/blog/ja/' + filename, '/blog/' + filename);
+        window.location.href = enUrl;
+        return;
+      }
+    }
+
     this.applyTranslations();
   },
 
