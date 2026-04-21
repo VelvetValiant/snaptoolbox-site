@@ -1,10 +1,46 @@
+# SnapToolbox — robots.txt
+# https://snaptoolbox.app
+
 User-agent: *
 Allow: /
+Disallow: /.claude/
+Disallow: /img/mascot/
+Disallow: /*.json$
 
+# Google
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
+User-agent: Googlebot-Image
+Allow: /img/
+Disallow: /img/mascot/
+
+# Bing
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 2
+
+# AI crawlers — opt out of training data scraping
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 Sitemap: https://snaptoolbox.app/sitemap.xml

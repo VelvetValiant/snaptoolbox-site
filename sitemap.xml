@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <!-- Main pages -->
   <url>
     <loc>https://snaptoolbox.app/</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,43 +12,43 @@
     <loc>https://snaptoolbox.app/about.html</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
 
   <!-- Tool pages -->
   <url>
     <loc>https://snaptoolbox.app/tools/json-formatter.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://snaptoolbox.app/tools/character-counter.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://snaptoolbox.app/tools/color-converter.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://snaptoolbox.app/tools/image-editor.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://snaptoolbox.app/tools/pdf-converter.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://snaptoolbox.app/tools/youtube-thumbnail.html</loc>
-    <lastmod>2026-04-11</lastmod>
+    <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -112,6 +113,12 @@
 
   <!-- Blog articles (Japanese) -->
   <url>
+    <loc>https://snaptoolbox.app/blog/ja/index.html</loc>
+    <lastmod>2026-04-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://snaptoolbox.app/blog/ja/how-to-compress-images.html</loc>
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -158,12 +165,6 @@
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://snaptoolbox.app/blog/ja/index.html</loc>
-    <lastmod>2026-04-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
 
   <!-- Legal pages -->
