@@ -968,6 +968,7 @@
             </button>
             <nav class="st-nav">
                 <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../blog/" data-i18n="common.nav_blog">Blog</a>
                 <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
@@ -1119,6 +1120,54 @@
                 <div><span data-i18n="image_editor.edited_size">Edited</span>: <span id="editSize">—</span></div>
             </div>
         </div>
+
+        <!-- FAQ & Explanation Section -->
+        <section class="st-faq-section" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="image_editor.faq_how_title">How to Use the Image Editor</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="image_editor.faq_how_step1"><strong>Step 1:</strong> Upload an image by clicking the upload area or dragging and dropping a file. The editor supports JPEG, PNG, and WebP formats of any size.</p>
+                <p data-i18n="image_editor.faq_how_step2"><strong>Step 2:</strong> Use the adjustment tabs to modify your image. The "Adjust" tab provides sliders for brightness, contrast, saturation, and blur. The "Crop" tab lets you select and trim a specific area. The "Rotate" tab offers rotation and flip options.</p>
+                <p data-i18n="image_editor.faq_how_step3"><strong>Step 3:</strong> Apply filters from the "Filter" tab for quick creative effects — grayscale, sepia, invert, and more. You can combine filters with manual adjustments for unique results.</p>
+                <p data-i18n="image_editor.faq_how_step4"><strong>Step 4:</strong> When satisfied, choose your output format (JPEG, PNG, or WebP) and quality level, then click "Download" to save the edited image. Use "Reset" at any time to return to the original.</p>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="image_editor.faq_what_title">What Is a Browser-Based Image Editor?</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="image_editor.faq_what_body">A browser-based image editor lets you adjust, crop, rotate, and apply filters to images directly in your web browser without installing any software. Unlike desktop applications like Photoshop or GIMP, everything runs through the HTML5 Canvas API and CSS filters in your browser — there is no download, no subscription, and no learning curve. We created this tool because many people need quick image adjustments — brightening a dark photo before uploading to social media, cropping an image for a blog post, or converting between formats — without the overhead of opening a full editing suite. Since all processing happens on your device, your images stay private and the edits are instant regardless of your internet speed. This makes it ideal for quick fixes on any device, including tablets and smartphones.</p>
+            </div>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="image_editor.faq_section_title">Frequently Asked Questions</h3>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="image_editor.faq_q1">What image formats are supported?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="image_editor.faq_a1">The editor accepts JPEG, PNG, WebP, and most other formats that modern browsers support, including GIF (first frame), BMP, and SVG. For output, you can choose between JPEG (best for photographs, smaller file sizes), PNG (lossless, best for graphics with transparency), and WebP (modern format with excellent compression and quality). The quality slider lets you fine-tune the file-size-to-quality ratio for JPEG and WebP exports.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="image_editor.faq_q2">What is the difference between brightness and contrast?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="image_editor.faq_a2">Brightness uniformly lightens or darkens every pixel in the image — increasing it makes the whole image lighter, decreasing it makes it darker. Contrast adjusts the difference between the lightest and darkest parts of the image. Increasing contrast makes light areas lighter and dark areas darker, giving the image more visual "punch." Decreasing contrast brings the tones closer together, producing a flatter, more muted look. For most photos, a small increase in both brightness (+5 to +15) and contrast (+10 to +20) produces a noticeably improved result without looking over-processed.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="image_editor.faq_q3">Can I undo my edits?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="image_editor.faq_a3">Yes. The "Reset" button restores the image to its original state, undoing all adjustments, crops, rotations, and filters at once. Since the original image is kept in memory for the duration of your session, you can experiment freely and reset at any point. For a non-destructive workflow, we recommend downloading intermediate versions before making major changes — this way you always have a fallback even after resetting.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="image_editor.faq_q4">Is there a file size limit?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="image_editor.faq_a4">There is no fixed file size limit because all processing happens in your browser's memory. In practice, most devices can comfortably handle images up to 20–30 megapixels (roughly 6000×5000 pixels). Very large images — such as RAW exports from professional cameras — may cause slower rendering on older devices. If you experience lag, try reducing the image dimensions before uploading, or use a device with more RAM. Smartphones typically handle images from their own camera with no issues.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="image_editor.faq_q5">Why should I use WebP format?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="image_editor.faq_a5">WebP is a modern image format developed by Google that provides both lossy and lossless compression. At the same visual quality, WebP files are typically 25–35% smaller than JPEG and 25% smaller than PNG. This means faster page loads, less bandwidth usage, and lower storage costs. All modern browsers — Chrome, Firefox, Safari, and Edge — support WebP. It is the recommended format for web images when you do not need to support very old browsers. If you need transparency (like a logo with a transparent background), WebP supports it with smaller file sizes than PNG.</p>
+            </details>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="image_editor.faq_tips_title">Image Editing Best Practices</h3>
+            <div style="line-height: 1.8; color: var(--st-text-secondary);">
+                <p data-i18n="image_editor.faq_tips_body">Start with cropping to remove unnecessary background and focus on your subject — this also reduces file size. Next, adjust brightness and contrast together; they work as a pair. Increase saturation slightly (+10 to +20) to make colors pop without looking artificial. For social media thumbnails, higher contrast and saturation tend to attract more attention in crowded feeds. When preparing images for a website, export as WebP at 80–85% quality for the best balance of quality and performance. Always check how your edited image looks on both desktop and mobile screens, as brightness perception varies across display types. Finally, keep your original file — never edit and overwrite the original, so you can always start fresh if needed.</p>
+            </div>
+        </section>
 
         <!-- SNS Links -->
         <div id="snsLinksSection"></div>

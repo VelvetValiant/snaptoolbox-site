@@ -1305,6 +1305,7 @@
             </button>
             <nav class="st-nav">
                 <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../blog/" data-i18n="common.nav_blog">Blog</a>
                 <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
@@ -1469,6 +1470,54 @@
                 </button>
             </div>
         </div>
+
+        <!-- FAQ & Explanation Section -->
+        <section class="st-faq-section" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="pdf_converter.faq_how_title">How to Use the PDF Converter</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="pdf_converter.faq_how_step1"><strong>Step 1:</strong> Choose your conversion direction — either "PDF to Images" to extract pages as image files, or "Images to PDF" to combine multiple images into a single PDF document.</p>
+                <p data-i18n="pdf_converter.faq_how_step2"><strong>Step 2:</strong> Upload your file(s) by clicking the upload area or dragging and dropping. For PDF-to-image conversion, select one PDF. For image-to-PDF, you can select multiple images at once and reorder them before conversion.</p>
+                <p data-i18n="pdf_converter.faq_how_step3"><strong>Step 3:</strong> Adjust the output settings. For PDF-to-image, choose the image format (PNG or JPEG) and quality level. For image-to-PDF, set the page size and orientation to match your needs.</p>
+                <p data-i18n="pdf_converter.faq_how_step4"><strong>Step 4:</strong> Click "Convert" and download the result. All conversion happens in your browser — your files are never uploaded to any server, ensuring complete privacy.</p>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="pdf_converter.faq_what_title">What Is PDF Conversion?</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="pdf_converter.faq_what_body">PDF (Portable Document Format) is the universal standard for sharing documents while preserving their layout across different devices and operating systems. However, there are many situations where you need to convert between PDF and image formats. Extracting pages as images is essential for presentations, social media posts, or when you need to edit individual pages in a graphics application. Conversely, combining images into a PDF is the standard way to digitize scanned documents, create portfolios, or package multiple photos into a single shareable file. We built this tool because most online PDF converters require you to upload your files to their servers, creating privacy risks — especially for sensitive business documents, contracts, or personal records. Our converter uses modern browser technologies like PDF.js and Canvas API to perform all processing locally on your device, so your documents never leave your computer.</p>
+            </div>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="pdf_converter.faq_section_title">Frequently Asked Questions</h3>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="pdf_converter.faq_q1">Is my PDF file uploaded to a server?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="pdf_converter.faq_a1">No. Every step of the conversion — parsing the PDF, rendering pages, encoding images — happens entirely in your web browser using JavaScript. Your file never leaves your device. This makes our tool safe for confidential documents, contracts, medical records, and any other sensitive material you would not want uploaded to a third-party server.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="pdf_converter.faq_q2">What image formats can I export to?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="pdf_converter.faq_a2">When converting PDF to images, you can choose PNG or JPEG. PNG is lossless and best for documents with text, diagrams, or screenshots where you need crisp edges. JPEG uses lossy compression and produces smaller files, making it ideal for photographs or when file size matters more than pixel-perfect quality. You can also adjust the quality slider to find the right balance between file size and visual fidelity.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="pdf_converter.faq_q3">Is there a file size limit?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="pdf_converter.faq_a3">Because the conversion runs in your browser, the limit depends on your device's available memory rather than a server-imposed cap. Most modern devices can handle PDFs up to 50–100 MB comfortably. Very large PDFs (hundreds of pages or high-resolution scans) may take longer to process. If you encounter slowness, try converting a range of pages instead of the entire document at once.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="pdf_converter.faq_q4">Can I reorder images before creating a PDF?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="pdf_converter.faq_a4">Yes. After uploading multiple images for the image-to-PDF conversion, you can drag and drop thumbnails to rearrange the page order before generating the PDF. This is especially useful when digitizing multi-page scanned documents or combining photos from different sources into a single document in the correct sequence.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="pdf_converter.faq_q5">What is the difference between PNG and JPEG for PDF export?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="pdf_converter.faq_a5">PNG uses lossless compression, meaning every pixel is preserved exactly. This makes it perfect for text-heavy documents, technical diagrams, and screenshots where clarity matters. The tradeoff is larger file sizes. JPEG uses lossy compression — it discards some detail to achieve much smaller files. It works best for photographs and pages with many colors or gradients. For most office documents and presentations, PNG at standard resolution gives the best results. For photo-heavy PDFs or when storage space is a concern, JPEG at 85–90% quality offers an excellent balance.</p>
+            </details>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="pdf_converter.faq_tips_title">Tips for Better PDF Conversion</h3>
+            <div style="line-height: 1.8; color: var(--st-text-secondary);">
+                <p data-i18n="pdf_converter.faq_tips_body">For the sharpest PDF-to-image results, use the highest resolution setting your use case allows — 300 DPI is the standard for print, while 150 DPI is sufficient for screens and presentations. When combining images into a PDF, use consistent image dimensions to produce a uniform document. If your images come from a phone camera, rotating them to the correct orientation before converting saves time. For multi-page documents, consider using PNG format to preserve text sharpness, especially if the PDF will be read on screen rather than printed. Finally, remember that password-protected PDFs cannot be processed without the password — you will need to remove the protection first using the original PDF application.</p>
+            </div>
+        </section>
 
         <div id="snsLinksSection"></div>
 

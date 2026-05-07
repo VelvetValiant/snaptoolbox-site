@@ -441,6 +441,7 @@
             </button>
             <nav class="st-nav">
                 <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../blog/" data-i18n="common.nav_blog">Blog</a>
                 <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
@@ -564,6 +565,54 @@ background-color: hsl(205, 100%, 40%);</div>
                 </div>
             </div>
         </div>
+
+        <!-- FAQ & Explanation Section -->
+        <section class="st-faq-section" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="color_converter.faq_how_title">How to Use the Color Converter</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="color_converter.faq_how_step1"><strong>Step 1:</strong> Use the color picker at the top to select a color visually, or type a known value directly into the HEX, RGB, or HSL input fields. The tool accepts all three formats as starting points.</p>
+                <p data-i18n="color_converter.faq_how_step2"><strong>Step 2:</strong> Watch the large color preview update instantly. This gives you a true-color rendering of exactly what you are working with before committing it to your design.</p>
+                <p data-i18n="color_converter.faq_how_step3"><strong>Step 3:</strong> Click the "Copy" button next to any format — HEX, RGB, or HSL — to copy the value directly to your clipboard. Paste it into your CSS file, design software, or anywhere a color code is needed.</p>
+                <p data-i18n="color_converter.faq_how_step4"><strong>Step 4:</strong> Explore the generated color palettes (complementary, analogous, triadic) at the bottom. Click any swatch to instantly convert that palette color and start building a harmonious color scheme.</p>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="color_converter.faq_what_title">What Is a Color Converter — and Why Does It Matter?</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="color_converter.faq_what_body">A color converter translates a single color between the various numeric formats that different software and workflows expect. The three most common web color formats — HEX, RGB, and HSL — all describe the same color in fundamentally different ways, and different tools speak different "dialects." A design tool like Figma or Adobe XD may give you an RGB value; your CSS framework might expect HEX; your brand style guide might define colors in HSL for easy lightness adjustments. Switching between these manually involves error-prone arithmetic. We built this converter because designers, developers, and content creators should spend their time creating, not doing mental math about color spaces. Every conversion in this tool is computed live, client-side, in your browser — your color data never touches a server.</p>
+            </div>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="color_converter.faq_section_title">Frequently Asked Questions</h3>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="color_converter.faq_q1">What is the difference between HEX, RGB, and HSL?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="color_converter.faq_a1">HEX (hexadecimal) encodes a color as a six-digit base-16 string, such as #FF5733. Each pair of digits represents the Red, Green, and Blue channel on a 0–255 scale written in hex (00–FF). RGB expresses the same three channels as decimal integers: rgb(255, 87, 51). HSL stands for Hue, Saturation, Lightness — it represents color in a way more intuitive to humans. Hue is the color angle (0–360°), Saturation is the intensity (0–100%), and Lightness controls how bright or dark the color is (0% = black, 100% = white, 50% = full color). All three formats are equally valid CSS and represent exactly the same colors; the choice between them is a matter of workflow preference.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="color_converter.faq_q2">When should I use HEX versus RGB versus HSL in CSS?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="color_converter.faq_a2">Use HEX when you have a specific brand color code (most brand guides deliver colors as HEX values) and want the shortest, most familiar syntax. Use RGB when you need to add opacity — the rgba() function takes a fourth alpha parameter, making transparent colors straightforward. Use HSL when you are building a design system where you want to create consistent tonal variations: you can keep the hue and saturation fixed while changing only the lightness to generate hover states, disabled states, or a full color scale. HSL's intuitive structure makes it the best format for programmatic color generation in CSS custom properties and design tokens.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="color_converter.faq_q3">How do I check if my colors meet accessibility standards?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="color_converter.faq_a3">The WCAG 2.1 accessibility guidelines require a minimum contrast ratio of 4.5:1 between text and its background for normal text (AA level), and 3:1 for large text (18pt or 14pt bold). The contrast ratio is calculated from the relative luminance of the two colors — a value derived from their RGB components. As a practical rule, dark text on a light background and light text on a dark background generally provide sufficient contrast. Colors with similar lightness values (two mid-tone colors) tend to fail accessibility checks even if their hues differ dramatically. After converting your color here, you can test the resulting HEX values in a dedicated contrast checker tool to verify WCAG compliance before shipping your design.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="color_converter.faq_q4">What are complementary, analogous, and triadic color schemes?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="color_converter.faq_a4">These are relationships on the color wheel that tend to produce visually pleasing combinations. Complementary colors sit directly opposite each other on the wheel (hues 180° apart) — they create strong contrast and vibrant, high-energy designs. Analogous colors are adjacent on the wheel (roughly 30° apart) — they feel harmonious and are commonly used in nature-inspired or calming designs. Triadic colors are evenly spaced 120° apart around the wheel — they offer variety while maintaining balance, making them popular in bold, playful designs. This converter automatically generates these palettes from any color you pick, letting you instantly explore coordinated color sets for your project.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="color_converter.faq_q5">Are there still "web-safe" colors I should care about?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="color_converter.faq_a5">Web-safe colors were a set of 216 colors that displayed consistently on 8-bit (256-color) monitors in the 1990s. With modern displays capable of rendering millions of colors, this limitation is entirely obsolete — all HEX, RGB, and HSL values render correctly on contemporary screens and browsers. The concept you should focus on today is not web-safe colors but rather color consistency across devices. Different screens (particularly OLED versus LCD, or a wide-gamut P3 display versus an sRGB display) can render the same HEX value with noticeably different perceived brightness and saturation. Designing in sRGB and testing on multiple physical devices remains the most reliable approach for color consistency in web work.</p>
+            </details>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="color_converter.faq_tips_title">Best Practices for Working with Color in Web Design</h3>
+            <div style="line-height: 1.8; color: var(--st-text-secondary);">
+                <p data-i18n="color_converter.faq_tips_body">Define your brand palette as CSS custom properties (variables) at the start of your project. Store each color once and reference it everywhere — changing a brand color then becomes a single-line edit. Use HSL-based variables so you can derive lighter and darker shades programmatically without maintaining a manual list of every tint. Always test your final color choices in both light mode and dark mode if your design supports theming. Leverage the analogous palette generated by this tool to create subtle background tints that complement your primary color without competing with content. Finally, run your text-and-background color pairs through a WCAG contrast checker to ensure all users — including those with color vision deficiency — can read your content comfortably.</p>
+            </div>
+        </section>
 
         <div id="snsLinksSection"></div>
 

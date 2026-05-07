@@ -488,6 +488,7 @@
       </button>
       <nav class="st-nav">
         <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+        <a href="../blog/" data-i18n="common.nav_blog">Blog</a>
         <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
         <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
       </nav>
@@ -618,6 +619,54 @@
         <p data-i18n-html="json_formatter.faq_a3"><strong>Format</strong> adds indentation and line breaks for readability. <strong>Minify</strong> removes all extra whitespace to create the smallest file size.</p>
       </details>
     </div>
+
+    <!-- FAQ & Explanation Section -->
+    <section class="st-faq-section" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="json_formatter.faq_how_title">How to Use the JSON Formatter</h2>
+        <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+            <p data-i18n="json_formatter.faq_how_step1"><strong>Step 1:</strong> Paste your raw JSON text into the input panel on the left. You can also click "Sample" to load a built-in example if you want to explore the tool before using your own data.</p>
+            <p data-i18n="json_formatter.faq_how_step2"><strong>Step 2:</strong> Click "Format" to pretty-print your JSON with proper indentation and line breaks, making it easy to read and debug. Choose between 2-space, 4-space, or tab indentation in the controls panel.</p>
+            <p data-i18n="json_formatter.faq_how_step3"><strong>Step 3:</strong> Use "Validate" to instantly check whether your JSON is syntactically correct. If there is an error, the tool highlights the problem and reports the line number so you can fix it quickly.</p>
+            <p data-i18n="json_formatter.faq_how_step4"><strong>Step 4:</strong> Click "Minify" when you need the smallest possible JSON payload — all whitespace is stripped out. This is ideal for production API responses or configuration files where every byte matters. Click "Copy Output" to grab the result.</p>
+        </div>
+
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="json_formatter.faq_what_title">What Is JSON — and Why Does Formatting Matter?</h2>
+        <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+            <p data-i18n="json_formatter.faq_what_body">JSON (JavaScript Object Notation) is the most widely used data-interchange format on the modern web. Originally derived from JavaScript object literal syntax, JSON is now language-independent and supported natively or through libraries in virtually every programming language — Python, Java, Go, Ruby, PHP, Swift, and hundreds more. An API response, a configuration file, a database export, a web storage entry: the chance that data you work with daily is encoded as JSON is extremely high. Despite its simplicity, raw JSON from APIs or log files often arrives as a single long line with no whitespace — unreadable at a glance. Formatting (also called "pretty-printing") adds indentation that reveals the hierarchical structure of the data, turning an opaque string into a clearly navigable tree. We designed this formatter to work entirely in the browser because JSON data frequently contains sensitive information — API keys, personal records, internal configuration — that should never leave your device.</p>
+        </div>
+
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="json_formatter.faq_section_title">Frequently Asked Questions</h3>
+
+        <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+            <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="json_formatter.faq_q4">What are the most common JSON errors and how do I fix them?</summary>
+            <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="json_formatter.faq_a4">The most frequent JSON syntax errors are: (1) Trailing commas — JSON does not allow a comma after the last item in an array or object, unlike JavaScript. (2) Single-quoted strings — JSON requires double quotes for all strings; single quotes cause a parse error. (3) Unquoted keys — every object key must be a double-quoted string; bare identifiers like {name: "Alice"} are invalid JSON. (4) Comments — JSON has no comment syntax; lines starting with // or /* */ blocks will break parsing. (5) Undefined or NaN values — JSON only supports null, not JavaScript's undefined, Infinity, or NaN. The validator in this tool catches all of these and points you to the exact line, so you can fix problems without manually scanning large blobs of text.</p>
+        </details>
+
+        <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+            <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="json_formatter.faq_q5">What is the difference between JSON and XML?</summary>
+            <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="json_formatter.faq_a5">JSON and XML are both text-based formats for representing structured data, but they differ significantly in syntax, verbosity, and ecosystem. JSON uses key-value pairs and arrays enclosed in curly braces and square brackets, making it very compact. XML uses opening and closing tags (like HTML) and tends to be considerably more verbose for the same data. JSON maps naturally to the data structures of modern programming languages (objects, arrays, strings, numbers, booleans, null). XML supports attributes, namespaces, and mixed content (text interspersed with tags), making it more expressive for document-oriented data like RSS feeds or SOAP web services. For most modern REST APIs and configuration files, JSON has become the default choice due to its smaller payload size and ease of parsing in JavaScript environments. XML remains prevalent in enterprise systems, document formats (like Office Open XML), and legacy integrations.</p>
+        </details>
+
+        <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+            <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="json_formatter.faq_q6">When should I pretty-print JSON versus minify it?</summary>
+            <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="json_formatter.faq_a6">Pretty-print (format) your JSON when you are reading, debugging, writing documentation, or storing configuration files that humans will edit. The added whitespace makes structure immediately obvious and reduces the chance of making edits in the wrong place. Minify your JSON when it will be transmitted over a network — for example, as an API response body or embedded in a web page as inline data. Removing whitespace shrinks the payload size, which directly reduces transfer time and bandwidth costs. A 10 KB formatted JSON might minify to 6 KB, a 40% reduction that adds up significantly at scale. Modern HTTP servers often apply gzip or Brotli compression on top of minification, which reduces the payload further. Use formatted JSON in source code repositories (so version diffs remain readable) and minified JSON in production build artifacts and API responses.</p>
+        </details>
+
+        <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+            <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="json_formatter.faq_q7">Can JSON represent all types of data?</summary>
+            <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="json_formatter.faq_a7">JSON supports six data types: strings (UTF-8 text in double quotes), numbers (integers and floating-point, no distinction), booleans (true or false), null, objects (unordered key-value maps), and arrays (ordered lists). Notably absent are: dates (typically serialized as ISO 8601 strings like "2024-01-15T10:30:00Z"), binary data (commonly encoded as Base64 strings), and undefined. For most application data these limitations are easy to work around with conventions. If you need to represent binary files, rich types, or schemas with strong typing, consider formats like MessagePack, CBOR, or Protocol Buffers — but for human-readable configuration and API data, JSON's simplicity is a deliberate design strength.</p>
+        </details>
+
+        <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+            <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="json_formatter.faq_q8">Is my JSON data secure when I use this tool?</summary>
+            <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="json_formatter.faq_a8">Yes. This formatter runs entirely in your browser using JavaScript. Your JSON is never transmitted to any server, never logged, and never stored beyond the current browser session. When you close or refresh the page, the data is gone. This is especially important for JSON that contains API keys, authentication tokens, personal information, or proprietary business data — all categories of data that you should never paste into a tool that uploads content to a remote server. You can verify this by opening your browser's Network tab in Developer Tools while using the formatter; you will see zero network requests related to your data.</p>
+        </details>
+
+        <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="json_formatter.faq_tips_title">Tips for Working with JSON Efficiently</h3>
+        <div style="line-height: 1.8; color: var(--st-text-secondary);">
+            <p data-i18n="json_formatter.faq_tips_body">Always validate JSON immediately after receiving it from an external source — an upstream service might return malformed JSON during an error state, and catching this early saves debugging time. When writing JSON configuration files by hand, use a code editor with JSON language support so you get inline error indicators as you type. Prefer 2-space indentation for JSON stored in version-controlled repositories; it keeps line lengths shorter and makes pull request diffs easier to review. Use the object depth metric shown by this tool as a complexity signal: deeply nested JSON (beyond 5–6 levels) often indicates a data model that would benefit from restructuring. When debugging API integrations, paste the raw response body here first to verify it is valid JSON before attempting to parse it in your code — this immediately rules out encoding or content-type issues as the source of a bug.</p>
+        </div>
+    </section>
 
     <div id="snsLinksSection"></div>
 

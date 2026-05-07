@@ -254,6 +254,7 @@
             </button>
             <nav class="st-nav">
                 <a href="#tools" data-i18n="common.nav_tools">Tools</a>
+                <a href="../blog/" data-i18n="common.nav_blog">Blog</a>
                 <a href="https://buymeacoffee.com/haniwa" target="_blank" rel="noopener noreferrer" class="st-nav-coffee" data-i18n="index.support_btn">☕ Buy me a coffee</a>
                 <button class="st-lang-btn" onclick="I18N.toggleLang()" data-i18n="common.lang_toggle">日本語</button>
             </nav>
@@ -348,6 +349,54 @@
                 <button class="st-btn st-btn-danger" onclick="clearText()" data-i18n="character_counter.clear_btn">🗑️ Clear All</button>
             </div>
         </div>
+
+        <!-- FAQ & Explanation Section -->
+        <section class="st-faq-section" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="character_counter.faq_how_title">How to Use the Character Counter</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="character_counter.faq_how_step1"><strong>Step 1:</strong> Type or paste your text into the input area at the top of the page. The counter updates in real time as you type — no button clicks needed.</p>
+                <p data-i18n="character_counter.faq_how_step2"><strong>Step 2:</strong> Review the statistics panel. You can see character count (with and without spaces), word count, sentence count, paragraph count, and estimated reading time all at once.</p>
+                <p data-i18n="character_counter.faq_how_step3"><strong>Step 3:</strong> Use the find-and-replace feature to locate specific words or phrases and swap them out without leaving the page. This saves time when editing drafts.</p>
+                <p data-i18n="character_counter.faq_how_step4"><strong>Step 4:</strong> Click "Copy Text" to copy your finished text to the clipboard, or "Clear All" to start fresh. All your text stays in your browser — nothing is ever sent to a server.</p>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; color: var(--st-text);" data-i18n="character_counter.faq_what_title">What Is a Character Counter?</h2>
+            <div style="line-height: 1.8; color: var(--st-text-secondary); margin-bottom: 1.5rem;">
+                <p data-i18n="character_counter.faq_what_body">A character counter is a writing utility that measures the length of a piece of text across multiple dimensions: the total number of characters (including spaces and punctuation), characters without spaces, words, sentences, and paragraphs. We designed this tool because character limits appear everywhere in modern writing — social media posts, SEO meta descriptions, academic submissions, and job applications all impose strict character or word limits. Knowing exactly how long your text is removes the guesswork and prevents frustrating truncation. Unlike a simple character count from a word processor, this tool provides instant, multi-metric feedback that covers every scenario — from a 140-character tweet to a 5,000-word essay. It also handles CJK (Chinese, Japanese, Korean) text correctly, counting each ideograph as one character rather than splitting it into bytes the way some tools incorrectly do.</p>
+            </div>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="character_counter.faq_section_title">Frequently Asked Questions</h3>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="character_counter.faq_q1">What is the difference between characters and bytes?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="character_counter.faq_a1">A character is a single unit of text as a human perceives it — one letter, digit, space, or emoji. A byte is a unit of computer storage. For ASCII text (English letters and common symbols), one character equals one byte. However, most Unicode characters — including accented letters, CJK ideographs, and emoji — require two, three, or even four bytes when encoded in UTF-8. This tool counts characters in the human-readable sense: one kanji or one emoji counts as one character, regardless of how many bytes it occupies on disk or in a database field.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="character_counter.faq_q2">Why do character limits matter for social media?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="character_counter.faq_a2">Every major social platform enforces character limits: X (Twitter) allows 280 characters per post, Instagram captions cut off at 2,200 characters (with preview truncating at around 125), LinkedIn posts support up to 3,000 characters, and YouTube descriptions allow 5,000 characters. Exceeding these limits means your content is truncated or rejected outright. Writing within the limit — especially the "above the fold" portion that appears before a "more" button — directly influences engagement, click-through rates, and how the platform's algorithm weights your content. Using a character counter before you publish ensures your carefully written copy appears exactly as intended.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="character_counter.faq_q3">How does this tool count CJK (Chinese, Japanese, Korean) characters?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="character_counter.faq_a3">This tool uses JavaScript's built-in string length, which counts Unicode code points the way humans read them. Each Chinese character (漢字), each hiragana/katakana mora, and each Korean syllable block (한글) counts as one character. Surrogate pairs (such as rare Unicode characters outside the Basic Multilingual Plane) are counted correctly because modern JavaScript handles Unicode strings natively. Note that some platforms — particularly SMS gateways and older database columns — may measure text in bytes rather than characters, so a 10-character Japanese message might consume 30 bytes in UTF-8. Always check the platform's specific character-counting rules when space is critical.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="character_counter.faq_q4">What character limits should I follow for SEO?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="character_counter.faq_a4">For on-page SEO, Google typically displays the first 50–60 characters of a title tag before truncating it in search results. Meta descriptions are shown up to approximately 155–160 characters; writing a compelling call-to-action within this limit improves your click-through rate from search results pages. For body content, there is no strict character minimum for SEO, but comprehensive articles that thoroughly answer a query tend to rank better. Alt text for images should describe the image concisely, ideally within 125 characters. URL slugs perform best when kept under 75 characters and free of stop words.</p>
+            </details>
+
+            <details style="margin-bottom: 1rem; border: 1px solid var(--st-outline-variant); border-radius: 8px; padding: 1rem;">
+                <summary style="font-weight: 600; cursor: pointer; color: var(--st-text);" data-i18n="character_counter.faq_q5">Can I use this tool for academic writing and word-count requirements?</summary>
+                <p style="margin-top: 0.75rem; line-height: 1.8; color: var(--st-text-secondary);" data-i18n="character_counter.faq_a5">Yes. Academic papers, college essays, grant applications, and journalism assignments typically specify word limits rather than character limits. This tool counts words by splitting the text on whitespace and filtering empty tokens, which closely matches how most academic word processors count. For best accuracy with academic submissions, paste your draft text here and compare the word count with your word processor before submitting. Minor differences (one or two words) can occur due to how hyphenated compounds or contractions are tokenized, but the counts should be very close for practical purposes.</p>
+            </details>
+
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1rem; color: var(--st-text);" data-i18n="character_counter.faq_tips_title">Tips for Working with Character Limits</h3>
+            <div style="line-height: 1.8; color: var(--st-text-secondary);">
+                <p data-i18n="character_counter.faq_tips_body">Write your full thought first, then trim. It is easier to shorten text than to expand it while preserving meaning. When cutting for social media, prioritize the core message in the first sentence — many readers stop at the preview. For meta descriptions, include your primary keyword naturally within the first 120 characters so it appears in truncated displays. When writing in Japanese or Chinese, remember that each character carries more meaning than a single English letter, so shorter texts can convey equally rich content. Use the reading-time estimate to calibrate content length for your audience: blog posts read in under 3 minutes tend to have higher completion rates, while in-depth guides can justify 8–12 minutes of reading time if the topic demands it.</p>
+            </div>
+        </section>
 
         <div id="snsLinksSection"></div>
 
